@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Functions · How to Prove It Speedrun</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="One input, one output">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page ch-functions">
+<nav class="gnav" aria-label="Chapters"><ul><li><a class="brand" href="index.html" aria-label="Home">&#8718;</a></li><li><a href="intro.html">Intro</a></li><li><a href="logic.html">Logic</a></li><li><a href="quantifiers.html">Quantifiers</a></li><li><a href="proofs.html">Proofs</a></li><li><a href="relations.html">Relations</a></li><li><a href="functions.html" aria-current="page">Functions</a></li><li><a href="induction.html">Induction</a></li><li><a href="infinity.html">Infinity</a></li><li><a href="toolkit.html">Toolkit</a></li></ul></nav>
+<div class="lnav"><div class="wrap"><a class="title" href="functions.html">Functions</a><nav aria-label="On this page"><a class="sec" href="#highlights">Key ideas</a><a class="sec" href="#labs">Try it</a><a class="sec" href="#book">In the book</a><a class="btn sm" href="induction.html">Next: Induction</a></nav></div></div>
+<main>
+<section class="hero wrap">
+  <p class="eyebrow">Chapter 5 · pp. 226–259</p>
+  <h1>Functions</h1>
+  <p class="tag grad">One input. Exactly one output.</p>
+  <p class="lede">In this book a function is a relation with one extra requirement: every input gets exactly one output. Make that precise and one-to-one, onto and inverses follow from it.</p>
+  <div class="cta-row"><a class="btn" href="#labs">Draw a function</a><a class="more" href="#images">Try the research project</a></div>
+  <div class="hero-art">
+    <div class="mb grad" style="font-size:clamp(34px,6.4vw,72px);line-height:1.15">∀<i>a</i> ∈ <i>A</i> ∃!<i>b</i> ∈ <i>B</i> ((<i>a</i>, <i>b</i>) ∈ <i>f</i>)</div>
+  </div>
+</section>
+
+<section class="hl" id="highlights" data-carousel>
+  <div class="wrap"><div class="head"><h2>Key ideas</h2></div></div>
+  <div class="hl-track">
+    <article class="hl-card"><span class="k">Definition</span><h3>A function from <i>A</i> to <i>B</i> is a relation with exactly one output per input.</h3><p>We write <span class="m"><i>f</i>(<i>a</i>)</span> for the unique <i>b</i> with <span class="m">(<i>a</i>, <i>b</i>) ∈ <i>f</i></span>.</p><div class="big"><i>f</i> : <i>A</i> → <i>B</i></div></article>
+    <article class="hl-card"><span class="k">Equality</span><h3>Same outputs everywhere means the same function.</h3><p>Theorem 5.1.4: if f(a) = g(a) for every a ∈ A, then f = g. How the rule is written doesn't matter.</p><div class="big"><i>f</i> = <i>g</i></div></article>
+    <article class="hl-card"><span class="k">One-to-one</span><h3>Different inputs give different outputs.</h3><p>Formally, f(a₁) = f(a₂) implies a₁ = a₂. Nothing in B gets hit twice.</p><div class="big">1–1</div></article>
+    <article class="hl-card"><span class="k">Onto</span><h3>Every element of <i>B</i> gets hit.</h3><p>For every b ∈ B there is some a ∈ A with f(a) = b. The range is all of B.</p><div class="big">↠</div></article>
+    <article class="hl-card"><span class="k">Inverses</span><h3>One-to-one and onto ⇔ an inverse exists.</h3><p>Flipping the pairs of f gives a function exactly when f is a bijection.</p><div class="big"><i>f</i> ⁻¹</div></article>
+    <article class="hl-card"><span class="k">Composition</span><h3><i>g</i> ∘ <i>f</i>: do <i>f</i>, then <i>g</i>.</h3><p>It's relation composition from Chapter 4, and it keeps one-to-one and onto.</p><div class="big"><i>g</i> ∘ <i>f</i></div></article>
+  </div>
+  <div class="wrap"><div class="paddles"><button class="paddle prev" aria-label="Previous">‹</button><button class="paddle next" aria-label="Next">›</button></div></div>
+</section>
+
+<section class="band" id="labs">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker grad">Try it · §5.1–5.3</span>
+      <h2>Draw a function</h2>
+      <p>Click an element of <i>A</i>, then an element of <i>B</i>, to send it there. Clicking the same target again removes the arrow. The lab checks whether what you've drawn is a function and, if so, whether it's one-to-one and onto. Make a bijection and you can flip it.</p>
+    </div>
+    <div class="lab">
+      <div class="lab-top">
+        <div class="row"><label class="ctl">|A|<span class="seg" id="fn-a"></span></label><label class="ctl">|B|<span class="seg" id="fn-b"></span></label></div>
+        <div class="row" id="fn-pre"></div>
+      </div>
+      <div class="split" style="align-items:center">
+        <div>
+          <svg id="fn-svg" viewBox="0 0 360 280" style="width:100%;max-width:420px;display:block;margin:auto;touch-action:manipulation" role="img" aria-label="Arrow diagram of f from A to B"></svg>
+          <p class="note center" id="fn-hint"></p>
+        </div>
+        <div>
+          <div id="fn-props" style="display:grid;gap:10px"></div>
+          <div class="row mt-m"><button class="tbtn primary" id="fn-inv">Show f⁻¹</button><span class="small muted" id="fn-invnote"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="head center"><h2>The theorems that hold it together</h2><p>Short statements whose proofs are good practice with Chapter 3's strategies. Try each one before you read the book's version.</p></div>
+    <div class="bento">
+      <div class="tile w3"><span class="k">Theorem 5.1.5</span><h3>Composition gives a function.</h3><p>If <span class="m"><i>f</i> : <i>A</i> → <i>B</i></span> and <span class="m"><i>g</i> : <i>B</i> → <i>C</i></span>, then <span class="m"><i>g</i> ∘ <i>f</i> : <i>A</i> → <i>C</i></span> and <span class="m">(<i>g</i> ∘ <i>f</i>)(<i>a</i>) = <i>g</i>(<i>f</i>(<i>a</i>))</span>.</p></div>
+      <div class="tile w3"><span class="k">Theorem 5.2.5</span><h3>Composition keeps both properties.</h3><p>If f and g are both one-to-one, so is g ∘ f. If both are onto, so is g ∘ f.</p></div>
+      <div class="tile"><span class="k">Theorems 5.3.1 &amp; 5.3.4</span><h3>A bijection's inverse is a bijection.</h3><p>If f is one-to-one and onto, then <span class="m"><i>f</i>⁻¹ : <i>B</i> → <i>A</i></span> is a function (5.3.1). It is also one-to-one and onto (5.3.4).</p></div>
+      <div class="tile"><span class="k">Theorem 5.3.2</span><h3>Undo, then redo.</h3><p>If <i>f</i>⁻¹ is a function, then <span class="m"><i>f</i>⁻¹ ∘ <i>f</i> = <i>i<sub>A</sub></i></span> and <span class="m"><i>f</i> ∘ <i>f</i>⁻¹ = <i>i<sub>B</sub></i></span>.</p></div>
+      <div class="tile"><span class="k">Theorem 5.3.5</span><h3>Inverses are unique.</h3><p>If <span class="m"><i>g</i> ∘ <i>f</i> = <i>i<sub>A</sub></i></span> and <span class="m"><i>f</i> ∘ <i>g</i> = <i>i<sub>B</sub></i></span>, then <span class="m"><i>g</i> = <i>f</i>⁻¹</span>. This gives a practical way to show f is a bijection: find a g that undoes it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="images">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy">
+        <span class="kicker grad">§5.4 · A research project</span>
+        <h2>Now you make the conjectures</h2>
+        <p>The chapter ends unusually. Instead of stating theorems, it defines two new operations and asks you to find out which identities hold. This is what mathematical research is like.</p>
+        <p>The <b>image</b> <span class="m"><i>f</i>(<i>X</i>)</span> is the set of outputs of the elements of X. The <b>inverse image</b> <span class="m"><i>f</i>⁻¹(<i>Y</i>)</span> is the set of inputs whose output lands in Y. The inverse image makes sense even when f has no inverse.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:14px">Starter questions</div>
+        <div style="display:grid;gap:14px">
+          <div><div class="out">f(W ∩ X) ⊆ f(W) ∩ f(X) ?</div><p class="small muted">This is the book's worked example, Theorem 5.4.2. It always holds, and it becomes an equality when f is one-to-one. To see equality fail, try f(x) = x² with W = {−1}, X = {1}.</p></div>
+          <div><div class="out">f(W ∪ X) = f(W) ∪ f(X) ?</div><p class="small muted">The first question the book asks you. Decide whether it always holds, then prove it or find a counterexample.</p></div>
+          <div><div class="out">f⁻¹(Y ∩ Z) = f⁻¹(Y) ∩ f⁻¹(Z) ?</div><p class="small muted">Hint: inverse images behave better than images. Try a few small examples first.</p></div>
+        </div>
+        <p class="note">For each identity that fails in general, look for an extra condition, like one-to-one or onto, that makes it hold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="book">
+  <div class="wrap">
+    <div class="head"><span class="kicker grad">In the book</span><h2>Where to go deeper</h2><p>The shortest chapter, and the one Chapter 7 depends on most. Make sure one-to-one and onto proofs feel routine before you move on.</p></div>
+    <div class="map">
+      <div class="map-row"><span class="no grad">5.1</span><div><h3>Functions</h3><p>Functions as relations, function notation, equality of functions, composition (Theorems 5.1.4–5.1.5).</p></div><span class="pg"><b>p. 226</b></span></div>
+      <div class="map-row"><span class="no grad">5.2</span><div><h3>One-to-one and Onto</h3><p>The definitions and how to prove each one (Theorem 5.2.3), and how both survive composition (Theorem 5.2.5).</p></div><span class="pg"><b>p. 236</b></span></div>
+      <div class="map-row"><span class="no grad">5.3</span><div><h3>Inverses of Functions</h3><p>When f⁻¹ is a function, the identity function, and the equivalent conditions in Theorem 5.3.4.</p></div><span class="pg"><b>p. 245</b></span></div>
+      <div class="map-row"><span class="no grad">5.4</span><div><h3>Images and Inverse Images: A Research Project</h3><p>Define f(X) and f⁻¹(Y), then conjecture and prove your own theorems.</p></div><span class="pg"><b>p. 255</b></span></div>
+    </div>
+    <div class="map-foot">
+      <div><h4>Exercises</h4><p>Starred exercises have solutions in Appendix 1, p. 329. In §5.4, the exercises are the main content.</p></div>
+      <div><h4>Look for</h4><p>Restrictions of functions, and the exercises in §5.3 where g ∘ f = i<sub>A</sub> holds but f ∘ g = i<sub>B</sub> doesn't.</p></div>
+      <div><h4>Read next</h4><p>How to prove infinitely many statements at once. <a href="induction.html">Mathematical Induction ›</a></p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var nA = 3, nB = 3, f = {}, sel = null, inv = false;
+  var AN = ["1", "2", "3", "4"], BN = ["p", "q", "r", "s"];
+  function seg(id, get, set) {
+    [2, 3, 4].forEach(function (n) { var b = document.createElement("button"); b.type = "button"; b.textContent = n; b.addEventListener("click", function () { set(n); }); $(id).appendChild(b); });
+  }
+  seg("fn-a", function () { return nA; }, function (n) { nA = n; clean(); draw(); });
+  seg("fn-b", function () { return nB; }, function (n) { nB = n; clean(); draw(); });
+  function clean() { Object.keys(f).forEach(function (a) { if (+a >= nA || f[a] >= nB) delete f[a]; }); sel = null; inv = false; }
+  var pre = {
+    "Bijection": function () { nA = 3; nB = 3; f = { 0: 1, 1: 2, 2: 0 }; },
+    "Not onto": function () { nA = 3; nB = 4; f = { 0: 0, 1: 1, 2: 3 }; },
+    "Not one-to-one": function () { nA = 4; nB = 3; f = { 0: 0, 1: 1, 2: 2, 3: 1 }; },
+    "Not a function": function () { nA = 3; nB = 3; f = { 0: 0, 2: 2 }; }
+  };
+  Object.keys(pre).forEach(function (k) { var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.style.fontSize = "13px"; b.textContent = k; b.addEventListener("click", function () { pre[k](); sel = null; inv = false; draw(); }); $("fn-pre").appendChild(b); });
+  function ys(n) { var out = []; for (var i = 0; i < n; i++) out.push(140 + (i - (n - 1) / 2) * 56); return out; }
+  function analyse() {
+    var missing = [], hit = {}, dup = null, unhit = [];
+    for (var a = 0; a < nA; a++) { if (f[a] === undefined) missing.push(AN[a]); else { if (hit[f[a]] !== undefined && !dup) dup = [hit[f[a]], a, f[a]]; hit[f[a]] = a; } }
+    for (var b = 0; b < nB; b++) if (hit[b] === undefined) unhit.push(BN[b]);
+    return { fn: !missing.length, missing: missing, oneone: !dup, dup: dup, onto: !unhit.length, unhit: unhit };
+  }
+  function draw() {
+    Array.prototype.forEach.call($("fn-a").children, function (b) { b.setAttribute("aria-pressed", +b.textContent === nA ? "true" : "false"); });
+    Array.prototype.forEach.call($("fn-b").children, function (b) { b.setAttribute("aria-pressed", +b.textContent === nB ? "true" : "false"); });
+    var ya = ys(nA), yb = ys(nB), xa = 80, xb = 280, s = '';
+    s += '<defs><marker id="fnh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--g1)"/></marker></defs>';
+    s += '<rect x="40" y="20" width="80" height="240" rx="40" fill="var(--tile)" stroke="var(--line)"/><rect x="240" y="20" width="80" height="240" rx="40" fill="var(--tile)" stroke="var(--line)"/>';
+    s += '<text x="80" y="14" text-anchor="middle" font-size="15" fill="var(--fg2)" font-style="italic" style="font-family:var(--math)">A</text><text x="280" y="14" text-anchor="middle" font-size="15" fill="var(--fg2)" font-style="italic" style="font-family:var(--math)">B</text>';
+    s += '<text x="180" y="22" text-anchor="middle" font-size="15" fill="var(--fg2)" font-style="italic" style="font-family:var(--math)">' + (inv ? 'f ⁻¹' : 'f') + '</text>';
+    Object.keys(f).forEach(function (a) {
+      var y1 = ya[a], y2 = yb[f[a]];
+      if (inv) s += '<line x1="' + (xb - 18) + '" y1="' + y2 + '" x2="' + (xa + 20) + '" y2="' + y1 + '" stroke="var(--g1)" stroke-width="2.2" marker-end="url(#fnh)"/>';
+      else s += '<line x1="' + (xa + 18) + '" y1="' + y1 + '" x2="' + (xb - 20) + '" y2="' + y2 + '" stroke="var(--g1)" stroke-width="2.2" marker-end="url(#fnh)"/>';
+    });
+    ya.forEach(function (y, i) { var on = sel === i; s += '<g data-a="' + i + '" style="cursor:pointer"><circle cx="' + xa + '" cy="' + y + '" r="17" fill="' + (on ? 'var(--link)' : 'var(--card)') + '" stroke="' + (on ? 'var(--link)' : 'var(--fg)') + '" stroke-width="1.5"/><text x="' + xa + '" y="' + (y + 5) + '" text-anchor="middle" font-size="15" font-weight="600" fill="' + (on ? '#fff' : 'var(--fg)') + '" style="pointer-events:none">' + AN[i] + '</text></g>'; });
+    yb.forEach(function (y, i) { s += '<g data-b="' + i + '" style="cursor:pointer"><circle cx="' + xb + '" cy="' + y + '" r="17" fill="var(--card)" stroke="var(--fg)" stroke-width="1.5"/><text x="' + xb + '" y="' + (y + 5) + '" text-anchor="middle" font-size="15" font-style="italic" fill="var(--fg)" style="pointer-events:none;font-family:var(--math)">' + BN[i] + '</text></g>'; });
+    $("fn-svg").innerHTML = s;
+    $("fn-hint").textContent = inv ? "Showing f⁻¹: every arrow reversed. Edit an arrow to go back to f." : (sel === null ? "Click an element of A to choose it." : "Now click where " + AN[sel] + " should go in B.");
+    var r = analyse();
+    function row(name, ok, why) { return '<div class="row" style="justify-content:space-between;flex-wrap:nowrap;gap:12px"><div style="min-width:0"><b>' + name + '</b><div class="small muted">' + why + '</div></div><span class="chip ' + (ok ? 'yes">yes' : 'no">no') + '</span></div>'; }
+    var h = row("A function", r.fn, r.fn ? "every element of A has exactly one output" : r.missing.join(", ") + " has no output yet");
+    if (r.fn) {
+      h += row("One-to-one", r.oneone, r.oneone ? "no element of B is hit twice" : AN[r.dup[0]] + " and " + AN[r.dup[1]] + " both go to " + BN[r.dup[2]]);
+      h += row("Onto", r.onto, r.onto ? "every element of B is hit" : r.unhit.join(", ") + " is never hit");
+    }
+    var bij = r.fn && r.oneone && r.onto;
+    h += '<div style="padding:14px 16px;border-radius:14px;background:var(--tile);font-weight:600">' + (bij ? "A bijection, so f⁻¹ : B → A is a function." : r.fn ? "A function, but not a bijection, so it has no inverse function." : "Not yet a function.") + '</div>';
+    $("fn-props").innerHTML = h;
+    $("fn-inv").disabled = !bij;
+    $("fn-inv").textContent = inv ? "Show f" : "Show f⁻¹";
+    $("fn-invnote").textContent = bij ? "" : "Needs a bijection. With |A| ≠ |B| that's impossible.";
+  }
+  $("fn-svg").addEventListener("click", function (e) {
+    var g = e.target.closest("g"); if (!g) return;
+    if (g.dataset.a !== undefined) { sel = +g.dataset.a; inv = false; }
+    else if (g.dataset.b !== undefined && sel !== null) { var b = +g.dataset.b; if (f[sel] === b) delete f[sel]; else f[sel] = b; inv = false; sel = sel + 1 < nA ? sel + 1 : null; }
+    draw();
+  });
+  $("fn-inv").addEventListener("click", function () { inv = !inv; sel = null; draw(); });
+  pre["Not onto"](); draw();
+})();
+</script>
+
+<section class="band tight" aria-label="Keep going"><div class="wrap"><div class="pn"><a class="prev" href="relations.html"><span class="dir">Previous</span><span class="nm">Relations</span><span class="tg">&#8249; Connected, precisely</span></a><a class="next" href="induction.html"><span class="dir">Next</span><span class="nm">Mathematical Induction</span><span class="tg">Infinitely many cases, two steps &#8250;</span></a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><ol>
+<li>The book writes the identity function on A as i<sub>A</sub> and defines a function as a set of ordered pairs (§5.1), which is why Chapter 4 comes first.</li>
+</ol><p class="rule credit">An unofficial study companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page numbers (p.) are the printed page numbers of that edition. Statements are quoted or paraphrased for study; the book has the complete proofs, the scratch work behind them, and the exercises.</p><nav class="dir" aria-label="All pages"><a href="index.html">Home</a><a href="intro.html">Introduction</a><a href="logic.html">Sentential Logic</a><a href="quantifiers.html">Quantificational Logic</a><a href="proofs.html">Proofs</a><a href="relations.html">Relations</a><a href="functions.html">Functions</a><a href="induction.html">Mathematical Induction</a><a href="infinity.html">Infinite Sets</a><a href="toolkit.html">Proof Toolkit</a></nav></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

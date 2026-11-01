@@ -1,0 +1,235 @@
+<section class="hero wrap">
+  <p class="eyebrow">Chapter 6 · pp. 260–305</p>
+  <h1>Mathematical Induction</h1>
+  <p class="tag grad">Infinitely many cases. Two steps.</p>
+  <p class="lede">Prove it for 0. Prove that each case passes to the next. Then every natural number falls, like a row of dominoes.</p>
+  <div class="cta-row"><a class="btn" href="#labs">Knock them over</a><a class="more" href="#strong">Meet strong induction</a></div>
+  <div class="hero-art">
+    <div class="pair" style="max-width:760px">
+      <div class="tile" style="text-align:left"><span class="k">Base case</span><div class="sym grad"><i>P</i>(0)</div></div>
+      <div class="tile" style="text-align:left"><span class="k">Induction step</span><div class="sym grad">∀<i>n</i> ∈ ℕ (<i>P</i>(<i>n</i>) → <i>P</i>(<i>n</i>+1))</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="hl" id="highlights" data-carousel>
+  <div class="wrap"><div class="head"><h2>Key ideas</h2></div></div>
+  <div class="hl-track">
+    <article class="hl-card"><span class="k">The principle</span><h3>Base case plus induction step proves ∀<i>n</i> ∈ ℕ <i>P</i>(<i>n</i>).</h3><p>In this book ℕ starts at 0. The step is a proof of an if–then statement, so Chapter 3's strategies apply: let n be arbitrary and assume P(n).</p><div class="big">0 → 1 → 2 → ⋯</div></article>
+    <article class="hl-card"><span class="k">First example</span><h3>2⁰ + 2¹ + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1.</h3><p>Adding 2ⁿ⁺¹ to both sides of the formula for n gives the formula for n + 1.</p><div class="big sm">1+2+4+8 = 15</div></article>
+    <article class="hl-card"><span class="k">Flexible start</span><h3>The base case doesn't have to be 0.</h3><p>2ⁿ &gt; n² is false for n = 2, 3 and 4. Starting at n = 5 proves it for every n ≥ 5.</p><div class="big sm">2<sup style="font-size:.5em">n</sup> &gt; <i>n</i>²</div></article>
+    <article class="hl-card"><span class="k">Recursion</span><h3>Recursion defines. Induction proves.</h3><p>0! = 1 and (n+1)! = (n+1)·n! defines n! for every n. Proofs about n! follow the same pattern.</p><div class="big"><i>n</i>!</div></article>
+    <article class="hl-card"><span class="k">Strong induction</span><h3>Assume <b>every</b> smaller case, not just the previous one.</h3><p>That's what you need when n splits into pieces much smaller than n − 1, such as its factors.</p><div class="big sm">∀<i>k</i> &lt; <i>n</i> <i>P</i>(<i>k</i>)</div></article>
+    <article class="hl-card"><span class="k">Well-ordering</span><h3>Every nonempty set of naturals has a smallest element.</h3><p>It's equivalent to induction, and it gives a short proof that √2 is irrational.</p><div class="big">√2 ∉ ℚ</div></article>
+  </div>
+  <div class="wrap"><div class="paddles"><button class="paddle prev" aria-label="Previous">‹</button><button class="paddle next" aria-label="Next">›</button></div></div>
+</section>
+
+<section class="band ink" id="labs">
+  <div class="wrap">
+    <div class="head center">
+      <span class="kicker grad">Try it · §6.1</span>
+      <h2>Why you need both steps</h2>
+      <p>Domino <i>n</i> falling means <span class="m"><i>P</i>(<i>n</i>)</span> is proved. Push the first one. Then remove the base case, or break the induction step at one link, and see how far the proof gets.</p>
+    </div>
+    <div class="lab">
+      <div class="lab-top">
+        <div class="row">
+          <button class="tbtn" id="dm-base" aria-pressed="true">Base case: proved</button>
+          <label class="ctl" for="dm-gap">Induction step fails at<select id="dm-gap"><option value="-1">nowhere</option><option value="3">P(3) → P(4)</option><option value="7">P(7) → P(8)</option><option value="11">P(11) → P(12)</option></select></label>
+        </div>
+        <div class="row"><button class="tbtn primary" id="dm-go">Push domino 0</button><button class="tbtn" id="dm-reset">Reset</button></div>
+      </div>
+      <canvas id="dm" height="200" style="width:100%;height:200px;display:block" aria-label="Row of dominoes"></canvas>
+      <p class="center" id="dm-msg" style="font-size:19px;margin-top:10px;min-height:28px"></p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy">
+        <span class="kicker grad">Example 6.1.1</span>
+        <h2>Watch the step happen</h2>
+        <p><b>Base case:</b> 2⁰ = 1 = 2¹ − 1.</p>
+        <p><b>Induction step:</b> suppose <span class="m">2⁰ + ⋯ + 2<sup>n</sup> = 2<sup>n+1</sup> − 1</span>. Add <span class="m">2<sup>n+1</sup></span> to both sides. The right side becomes <span class="m">2 · 2<sup>n+1</sup> − 1 = 2<sup>n+2</sup> − 1</span>, which is the formula for <i>n</i> + 1.</p>
+        <p>The picture shows why: each new block is as big as all the earlier ones together, plus one.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">2⁰ + 2¹ + ⋯ + 2ⁿ</span><label class="ctl" for="sp">n = <b id="sp-v" style="color:var(--fg)">3</b><input type="range" id="sp" min="0" max="6" value="3"></label></div>
+        <div id="sp-bar" style="display:flex;gap:2px;height:56px;border-radius:12px;overflow:hidden"></div>
+        <div id="sp-ref" style="display:flex;height:10px;margin-top:8px;border-radius:6px;overflow:hidden"></div>
+        <p class="out mt-m" id="sp-out"></p>
+        <p class="note">The thin bar below is 2ⁿ⁺¹ long. The sum falls short of it by exactly one unit, the empty slot.</p>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <span class="kicker grad">§6.2</span>
+        <h2>Induction in disguise</h2>
+        <p>Many goals don't look like <span class="m">∀<i>n</i> ∈ ℕ <i>P</i>(<i>n</i>)</span>. The trick is to find a number hidden in the problem and induct on it.</p>
+        <p>The book's examples: every finite nonempty set in a partial order has a minimal element (induct on its size), and every partial order on a finite set extends to a total order. For a polygon with corners on a circle, the angles add to <span class="m">(<i>n</i> − 2) · 180°</span>.</p>
+      </div>
+      <div class="bento" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="tile" style="grid-column:span 1"><span class="k">Divisibility</span><div class="sym grad">3 | <i>n</i>³ − <i>n</i></div><p>Example 6.1.2</p></div>
+        <div class="tile" style="grid-column:span 1"><span class="k">Inequality</span><div class="sym grad"><i>n</i>! &gt; 2<sup>n</sup></div><p>for n ≥ 4, Example 6.3.1</p></div>
+        <div class="tile" style="grid-column:span 1"><span class="k">Bernoulli-type</span><div class="sym grad">(1+<i>x</i>)<sup>n</sup> &gt; <i>nx</i></div><p>for x &gt; −1, Theorem 6.3.4</p></div>
+        <div class="tile" style="grid-column:span 1"><span class="k">Geometry</span><div class="sym grad">(<i>n</i>−2)·180°</div><p>Example 6.2.3</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="strong">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy">
+        <span class="kicker grad">§6.4</span>
+        <h2>Strong induction: lean on every smaller case</h2>
+        <p>To show every integer above 1 is prime or a product of primes (Theorem 6.4.2), take n. If it's prime, you're done. If not, n = ab with a and b smaller than n. They aren't necessarily n − 1, so ordinary induction doesn't help. Strong induction lets you assume <b>every</b> smaller number already factors.</p>
+        <p>This is the fact the Introduction borrowed for Euclid's proof. Here it finally gets a proof.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Strong induction, unrolled</span><label class="ctl" for="ft">n =<input type="number" id="ft" min="2" max="99999" value="360" style="width:110px"></label></div>
+        <div id="ft-out" class="scroll-x" style="font-family:var(--math);font-size:18px;line-height:1.7"></div>
+        <p class="out mt-m" id="ft-res"></p>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <span class="kicker grad">§6.3–6.4</span>
+        <h2>Recursion, and a formula that shouldn't work</h2>
+        <p>The Fibonacci numbers are defined recursively: <span class="m"><i>F</i><sub>0</sub> = 0</span>, <span class="m"><i>F</i><sub>1</sub> = 1</span>, and each later term is the sum of the two before it. Since each term depends on <b>two</b> earlier ones, proofs about them need strong induction.</p>
+        <p>Theorem 6.4.3 gives a closed formula full of √5 that somehow always produces a whole number.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Fₙ = ((1+√5)/2)ⁿ − ((1−√5)/2)ⁿ, divided by √5</span></div>
+        <div class="scroll-x" style="max-height:320px;overflow-y:auto"><table class="tt" id="fb"></table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head center"><h2>More tools in this chapter</h2></div>
+    <div class="bento">
+      <div class="tile w3"><span class="k">Theorem 6.4.1 · Division algorithm</span><h3>Divide, get a remainder.</h3><p>For natural numbers n and m with m &gt; 0, there are natural numbers q and r with n = mq + r and r &lt; m. The proof uses strong induction on n. (Uniqueness of q and r is left to the exercises.)</p></div>
+      <div class="tile w3"><span class="k">Theorem 6.4.4 · Well-ordering</span><h3>There's always a smallest one.</h3><p>Every nonempty set of natural numbers has a smallest element. A common way to use it: suppose there's a counterexample, take the smallest one, and show an even smaller one exists.</p></div>
+      <div class="tile w3"><span class="k">Theorem 6.4.5</span><h3>√2 is irrational.</h3><p>If √2 = p/q, choose the smallest such q. The algebra then produces a fraction equal to √2 with a smaller denominator, which contradicts the choice of q.</p></div>
+      <div class="tile w3"><span class="k">§6.5 · Closures again</span><h3>Loose ends from earlier chapters.</h3><p>The transitive closure of R is R ∪ R² ∪ R³ ∪ ⋯ (Theorem 6.5.2). The Introduction's cancelling sum gets a proper inductive proof (Theorem 6.5.3). <a href="intro.html">Back to the Introduction ›</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="book">
+  <div class="wrap">
+    <div class="head"><span class="kicker grad">In the book</span><h2>Where to go deeper</h2><p>Induction is the technique you'll use most often after this book. The exercises here repay the time.</p></div>
+    <div class="map">
+      <div class="map-row"><span class="no grad">6.1</span><div><h3>Proof by Mathematical Induction</h3><p>The principle, the base case and induction step as a proof outline, first examples.</p></div><span class="pg"><b>p. 260</b></span></div>
+      <div class="map-row"><span class="no grad">6.2</span><div><h3>More Examples</h3><p>Induction where the number is hidden: minimal elements, extending partial orders to total orders, polygons.</p></div><span class="pg"><b>p. 267</b></span></div>
+      <div class="map-row"><span class="no grad">6.3</span><div><h3>Recursion</h3><p>Recursive definitions of n!, aⁿ and sums, and inductive proofs about them.</p></div><span class="pg"><b>p. 279</b></span></div>
+      <div class="map-row"><span class="no grad">6.4</span><div><h3>Strong Induction</h3><p>Division algorithm, prime factorization, Fibonacci numbers, well-ordering, √2.</p></div><span class="pg"><b>p. 288</b></span></div>
+      <div class="map-row"><span class="no grad">6.5</span><div><h3>Closures Again</h3><p>Transitive closure built with powers of R, and the Introduction's formula proved properly.</p></div><span class="pg"><b>p. 300</b></span></div>
+    </div>
+    <div class="map-foot">
+      <div><h4>Exercises</h4><p>Starred exercises have solutions in Appendix 1, p. 329. Try the harmonic number exercises in §6.3.</p></div>
+      <div><h4>Look for</h4><p>How the book writes the induction step as an ordinary Chapter 3 proof: let n be arbitrary, suppose P(n), prove P(n+1).</p></div>
+      <div><h4>Read next</h4><p>Counting past the finite. <a href="infinity.html">Infinite Sets ›</a></p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // ---------- dominoes ----------
+  var cv = $("dm"), cx = cv.getContext("2d"), N = 16, ang, falling, base = true, gap = -1, raf = null, started = false;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function reset() { ang = []; falling = []; for (var i = 0; i < N; i++) { ang[i] = 0; falling[i] = false; } started = false; msg(""); if (raf) cancelAnimationFrame(raf); raf = null; draw(); }
+  function css(v) { return getComputedStyle(cv).getPropertyValue(v).trim() || "#888"; }
+  function geom() { var W = cv.clientWidth, sp = W / (N + 1), h = Math.min(110, sp * 2.1), w = Math.max(6, h * 0.16); return { W: W, sp: sp, h: h, w: w, ground: 160 }; }
+  function maxAng(i) { var g = geom(); if (i === N - 1 || i === gap) return Math.PI / 2; var d = g.sp - g.w; return Math.min(Math.PI / 2, Math.asin(Math.min(1, d / g.h))); }
+  function draw() {
+    var dpr = window.devicePixelRatio || 1, W = cv.clientWidth; cv.width = W * dpr; cv.height = 200 * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var g = geom(), c1 = css("--g1"), c2 = css("--g2"), fg3 = css("--fg3"), fg2 = css("--fg2");
+    cx.clearRect(0, 0, W, 200);
+    cx.strokeStyle = fg3; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(0, g.ground + .5); cx.lineTo(W, g.ground + .5); cx.stroke();
+    for (var i = 0; i < N; i++) {
+      var x = g.sp * (i + 1) - g.w / 2;
+      if (i === gap) { cx.fillStyle = fg2; cx.font = "600 12px -apple-system, sans-serif"; cx.textAlign = "center"; cx.fillText("✕", x + g.w / 2 + g.sp / 2, g.ground - 4); }
+      cx.save(); cx.translate(x + g.w, g.ground); cx.rotate(ang[i]);
+      var gr = cx.createLinearGradient(0, -g.h, 0, 0); gr.addColorStop(0, falling[i] ? c1 : fg3); gr.addColorStop(1, falling[i] ? c2 : fg3);
+      cx.fillStyle = gr; cx.globalAlpha = falling[i] ? 1 : 0.55;
+      cx.fillRect(-g.w, -g.h, g.w, g.h); cx.restore(); cx.globalAlpha = 1;
+      cx.fillStyle = falling[i] ? c1 : fg2; cx.font = "13px 'STIX Two Text', serif"; cx.textAlign = "center";
+      cx.fillText("P(" + i + ")", g.sp * (i + 1), g.ground + 22);
+    }
+  }
+  function msg(t) { $("dm-msg").innerHTML = t; }
+  function settle() {
+    var last = -1; for (var i = 0; i < N; i++) if (falling[i]) last = i;
+    if (!base) msg("Nothing falls. The step says each domino knocks over the next, but <b>nobody pushed the first one</b>. Without a base case you've proved nothing.");
+    else if (last === N - 1) msg("All of them fall. With the base case and every step proved, P(n) holds for every n, not just the 16 shown.");
+    else msg("Proved P(0) through P(" + last + "), then stuck. If one step fails, the chain stops there.");
+  }
+  function tick() {
+    var moving = false, g = geom();
+    for (var i = 0; i < N; i++) {
+      if (!falling[i]) continue;
+      var m = maxAng(i);
+      if (ang[i] < m) { ang[i] = reduce ? m : Math.min(m, ang[i] + 0.09 + ang[i] * 0.05); moving = true; }
+      if (i + 1 < N && !falling[i + 1] && i !== gap && Math.sin(ang[i]) * g.h >= g.sp - g.w - 0.5) { falling[i + 1] = true; moving = true; }
+    }
+    draw();
+    if (moving) raf = requestAnimationFrame(tick); else { raf = null; settle(); }
+  }
+  $("dm-go").addEventListener("click", function () { reset(); started = true; if (base) { falling[0] = true; tick(); } else settle(); });
+  $("dm-reset").addEventListener("click", reset);
+  $("dm-base").addEventListener("click", function () { base = !base; this.setAttribute("aria-pressed", base ? "true" : "false"); this.textContent = base ? "Base case: proved" : "Base case: missing"; reset(); });
+  $("dm-gap").addEventListener("change", function () { gap = +this.value; reset(); });
+  window.addEventListener("resize", function () { if (!raf) { if (started) { for (var i = 0; i < N; i++) if (falling[i]) ang[i] = maxAng(i); } draw(); } });
+  reset();
+  msg("Press <b>Push domino 0</b>. Pushing it is the base case, P(0).");
+
+  // ---------- sum of powers ----------
+  function sp() {
+    var n = +$("sp").value, tot = Math.pow(2, n + 1); $("sp-v").textContent = n;
+    var h = "";
+    for (var i = 0; i <= n; i++) { var w = Math.pow(2, i) / tot * 100; h += '<div title="2^' + i + '" style="flex:0 0 calc(' + w + '% - 2px);background:linear-gradient(135deg,var(--g1),var(--g2));opacity:' + (0.45 + 0.55 * (i / Math.max(1, n))) + ';display:grid;place-items:center;color:var(--on-grad);font-size:12px;font-weight:600;overflow:hidden">' + (w > 6 ? Math.pow(2, i) : "") + '</div>'; }
+    h += '<div style="flex:0 0 calc(' + (100 / tot) + '% - 2px);background:transparent;border:1.5px dashed var(--fg3);border-radius:4px"></div>';
+    $("sp-bar").innerHTML = h;
+    $("sp-ref").innerHTML = '<div style="flex:1;background:var(--fg3);opacity:.5"></div>';
+    var terms = []; for (var k = 0; k <= n; k++) terms.push(Math.pow(2, k));
+    $("sp-out").innerHTML = terms.join(" + ") + " = " + (tot - 1) + " = 2<sup>" + (n + 1) + "</sup> − 1";
+  }
+  $("sp").addEventListener("input", sp); sp();
+
+  // ---------- factor tree ----------
+  function split(n) { for (var d = Math.floor(Math.sqrt(n)); d >= 2; d--) if (n % d === 0) return [d, n / d]; return null; }
+  function tree(n, depth) {
+    var s = split(n), pad = depth * 22;
+    if (!s) return '<div style="padding-left:' + pad + 'px"><span class="grad" style="font-weight:600">' + n + '</span> <span class="small muted" style="font-family:var(--sans)">prime, done</span></div>';
+    return '<div style="padding-left:' + pad + 'px">' + n + ' = ' + s[0] + ' · ' + s[1] + ' <span class="small muted" style="font-family:var(--sans)">both &lt; ' + n + ', so assume they factor</span></div>' + tree(s[0], depth + 1) + tree(s[1], depth + 1);
+  }
+  function primes(n) { var f = [], d = 2; while (n > 1) { if (n % d === 0) { f.push(d); n /= d; } else d++; } return f; }
+  function ft() {
+    var n = Math.floor(+$("ft").value);
+    if (!(n >= 2 && n <= 99999)) { $("ft-out").innerHTML = '<span class="small muted" style="font-family:var(--sans)">Enter a whole number from 2 to 99,999.</span>'; $("ft-res").textContent = ""; return; }
+    $("ft-out").innerHTML = tree(n, 0);
+    var p = primes(n); $("ft-res").innerHTML = n + " = " + p.join(" · ") + (p.length === 1 ? "  (prime)" : "");
+  }
+  $("ft").addEventListener("input", ft); ft();
+
+  // ---------- fibonacci ----------
+  var phi = (1 + Math.sqrt(5)) / 2, psi = (1 - Math.sqrt(5)) / 2, a = 0, b = 1, h = '<tr><th>n</th><th>Fₙ (recursion)</th><th>formula</th></tr>';
+  for (var n = 0; n <= 30; n++) { var v = (Math.pow(phi, n) - Math.pow(psi, n)) / Math.sqrt(5); h += '<tr><td>' + n + '</td><td>' + a.toLocaleString("en-US") + '</td><td class="muted">' + v.toFixed(6) + '</td></tr>'; var t = a + b; a = b; b = t; }
+  $("fb").innerHTML = h;
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The book proves 2ⁿ &gt; n² for n ≥ 5 in Example 6.1.3 and the formula for 2⁰ + ⋯ + 2ⁿ in Example 6.1.1.</li>
+<li>The formula column is computed in floating point, so tiny rounding errors appear for large n. The theorem says the exact value is always the integer Fₙ.</li>

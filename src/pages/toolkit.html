@@ -1,0 +1,277 @@
+<section class="hero wrap" style="padding-bottom:32px">
+  <p class="eyebrow">Based on the book's summary, pp. 376–380</p>
+  <h1>Proof Toolkit</h1>
+  <p class="tag grad">Stuck? Start here.</p>
+  <p class="lede">Look at the statement in front of you and find its outermost symbol. Pick that symbol below, say whether it's your goal or something you already know, and you'll get your next move.</p>
+</section>
+
+<section class="band" id="moves" style="padding-top:24px">
+  <div class="wrap">
+    <div class="lab" style="padding:32px">
+      <div class="row" style="justify-content:space-between;gap:16px;margin-bottom:22px">
+        <div class="lab-title">1 · What does the statement look like?</div>
+        <div class="seg" id="mv-mode" role="group" aria-label="Is it a goal or a given">
+          <button type="button" data-mode="goal" aria-pressed="true">It's my goal</button>
+          <button type="button" data-mode="given" aria-pressed="false">I already know it</button>
+        </div>
+      </div>
+      <div class="forms" id="mv-forms" role="group" aria-label="Logical form"></div>
+
+      <div class="lab-title" style="margin:36px 0 14px">2 · Your move</div>
+      <div class="split" style="gap:40px">
+        <div class="copy" style="min-width:0">
+          <p id="mv-move" style="font-size:clamp(24px,3vw,32px);line-height:1.18;font-weight:600;color:var(--fg);letter-spacing:0"></p>
+          <p id="mv-alt" style="margin-top:12px"></p>
+          <div style="margin-top:22px;padding:18px 20px;border-radius:18px;background:var(--tile)">
+            <div class="lab-title" style="margin-bottom:6px">Example</div>
+            <p id="mv-ex" style="font-size:16px;line-height:1.45"></p>
+          </div>
+          <a class="more" id="mv-see" style="margin-top:18px;display:inline-block"></a>
+        </div>
+        <div style="min-width:0">
+          <div class="lab-title" style="margin-bottom:10px">Before</div>
+          <div class="board" id="mv-before"></div>
+          <div class="center" style="font-size:22px;color:var(--fg3);margin:6px 0" aria-hidden="true">↓</div>
+          <div class="lab-title" style="margin-bottom:10px">After</div>
+          <div class="board" id="mv-after"></div>
+          <div class="lab-title" style="margin:22px 0 10px">How it reads in the written proof</div>
+          <div class="outline" id="mv-out" style="font-size:17px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="head center"><h2>When nothing fits</h2><p>Two moves work whatever the statement looks like. Reach for them when the move for your form doesn't get you anywhere.</p></div>
+    <div class="pair">
+      <div class="tile" style="gap:14px">
+        <span class="k">Proof by contradiction</span>
+        <h3>Assume the goal is false.</h3>
+        <p>Add its negation to what you know and follow the consequences until two of them can't both be true. This works especially well when the goal is negative, such as “not rational” or “infinitely many”.</p>
+        <div class="board"><div><h4>Know</h4><ul><li>…</li><li class="new">¬goal</li></ul></div><div><h4>Prove</h4><ul><li class="new">a contradiction</li></ul></div></div>
+      </div>
+      <div class="tile" style="gap:14px">
+        <span class="k">Proof by cases</span>
+        <h3>Split the possibilities.</h3>
+        <p>Break the situation into cases that together cover everything, such as n even and n odd, and prove the goal in each one. Missing a case breaks the proof.</p>
+        <div class="board"><div><h4>Case 1</h4><ul><li class="new"><i>n</i> is even</li></ul></div><div><h4>Case 2</h4><ul><li class="new"><i>n</i> is odd</li></ul></div></div>
+      </div>
+    </div>
+    <div class="statement mt-l">
+      <q>I shall make no assertion before its time.</q>
+      <cite>The motto of Chapter 3 (p. 86). Assume whatever a move allows, but claim nothing you can't yet justify.</cite>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head"><h2>The routine</h2><p>This is how the book works out every proof in Chapter 3. The order matters, so the steps are numbered.</p></div>
+    <div class="bento">
+      <div class="tile"><span class="sym grad">1</span><h3>Write it down</h3><p>List what you know and what you're proving. At the start, that's the theorem's hypotheses and its conclusion.</p></div>
+      <div class="tile"><span class="sym grad">2</span><h3>Read the goal's shape</h3><p>Apply the move for its outermost symbol. Repeat as the goal changes.</p></div>
+      <div class="tile"><span class="sym grad">3</span><h3>Unpack definitions</h3><p>When the goal has no symbol left to work on, write out what words like “divides”, “⊆” or “onto” mean.</p></div>
+      <div class="tile w3"><span class="sym grad">4</span><h3>Use what you know</h3><p>Check each given for a move: plug into ∀, name what ∃ promises, split ∧, and look for modus ponens.</p></div>
+      <div class="tile w3"><span class="sym grad">5</span><h3>Write the clean version</h3><p>Turn it into ordinary sentences. Keep the justifications and drop the scratch work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="notation">
+  <div class="wrap">
+    <div class="head"><h2>Glossary of symbols</h2><p>Grouped by the chapter that introduces them, so you know where to look them up.</p></div>
+    <div class="bento">
+      <div class="tile w3"><span class="k">Chapter 1 · Sentential logic</span>
+        <dl class="gl">
+          <dt>¬ ∧ ∨</dt><dd>not, and, or (inclusive). §1.1</dd>
+          <dt>→ ↔</dt><dd>if–then, if and only if. §1.5</dd>
+          <dt>{<i>x</i> | <i>P</i>(<i>x</i>)}</dt><dd>the truth set of P. §1.3</dd>
+          <dt>ℕ ℤ ℚ ℝ</dt><dd>naturals (from 0), integers, rationals, reals. §1.3</dd>
+          <dt>∩ ∪ ∖ △</dt><dd>intersection, union, difference, symmetric difference. §1.4</dd>
+          <dt>⊆ ∅</dt><dd>subset, the empty set. §1.3–1.4</dd>
+        </dl><a class="more small" href="logic.html">Sentential Logic</a></div>
+      <div class="tile w3"><span class="k">Chapter 2 · Quantifiers</span>
+        <dl class="gl">
+          <dt>∀ ∃</dt><dd>for all, there exists. §2.1</dd>
+          <dt>∃!</dt><dd>there exists exactly one. §2.2</dd>
+          <dt>𝒫(<i>A</i>)</dt><dd>the set of all subsets of A. §2.3</dd>
+          <dt>⋃<i>F</i>, ⋂<i>F</i></dt><dd>union and intersection of a family of sets. §2.3</dd>
+        </dl><a class="more small" href="quantifiers.html">Quantificational Logic</a></div>
+      <div class="tile w3"><span class="k">Chapters 3–4 · Proofs & relations</span>
+        <dl class="gl">
+          <dt><i>a</i> | <i>b</i></dt><dd>a divides b. Intro p. 5, used from §3.3</dd>
+          <dt>(<i>a</i>, <i>b</i>), <i>A</i> × <i>B</i></dt><dd>ordered pair, Cartesian product. §4.1</dd>
+          <dt><i>R</i>⁻¹, <i>S</i> ∘ <i>R</i></dt><dd>inverse, composition. §4.2</dd>
+          <dt><i>i<sub>A</sub></i></dt><dd>the identity relation on A. §4.3</dd>
+          <dt>[<i>x</i>]<sub><i>R</i></sub>, <i>A</i>/<i>R</i></dt><dd>equivalence class, set of classes. §4.6</dd>
+          <dt>≡ (mod <i>m</i>)</dt><dd>congruence mod m. §4.6</dd>
+        </dl><a class="more small" href="relations.html">Relations</a></div>
+      <div class="tile w3"><span class="k">Chapters 5–7 · Functions, induction, infinity</span>
+        <dl class="gl">
+          <dt><i>f</i> : <i>A</i> → <i>B</i></dt><dd>a function from A to B. §5.1</dd>
+          <dt><i>f</i>⁻¹</dt><dd>inverse function. §5.3</dd>
+          <dt><i>f</i>(<i>X</i>), <i>f</i>⁻¹(<i>Y</i>)</dt><dd>image, inverse image. §5.4</dd>
+          <dt><i>n</i>!, <i>F<sub>n</sub></i></dt><dd>factorial, Fibonacci numbers. §6.3–6.4</dd>
+          <dt><i>A</i> ∼ <i>B</i>, |<i>A</i>|</dt><dd>same size, number of elements. §7.1</dd>
+          <dt><i>A</i> ≼ <i>B</i></dt><dd>B dominates A. §7.3</dd>
+        </dl><a class="more small" href="functions.html">Functions</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="map">
+  <div class="wrap">
+    <div class="head"><h2>Every section, every page</h2><p>Where each section of the second edition begins. Each tile links to that part of this guide.</p></div>
+    <div class="bento">
+      <div class="tile"><span class="k">Front & Intro</span><p>Preface · p. ix<br>Introduction · p. 1</p><a class="more small" href="intro.html">Introduction</a></div>
+      <div class="tile"><span class="k">1 · Sentential Logic</span><p>1.1 Deductive Reasoning · p. 8<br>1.2 Truth Tables · p. 14<br>1.3 Variables and Sets · p. 26<br>1.4 Operations on Sets · p. 34<br>1.5 Conditional & Biconditional · p. 43</p><a class="more small" href="logic.html">Chapter 1</a></div>
+      <div class="tile"><span class="k">2 · Quantificational Logic</span><p>2.1 Quantifiers · p. 55<br>2.2 Equivalences with Quantifiers · p. 64<br>2.3 More Operations on Sets · p. 73</p><a class="more small" href="quantifiers.html">Chapter 2</a></div>
+      <div class="tile"><span class="k">3 · Proofs</span><p>3.1 Proof Strategies · p. 84<br>3.2 Negations & Conditionals · p. 95<br>3.3 Quantifiers · p. 108<br>3.4 Conjunctions & Biconditionals · p. 124<br>3.5 Disjunctions · p. 136<br>3.6 Existence & Uniqueness · p. 146<br>3.7 More Examples · p. 155</p><a class="more small" href="proofs.html">Chapter 3</a></div>
+      <div class="tile"><span class="k">4 · Relations</span><p>4.1 Ordered Pairs & Products · p. 163<br>4.2 Relations · p. 171<br>4.3 More About Relations · p. 180<br>4.4 Ordering Relations · p. 189<br>4.5 Closures · p. 202<br>4.6 Equivalence Relations · p. 213</p><a class="more small" href="relations.html">Chapter 4</a></div>
+      <div class="tile"><span class="k">5 · Functions</span><p>5.1 Functions · p. 226<br>5.2 One-to-one and Onto · p. 236<br>5.3 Inverses of Functions · p. 245<br>5.4 Images & Inverse Images · p. 255</p><a class="more small" href="functions.html">Chapter 5</a></div>
+      <div class="tile"><span class="k">6 · Mathematical Induction</span><p>6.1 Proof by Induction · p. 260<br>6.2 More Examples · p. 267<br>6.3 Recursion · p. 279<br>6.4 Strong Induction · p. 288<br>6.5 Closures Again · p. 300</p><a class="more small" href="induction.html">Chapter 6</a></div>
+      <div class="tile"><span class="k">7 · Infinite Sets</span><p>7.1 Equinumerous Sets · p. 306<br>7.2 Countable & Uncountable · p. 315<br>7.3 Cantor–Schröder–Bernstein · p. 322</p><a class="more small" href="infinity.html">Chapter 7</a></div>
+      <div class="tile"><span class="k">Back matter</span><p>App. 1 Solutions to Selected Exercises · p. 329<br>App. 2 Proof Designer · p. 373<br>Further Reading · p. 375<br>Summary of Proof Techniques · p. 376<br>Index · p. 381</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap">
+    <div class="head"><h2>After the book</h2><p>A selection from the book's own list of further reading (p. 375), grouped by where you might go next.</p></div>
+    <div class="bento">
+      <div class="tile"><span class="k">Problem solving</span><h3>Pólya, <i>How to Solve It</i></h3><p>The classic on how to approach problems, which fits well with the scratch-work habits from Chapter 3.</p></div>
+      <div class="tile"><span class="k">Logic</span><h3>Enderton · Mendelson · Hamilton</h3><p>Mathematical logic proper. Also Barwise &amp; Etchemendy, <i>Language, Proof and Logic</i>.</p></div>
+      <div class="tile"><span class="k">Sets & infinity</span><h3>Halmos, <i>Naive Set Theory</i></h3><p>Then Enderton's <i>Elements of Set Theory</i>, which goes beyond Chapter 7.</p></div>
+      <div class="tile w3"><span class="k">Discrete mathematics</span><h3>Epp · Rosen · Ross &amp; Wright</h3><p>Broader courses that use these proof skills on graphs, counting and algorithms.</p></div>
+      <div class="tile w3"><span class="k">Number theory</span><h3>Burton · Stark</h3><p>Elementary number theory, where the Introduction's questions about primes come from.</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  // Each form: symbol, label, and a goal / given entry.
+  // b = before [know[], prove[]], a = after [know[], prove[]]; items prefixed "+" are new.
+  var F = [
+    { sym: "¬P", label: "not",
+      goal: { move: "Rewrite it as a positive statement.", alt: "If that doesn't help, suppose P and aim for a contradiction.",
+        b: [["…"], ["¬P"]], a: [["…", "+P"], ["+a contradiction"]],
+        out: "Suppose <i>P</i>.\n   <span class=\"c\">[derive a contradiction]</span>\nThus ¬<i>P</i>.",
+        ex: "To show √2 is not rational, suppose it is, write it as a fraction in lowest terms, and reach a contradiction.", see: ["§3.2 · p. 95", "proofs.html#strategies"] },
+      given: { move: "Rewrite it as a positive statement.", alt: "In a proof by contradiction, you can reach the contradiction by proving P.",
+        b: [["¬∀x P(x)"], ["R"]], a: [["+∃x ¬P(x)"], ["R"]],
+        out: "Since it is not the case that every x has P,\nthere is some x for which P(x) fails.",
+        ex: "“A ⊈ B” becomes “some element of A is not in B”, which hands you an element to work with.", see: ["§3.2 · p. 95", "quantifiers.html#negate"] } },
+    { sym: "P → Q", label: "if–then",
+      goal: { move: "Assume P, then prove Q.", alt: "Or prove the contrapositive: assume ¬Q and prove ¬P.",
+        b: [["…"], ["P → Q"]], a: [["…", "+P"], ["+Q"]],
+        out: "Suppose <i>P</i>.\n   <span class=\"c\">[proof of Q]</span>\nTherefore <i>P</i> → <i>Q</i>.",
+        ex: "To prove that 0 &lt; a &lt; b implies a² &lt; b², suppose 0 &lt; a &lt; b. Multiplying a &lt; b by a and by b gives a² &lt; ab &lt; b².", see: ["§3.1 · p. 84", "proofs.html#model"] },
+      given: { move: "If you also know P, conclude Q.", alt: "If you know ¬Q instead, conclude ¬P. These are modus ponens and modus tollens.",
+        b: [["P → Q", "P"], ["R"]], a: [["P → Q", "P", "+Q"], ["R"]],
+        out: "Since <i>P</i> and <i>P</i> → <i>Q</i>, we have <i>Q</i>.",
+        ex: "Knowing “if n is even then n² is even” and “n is even” gives you “n² is even”.", see: ["§3.2 · p. 95", "proofs.html#strategies"] } },
+    { sym: "P ∧ Q", label: "and",
+      goal: { move: "Prove P. Then prove Q.", alt: "Two separate goals, each handled with its own move.",
+        b: [["…"], ["P ∧ Q"]], a: [["…"], ["+P", "+Q"]],
+        out: "<span class=\"c\">[proof of P]</span>\n<span class=\"c\">[proof of Q]</span>\nThus <i>P</i> ∧ <i>Q</i>.",
+        ex: "To show x ∈ A ∩ B, show x ∈ A and show x ∈ B.", see: ["§3.4 · p. 124", "proofs.html#strategies"] },
+      given: { move: "Split it into two separate facts.", alt: "You now know P and you know Q.",
+        b: [["P ∧ Q"], ["R"]], a: [["+P", "+Q"], ["R"]],
+        out: "Since <i>P</i> ∧ <i>Q</i>, we know <i>P</i>, and we know <i>Q</i>.",
+        ex: "From x ∈ A ∩ B you get x ∈ A and x ∈ B.", see: ["§3.4 · p. 124", "proofs.html#strategies"] } },
+    { sym: "P ∨ Q", label: "or",
+      goal: { move: "Assume P is false, then prove Q.", alt: "Or split into cases and prove P or Q in each case.",
+        b: [["…"], ["P ∨ Q"]], a: [["…", "+¬P"], ["+Q"]],
+        out: "If <i>P</i> is true, we're done.\nSuppose instead ¬<i>P</i>.\n   <span class=\"c\">[proof of Q]</span>\nThus <i>P</i> ∨ <i>Q</i>.",
+        ex: "If mn is even, then m is even or n is even: suppose m is odd, and show n must be even (Theorem 3.5.5).", see: ["§3.5 · p. 136", "proofs.html#strategies"] },
+      given: { move: "Split into cases: first assume P, then assume Q.", alt: "If you also know ¬P, you can conclude Q directly.",
+        b: [["P ∨ Q"], ["R"]], a: [["+Case 1: P", "+Case 2: Q"], ["R, in each case"]],
+        out: "Case 1. <i>P</i> is true.\n   <span class=\"c\">[proof of R]</span>\nCase 2. <i>Q</i> is true.\n   <span class=\"c\">[proof of R]</span>\nEither way, <i>R</i>.",
+        ex: "Every integer is even or odd, so many proofs about integers start “Case 1: n is even.”", see: ["§3.5 · p. 136", "proofs.html#strategies"] } },
+    { sym: "P ↔ Q", label: "iff",
+      goal: { move: "Prove both directions.", alt: "Show P → Q, then Q → P, each with the if–then move.",
+        b: [["…"], ["P ↔ Q"]], a: [["…"], ["+P → Q", "+Q → P"]],
+        out: "(→) Suppose <i>P</i>.  <span class=\"c\">[proof of Q]</span>\n(←) Suppose <i>Q</i>.  <span class=\"c\">[proof of P]</span>",
+        ex: "6 | n if and only if 2 | n and 3 | n (Theorem 3.4.6) is proved one direction at a time.", see: ["§3.4 · p. 124", "proofs.html#strategies"] },
+      given: { move: "Split it into two if–then facts.", alt: "You now have P → Q and Q → P, and can use either one.",
+        b: [["P ↔ Q"], ["R"]], a: [["+P → Q", "+Q → P"], ["R"]],
+        out: "Since <i>P</i> ↔ <i>Q</i> and we know <i>Q</i>, we have <i>P</i>.",
+        ex: "Knowing “6 | n iff 2 | n and 3 | n” lets you go from either side to the other.", see: ["§3.4 · p. 124", "proofs.html#strategies"] } },
+    { sym: "∀x P(x)", label: "for all",
+      goal: { move: "Let x be arbitrary, then prove P(x).", alt: "Assume nothing about x except what you're given. If x already means something, use a new letter.",
+        b: [["…"], ["∀x P(x)"]], a: [["…", "+x, arbitrary"], ["+P(x)"]],
+        out: "Let <i>x</i> be arbitrary.\n   <span class=\"c\">[proof of P(x)]</span>\nSince <i>x</i> was arbitrary, ∀<i>x</i> <i>P</i>(<i>x</i>).",
+        ex: "“For all integers a, b, c, …” proofs start with “Let a, b, and c be arbitrary integers.”", see: ["§3.3 · p. 108", "proofs.html#labs"] },
+      given: { move: "Plug in any value you like.", alt: "Choose a value that will help with your goal, often an object already in the proof.",
+        b: [["∀x P(x)"], ["R"]], a: [["∀x P(x)", "+P(a)"], ["R"]],
+        out: "Since every <i>x</i> has property <i>P</i>,\nin particular <i>P</i>(<i>a</i>).",
+        ex: "From A ⊆ B, that is ∀x(x ∈ A → x ∈ B), and a ∈ A, you get a ∈ B.", see: ["§3.3 · p. 108", "proofs.html#strategies"] } },
+    { sym: "∃x P(x)", label: "exists",
+      goal: { move: "Find an x that works, and show that it does.", alt: "Search for it in your scratch work. The written proof just names it.",
+        b: [["…"], ["∃x P(x)"]], a: [["…"], ["+P(x₀), for your x₀"]],
+        out: "Let <i>x</i> = <span class=\"c\">[your value]</span>.\n   <span class=\"c\">[proof of P(x)]</span>\nThus ∃<i>x</i> <i>P</i>(<i>x</i>).",
+        ex: "To show 2ⁿ − 1 isn't prime when n = ab, give the factors: x = 2ᵇ − 1 and y = 1 + 2ᵇ + ⋯ + 2⁽ᵃ⁻¹⁾ᵇ.", see: ["§3.3 · p. 108", "intro.html#labs"] },
+      given: { move: "Give the object a new name.", alt: "Pick a letter that isn't already in use, say x₀, and you know P(x₀).",
+        b: [["∃x P(x)"], ["R"]], a: [["+P(x₀)"], ["R"]],
+        out: "Since ∃<i>x</i> <i>P</i>(<i>x</i>), choose <i>x</i>₀ such that <i>P</i>(<i>x</i>₀).",
+        ex: "From a | b, choose an integer d with b = da.", see: ["§3.3 · p. 108", "proofs.html#labs"] } },
+    { sym: "∃!x P(x)", label: "exactly one",
+      goal: { move: "Prove existence, then uniqueness.", alt: "Show something works, then show any two things that work are equal.",
+        b: [["…"], ["∃!x P(x)"]], a: [["…"], ["+∃x P(x)", "+P(y) ∧ P(z) → y = z"]],
+        out: "Existence: let <i>x</i> = … <span class=\"c\">[check P(x)]</span>\nUniqueness: suppose <i>P</i>(<i>y</i>) and <i>P</i>(<i>z</i>).\n   <span class=\"c\">[show y = z]</span>",
+        ex: "Exactly one set A has A ∪ B = B for every B. ∅ works, and if A and A′ both work then A′ = A ∪ A′ = A.", see: ["§3.6 · p. 146", "proofs.html#strategies"] },
+      given: { move: "Name it, and remember it's the only one.", alt: "You get P(x₀), and anything else with property P equals x₀.",
+        b: [["∃!x P(x)"], ["R"]], a: [["+P(x₀)", "+P(y) → y = x₀"], ["R"]],
+        out: "Choose <i>x</i>₀ with <i>P</i>(<i>x</i>₀). Since it is unique,\nany <i>y</i> with <i>P</i>(<i>y</i>) equals <i>x</i>₀.",
+        ex: "If an inverse is unique, any g that undoes f must be f⁻¹ (Theorem 5.3.5).", see: ["§3.6 · p. 146", "functions.html"] } },
+    { sym: "∀n ∈ ℕ P(n)", label: "every natural",
+      goal: { move: "Use induction: prove P(0), then P(n) → P(n+1).", alt: "Or strong induction: assume P(k) for every k &lt; n and prove P(n).",
+        b: [["…"], ["∀n ∈ ℕ P(n)"]], a: [["…"], ["+P(0)", "+∀n (P(n) → P(n+1))"]],
+        out: "Base case: <span class=\"c\">[proof of P(0)]</span>\nInduction step: let <i>n</i> be arbitrary,\nsuppose <i>P</i>(<i>n</i>).  <span class=\"c\">[proof of P(n+1)]</span>",
+        ex: "2⁰ + 2¹ + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1. The base case is 1 = 1. For the step, add 2ⁿ⁺¹ to both sides.", see: ["§6.1 · p. 260", "induction.html"] },
+      given: { move: "Plug in any natural number.", alt: "It's a “for all” statement, so it works like any other ∀ given.",
+        b: [["∀n ∈ ℕ P(n)"], ["R"]], a: [["∀n ∈ ℕ P(n)", "+P(5)"], ["R"]],
+        out: "Applying this with <i>n</i> = 5, we get <i>P</i>(5).",
+        ex: "Once 2⁰ + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1 is proved, plugging in n = 9 gives 1 + 2 + ⋯ + 512 = 1023.", see: ["§6.1 · p. 260", "induction.html"] } }
+  ];
+  var mode = "goal", cur = 1;
+  function it(s) { return s.replace(/\b([PQRxyznAB])\b/g, "<i>$1</i>").replace("(a)", "(<i>a</i>)"); }
+  F.forEach(function (f, i) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "form-btn";
+    b.innerHTML = '<span class="fs">' + it(f.sym) + '</span><span class="fl">' + f.label + '</span>';
+    b.addEventListener("click", function () { cur = i; render(); });
+    $("mv-forms").appendChild(b);
+  });
+  document.querySelectorAll("#mv-mode button").forEach(function (b) {
+    b.addEventListener("click", function () { mode = b.dataset.mode; render(); });
+  });
+  function list(items, done) {
+    return items.map(function (x) { var n = x.charAt(0) === "+"; return '<li' + (n ? ' class="new"' : '') + '>' + it(n ? x.slice(1) : x) + '</li>'; }).join("");
+  }
+  function board(pair, isAfter) {
+    return '<div><h4>Know</h4><ul>' + list(pair[0]) + '</ul></div><div><h4>Prove</h4><ul>' + list(pair[1]) + '</ul></div>';
+  }
+  function render() {
+    var f = F[cur], d = f[mode];
+    Array.prototype.forEach.call($("mv-forms").children, function (b, k) { b.setAttribute("aria-pressed", k === cur ? "true" : "false"); });
+    document.querySelectorAll("#mv-mode button").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.mode === mode ? "true" : "false"); });
+    $("mv-move").textContent = d.move;
+    $("mv-alt").innerHTML = d.alt;
+    $("mv-ex").innerHTML = d.ex;
+    $("mv-before").innerHTML = board(d.b);
+    $("mv-after").innerHTML = board(d.a);
+    $("mv-out").innerHTML = d.out;
+    $("mv-see").textContent = "In the book: " + d.see[0];
+    $("mv-see").href = d.see[1];
+  }
+  render();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The moves follow the book's Summary of Proof Techniques (pp. 376–379), reworded. The book's summary also explains how to use each move in Proof Designer, which is left out here.</li>
+<li>In the before and after boards, blue marks what the move adds.</li>

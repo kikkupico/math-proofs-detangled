@@ -1,0 +1,149 @@
+<title>How to Prove It Speedrun</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Start here">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+<div class="page ch-home">
+<nav class="gnav" aria-label="Chapters"><ul><li><a class="brand" href="index.html" aria-label="Home">&#8718;</a></li><li><a href="intro.html">Intro</a></li><li><a href="logic.html">Logic</a></li><li><a href="quantifiers.html">Quantifiers</a></li><li><a href="proofs.html">Proofs</a></li><li><a href="relations.html">Relations</a></li><li><a href="functions.html">Functions</a></li><li><a href="induction.html">Induction</a></li><li><a href="infinity.html">Infinity</a></li><li><a href="toolkit.html">Toolkit</a></li></ul></nav>
+<div class="lnav"><div class="wrap"><a class="title" href="index.html">How to Prove It</a><nav aria-label="On this page"><a class="btn sm" href="intro.html">Next: Intro</a></nav></div></div>
+<main>
+<section class="hero wrap">
+  <p class="eyebrow">A speedrun and a map of the classic</p>
+  <h1>How to Prove It</h1>
+  <p class="tag grad">Proofs, structured.</p>
+  <p class="lede">Daniel Velleman's book teaches the rules of the game behind every mathematical proof. These ten pages walk through all of its big ideas, with something to try on each one. When you want the full story, each page tells you exactly where to look in the book.</p>
+  <div class="cta-row">
+    <a class="btn" href="intro.html">Start the speedrun</a>
+    <a class="more" href="toolkit.html">Open the proof toolkit</a>
+  </div>
+  <div class="hero-art">
+    <div class="outline" style="text-align:left;display:inline-block;max-width:100%"><span class="kw">Let</span> <i>x</i> be arbitrary.
+    <span class="kw">Suppose</span> <i>P</i>(<i>x</i>).
+        <span class="c">[ proof of Q(x) goes here ]</span>
+    <span class="kw">Thus</span> <i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>).
+<span class="kw">Thus</span> ∀<i>x</i>(<i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>)).  ∎</div>
+  </div>
+</section>
+
+<section class="band alt" id="idea">
+  <div class="wrap">
+    <div class="head center">
+      <span class="kicker grad">The big idea</span>
+      <h2>Structured programming,<br>meet structured proving</h2>
+      <p>Programs aren't written as flat lists of instructions. They're built by nesting a few standard blocks like <i>if–else</i> and <i>while</i>. Velleman's insight is that proofs work the same way. Each logical form has its own block, and you nest the blocks to build the proof.</p>
+    </div>
+    <div class="pair">
+      <figure>
+        <div class="codeblk">do
+   if [condition]
+      [instructions]
+   else
+      [other instructions]
+while [condition]</div>
+        <figcaption>A program: blocks nested inside blocks.</figcaption>
+      </figure>
+      <figure>
+        <div class="outline">Let <i>x</i> be arbitrary.            <span class="c">∀ block</span>
+   Suppose <i>P</i>(<i>x</i>).               <span class="c">→ block</span>
+      [proof of <i>Q</i>(<i>x</i>)]
+   Thus <i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>).
+Thus ∀<i>x</i>(<i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>)).</div>
+        <figcaption>A proof: the same idea, written in English.</figcaption>
+      </figure>
+    </div>
+    <p class="center muted mt-m" style="max-width:640px;margin-inline:auto">Chapters 1 and 2 teach you to read the logical form of a statement. Chapter 3 gives you the block for each form. Chapters 4–7 put the blocks to work on relations, functions, induction and infinity.</p>
+  </div>
+</section>
+
+<section class="band" id="lineup">
+  <div class="wrap">
+    <div class="head center">
+      <h2>The chapters</h2>
+      <p>Read them in order. Each one takes about ten minutes.</p>
+    </div>
+    <div class="lineup">
+      <a class="lu ch-intro" href="intro.html"><span class="glyph">2<sup style="font-size:.5em">n</sup>−1</span><span class="no">Introduction · pp. 1–7</span><h3>Why prove anything?</h3><p>Primes, a pattern that breaks at 11, and three famous proofs.</p><span class="meta"><span>4 things to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-logic" href="logic.html"><span class="glyph">¬ ∧ ∨</span><span class="no">Chapter 1 · pp. 8–54</span><h3>Sentential Logic</h3><p>Connectives, truth tables, sets, and the strange “if–then”.</p><span class="meta"><span>3 things to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-quantifiers" href="quantifiers.html"><span class="glyph">∀ ∃</span><span class="no">Chapter 2 · pp. 55–83</span><h3>Quantificational Logic</h3><p>“For all” and “there exists”, and why their order matters.</p><span class="meta"><span>3 things to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-proofs" href="proofs.html"><span class="glyph">∴</span><span class="no">Chapter 3 · pp. 84–162</span><h3>Proofs</h3><p>Givens and goals: a strategy for every logical form.</p><span class="meta"><span>The core chapter</span><span>Read ›</span></span></a>
+      <a class="lu ch-relations" href="relations.html"><span class="glyph">⟨a, b⟩</span><span class="no">Chapter 4 · pp. 163–225</span><h3>Relations</h3><p>Ordered pairs, orders, closures, equivalence classes.</p><span class="meta"><span>2 things to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-functions" href="functions.html"><span class="glyph"><i>f</i> : <i>A</i>→<i>B</i></span><span class="no">Chapter 5 · pp. 226–259</span><h3>Functions</h3><p>One-to-one, onto, inverses, images.</p><span class="meta"><span>1 thing to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-induction" href="induction.html"><span class="glyph"><i>n</i>+1</span><span class="no">Chapter 6 · pp. 260–305</span><h3>Mathematical Induction</h3><p>Dominoes, recursion, strong induction.</p><span class="meta"><span>4 things to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-infinity" href="infinity.html"><span class="glyph">∞</span><span class="no">Chapter 7 · pp. 306–328</span><h3>Infinite Sets</h3><p>Counting by matching, and Cantor's diagonal.</p><span class="meta"><span>3 things to try</span><span>Read ›</span></span></a>
+      <a class="lu ch-toolkit" href="toolkit.html"><span class="glyph">∎</span><span class="no">Reference · pp. 376–380</span><h3>Proof Toolkit</h3><p>Every proof technique, all the notation, and the full map.</p><span class="meta"><span>Reference</span><span>Read ›</span></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="map">
+  <div class="wrap">
+    <div class="head center">
+      <h2>How the ideas connect</h2>
+      <p>Arrows show which chapter builds on which. Dashed lines mark the places where the book comes back to an earlier idea.</p>
+    </div>
+    <div class="lab" style="padding:20px">
+      <div class="scroll-x">
+        <svg viewBox="0 0 1000 420" role="img" aria-label="Chapter dependency map" style="min-width:720px;width:100%;display:block">
+          <style>
+            .dn rect{fill:var(--tile);stroke:var(--line)}
+            .dn .n{fill:var(--fg2);font-size:12px;font-weight:600;letter-spacing:.06em}
+            .dn .t{fill:var(--fg);font-size:15px;font-weight:600}
+            .dn:hover rect{stroke:var(--link)}
+            .ed{stroke:var(--fg3);stroke-width:1.6;fill:none}
+            .ed.dash{stroke-dasharray:5 5;stroke:var(--link)}
+            .ah{fill:var(--fg3)} .ah2{fill:var(--link)}
+            .lbl{fill:var(--link);font-size:13px}
+          </style>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker>
+            <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah2" d="M0 0L10 5L0 10z"/></marker>
+          </defs>
+          <!-- edges -->
+          <path class="ed" d="M165 120H213" marker-end="url(#arr)"/>
+          <path class="ed" d="M365 120H413" marker-end="url(#arr)"/>
+          <path class="ed" d="M565 120H613" marker-end="url(#arr)"/>
+          <path class="ed" d="M650 148L340 282" marker-end="url(#arr)"/>
+          <path class="ed" d="M672 148L520 282" marker-end="url(#arr)"/>
+          <path class="ed" d="M690 148V282" marker-end="url(#arr)"/>
+          <path class="ed" d="M365 310H413" marker-end="url(#arr)"/>
+          <path class="ed" d="M565 300L815 222" marker-end="url(#arr)"/>
+          <path class="ed" d="M765 300L838 238" marker-end="url(#arr)"/>
+          <path class="ed dash" d="M90 92C90 30 690 30 690 88" marker-end="url(#arr2)"/>
+          <path class="ed dash" d="M290 338C290 404 690 404 690 342" marker-end="url(#arr2)"/>
+          <text class="lbl" x="390" y="40" text-anchor="middle">§3.7 takes apart the intro's three proofs</text>
+          <text class="lbl" x="490" y="414" text-anchor="middle">§6.5 revisits closures from §4.5</text>
+          <!-- nodes -->
+          <a href="intro.html"><g class="dn"><rect x="15" y="92" width="150" height="56" rx="16"/><text class="n" x="90" y="114" text-anchor="middle">INTRO</text><text class="t" x="90" y="135" text-anchor="middle">Primes</text></g></a>
+          <a href="logic.html"><g class="dn"><rect x="215" y="92" width="150" height="56" rx="16"/><text class="n" x="290" y="114" text-anchor="middle">CH 1</text><text class="t" x="290" y="135" text-anchor="middle">Sentential logic</text></g></a>
+          <a href="quantifiers.html"><g class="dn"><rect x="415" y="92" width="150" height="56" rx="16"/><text class="n" x="490" y="114" text-anchor="middle">CH 2</text><text class="t" x="490" y="135" text-anchor="middle">Quantifiers</text></g></a>
+          <a href="proofs.html"><g class="dn"><rect x="615" y="92" width="150" height="56" rx="16"/><text class="n" x="690" y="114" text-anchor="middle">CH 3</text><text class="t" x="690" y="135" text-anchor="middle">Proofs</text></g></a>
+          <a href="relations.html"><g class="dn"><rect x="215" y="282" width="150" height="56" rx="16"/><text class="n" x="290" y="304" text-anchor="middle">CH 4</text><text class="t" x="290" y="325" text-anchor="middle">Relations</text></g></a>
+          <a href="functions.html"><g class="dn"><rect x="415" y="282" width="150" height="56" rx="16"/><text class="n" x="490" y="304" text-anchor="middle">CH 5</text><text class="t" x="490" y="325" text-anchor="middle">Functions</text></g></a>
+          <a href="induction.html"><g class="dn"><rect x="615" y="282" width="150" height="56" rx="16"/><text class="n" x="690" y="304" text-anchor="middle">CH 6</text><text class="t" x="690" y="325" text-anchor="middle">Induction</text></g></a>
+          <a href="infinity.html"><g class="dn"><rect x="815" y="182" width="150" height="56" rx="16"/><text class="n" x="890" y="204" text-anchor="middle">CH 7</text><text class="t" x="890" y="225" text-anchor="middle">Infinite sets</text></g></a>
+        </svg>
+      </div>
+      <p class="note">Chapter 5 defines functions as a kind of relation, so it needs Chapter 4. Chapter 7 measures infinite sets with the one-to-one, onto functions from Chapter 5, and its proofs use induction from Chapter 6.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <div class="head center"><h2>Three ways to use this guide</h2></div>
+    <div class="bento">
+      <div class="tile"><span class="k">Speedrun</span><h3>Read top to bottom.</h3><p>Each page opens with a few highlight cards, then explains the main ideas in plain language. Read them all and you've covered every theme in the book.</p></div>
+      <div class="tile"><span class="k">Play</span><h3>Poke at the ideas.</h3><p>Every chapter has a hands-on demo: truth tables, a proof you build step by step, falling dominoes, Cantor's diagonal. Change things and watch what happens.</p></div>
+      <div class="tile"><span class="k">Map</span><h3>Dive into the book.</h3><p>Every page ends with <b>In the book</b>: each section, its page number, and what you'll get from it. Starred exercises have solutions in Appendix 1, starting on p. 329.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band tight" aria-label="Keep going"><div class="wrap"><div class="pn"><a class="next" href="intro.html"><span class="dir">Next</span><span class="nm">Introduction</span><span class="tg">Why prove anything? &#8250;</span></a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><ol>
+<li>Page ranges refer to the printed second edition (2006). Other editions number their pages, and in places their chapters, differently.</li>
+<li>The book's preface compares proofs to structured programming. The two outlines above follow the examples it uses.</li>
+</ol><p class="rule credit">An unofficial study companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page numbers (p.) are the printed page numbers of that edition. Statements are quoted or paraphrased for study; the book has the complete proofs, the scratch work behind them, and the exercises.</p><nav class="dir" aria-label="All pages"><a href="index.html">Home</a><a href="intro.html">Introduction</a><a href="logic.html">Sentential Logic</a><a href="quantifiers.html">Quantificational Logic</a><a href="proofs.html">Proofs</a><a href="relations.html">Relations</a><a href="functions.html">Functions</a><a href="induction.html">Mathematical Induction</a><a href="infinity.html">Infinite Sets</a><a href="toolkit.html">Proof Toolkit</a></nav></div></footer>
+</div>
+<script src="app.js"></script>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infinite Sets · How to Prove It Speedrun</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Some infinities are bigger">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page ch-infinity">
+<nav class="gnav" aria-label="Chapters"><ul><li><a class="brand" href="index.html" aria-label="Home">&#8718;</a></li><li><a href="intro.html">Intro</a></li><li><a href="logic.html">Logic</a></li><li><a href="quantifiers.html">Quantifiers</a></li><li><a href="proofs.html">Proofs</a></li><li><a href="relations.html">Relations</a></li><li><a href="functions.html">Functions</a></li><li><a href="induction.html">Induction</a></li><li><a href="infinity.html" aria-current="page">Infinity</a></li><li><a href="toolkit.html">Toolkit</a></li></ul></nav>
+<div class="lnav"><div class="wrap"><a class="title" href="infinity.html">Infinite Sets</a><nav aria-label="On this page"><a class="sec" href="#highlights">Key ideas</a><a class="sec" href="#labs">Try it</a><a class="sec" href="#book">In the book</a><a class="btn sm" href="toolkit.html">Next: Toolkit</a></nav></div></div>
+<main>
+<section class="ink">
+  <div class="hero wrap">
+    <p class="eyebrow">Chapter 7 · pp. 306–328</p>
+    <h1>Infinite Sets</h1>
+    <p class="tag grad">Some infinities are bigger.</p>
+    <p class="lede">Counting a set means matching its elements with 1, 2, 3, …. Take that definition seriously and you can compare the sizes of infinite sets, and find that they don't all match.</p>
+    <div class="cta-row"><a class="btn" href="#labs">Try to list every set</a><a class="more" href="#match">See ℤ⁺ ∼ ℤ</a></div>
+    <div class="hero-art">
+      <div class="mb grad" style="font-size:clamp(44px,9vw,104px);line-height:1.1">ℤ⁺ ∼ ℤ ∼ ℚ ≺ ℝ</div>
+    </div>
+  </div>
+</section>
+
+<section class="hl" id="highlights" data-carousel>
+  <div class="wrap"><div class="head"><h2>Key ideas</h2></div></div>
+  <div class="hl-track">
+    <article class="hl-card"><span class="k">Equinumerous</span><h3><i>A</i> ∼ <i>B</i> means there's a one-to-one, onto <i>f</i> : <i>A</i> → <i>B</i>.</h3><p>Counting a finite set is exactly this kind of matching with {1, …, n}. Chapter 5 supplies the tools.</p><div class="big"><i>A</i> ∼ <i>B</i></div></article>
+    <article class="hl-card"><span class="k">Part = whole?</span><h3>ℤ⁺ ∼ ℤ.</h3><p>The positive integers match up with all the integers, even though ℤ contains ℤ⁺ and more. This can only happen with infinite sets.</p><div class="big">ℤ⁺ ∼ ℤ</div></article>
+    <article class="hl-card"><span class="k">A grid in a line</span><h3>ℤ⁺ × ℤ⁺ ∼ ℤ⁺.</h3><p>Count the pairs along diagonals and every pair gets a number. The same idea shows ℚ is denumerable.</p><div class="big sm">(1,1), (1,2), (2,1), …</div></article>
+    <article class="hl-card"><span class="k">Countable</span><h3>Finite, or matched with ℤ⁺.</h3><p>Countable sets can be listed. A countable union of countable sets is still countable.</p><div class="big sm">finite or ∼ ℤ⁺</div></article>
+    <article class="hl-card"><span class="k">Cantor's theorem</span><h3>𝒫(ℤ⁺) is uncountable.</h3><p>Any list of subsets of ℤ⁺ misses one. The missing set is built by going down the diagonal and flipping every answer.</p><div class="big">𝒫(ℤ⁺)</div></article>
+    <article class="hl-card"><span class="k">Cantor–Schröder–Bernstein</span><h3>One-to-one both ways implies the same size.</h3><p>If A ≼ B and B ≼ A then A ∼ B. One consequence: ℝ ∼ 𝒫(ℤ⁺).</p><div class="big sm"><i>A</i> ≼ <i>B</i> ≼ <i>A</i></div></article>
+  </div>
+  <div class="wrap"><div class="paddles"><button class="paddle prev" aria-label="Previous">‹</button><button class="paddle next" aria-label="Next">›</button></div></div>
+</section>
+
+<section class="band" id="match">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy">
+        <span class="kicker grad">§7.1</span>
+        <h2>The part can be as big as the whole</h2>
+        <p>The book's matching between ℤ⁺ and ℤ: send even <i>n</i> to <span class="m"><i>n</i>/2</span> and odd <i>n</i> to <span class="m">(1 − <i>n</i>)/2</span>. The positives land on 1, 2, 3, … and the odds land on 0, −1, −2, …. Nothing is hit twice, and nothing is missed.</p>
+        <p>To show two sets are the same size you need only <b>one</b> such function. The many functions that fail don't matter.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">f : ℤ⁺ → ℤ</span><label class="ctl" for="zz">show up to n = <b id="zz-v" style="color:var(--fg)">12</b><input type="range" id="zz" min="4" max="20" value="12"></label></div>
+        <div class="scroll-x"><table class="tt" id="zz-t"></table></div>
+        <p class="note">Every integer m is hit exactly once: by 2m if m &gt; 0, and by 1 − 2m if m ≤ 0.</p>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <h2>Counting a grid, one diagonal at a time</h2>
+        <p>The pairs of positive integers fill an infinite grid, which looks like far more than one infinite line. But run along the diagonals in turn and every pair gets a number. The book's formula is</p>
+        <p class="out" style="color:var(--fg)">f(i, j) = (i + j − 2)(i + j − 1)/2 + i</p>
+        <p>Drag the slider to count. Every cell is reached eventually.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">ℤ⁺ × ℤ⁺ → ℤ⁺</span><label class="ctl" for="gd">count to <b id="gd-v" style="color:var(--fg)">10</b><input type="range" id="gd" min="1" max="28" value="10"></label></div>
+        <div class="scroll-x"><div id="gd-grid" style="display:grid;grid-template-columns:28px repeat(7,minmax(36px,1fr));gap:4px;min-width:300px;font-variant-numeric:tabular-nums"></div></div>
+        <p class="note" id="gd-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band ink" id="labs">
+  <div class="wrap">
+    <div class="head center">
+      <span class="kicker grad">Try it · §7.2</span>
+      <h2>Try to list every subset of ℤ⁺</h2>
+      <p>Each row is one subset in your list. A filled square in column <i>n</i> means <i>n</i> is in that set. Cantor's set <span class="m"><i>D</i> = {<i>n</i> ∈ ℤ⁺ | <i>n</i> ∉ <i>f</i>(<i>n</i>)}</span> flips the diagonal, so it disagrees with row <i>n</i> about <i>n</i>, for every <i>n</i>. Add <i>D</i> to the list and a new <i>D</i> appears.</p>
+    </div>
+    <div class="lab">
+      <div class="lab-top"><span class="lab-title">Your attempted list f(1), f(2), …</span><div class="row"><button class="tbtn" id="cd-new">New list</button><button class="tbtn primary" id="cd-add">Add D to the top</button></div></div>
+      <div class="scroll-x"><div id="cd-grid" style="display:grid;gap:4px;min-width:520px"></div></div>
+      <p class="center" id="cd-msg" style="font-size:19px;margin-top:16px"></p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head center"><h2>The rest of the landscape</h2><p>Once you have one countable set and one uncountable one, the other results follow in a few lines each.</p></div>
+    <div class="bento">
+      <div class="tile w3"><span class="k">Theorem 7.1.6</span><h3>ℚ is denumerable.</h3><p>Rationals are fractions, so they are essentially pairs of integers. Since ℤ⁺ × ℤ⁺ ∼ ℤ⁺, the rationals can be listed too.</p></div>
+      <div class="tile w3"><span class="k">Theorems 7.2.1–7.2.4</span><h3>Countable stays countable.</h3><p>If A and B are countable, so are A × B and A ∪ B. A countable union of countable sets is countable. So is the set of all finite sequences from a countable set.</p></div>
+      <div class="tile w3"><span class="k">Theorem 7.2.6</span><h3>ℝ is uncountable.</h3><p>Decimal expansions give a one-to-one map from 𝒫(ℤ⁺) into ℝ. A consequence: since ℚ is countable, the irrationals ℝ ∖ ℚ must be uncountable.</p></div>
+      <div class="tile w3"><span class="k">Definition 7.3.1</span><h3>A ≼ B: B dominates A.</h3><p>There's a one-to-one function from A to B. ≼ is reflexive and transitive but not antisymmetric, because ℤ⁺ ≼ ℚ and ℚ ≼ ℤ⁺ while ℤ⁺ ≠ ℚ. So it isn't a partial order.</p></div>
+      <div class="tile w6"><span class="k">Theorem 7.3.2 · Cantor–Schröder–Bernstein</span><h3>If A ≼ B and B ≼ A, then A ∼ B.</h3><p>Building a bijection directly is often hard. This theorem lets you instead find two one-to-one functions, one in each direction, which is usually much easier. The book uses it to show ℝ ∼ 𝒫(ℤ⁺) (Theorem 7.3.3). The proof combines functions (Ch. 5), unions of families (Ch. 2) and recursion (Ch. 6), so it makes a good final exam for the whole book.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="book">
+  <div class="wrap">
+    <div class="head"><span class="kicker grad">In the book</span><h2>Where to go deeper</h2><p>The book says that by this point you should be comfortable reading proofs, so it explains less and leaves more as exercises. That makes it the best test of what you've learned.</p></div>
+    <div class="map">
+      <div class="map-row"><span class="no grad">7.1</span><div><h3>Equinumerous Sets</h3><p>A ∼ B, finite and infinite, |A|, ℤ⁺ ∼ ℤ, ℤ⁺ × ℤ⁺ ∼ ℤ⁺, denumerable and countable, ℚ is denumerable.</p></div><span class="pg"><b>p. 306</b></span></div>
+      <div class="map-row"><span class="no grad">7.2</span><div><h3>Countable and Uncountable Sets</h3><p>Closure properties of countable sets, Cantor's theorem and diagonalization, ℝ is uncountable.</p></div><span class="pg"><b>p. 315</b></span></div>
+      <div class="map-row"><span class="no grad">7.3</span><div><h3>The Cantor–Schröder–Bernstein Theorem</h3><p>Domination, the theorem and its proof, and ℝ ∼ 𝒫(ℤ⁺).</p></div><span class="pg"><b>p. 322</b></span></div>
+    </div>
+    <div class="map-foot">
+      <div><h4>Exercises</h4><p>Starred exercises have solutions in Appendix 1, p. 329. Exercise 12 of §7.1 asks you to check the grid formula above.</p></div>
+      <div><h4>Further reading</h4><p>The book's list on p. 375 points to Halmos, <i>Naive Set Theory</i>, and Enderton, <i>Elements of Set Theory</i>, for more on infinite sets.</p></div>
+      <div><h4>You've finished the speedrun</h4><p>Every technique on one page: <a href="toolkit.html">Proof Toolkit ›</a></p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function f(n) { return n % 2 === 0 ? n / 2 : (1 - n) / 2; }
+  function zz() {
+    var N = +$("zz").value, a = '<tr><th class="left">n</th>', b = '<tr><td class="left muted">f(n)</td>'; $("zz-v").textContent = N;
+    for (var n = 1; n <= N; n++) { var v = f(n); a += '<th>' + n + '</th>'; b += '<td style="font-weight:600;color:' + (v > 0 ? 'var(--g1)' : 'var(--fg)') + '">' + (v < 0 ? '−' + (-v) : v) + '</td>'; }
+    $("zz-t").innerHTML = a + '</tr>' + b + '</tr>';
+  }
+  $("zz").addEventListener("input", zz); zz();
+
+  function pair(i, j) { return (i + j - 2) * (i + j - 1) / 2 + i; }
+  function gd() {
+    var K = +$("gd").value, h = '<span></span>', last = null; $("gd-v").textContent = K;
+    for (var j = 1; j <= 7; j++) h += '<span style="text-align:center;font-size:12px;color:var(--fg2)">j=' + j + '</span>';
+    for (var i = 1; i <= 7; i++) {
+      h += '<span style="font-size:12px;color:var(--fg2);align-self:center">i=' + i + '</span>';
+      for (var j2 = 1; j2 <= 7; j2++) {
+        var v = pair(i, j2), on = v <= K, cur = v === K; if (cur) last = [i, j2];
+        h += '<span style="height:36px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:600;' + (on ? 'color:var(--on-grad);background:linear-gradient(135deg,var(--g1),var(--g2));' + (cur ? 'box-shadow:0 0 0 2px var(--fg);' : 'opacity:.75;') : 'color:var(--fg3);background:var(--tile);') + '">' + v + '</span>';
+      }
+    }
+    $("gd-grid").innerHTML = h;
+    var c = last;
+    $("gd-note").innerHTML = c ? 'The pair (' + c[0] + ', ' + c[1] + ') gets number (' + c[0] + '+' + c[1] + '−2)(' + c[0] + '+' + c[1] + '−1)/2 + ' + c[0] + ' = ' + K + '. Each diagonal i + j = constant is counted in turn.' : '';
+  }
+  $("gd").addEventListener("input", gd); gd();
+
+  // Cantor diagonal
+  var COLS = 12, rows = [], seed = 7;
+  function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  function fresh() { rows = []; for (var r = 0; r < 8; r++) { var s = []; for (var c = 0; c < COLS; c++) s.push(rnd() < 0.45); rows.push(s); } }
+  function D() { var d = []; for (var c = 0; c < COLS; c++) d.push(c < rows.length ? !rows[c][c] : null); return d; }
+  function cell(on, diag, isD) {
+    var bg = on === null ? 'transparent' : on ? 'linear-gradient(135deg,var(--g1),var(--g2))' : 'var(--tile)';
+    var bd = diag ? 'box-shadow:0 0 0 2px var(--fg);' : '';
+    return '<span style="height:30px;border-radius:7px;background:' + bg + ';' + bd + (isD && on === null ? 'display:grid;place-items:center;color:var(--fg3);' : '') + '">' + (isD && on === null ? '·' : '') + '</span>';
+  }
+  function cd() {
+    var g = $("cd-grid"), tmpl = '64px repeat(' + COLS + ',minmax(26px,1fr))', h = '<span></span>';
+    g.style.gridTemplateColumns = tmpl;
+    for (var c = 0; c < COLS; c++) h += '<span style="text-align:center;font-size:12px;color:var(--fg2)">' + (c + 1) + '</span>';
+    rows.forEach(function (r, i) {
+      h += '<span class="mb" style="font-size:15px;align-self:center;color:var(--fg2)"><i>f</i>(' + (i + 1) + ')</span>';
+      r.forEach(function (on, c) { h += cell(on, c === i, false); });
+    });
+    var d = D();
+    h += '<span style="grid-column:1/-1;height:8px"></span><span class="mb grad" style="font-size:17px;font-weight:600;align-self:center"><i>D</i></span>';
+    d.forEach(function (on) { h += cell(on, false, true); });
+    g.innerHTML = h;
+    $("cd-msg").innerHTML = "D differs from f(1) at 1, from f(2) at 2, …, from f(" + rows.length + ") at " + rows.length + ". <b>D is not in the list.</b>";
+  }
+  $("cd-new").addEventListener("click", function () { fresh(); cd(); });
+  $("cd-add").addEventListener("click", function () {
+    var d = D(); for (var c = 0; c < COLS; c++) if (d[c] === null) d[c] = rnd() < 0.45;
+    rows.unshift(d); if (rows.length > COLS) rows.pop(); cd();
+    $("cd-msg").innerHTML = "D is now f(1), and every other row moved down one. The diagonal changed, so there's a <b>new</b> D that isn't in the list. This never ends, so no list contains every subset.";
+  });
+  fresh(); cd();
+})();
+</script>
+
+<section class="band tight" aria-label="Keep going"><div class="wrap"><div class="pn"><a class="prev" href="induction.html"><span class="dir">Previous</span><span class="nm">Mathematical Induction</span><span class="tg">&#8249; Infinitely many cases, two steps</span></a><a class="next" href="toolkit.html"><span class="dir">Next</span><span class="nm">Proof Toolkit</span><span class="tg">Every technique on one page &#8250;</span></a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><ol>
+<li>The book writes A ≼ B with its own symbol for domination (Definition 7.3.1). ℤ⁺ denotes the positive integers.</li>
+<li>The grid shows only finitely many columns. In the theorem, D is defined for every positive integer and differs from f(n) at n.</li>
+</ol><p class="rule credit">An unofficial study companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page numbers (p.) are the printed page numbers of that edition. Statements are quoted or paraphrased for study; the book has the complete proofs, the scratch work behind them, and the exercises.</p><nav class="dir" aria-label="All pages"><a href="index.html">Home</a><a href="intro.html">Introduction</a><a href="logic.html">Sentential Logic</a><a href="quantifiers.html">Quantificational Logic</a><a href="proofs.html">Proofs</a><a href="relations.html">Relations</a><a href="functions.html">Functions</a><a href="induction.html">Mathematical Induction</a><a href="infinity.html">Infinite Sets</a><a href="toolkit.html">Proof Toolkit</a></nav></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

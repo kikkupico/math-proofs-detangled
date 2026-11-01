@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Introduction · How to Prove It Speedrun</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Why prove anything?">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page ch-intro">
+<nav class="gnav" aria-label="Chapters"><ul><li><a class="brand" href="index.html" aria-label="Home">&#8718;</a></li><li><a href="intro.html" aria-current="page">Intro</a></li><li><a href="logic.html">Logic</a></li><li><a href="quantifiers.html">Quantifiers</a></li><li><a href="proofs.html">Proofs</a></li><li><a href="relations.html">Relations</a></li><li><a href="functions.html">Functions</a></li><li><a href="induction.html">Induction</a></li><li><a href="infinity.html">Infinity</a></li><li><a href="toolkit.html">Toolkit</a></li></ul></nav>
+<div class="lnav"><div class="wrap"><a class="title" href="intro.html">Introduction</a><nav aria-label="On this page"><a class="sec" href="#highlights">Key ideas</a><a class="sec" href="#labs">Try it</a><a class="sec" href="#book">In the book</a><a class="btn sm" href="logic.html">Next: Logic</a></nav></div></div>
+<main>
+<section class="hero wrap">
+  <p class="eyebrow">Introduction · pp. 1–7</p>
+  <h1>Why prove anything?</h1>
+  <p class="tag grad">Because patterns lie.</p>
+  <p class="lede">The book opens with prime numbers and a pattern that holds for every case you check, until it doesn't. Only a proof can tell you whether a pattern will keep going.</p>
+  <div class="cta-row"><a class="btn" href="#labs">Test the pattern</a><a class="more" href="#unsolved">See what's still unsolved</a></div>
+  <div class="hero-art">
+    <div class="scroll-x"><table class="tt" style="max-width:640px;margin:auto">
+      <tr><th class="left" style="font-family:var(--sans);font-size:13px">n</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th style="color:var(--bad)">11</th></tr>
+      <tr><td class="left muted">n prime?</td><td class="T">yes</td><td class="T">yes</td><td class="F">no</td><td class="T">yes</td><td class="F">no</td><td class="T">yes</td><td class="F">no</td><td class="F">no</td><td class="F">no</td><td class="T">yes</td></tr>
+      <tr><td class="left muted">2ⁿ−1 prime?</td><td class="T">yes</td><td class="T">yes</td><td class="F">no</td><td class="T">yes</td><td class="F">no</td><td class="T">yes</td><td class="F">no</td><td class="F">no</td><td class="F">no</td><td class="F" style="background:var(--bad-bg)">no</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section class="hl" id="highlights" data-carousel>
+  <div class="wrap"><div class="head"><h2>Key ideas</h2></div></div>
+  <div class="hl-track">
+    <article class="hl-card"><span class="k">A conjecture</span><h3>Up to 10, 2ⁿ−1 is prime exactly when <i>n</i> is.</h3><p>A guess based on examples is called a conjecture. This one looks very convincing.</p><div class="big">2<sup style="font-size:.5em">n</sup> − 1</div></article>
+    <article class="hl-card"><span class="k">A counterexample</span><h3>One case is enough to sink it.</h3><p>11 is prime, but 2¹¹ − 1 = 2047 = 23 · 89. Half of the conjecture is false.</p><div class="big sm">2047 = 23 · 89</div></article>
+    <article class="hl-card"><span class="k">The catch</span><h3>No amount of examples proves a theorem.</h3><p>The other half survives every check up to 30. That still doesn't show it's true, because the next case could be the first failure.</p><div class="big">?</div></article>
+    <article class="hl-card"><span class="k">A proof</span><h3>If <i>n</i> isn't prime, 2ⁿ−1 isn't either.</h3><p>The proof gives a recipe that turns any factorization of <i>n</i> into a factorization of 2ⁿ−1.</p><div class="big sm"><i>n</i> = <i>ab</i> ⇒ 2<sup style="font-size:.5em">b</sup>−1 divides</div></article>
+    <article class="hl-card"><span class="k">Euclid, c. 350 B.C.</span><h3>There are infinitely many primes.</h3><p>Multiply any finite list of primes, add 1, and the result has a prime factor that isn't on the list.</p><div class="big">∞</div></article>
+    <article class="hl-card"><span class="k">Prime deserts</span><h3>Gaps between primes can be as long as you like.</h3><p>For any <i>n</i>, there are <i>n</i> consecutive numbers with no prime among them.</p><div class="big sm">(<i>n</i>+1)! + 2, …</div></article>
+  </div>
+  <div class="wrap"><div class="paddles"><button class="paddle prev" aria-label="Previous">‹</button><button class="paddle next" aria-label="Next">›</button></div></div>
+</section>
+
+<section class="band" id="labs">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy">
+        <span class="kicker grad">Try it</span>
+        <h2>Conjecture, counterexample, theorem</h2>
+        <p>The book states two conjectures. <b>Conjecture 1:</b> if <i>n</i> is prime, so is 2ⁿ−1. <b>Conjecture 2:</b> if <i>n</i> is not prime, neither is 2ⁿ−1.</p>
+        <p>Drag the slider to check more cases and watch each conjecture's status.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Mersenne checker</span><label class="ctl" for="mz">Check up to n = <b id="mz-v" style="color:var(--fg)">10</b><input type="range" id="mz" min="2" max="31" value="10"></label></div>
+        <div class="chips" style="margin-bottom:14px"><span class="chip" id="mz-c1"></span><span class="chip" id="mz-c2"></span></div>
+        <div class="scroll-x" style="max-height:330px;overflow-y:auto"><table class="tt" id="mz-t"></table></div>
+        <p class="note" id="mz-note"></p>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <h2>A proof is a recipe</h2>
+        <p>Here is the idea behind Conjecture 2, which becomes a theorem. If <i>n</i> = <i>ab</i>, let <span class="m"><i>x</i> = 2<sup>b</sup> − 1</span> and <span class="m"><i>y</i> = 1 + 2<sup>b</sup> + 2<sup>2b</sup> + ⋯ + 2<sup>(a−1)b</sup></span>. Multiplying them out, almost every term cancels, and <span class="m"><i>xy</i> = 2<sup>n</sup> − 1</span>.</p>
+        <p>The proof doesn't check cases. It works for <b>every</b> composite <i>n</i> at once. Pick one and watch.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Factor machine</span>
+          <div class="row"><label class="ctl" for="fm-n">n =<select id="fm-n"></select></label><label class="ctl" for="fm-ab">as a · b<select id="fm-ab"></select></label></div></div>
+        <div class="out" id="fm-out" style="line-height:1.9"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band ink">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy">
+        <h2>Euclid's machine</h2>
+        <p>Suppose someone hands you a list of primes and says it's complete. Multiply them all together and add 1. Dividing that number by anything on the list leaves remainder 1. But it does have prime factors, so at least one prime is missing from the list.</p>
+        <p>The book's version is a proof by contradiction. Chapter 3 takes it apart step by step.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Pick a “complete” list</span><button class="tbtn" id="eu-ex">Try 2 · 3 · 5 · 7 · 11 · 13</button></div>
+        <div class="chips" id="eu-chips"></div>
+        <div class="out mt-m" id="eu-out" style="line-height:1.8"></div>
+        <p class="note">The new prime may be bigger or smaller than the ones on your list. Try 2, 5, 11: you get 111 = 3 · 37.</p>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="copy">
+        <h2>Deserts with no primes</h2>
+        <p>Primes thin out as numbers grow. There are 25 below 100, but only six between 1,000,000 and 1,000,100. The book proves you can find a stretch of <i>n</i> consecutive non-primes for <b>any</b> <i>n</i>.</p>
+        <p>Start at <span class="m">(<i>n</i>+1)! + 2</span>. Each of the next <i>n</i> numbers has an obvious factor: the first is divisible by 2, the next by 3, and so on.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Desert generator</span><label class="ctl" for="ds">n = <b id="ds-v" style="color:var(--fg)">5</b><input type="range" id="ds" min="2" max="12" value="5"></label></div>
+        <div id="ds-out" class="scroll-x"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="unsolved">
+  <div class="wrap">
+    <div class="head center"><h2>Easy to ask. Still open</h2><p>The Introduction ends with famous questions about primes. They're simple to state, and as far as the book knows, nobody has answered them yet.</p></div>
+    <div class="bento">
+      <div class="tile w4"><span class="k">Mersenne primes</span><h3>Are there infinitely many primes of the form 2ⁿ−1?</h3><p>They are named after Marin Mersenne (1588–1647). Many of the largest known primes are of this form. When the book was written in April 2005, the record was 2<sup>25,964,951</sup> − 1, a number with 7,816,230 digits.</p></div>
+      <div class="tile w2"><span class="k">Perfect numbers</span><div class="sym grad">6 = 1+2+3</div><p>A number is perfect if it equals the sum of its smaller divisors. 28 is the next one.</p></div>
+      <div class="tile w3"><span class="k">Euclid + Euler</span><h3>Every Mersenne prime makes a perfect number.</h3><p>If 2ⁿ−1 is prime, then 2ⁿ⁻¹(2ⁿ−1) is perfect. About 2000 years later Euler proved that every <b>even</b> perfect number arises this way. Nobody knows whether an odd perfect number exists.</p></div>
+      <div class="tile w3"><span class="k">Twin primes</span><h3>5 and 7. 29 and 31. 7949 and 7951.</h3><p>Pairs of primes that differ by 2 keep turning up. Are there infinitely many of them? It is not known.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="book">
+  <div class="wrap">
+    <div class="head"><span class="kicker grad">In the book</span><h2>Where to go deeper</h2><p>The Introduction is short. Don't worry if its proofs feel mysterious, because the book says so too. They all come back in Chapter 3.</p></div>
+    <div class="map">
+      <div class="map-row"><span class="no grad">Intro</span><div><h3>Introduction</h3><p>Conjectures and counterexamples, the Mersenne factoring proof, Euclid's infinitude of primes, and prime-free stretches. Ends with perfect numbers and twin primes.</p></div><span class="pg"><b>p. 1</b></span></div>
+      <div class="map-row"><span class="no grad">3.7</span><div><h3>More Examples of Proofs</h3><p>The same three proofs taken apart with the strategies from Chapter 3.</p></div><span class="pg"><b>p. 155</b></span></div>
+      <div class="map-row"><span class="no grad">6.5</span><div><h3>Closures Again</h3><p>The cancelling sum in the factor machine, proved properly by induction (Theorem 6.5.3).</p></div><span class="pg"><b>p. 300</b></span></div>
+    </div>
+    <div class="map-foot">
+      <div><h4>Exercises</h4><p>Six short ones on p. 6. Try factoring 2¹⁵ − 1 with the recipe. Starred exercises have solutions in Appendix 1, p. 329.</p></div>
+      <div><h4>Read next</h4><p>Chapter 1 begins with what makes an argument valid. <a href="logic.html">Sentential Logic ›</a></p></div>
+      <div><h4>Prime facts used</h4><p>Every integer above 1 is prime or a product of primes. The book uses this here and proves it in §6.4.</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  function isPrime(n) { if (n < 2) return false; if (n % 2 === 0) return n === 2; for (var d = 3; d * d <= n; d += 2) if (n % d === 0) return false; return true; }
+  function smallest(n) { if (n % 2 === 0) return 2; for (var d = 3; d * d <= n; d += 2) if (n % d === 0) return d; return n; }
+  function factor(n) { var f = []; while (n > 1) { var d = smallest(n); f.push(d); n = n / d; } return f; }
+  function fmt(n) { return n.toLocaleString("en-US"); }
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Mersenne checker
+  var rows = [];
+  for (var n = 2; n <= 31; n++) { var m = Math.pow(2, n) - 1; rows.push({ n: n, np: isPrime(n), m: m, mp: isPrime(m), f: smallest(m) }); }
+  function mz() {
+    var N = +$("mz").value; $("mz-v").textContent = N;
+    var h = '<tr><th>n</th><th>n prime?</th><th>2ⁿ − 1</th><th>prime?</th><th class="left">factor</th></tr>';
+    var c1 = null, c2 = null;
+    rows.forEach(function (r) {
+      if (r.n > N) return;
+      var bad1 = r.np && !r.mp, bad2 = !r.np && r.mp;
+      if (bad1 && c1 === null) c1 = r; if (bad2 && c2 === null) c2 = r;
+      h += '<tr' + (bad1 ? ' class="hit"' : '') + '><td>' + r.n + '</td><td class="' + (r.np ? 'T">yes' : 'F">no') + '</td><td>' + fmt(r.m) + '</td><td class="' + (r.mp ? 'T">yes' : 'F">no') + '</td><td class="left muted">' + (r.mp ? '–' : fmt(r.f) + ' · ' + fmt(r.m / r.f)) + '</td></tr>';
+    });
+    $("mz-t").innerHTML = h;
+    $("mz-c1").className = "chip " + (c1 ? "no" : "yes");
+    $("mz-c1").textContent = c1 ? "Conjecture 1: broken at n = " + c1.n : "Conjecture 1: holding so far";
+    $("mz-c2").className = "chip yes";
+    $("mz-c2").textContent = "Conjecture 2: no counterexample";
+    $("mz-note").textContent = c1 ? "Highlighted rows are counterexamples to Conjecture 1. Conjecture 2 has none up to " + N + ", but only the proof shows it holds for every n." : "Everything fits so far. Try going past 10.";
+  }
+  $("mz").addEventListener("input", mz); mz();
+
+  // Factor machine
+  var comps = []; for (var k = 4; k <= 30; k++) if (!isPrime(k)) comps.push(k);
+  $("fm-n").innerHTML = comps.map(function (c) { return '<option' + (c === 12 ? ' selected' : '') + '>' + c + '</option>'; }).join("");
+  function pairs(n) { var p = []; for (var b = 2; b < n; b++) if (n % b === 0) p.push([n / b, b]); return p; }
+  function fillAB() { var n = +$("fm-n").value; $("fm-ab").innerHTML = pairs(n).map(function (p, i) { return '<option value="' + i + '">' + p[0] + ' · ' + p[1] + '</option>'; }).join(""); }
+  function fm() {
+    var n = +$("fm-n").value, p = pairs(n)[+$("fm-ab").value || 0], a = p[0], b = p[1];
+    var B = BigInt(b), x = (1n << B) - 1n, y = 0n, terms = [];
+    for (var i = 0; i < a; i++) { y += 1n << (B * BigInt(i)); terms.push(i === 0 ? "1" : "2<sup>" + (i * b) + "</sup>"); }
+    var t = (1n << BigInt(n)) - 1n;
+    var g = function (v) { return Number(v) < 1e15 ? Number(v).toLocaleString("en-US") : v.toString(); };
+    $("fm-out").innerHTML =
+      '<div><span class="muted" style="font-family:var(--sans);font-size:14px">a = ' + a + ', b = ' + b + '</span></div>' +
+      '<div><i>x</i> = 2<sup>' + b + '</sup> − 1 = <b>' + g(x) + '</b></div>' +
+      '<div><i>y</i> = ' + terms.join(" + ") + ' = <b>' + g(y) + '</b></div>' +
+      '<div><i>xy</i> = ' + g(x) + ' · ' + g(y) + ' = <b>' + g(x * y) + '</b></div>' +
+      '<div>2<sup>' + n + '</sup> − 1 = <b>' + g(t) + '</b> <span class="chip ' + (x * y === t ? 'yes">match' : 'no">mismatch') + '</span></div>' +
+      '<div class="small muted" style="font-family:var(--sans);margin-top:6px">Both factors are bigger than 1, so 2<sup>' + n + '</sup> − 1 is not prime.</div>';
+  }
+  $("fm-n").addEventListener("change", function () { fillAB(); fm(); });
+  $("fm-ab").addEventListener("change", fm);
+  fillAB(); fm();
+
+  // Euclid
+  var P = [2, 3, 5, 7, 11, 13, 17, 19, 23], on = { 2: 1, 3: 1, 5: 1, 7: 1 };
+  P.forEach(function (p) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.textContent = p;
+    b.addEventListener("click", function () { if (on[p]) delete on[p]; else on[p] = 1; eu(); });
+    $("eu-chips").appendChild(b);
+  });
+  $("eu-ex").addEventListener("click", function () { on = { 2: 1, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1 }; eu(); });
+  function eu() {
+    var list = P.filter(function (p) { return on[p]; });
+    Array.prototype.forEach.call($("eu-chips").children, function (b) { b.setAttribute("aria-pressed", on[+b.textContent] ? "true" : "false"); });
+    if (!list.length) { $("eu-out").innerHTML = '<span class="muted" style="font-family:var(--sans);font-size:15px">Pick at least one prime.</span>'; return; }
+    var m = list.reduce(function (a, b) { return a * b; }, 1) + 1, f = factor(m);
+    var uniq = f.filter(function (v, i) { return f.indexOf(v) === i; });
+    $("eu-out").innerHTML = '<div><i>m</i> = ' + list.join(" · ") + ' + 1 = <b>' + fmt(m) + '</b></div>' +
+      '<div>' + (f.length === 1 ? fmt(m) + ' is itself prime.' : fmt(m) + ' = ' + f.map(fmt).join(" · ")) + '</div>' +
+      '<div class="chips" style="margin-top:8px">' + uniq.map(function (q) { return '<span class="chip hot">' + fmt(q) + ' · not on your list</span>'; }).join("") + '</div>';
+  }
+  eu();
+
+  // Desert
+  function ds() {
+    var n = +$("ds").value; $("ds-v").textContent = n;
+    var fact = 1n; for (var i = 2n; i <= BigInt(n + 1); i++) fact *= i;
+    var h = '<table class="tt"><tr><th>number</th><th>divisible by</th></tr>';
+    for (var j = 0; j < n; j++) { var x = fact + BigInt(j + 2); h += '<tr><td>' + Number(x).toLocaleString("en-US") + '</td><td class="F">' + (j + 2) + '</td></tr>'; }
+    $("ds-out").innerHTML = h + '</table><p class="note">(' + (n + 1) + ')! = ' + Number(fact).toLocaleString("en-US") + '. Adding k, for k from 2 up to ' + (n + 1) + ', gives a number divisible by k.</p>';
+  }
+  $("ds").addEventListener("input", ds); ds();
+})();
+</script>
+
+<section class="band tight" aria-label="Keep going"><div class="wrap"><div class="pn"><a class="prev" href="index.html"><span class="dir">Previous</span><span class="nm">Home</span><span class="tg">&#8249; Start here</span></a><a class="next" href="logic.html"><span class="dir">Next</span><span class="nm">Sentential Logic</span><span class="tg">The grammar of certainty &#8250;</span></a></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><ol>
+<li>The record prime quoted is the one given in the book (as of April 2005). Larger Mersenne primes have been found since.</li>
+<li>Counts of primes in ranges and the twin-prime examples are from the Introduction, pp. 5–6.</li>
+</ol><p class="rule credit">An unofficial study companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page numbers (p.) are the printed page numbers of that edition. Statements are quoted or paraphrased for study; the book has the complete proofs, the scratch work behind them, and the exercises.</p><nav class="dir" aria-label="All pages"><a href="index.html">Home</a><a href="intro.html">Introduction</a><a href="logic.html">Sentential Logic</a><a href="quantifiers.html">Quantificational Logic</a><a href="proofs.html">Proofs</a><a href="relations.html">Relations</a><a href="functions.html">Functions</a><a href="induction.html">Mathematical Induction</a><a href="infinity.html">Infinite Sets</a><a href="toolkit.html">Proof Toolkit</a></nav></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
