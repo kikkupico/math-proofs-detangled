@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Direct Proof · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Assume the hypothesis. Walk to the conclusion.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-techniques">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html" aria-current="true"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Techniques pages"><div class="wrap rail-in"><a class="r-hub" href="techniques.html">Overview</a><a href="direct.html" aria-current="page"><span class="i">1</span>Direct proof</a><a href="contrapositive.html"><span class="i">2</span>Contrapositive</a><a href="contradiction.html"><span class="i">3</span>Contradiction</a><a href="for-all.html"><span class="i">4</span>Arbitrary objects</a><a href="exists.html"><span class="i">5</span>Witnesses</a><a href="iff.html"><span class="i">6</span>And &amp; iff</a><a href="cases.html"><span class="i">7</span>Cases</a><a href="uniqueness.html"><span class="i">8</span>Uniqueness</a><a href="counterexample.html"><span class="i">9</span>Counterexamples</a><a href="induction.html"><span class="i">10</span>Induction</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 3 · Techniques · 1 of 10</p>
+      <h1>Direct Proof</h1>
+      <p class="tagline">Assume the hypothesis. Walk to the conclusion.</p>
+      <p class="lede">Most theorems have the form “if P, then Q”. The most natural way to prove one: <b>assume P</b> is true, then use it, together with definitions and known facts, to show <b>Q</b> must be true too.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Suppose</span> <i>P</i>.
+   <span class="c">… unpack definitions …</span>
+   <span class="c">… use what you know …</span>
+   <span class="kw">Therefore</span> <i>Q</i>.
+<span class="kw">Thus</span> <i>P</i> → <i>Q</i>.  ∎</div>
+      <p class="small muted mt-s">Givens gain <i>P</i>. The goal shrinks from <i>P</i> → <i>Q</i> to just <i>Q</i>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Example 1</span><h2>If n is even, then n² is even</h2><p>Watch the givens, the goal and the written proof change together.</p></div>
+    <div class="lab stepper">
+      <p class="say" data-at="1" data-until="1">Start: no givens except that <i>n</i> is an integer. The goal is an if–then.</p>
+      <p class="say" data-at="2" data-until="2">The goal has the form <b>P → Q</b>. So assume <b>P</b>: it moves to the givens, and the goal becomes <b>Q</b>.</p>
+      <p class="say" data-at="3" data-until="3"><b>Unpack the definition.</b> “Even” means “equals 2 times some integer”. So we can name that integer <i>k</i>.</p>
+      <p class="say" data-at="4" data-until="4">Now the goal, unpacked, asks for <i>n</i>² = 2 × (some integer). Compute <i>n</i>² and look for a factor of 2.</p>
+      <p class="say" data-at="5"><i>n</i>² = 2(2<i>k</i>²) and 2<i>k</i>² is an integer. Goal reached. <b>That's the whole proof.</b></p>
+      <div class="split top" style="gap:20px">
+        <div class="board">
+          <div><h4>Givens</h4><ul><li><i>n</i> ∈ ℤ</li><li data-at="2" data-until="2" class="new"><i>n</i> is even</li><li data-at="3" class="new"><i>n</i> = 2<i>k</i>, <i>k</i> ∈ ℤ</li></ul></div>
+          <div><h4>Goal</h4><ul><li data-at="1" data-until="1"><i>n</i> even → <i>n</i>² even</li><li data-at="2" data-until="3" class="new"><i>n</i>² is even</li><li data-at="4" data-until="4" class="new"><i>n</i>² = 2<i>j</i> for some <i>j</i> ∈ ℤ</li><li data-at="5" class="done"><i>n</i>² = 2<i>j</i> for some <i>j</i> ∈ ℤ</li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="2">Suppose <i>n</i> is even.</span>
+          <span class="pl" data-at="3">Then <i>n</i> = 2<i>k</i> for some integer <i>k</i>.</span>
+          <span class="pl" data-at="4">So <i>n</i>² = (2<i>k</i>)² = 4<i>k</i>² = 2(2<i>k</i>²).</span>
+          <span class="pl" data-at="5">Since 2<i>k</i>² is an integer, <i>n</i>² is even. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Example 2</span>
+        <h2>If 0 &lt; a &lt; b, then a² &lt; b²</h2>
+        <p>Here there's no definition to unpack. Instead, you use known facts about inequalities: multiplying both sides by a positive number keeps the direction.</p>
+        <p>The trick is to <b>work backwards in scratch work</b>: “I want a² &lt; b². I'd get a² &lt; ab by multiplying a &lt; b by a, and ab &lt; b² by multiplying by b.” Then write the proof forwards.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">Assume the hypothesis.</p>
+        <p class="say" data-at="2" data-until="2">Multiply <i>a</i> &lt; <i>b</i> by <i>a</i>, which is positive.</p>
+        <p class="say" data-at="3" data-until="3">Multiply <i>a</i> &lt; <i>b</i> by <i>b</i>, also positive (since <i>b</i> &gt; <i>a</i> &gt; 0).</p>
+        <p class="say" data-at="4">Chain the two inequalities.</p>
+        <div class="proof">
+          <span class="pl" data-at="1">Suppose 0 &lt; <i>a</i> &lt; <i>b</i>.</span>
+          <span class="pl" data-at="2">Multiplying <i>a</i> &lt; <i>b</i> by the positive number <i>a</i> gives <i>a</i>² &lt; <i>ab</i>.</span>
+          <span class="pl" data-at="3">Multiplying <i>a</i> &lt; <i>b</i> by the positive number <i>b</i> gives <i>ab</i> &lt; <i>b</i>².</span>
+          <span class="pl" data-at="4">So <i>a</i>² &lt; <i>ab</i> &lt; <i>b</i>², and therefore <i>a</i>² &lt; <i>b</i>². ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Two kinds of writing</span><h2>Scratch work versus the final proof</h2></div>
+    <div class="cards two">
+      <div class="card"><span class="k">Scratch work</span><h3>Where you think</h3><p>List givens and goal. Unpack definitions. Work backwards from the goal. Try things that fail. None of this has to be tidy, and none of it goes in the final proof.</p></div>
+      <div class="card"><span class="k">Final proof</span><h3>What you hand in</h3><p>Only the steps that justify the conclusion, in order, in full sentences. It explains <i>why</i> the theorem is true, not how you found the argument.</p></div>
+    </div>
+    <div class="callout warn mt-m"><span class="k">Common slip</span><p>Starting from the conclusion. “Suppose <i>a</i>² &lt; <i>b</i>² … so <i>a</i> &lt; <i>b</i>” proves the converse, not the theorem. Working backwards is great in scratch work; the written proof must run forwards from the hypothesis.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>You want to prove “if <i>n</i> is odd, then <i>n</i>² is odd” directly. What's your first line?</p>
+      <div class="opts">
+        <button data-ok data-why="Assume the hypothesis, then unpack: n = 2k + 1 for some integer k.">Suppose n is odd, so n = 2k + 1 for some integer k.</button>
+        <button data-why="That's assuming the conclusion, which you're trying to prove.">Suppose n² is odd.</button>
+        <button data-why="That starts a proof by contrapositive, which is a different (valid) technique.">Suppose n² is even.</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Finish that proof: <i>n</i>² = (2<i>k</i> + 1)² = 4<i>k</i>² + 4<i>k</i> + 1 = …</p>
+      <div class="opts">
+        <button data-ok data-why="2k² + 2k is an integer, so n² is 2 times an integer plus 1: odd.">2(2k² + 2k) + 1, so n² is odd.</button>
+        <button data-why="Being positive says nothing about being odd. You need the form 2j + 1, which matches the definition.">4k² + 4k + 1 &gt; 0, so n² is odd.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="techniques.html" data-key="prev"><span class="d">← Previous · Part 3 · Techniques</span><span class="t">Part 3: Techniques</span></a><a class="pg next" href="contrapositive.html" data-key="next"><span class="d">Next · Part 3 · Techniques →</span><span class="t">Proof by Contrapositive</span><span class="s">Prove the mirror image instead.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §3.1, p. 84.</p><ol class='notes'>
+<li>Example 2 is Velleman's Example 3.1.2 (p. 88), written in our own words.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

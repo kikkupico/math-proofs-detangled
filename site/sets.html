@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Variables and Sets · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sets are statements you can hold.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-tools">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html" aria-current="true"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Tools pages"><div class="wrap rail-in"><a class="r-hub" href="tools.html">Overview</a><a href="connectives.html"><span class="i">1</span>Connectives</a><a href="truth-tables.html"><span class="i">2</span>Truth tables</a><a href="sets.html" aria-current="page"><span class="i">3</span>Variables &amp; sets</a><a href="set-operations.html"><span class="i">4</span>Set operations</a><a href="conditionals.html"><span class="i">5</span>Conditionals</a><a href="quantifiers.html"><span class="i">6</span>Quantifiers</a><a href="quantifier-laws.html"><span class="i">7</span>Quantifier laws</a><a href="power-sets.html"><span class="i">8</span>Power sets</a><a href="families.html"><span class="i">9</span>Unions &amp; intersections</a><a href="functions.html"><span class="i">10</span>Functions</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 2 · Tools · 3 of 10</p>
+      <h1>Variables and Sets</h1>
+      <p class="tagline">Sets are statements you can hold.</p>
+      <p class="lede">“x is prime” is neither true nor false until you say what x is. Statements with variables lead straight to sets: the set of all x that make the statement true. Sets turn out to be the natural home for almost everything in mathematics.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab" style="text-align:center">
+        <div class="big-math">{ <i>x</i> ∈ ℕ | <i>x</i> is prime }</div>
+        <p class="muted">“the set of all natural numbers <i>x</i> such that <i>x</i> is prime”</p>
+        <div class="big-math accent" style="font-size:28px">{2, 3, 5, 7, 11, 13, …}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Truth sets</span>
+        <h2>A statement picks out a set</h2>
+        <p>A statement <span class="m"><i>P</i>(<i>x</i>)</span> with a variable is true for some values and false for others. The values that make it true form its <b>truth set</b>, written <span class="m">{<i>x</i> | <i>P</i>(<i>x</i>)}</span>.</p>
+        <p>Choose a statement and watch which numbers from 1 to 30 land in its truth set. The key fact is the bridge between logic and sets: <span class="m"><i>a</i> ∈ {<i>x</i> | <i>P</i>(<i>x</i>)}</span> means exactly <span class="m"><i>P</i>(<i>a</i>)</span>.</p>
+      </div>
+      <div class="lab">
+        <div class="seg" id="ts-pick" role="group" aria-label="Statement"></div>
+        <div class="out mt-s" id="ts-set" style="font-size:19px"></div>
+        <div id="ts-grid" class="mt-s" style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:12px">Which variables are free?</div>
+        <div class="stepper">
+          <div class="mb" style="font-size:24px;margin-bottom:12px">{<i>x</i> | <i>x</i> &gt; <i>y</i>}</div>
+          <p class="say" data-at="1" data-until="1">Here <i>x</i> is just a placeholder. Replace it with <i>w</i> and you get {<i>w</i> | <i>w</i> &gt; <i>y</i>}, the same set. So <i>x</i> is <b>bound</b>.</p>
+          <p class="say" data-at="2" data-until="2">But <i>y</i> matters: you can't say what the set is until you know <i>y</i>. So <i>y</i> is <b>free</b>.</p>
+          <p class="say" data-at="3">So “3 ∈ {<i>x</i> | <i>x</i> &gt; <i>y</i>}” is a statement about <i>y</i> alone. It means 3 &gt; <i>y</i>: true if <i>y</i> = 1, false if <i>y</i> = 5.</p>
+        </div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Free and bound</span>
+        <h2>Some letters matter, some don't</h2>
+        <p>A <b>free</b> variable needs a value before the statement can be true or false. A <b>bound</b> variable is a dummy: it's used internally and can be renamed without changing the meaning.</p>
+        <p>This distinction matters in proofs, because you're never allowed to use a letter that already means something. When a definition uses <i>x</i> as a bound variable, you can rename it to avoid a clash.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Basics</span><h2>Facts about sets</h2></div>
+    <div class="cards">
+      <div class="card"><span class="sym accent">∈</span><h3>Membership</h3><p><span class="m"><i>a</i> ∈ <i>A</i></span>: a is an element of A. <span class="m"><i>a</i> ∉ <i>A</i></span>: it isn't. That's the only thing a set “knows”.</p></div>
+      <div class="card"><span class="sym accent">{1, 2} = {2, 1, 1}</span><h3>Order and repeats don't count</h3><p>Two sets are equal when they have exactly the same elements. Listing order and repetition make no difference.</p></div>
+      <div class="card"><span class="sym accent">∅</span><h3>The empty set</h3><p>The set with no elements. For example {<i>x</i> ∈ ℝ | <i>x</i>² &lt; 0} = ∅. There is only one empty set.</p></div>
+      <div class="card"><span class="sym accent">ℕ ℤ ℚ ℝ</span><h3>Standard sets</h3><p>Natural numbers {0, 1, 2, …}, integers, rationals (fractions), and reals. ℤ⁺ is the positive integers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Is <span class="m">{<i>x</i> ∈ ℤ | <i>x</i>² = 4}</span> the same set as <span class="m">{2, −2}</span>?</p>
+      <div class="opts"><button data-ok data-why="Exactly the integers 2 and −2 satisfy x² = 4.">Yes</button><button data-why="Both 2 and −2 square to 4, and nothing else does.">No, it's just {2}</button></div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>In <span class="m">{<i>n</i> ∈ ℕ | <i>n</i> divides <i>m</i>}</span>, which variable is free?</p>
+      <div class="opts"><button data-why="n is the placeholder; renaming it changes nothing.">n</button><button data-ok data-why="The set depends on m: for m = 6 it's {1, 2, 3, 6}; for m = 7 it's {1, 7}.">m</button><button data-why="n is bound by the set-builder notation.">Both</button></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  function isPrime(n) { if (n < 2) return false; for (var d = 2; d * d <= n; d++) if (n % d === 0) return false; return true; }
+  var S = [
+    ["x is prime", isPrime],
+    ["x is even", function (x) { return x % 2 === 0; }],
+    ["x² < 50", function (x) { return x * x < 50; }],
+    ["x divides 24", function (x) { return 24 % x === 0; }],
+    ["x is a perfect square", function (x) { return Math.round(Math.sqrt(x)) ** 2 === x; }],
+    ["x > 40", function (x) { return x > 40; }]
+  ];
+  var cur = 0, pick = document.getElementById("ts-pick");
+  S.forEach(function (s, i) { var b = document.createElement("button"); b.type = "button"; b.textContent = s[0]; b.addEventListener("click", function () { cur = i; draw(); }); pick.appendChild(b); });
+  function draw() {
+    var s = S[cur], h = "", mem = [];
+    Array.prototype.forEach.call(pick.children, function (b, i) { b.setAttribute("aria-pressed", i === cur ? "true" : "false"); });
+    for (var x = 1; x <= 30; x++) {
+      var on = s[1](x); if (on) mem.push(x);
+      h += '<span style="height:34px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:600;transition:background .35s,color .35s;' + (on ? 'background:var(--accent);color:#fff' : 'background:var(--paper-2);color:var(--ink-3)') + '">' + x + '</span>';
+    }
+    document.getElementById("ts-grid").innerHTML = h;
+    document.getElementById("ts-set").innerHTML = '{<i>x</i> | ' + s[0].replace(/x/g, "<i>x</i>") + '} = ' + (mem.length ? '{' + mem.join(", ") + '}' : '∅');
+  }
+  draw();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="truth-tables.html" data-key="prev"><span class="d">← Previous · Part 2 · Tools</span><span class="t">Truth Tables</span></a><a class="pg next" href="set-operations.html" data-key="next"><span class="d">Next · Part 2 · Tools →</span><span class="t">Set Operations</span><span class="s">∩, ∪ and ∖ are ∧, ∨ and “and not”.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §1.3, p. 26.</p><ol class='notes'>
+<li>Free and bound variables and truth sets follow Velleman §1.3. Here the universe is {1, …, 30} so every element can be shown.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

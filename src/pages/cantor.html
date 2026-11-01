@@ -1,0 +1,110 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Cantor's theorem</span><p>For every set <i>A</i>, no function <span class="m"><i>f</i> : <i>A</i> → 𝒫(<i>A</i>)</span> is onto.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="functions.html">Functions</a><a class="chip" href="power-sets.html">Power sets</a><a class="chip" href="sets.html">Set-builder</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="contradiction.html">Contradiction</a><a class="chip" href="exists.html">Witnesses</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Why it's a big deal</div>
+        <p class="muted">Two sets have the same size when a bijection matches them up. For finite sets, 𝒫(<i>A</i>) has 2ⁿ elements, obviously more than <i>n</i>. Cantor's theorem says the same holds for <b>infinite</b> sets: 𝒫(ℕ) is a strictly bigger infinity than ℕ, and 𝒫(𝒫(ℕ)) is bigger still. There is no largest infinity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Build the set that f misses</h2></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">∀ goal</span><h3>Take any function</h3><p>The theorem is about every <i>f</i>, so let <i>f</i> : <i>A</i> → 𝒫(<i>A</i>) be arbitrary. Goal: <i>f</i> is not onto. Negating the definition of onto, that means <b>finding a set in 𝒫(<i>A</i>) that <i>f</i> never hits</b>: an ∃ goal.</p></div>
+        <div class="step" data-key="s2"><span class="k">The witness</span><h3>The diagonal set</h3><p>Each <i>x</i> ∈ <i>A</i> gets a set <i>f</i>(<i>x</i>), and <i>x</i> is either in its own set or not. Collect the elements that are <b>not</b>. That's <i>D</i>, and it's a subset of <i>A</i>, so <i>D</i> ∈ 𝒫(<i>A</i>).</p></div>
+        <div class="step" data-key="s3"><span class="k">Negative goal → contradiction</span><h3>Suppose f does hit D</h3><p>To show <i>D</i> is never hit, assume the opposite: <i>D</i> = <i>f</i>(<i>a</i>) for some <i>a</i> ∈ <i>A</i>. That's an ∃ given, so name it <i>a</i>.</p></div>
+        <div class="step" data-key="s4"><span class="k">Ask one question</span><h3>Is a in D?</h3><p>By the definition of <i>D</i>, <i>a</i> ∈ <i>D</i> exactly when <i>a</i> ∉ <i>f</i>(<i>a</i>). But <i>f</i>(<i>a</i>) <b>is</b> <i>D</i>. So <i>a</i> ∈ <i>D</i> ↔ <i>a</i> ∉ <i>D</i>, which can't be: either answer contradicts itself.</p></div>
+        <div class="step" data-key="s5"><span class="k">Conclude</span><h3>f misses D</h3><p>So no <i>a</i> has <i>f</i>(<i>a</i>) = <i>D</i>, and <i>f</i> is not onto. Since <i>f</i> was arbitrary, no function from <i>A</i> to 𝒫(<i>A</i>) is onto.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1">Let <i>A</i> be a set and <i>f</i> : <i>A</i> → 𝒫(<i>A</i>) any function.</span>
+            <span class="pl" data-on="s2">Let <i>D</i> = { <i>x</i> ∈ <i>A</i> | <i>x</i> ∉ <i>f</i>(<i>x</i>) }. Then <i>D</i> ⊆ <i>A</i>, so <i>D</i> ∈ 𝒫(<i>A</i>).</span>
+            <span class="pl" data-on="s3">Suppose, for contradiction, that <i>D</i> = <i>f</i>(<i>a</i>) for some <i>a</i> ∈ <i>A</i>.</span>
+            <span class="pl in1" data-on="s4">Then <i>a</i> ∈ <i>D</i> ↔ <i>a</i> ∉ <i>f</i>(<i>a</i>) ↔ <i>a</i> ∉ <i>D</i>,</span>
+            <span class="pl in1" data-on="s4">which is impossible.</span>
+            <span class="pl" data-on="s5">So <i>D</i> is not in the range of <i>f</i>, and <i>f</i> is not onto. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Try to beat it</span><h2>Build an f. Watch D escape.</h2><p>Here <i>A</i> = {1, …, 6}. Row <i>x</i> shows the set <i>f</i>(<i>x</i>): click cells to put elements in or out. The diagonal (outlined) asks “is <i>x</i> in <i>f</i>(<i>x</i>)?” and <i>D</i> flips every answer. However you fill the grid, <i>D</i> differs from every row.</p></div>
+    <div class="lab">
+      <div class="lab-top"><span class="lab-title">f(x) for each x ∈ A</span><div class="row"><button class="tbtn" id="cd-rand">Random f</button><button class="tbtn" id="cd-clear">Clear</button></div></div>
+      <div class="split top" style="gap:28px">
+        <div id="cd-grid" style="display:grid;grid-template-columns:64px repeat(6,minmax(30px,44px));gap:5px;justify-content:start"></div>
+        <div>
+          <div class="out" id="cd-d" style="font-size:20px"></div>
+          <div class="grid-gap mt-s" id="cd-why" style="gap:6px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Cantor's theorem shows 𝒫(<i>A</i>) is not smaller than or equal to <i>A</i> in size. Which function shows <i>A</i> is at most as big as 𝒫(<i>A</i>)?</p>
+      <div class="opts">
+        <button data-ok data-why="x ↦ {x} is one-to-one: different x give different singletons. Together with Cantor, |A| < |𝒫(A)|.">g(x) = {x}, which is one-to-one</button>
+        <button data-why="That's a fixed output, not one-to-one (unless A has one element).">g(x) = A</button>
+        <button data-why="D is a set, not a function. You need a one-to-one function from A into 𝒫(A).">The diagonal set D</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); }, N = 6, F = [[1,0,1,0,0,0],[1,1,0,0,1,0],[0,0,0,1,0,1],[1,0,0,1,0,0],[0,1,1,0,0,1],[0,0,0,0,0,0]];
+  function set(row) { var s = []; row.forEach(function (v, j) { if (v) s.push(j + 1); }); return s.length ? "{" + s.join(", ") + "}" : "∅"; }
+  function draw() {
+    var g = '<span></span>';
+    for (var j = 0; j < N; j++) g += '<span style="text-align:center;font-size:12px;color:var(--ink-3)">' + (j + 1) + '</span>';
+    var D = [];
+    for (var i = 0; i < N; i++) {
+      D.push(F[i][i] ? 0 : 1);
+      g += '<span class="mb" style="align-self:center;color:var(--ink-2)"><i>f</i>(' + (i + 1) + ')</span>';
+      for (var j2 = 0; j2 < N; j2++) {
+        var on = F[i][j2], diag = i === j2;
+        g += '<button type="button" data-i="' + i + '" data-j="' + j2 + '" aria-label="' + (j2 + 1) + ' in f(' + (i + 1) + ')" aria-pressed="' + (on ? "true" : "false") + '" style="aspect-ratio:1;border-radius:9px;cursor:pointer;border:' + (diag ? '2px solid var(--ink)' : '1px solid var(--line-2)') + ';background:' + (on ? 'var(--accent)' : 'var(--paper-2)') + ';transition:background .25s"></button>';
+      }
+    }
+    g += '<span style="grid-column:1/-1;height:6px"></span><span class="mb" style="align-self:center;color:var(--accent);font-weight:600"><i>D</i></span>';
+    D.forEach(function (v) { g += '<span style="aspect-ratio:1;border-radius:9px;border:2px dashed var(--accent);background:' + (v ? 'var(--accent)' : 'transparent') + ';transition:background .25s"></span>'; });
+    $("cd-grid").innerHTML = g;
+    $("cd-d").innerHTML = '<i>D</i> = ' + set(D);
+    var w = "";
+    for (var k = 0; k < N; k++) w += '<div class="small" style="padding:6px 10px;border-radius:8px;background:var(--paper-2)"><i class="mb">D</i> ≠ <i class="mb">f</i>(' + (k + 1) + ') = ' + set(F[k]) + ' &nbsp;<span class="muted">because ' + (k + 1) + (F[k][k] ? ' ∈ f(' + (k + 1) + ') but ∉ D' : ' ∉ f(' + (k + 1) + ') but ∈ D') + '</span></div>';
+    $("cd-why").innerHTML = w;
+  }
+  $("cd-grid").addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; F[+b.dataset.i][+b.dataset.j] ^= 1; draw(); });
+  $("cd-rand").addEventListener("click", function () { F = F.map(function (r) { return r.map(function () { return Math.random() < 0.45 ? 1 : 0; }); }); draw(); });
+  $("cd-clear").addEventListener("click", function () { F = F.map(function (r) { return r.map(function () { return 0; }); }); draw(); });
+  draw();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Velleman §7.2 (p. 315) uses the same diagonal argument to show that 𝒫(ℤ⁺) is uncountable.</li>

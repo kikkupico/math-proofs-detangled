@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Existence and Uniqueness · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="At least one, and at most one.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-techniques">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html" aria-current="true"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Techniques pages"><div class="wrap rail-in"><a class="r-hub" href="techniques.html">Overview</a><a href="direct.html"><span class="i">1</span>Direct proof</a><a href="contrapositive.html"><span class="i">2</span>Contrapositive</a><a href="contradiction.html"><span class="i">3</span>Contradiction</a><a href="for-all.html"><span class="i">4</span>Arbitrary objects</a><a href="exists.html"><span class="i">5</span>Witnesses</a><a href="iff.html"><span class="i">6</span>And &amp; iff</a><a href="cases.html"><span class="i">7</span>Cases</a><a href="uniqueness.html" aria-current="page"><span class="i">8</span>Uniqueness</a><a href="counterexample.html"><span class="i">9</span>Counterexamples</a><a href="induction.html"><span class="i">10</span>Induction</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 3 · Techniques · 8 of 10</p>
+      <h1>Existence and Uniqueness</h1>
+      <p class="tagline">At least one, and at most one.</p>
+      <p class="lede">“There is exactly one” makes two separate claims. <b>Existence:</b> at least one object has the property. <b>Uniqueness:</b> at most one does, because any two that have it must be equal. Prove both, in two clearly labelled parts.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Existence.</span> Let <i>x</i> = <span class="c">[witness]</span>.
+      <span class="c">… check P(x) …</span>
+<span class="kw">Uniqueness.</span> Suppose <i>P</i>(<i>y</i>) and <i>P</i>(<i>z</i>).
+      <span class="c">… show y = z …</span>  ∎</div>
+      <p class="small muted mt-s">∃!<i>x</i> <i>P</i>(<i>x</i>) unpacks on the <a href="quantifier-laws.html">Quantifier Equivalences</a> page.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Example 1</span><h2>There is exactly one positive integer n with n² = n</h2></div>
+    <div class="lab stepper">
+      <p class="say" data-at="1" data-until="1"><b>Existence:</b> find a witness. <i>n</i> = 1 is positive and 1² = 1.</p>
+      <p class="say" data-at="2" data-until="2"><b>Uniqueness:</b> take two arbitrary positive integers with the property, and show they're equal. Here it's easier to show each one must equal 1.</p>
+      <p class="say" data-at="3" data-until="3">Rearrange: <i>m</i>² = <i>m</i> means <i>m</i>(<i>m</i> − 1) = 0, so <i>m</i> = 0 or <i>m</i> = 1. It's positive, so <i>m</i> = 1. Same for <i>k</i>.</p>
+      <p class="say" data-at="4">Both parts done.</p>
+      <div class="proof">
+        <span class="pl" data-at="1"><b>Existence.</b> 1 is a positive integer and 1² = 1.</span>
+        <span class="pl" data-at="2"><b>Uniqueness.</b> Suppose <i>m</i> and <i>k</i> are positive integers with <i>m</i>² = <i>m</i> and <i>k</i>² = <i>k</i>.</span>
+        <span class="pl" data-at="3">From <i>m</i>² = <i>m</i> we get <i>m</i>(<i>m</i> − 1) = 0, so <i>m</i> = 0 or <i>m</i> = 1; since <i>m</i> &gt; 0, <i>m</i> = 1. Likewise <i>k</i> = 1.</span>
+        <span class="pl" data-at="4">So <i>m</i> = <i>k</i>. ∎</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Example 2</span>
+        <h2>Exactly one set A has A ∪ B = B for every set B</h2>
+        <p><b>Existence</b> is easy: ∅ ∪ <i>B</i> = <i>B</i> for every <i>B</i>.</p>
+        <p><b>Uniqueness</b> has a lovely trick. Suppose <i>A</i> and <i>A′</i> both have the property. Use each one's property with the <b>other</b> one plugged in as <i>B</i>. That's the ∀-given move: you may plug in anything you like.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1"><i>A</i> has the property for every <i>B</i>. Plug in <i>B</i> = <i>A′</i>.</p>
+        <p class="say" data-at="2" data-until="2"><i>A′</i> has the property for every <i>B</i>. Plug in <i>B</i> = <i>A</i>.</p>
+        <p class="say" data-at="3">Union doesn't care about order, so the two left sides are the same set.</p>
+        <div class="grid-gap" style="gap:10px">
+          <div class="big-math" style="font-size:24px" data-at="1"><i>A</i> ∪ <i>A′</i> = <i>A′</i></div>
+          <div class="big-math" style="font-size:24px" data-at="2"><i>A′</i> ∪ <i>A</i> = <i>A</i></div>
+          <div class="big-math accent" style="font-size:24px" data-at="3"><i>A′</i> = <i>A</i> ∪ <i>A′</i> = <i>A′</i> ∪ <i>A</i> = <i>A</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="callout warn"><span class="k">Common slip</span><p>Proving uniqueness by showing your witness is the only one you could think of. Uniqueness needs an argument about <b>arbitrary</b> objects with the property: suppose <i>y</i> and <i>z</i> both work, then derive <i>y</i> = <i>z</i>.</p></div>
+    <div class="quiz mt-m">
+      <p class="q"><span class="k">Your turn</span>Is it true that there is exactly one real number <i>x</i> with <i>x</i>² = 4?</p>
+      <div class="opts">
+        <button data-why="Existence holds, but uniqueness fails: 2 and −2 both work.">Yes: x = 2</button>
+        <button data-ok data-why="Existence holds but uniqueness fails, since 2 ≠ −2 and both square to 4. Over the positive reals, it would be true.">No: both 2 and −2 work</button>
+        <button data-why="2² = 4, so there's at least one.">No: there are none</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="cases.html" data-key="prev"><span class="d">← Previous · Part 3 · Techniques</span><span class="t">Proof by Cases</span></a><a class="pg next" href="counterexample.html" data-key="next"><span class="d">Next · Part 3 · Techniques →</span><span class="t">Disproof by Counterexample</span><span class="s">One failure sinks a “for all”.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §3.6, p. 146.</p><ol class='notes'>
+<li>Example 2 is from Velleman §3.6, where existence and uniqueness proofs are introduced.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

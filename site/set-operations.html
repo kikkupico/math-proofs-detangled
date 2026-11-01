@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Set Operations · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="∩, ∪ and ∖ are ∧, ∨ and “and not”.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-tools">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html" aria-current="true"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Tools pages"><div class="wrap rail-in"><a class="r-hub" href="tools.html">Overview</a><a href="connectives.html"><span class="i">1</span>Connectives</a><a href="truth-tables.html"><span class="i">2</span>Truth tables</a><a href="sets.html"><span class="i">3</span>Variables &amp; sets</a><a href="set-operations.html" aria-current="page"><span class="i">4</span>Set operations</a><a href="conditionals.html"><span class="i">5</span>Conditionals</a><a href="quantifiers.html"><span class="i">6</span>Quantifiers</a><a href="quantifier-laws.html"><span class="i">7</span>Quantifier laws</a><a href="power-sets.html"><span class="i">8</span>Power sets</a><a href="families.html"><span class="i">9</span>Unions &amp; intersections</a><a href="functions.html"><span class="i">10</span>Functions</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 2 · Tools · 4 of 10</p>
+      <h1>Set Operations</h1>
+      <p class="tagline">∩, ∪ and ∖ are ∧, ∨ and “and not”.</p>
+      <p class="lede">Every set operation is defined by a connective. Once you see that, the laws of logic from the Truth Tables page turn into laws about sets for free, and every set identity can be proved by translating it back into logic.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <table class="tt" style="font-size:16px">
+          <tr><th class="left" style="font-family:var(--sans);font-size:13px">Operation</th><th class="left" style="font-family:var(--sans);font-size:13px"><i>x</i> is in it when…</th></tr>
+          <tr><td class="left mb" style="font-size:19px"><i>A</i> ∩ <i>B</i></td><td class="left mb" style="font-size:19px"><i>x</i> ∈ <i>A</i> <b class="accent">∧</b> <i>x</i> ∈ <i>B</i></td></tr>
+          <tr><td class="left mb" style="font-size:19px"><i>A</i> ∪ <i>B</i></td><td class="left mb" style="font-size:19px"><i>x</i> ∈ <i>A</i> <b class="accent">∨</b> <i>x</i> ∈ <i>B</i></td></tr>
+          <tr><td class="left mb" style="font-size:19px"><i>A</i> ∖ <i>B</i></td><td class="left mb" style="font-size:19px"><i>x</i> ∈ <i>A</i> <b class="accent">∧ ¬</b>(<i>x</i> ∈ <i>B</i>)</td></tr>
+          <tr><td class="left mb" style="font-size:19px"><i>A</i> ⊆ <i>B</i></td><td class="left mb" style="font-size:19px"><b class="accent">∀</b><i>x</i> (<i>x</i> ∈ <i>A</i> <b class="accent">→</b> <i>x</i> ∈ <i>B</i>)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>Pictures of connectives</h2>
+        <p>A Venn diagram shows every element as a point. Points inside circle <i>A</i> are in <i>A</i>. Pick an operation to shade the points that belong to it.</p>
+        <p>Compare the shading with the definition underneath. Intersection is the overlap because ∧ needs both; union is everything because ∨ needs at least one.</p>
+      </div>
+      <div class="lab">
+        <div class="seg" id="vn-seg" role="group" aria-label="Operation"></div>
+        <svg viewBox="0 0 400 240" style="width:100%;max-width:460px;display:block;margin:16px auto 0" role="img" aria-label="Venn diagram of A and B">
+          <defs><clipPath id="cA"><circle cx="155" cy="120" r="88"/></clipPath></defs>
+          <rect x="8" y="8" width="384" height="224" rx="18" fill="none" stroke="var(--line-2)"/>
+          <circle id="vn-a" cx="155" cy="120" r="88" fill="var(--accent)" opacity="0" style="transition:opacity .4s"/>
+          <circle id="vn-b" cx="245" cy="120" r="88" fill="var(--accent)" opacity="0" style="transition:opacity .4s"/>
+          <circle id="vn-ab" cx="245" cy="120" r="88" clip-path="url(#cA)" fill="var(--accent)" opacity="0" style="transition:opacity .4s"/>
+          <circle id="vn-cut" cx="245" cy="120" r="88" clip-path="url(#cA)" fill="var(--card)" opacity="0" style="transition:opacity .4s"/>
+          <circle cx="155" cy="120" r="88" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+          <circle cx="245" cy="120" r="88" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="96" y="58" fill="var(--ink)" font-size="22" font-style="italic" style="font-family:var(--math)">A</text>
+          <text x="294" y="58" fill="var(--ink)" font-size="22" font-style="italic" style="font-family:var(--math)">B</text>
+        </svg>
+        <div class="out center" id="vn-def" style="margin-top:10px"></div>
+        <p class="note center" id="vn-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">With actual elements</span></div>
+        <p class="mb" style="font-size:19px"><i>A</i> = {1, 2, 3, 4, 5} &nbsp; <i>B</i> = {4, 5, 6, 7}</p>
+        <div class="grid-gap mt-s" id="ex-out" style="gap:8px"></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Subsets and disjoint sets</span>
+        <h2>Comparing sets</h2>
+        <p><span class="m"><i>A</i> ⊆ <i>B</i></span> means every element of <i>A</i> is also in <i>B</i>. In logic: <span class="m">∀<i>x</i>(<i>x</i> ∈ <i>A</i> → <i>x</i> ∈ <i>B</i>)</span>. To prove it, you take an arbitrary element of <i>A</i> and show it's in <i>B</i>.</p>
+        <p><i>A</i> and <i>B</i> are <b>disjoint</b> when they have no elements in common: <span class="m"><i>A</i> ∩ <i>B</i> = ∅</span>.</p>
+        <p>Two sets are <b>equal</b> exactly when each is a subset of the other. Most set proofs check both directions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">A first theorem</span>
+        <h2>(A ∪ B) ∖ B ⊆ A</h2>
+        <p>Translate everything into logic and the proof writes itself. Step through it. You'll meet every move again in Part 3.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">The goal is a subset statement, so take an arbitrary element of the left-hand set.</p>
+        <p class="say" data-at="2" data-until="2">Unpack the definitions of ∖ and ∪.</p>
+        <p class="say" data-at="3" data-until="3">We know <i>x</i> ∈ <i>A</i> or <i>x</i> ∈ <i>B</i>, and also <i>x</i> ∉ <i>B</i>. So the second option is ruled out.</p>
+        <p class="say" data-at="4">That leaves <i>x</i> ∈ <i>A</i>, which is what we wanted.</p>
+        <div class="proof">
+          <span class="pl" data-at="1">Suppose <i>x</i> ∈ (<i>A</i> ∪ <i>B</i>) ∖ <i>B</i>.</span>
+          <span class="pl" data-at="2">Then <i>x</i> ∈ <i>A</i> ∪ <i>B</i> and <i>x</i> ∉ <i>B</i>.</span>
+          <span class="pl" data-at="2">So <i>x</i> ∈ <i>A</i> or <i>x</i> ∈ <i>B</i>; and <i>x</i> ∉ <i>B</i>.</span>
+          <span class="pl" data-at="3">Since <i>x</i> ∉ <i>B</i>, it must be that <i>x</i> ∈ <i>A</i>.</span>
+          <span class="pl" data-at="4">So every element of (<i>A</i> ∪ <i>B</i>) ∖ <i>B</i> is in <i>A</i>. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Which logical formula defines <span class="m"><i>x</i> ∈ <i>A</i> ∖ (<i>B</i> ∩ <i>C</i>)</span>?</p>
+      <div class="opts">
+        <button data-ok data-why="∖ is “and not”, and ∩ is ∧ inside the brackets.">x ∈ A ∧ ¬(x ∈ B ∧ x ∈ C)</button>
+        <button data-why="That's A ∖ (B ∪ C): the brackets contain an ∨, not an ∧.">x ∈ A ∧ ¬(x ∈ B ∨ x ∈ C)</button>
+        <button data-why="That's (A ∖ B) ∩ C.">(x ∈ A ∧ ¬ x ∈ B) ∧ x ∈ C</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Is <span class="m">∅ ⊆ <i>A</i></span> for every set <i>A</i>?</p>
+      <div class="opts">
+        <button data-ok data-why="“Every element of ∅ is in A” can't fail, because ∅ has no elements to be counterexamples. This is called vacuous truth.">Yes, always</button>
+        <button data-why="To fail, ∅ would need an element outside A. It has no elements at all.">Only when A is nonempty</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var V = [
+    ["A ∩ B", "x ∈ A ∧ x ∈ B", "In both.", { ab: 1 }],
+    ["A ∪ B", "x ∈ A ∨ x ∈ B", "In at least one.", { a: 1, b: 1 }],
+    ["A ∖ B", "x ∈ A ∧ x ∉ B", "In A but not B.", { a: 1, cut: 1 }],
+    ["B ∖ A", "x ∈ B ∧ x ∉ A", "In B but not A.", { b: 1, cut: 1 }],
+    ["A △ B", "(x ∈ A ∖ B) ∨ (x ∈ B ∖ A)", "In exactly one: the symmetric difference.", { a: 1, b: 1, cut: 1 }]
+  ];
+  V.forEach(function (v, i) { var b = document.createElement("button"); b.type = "button"; b.className = "mb"; b.textContent = v[0]; b.addEventListener("click", function () { vn(i); }); $("vn-seg").appendChild(b); });
+  function vn(i) {
+    var s = V[i][3];
+    Array.prototype.forEach.call($("vn-seg").children, function (b, k) { b.setAttribute("aria-pressed", k === i ? "true" : "false"); });
+    $("vn-a").setAttribute("opacity", s.a ? .45 : 0); $("vn-b").setAttribute("opacity", s.b ? .45 : 0);
+    $("vn-ab").setAttribute("opacity", s.ab ? .45 : 0); $("vn-cut").setAttribute("opacity", s.cut ? 1 : 0);
+    $("vn-def").innerHTML = V[i][1].replace(/([xAB])/g, "<i>$1</i>");
+    $("vn-note").textContent = V[i][2];
+  }
+  vn(0);
+  var A = [1, 2, 3, 4, 5], B = [4, 5, 6, 7], inB = function (x) { return B.indexOf(x) >= 0; }, inA = function (x) { return A.indexOf(x) >= 0; };
+  function set(a) { return a.length ? "{" + a.join(", ") + "}" : "∅"; }
+  var R = [["<i>A</i> ∩ <i>B</i>", set(A.filter(inB))], ["<i>A</i> ∪ <i>B</i>", set(A.concat(B.filter(function (x) { return !inA(x); })))], ["<i>A</i> ∖ <i>B</i>", set(A.filter(function (x) { return !inB(x); }))], ["<i>B</i> ∖ <i>A</i>", set(B.filter(function (x) { return !inA(x); }))], ["{4, 5} ⊆ <i>A</i>?", "yes"], ["<i>B</i> ⊆ <i>A</i>?", "no: 6 ∉ <i>A</i>"]];
+  $("ex-out").innerHTML = R.map(function (r) { return '<div class="row mb" style="justify-content:space-between;font-size:19px;padding:8px 12px;border-radius:10px;background:var(--paper-2)"><span>' + r[0] + '</span><b class="accent">' + r[1] + '</b></div>'; }).join("");
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="sets.html" data-key="prev"><span class="d">← Previous · Part 2 · Tools</span><span class="t">Variables and Sets</span></a><a class="pg next" href="conditionals.html" data-key="next"><span class="d">Next · Part 2 · Tools →</span><span class="t">Conditionals and Biconditionals</span><span class="s">If, only if, if and only if.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §1.4, p. 34.</p><ol class='notes'>
+<li>The theorem (A ∪ B) ∖ B ⊆ A is the first one Velleman proves, in §1.4.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

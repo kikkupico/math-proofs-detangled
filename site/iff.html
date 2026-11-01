@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conjunctions and Biconditionals · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Two halves, proved one at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-techniques">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html" aria-current="true"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Techniques pages"><div class="wrap rail-in"><a class="r-hub" href="techniques.html">Overview</a><a href="direct.html"><span class="i">1</span>Direct proof</a><a href="contrapositive.html"><span class="i">2</span>Contrapositive</a><a href="contradiction.html"><span class="i">3</span>Contradiction</a><a href="for-all.html"><span class="i">4</span>Arbitrary objects</a><a href="exists.html"><span class="i">5</span>Witnesses</a><a href="iff.html" aria-current="page"><span class="i">6</span>And &amp; iff</a><a href="cases.html"><span class="i">7</span>Cases</a><a href="uniqueness.html"><span class="i">8</span>Uniqueness</a><a href="counterexample.html"><span class="i">9</span>Counterexamples</a><a href="induction.html"><span class="i">10</span>Induction</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 3 · Techniques · 6 of 10</p>
+      <h1>Conjunctions and Biconditionals</h1>
+      <p class="tagline">Two halves, proved one at a time.</p>
+      <p class="lede">A goal of the form <span class="m"><i>P</i> ∧ <i>Q</i></span> is two goals. A goal of the form <span class="m"><i>P</i> ↔ <i>Q</i></span> is <span class="m">(<i>P</i> → <i>Q</i>) ∧ (<i>Q</i> → <i>P</i>)</span>: also two goals, each an if–then. Split them up and prove each part with whatever technique suits it.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline">(<span class="kw">→</span>) <span class="kw">Suppose</span> <i>P</i>.
+      <span class="c">… so Q.</span>
+(<span class="kw">←</span>) <span class="kw">Suppose</span> <i>Q</i>.
+      <span class="c">… so P.</span>
+<span class="kw">Thus</span> <i>P</i> ↔ <i>Q</i>.  ∎</div>
+      <p class="small muted mt-s">Givens work the same way: <i>P</i> ∧ <i>Q</i> is two givens, and <i>P</i> ↔ <i>Q</i> gives you both directions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Example</span><h2>An integer n is even if and only if n² is even</h2><p>Each direction has already appeared on its own page. Here they're joined, and each half uses a different technique.</p></div>
+    <div class="lab stepper">
+      <p class="say" data-at="1" data-until="1">The goal is <b>P ↔ Q</b>. Split it into two if–then goals.</p>
+      <p class="say" data-at="2" data-until="2"><b>(→)</b> Direct proof: assume <i>n</i> is even, write <i>n</i> = 2<i>k</i>, and compute.</p>
+      <p class="say" data-at="3" data-until="3"><b>(←)</b> A direct start (“suppose <i>n</i>² = 2<i>k</i>”) goes nowhere, so prove the <b>contrapositive</b>: if <i>n</i> is odd, <i>n</i>² is odd.</p>
+      <p class="say" data-at="4">Both directions are done, so the biconditional holds.</p>
+      <div class="split top" style="gap:20px">
+        <div class="board">
+          <div><h4>Goal (→)</h4><ul><li data-at="1" data-until="1"><i>n</i> even ↔ <i>n</i>² even</li><li data-at="2" data-until="2" class="new"><i>n</i> even → <i>n</i>² even</li><li data-at="3" class="done"><i>n</i> even → <i>n</i>² even</li></ul></div>
+          <div><h4>Goal (←)</h4><ul><li data-at="2" data-until="2"><i>n</i>² even → <i>n</i> even</li><li data-at="3" data-until="3" class="new"><i>n</i> odd → <i>n</i>² odd</li><li data-at="4" class="done"><i>n</i> odd → <i>n</i>² odd</li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="1">Let <i>n</i> be an integer.</span>
+          <span class="pl" data-at="2">(→) Suppose <i>n</i> is even, so <i>n</i> = 2<i>k</i> for some integer <i>k</i>. Then <i>n</i>² = 2(2<i>k</i>²), which is even.</span>
+          <span class="pl" data-at="3">(←) We prove the contrapositive. Suppose <i>n</i> is odd, so <i>n</i> = 2<i>k</i> + 1. Then <i>n</i>² = 2(2<i>k</i>² + 2<i>k</i>) + 1, which is odd.</span>
+          <span class="pl" data-at="4">Therefore <i>n</i> is even if and only if <i>n</i>² is even. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Where you'll see it</span><h2>Splitting is everywhere</h2></div>
+    <div class="cards">
+      <div class="card"><span class="sym accent"><i>A</i> = <i>B</i></span><h3>Set equality</h3><p>Prove <i>A</i> ⊆ <i>B</i> and <i>B</i> ⊆ <i>A</i>. Equivalently, prove <span class="m"><i>x</i> ∈ <i>A</i> ↔ <i>x</i> ∈ <i>B</i></span> for arbitrary <i>x</i>. <a href="set-identity.html">See a full example.</a></p></div>
+      <div class="card"><span class="sym accent"><i>x</i> ∈ <i>A</i> ∩ <i>B</i></span><h3>Intersections</h3><p>Unpacks to <span class="m"><i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∈ <i>B</i></span>: prove both. As a given, it hands you both facts.</p></div>
+      <div class="card"><span class="sym accent">bijection</span><h3>Two-part definitions</h3><p>A bijection is one-to-one <b>and</b> onto. Prove each property separately.</p></div>
+      <div class="card"><span class="sym accent">P ↔ Q ↔ R</span><h3>Chains of equivalences</h3><p>To show three statements are all equivalent, a cycle P → Q → R → P is enough: three proofs instead of six.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="callout warn"><span class="k">Common slip</span><p>Proving only one direction of an “iff”, then stopping. Label the halves (→) and (←) as you write them so it's obvious to you and the reader that both are there.</p></div>
+    <div class="quiz mt-m">
+      <p class="q"><span class="k">Your turn</span>To prove “6 | <i>n</i> if and only if 2 | <i>n</i> and 3 | <i>n</i>”, how many separate things must you prove for the (→) direction?</p>
+      <div class="opts">
+        <button data-why="The conclusion of (→) is an “and”, which splits again.">One</button>
+        <button data-ok data-why="Assume 6 | n, then prove 2 | n, then prove 3 | n. The (←) direction is one more proof.">Two: 2 | n, and 3 | n</button>
+        <button data-why="That's the total for both directions.">Three</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="exists.html" data-key="prev"><span class="d">← Previous · Part 3 · Techniques</span><span class="t">Proving “There Exists”</span></a><a class="pg next" href="cases.html" data-key="next"><span class="d">Next · Part 3 · Techniques →</span><span class="t">Proof by Cases</span><span class="s">Split the world. Cover every piece.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §3.4, p. 124.</p><ol class='notes'>
+<li>Proofs involving conjunctions and biconditionals follow Velleman §3.4, which also proves 6 | n ↔ (2 | n ∧ 3 | n).</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

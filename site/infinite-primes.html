@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>There Are Infinitely Many Primes · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Euclid&#x27;s argument, move by move.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-examples">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html" aria-current="true"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Examples pages"><div class="wrap rail-in"><a class="r-hub" href="examples.html">Overview</a><a href="divisibility.html"><span class="i">1</span>Divisibility</a><a href="mersenne.html"><span class="i">2</span>Mersenne numbers</a><a href="infinite-primes.html" aria-current="page"><span class="i">3</span>Infinite primes</a><a href="sqrt2.html"><span class="i">4</span>√2 is irrational</a><a href="set-identity.html"><span class="i">5</span>A set identity</a><a href="power-set-meet.html"><span class="i">6</span>Power sets meet</a><a href="sum-of-powers.html"><span class="i">7</span>Sum of powers</a><a href="cantor.html"><span class="i">8</span>Cantor&#x27;s theorem</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 4 · Examples · 3 of 8</p>
+      <h1>There Are Infinitely Many Primes</h1>
+      <p class="tagline">Euclid's argument, move by move.</p>
+      <div class="theorem mt-m"><span class="k">Theorem (Euclid, c. 300 BC)</span><p>There are infinitely many prime numbers.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifier-laws.html">Quantifier laws</a><a class="chip" href="connectives.html">Connectives</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="contradiction.html">Contradiction</a><a class="chip" href="cases.html">Cases</a><a class="chip" href="exists.html">Witnesses</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">One fact we'll use</div>
+        <p class="muted">Every integer greater than 1 is either prime or a product of primes. So <b>every integer &gt; 1 has at least one prime factor</b>. (That fact is itself proved by <a href="induction.html">strong induction</a>.)</p>
+        <div class="lab-title" style="margin:18px 0 8px">The shape of the goal</div>
+        <p class="muted">“Infinitely many” means “<b>not</b> finitely many”. A negative goal: a signal to try <a href="contradiction.html">contradiction</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Assume a complete list. Break it.</h2></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">Negative goal → contradiction</span><h3>Suppose there are only finitely many</h3><p>Assume the opposite of the goal: the primes can be listed completely as <i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, …, <i>p</i><sub><i>n</i></sub>. Now we hunt for a contradiction.</p></div>
+        <div class="step" data-key="s2"><span class="k">The creative step</span><h3>Build a number from the list</h3><p>Multiply all of them and add 1. This is the one idea in the proof that isn't a standard move. Everything else follows from the shapes of the statements.</p></div>
+        <div class="step" data-key="s3"><span class="k">Cases → ∃ given</span><h3>It has a prime factor</h3><p><i>m</i> &gt; 1, so either <i>m</i> is prime (then it's its own prime factor) or it's a product of primes. <b>In either case</b>, some prime <i>q</i> divides <i>m</i>. Name it.</p></div>
+        <div class="step" data-key="s4"><span class="k">Use the assumption</span><h3>q must be on the list</h3><p>The list is assumed complete, so <i>q</i> is one of the <i>p</i><sub><i>i</i></sub>. But dividing <i>m</i> by any <i>p</i><sub><i>i</i></sub> leaves remainder 1, so <i>p</i><sub><i>i</i></sub> doesn't divide <i>m</i>.</p></div>
+        <div class="step" data-key="s5"><span class="k">Contradiction</span><h3>Two facts that can't both hold</h3><p><i>q</i> divides <i>m</i>, and <i>q</i> doesn't divide <i>m</i>. The assumption must be false, so there are infinitely many primes.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1">Suppose, for contradiction, that there are only finitely many primes, and list them all: <i>p</i><sub>1</sub>, …, <i>p</i><sub><i>n</i></sub>.</span>
+            <span class="pl" data-on="s2">Let <i>m</i> = <i>p</i><sub>1</sub><i>p</i><sub>2</sub>⋯<i>p</i><sub><i>n</i></sub> + 1.</span>
+            <span class="pl" data-on="s3">Then <i>m</i> &gt; 1, so <i>m</i> is prime or a product of primes. Either way, some prime <i>q</i> divides <i>m</i>.</span>
+            <span class="pl" data-on="s4">Since the list contains every prime, <i>q</i> = <i>p</i><sub><i>i</i></sub> for some <i>i</i>.</span>
+            <span class="pl" data-on="s4">But dividing <i>m</i> by <i>p</i><sub><i>i</i></sub> leaves remainder 1, so <i>p</i><sub><i>i</i></sub> does not divide <i>m</i>.</span>
+            <span class="pl" data-on="s5">This contradicts <i>q</i> | <i>m</i>. So there are infinitely many primes. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Run the machine</span>
+        <h2>A list that grows forever</h2>
+        <p>Start with just {2}. Each press applies Euclid's construction: multiply the list, add 1, and add its smallest prime factor to the list. It's always new.</p>
+        <p>Note what the proof does <b>not</b> claim: <i>m</i> itself needn't be prime. Press a few times and you'll see a composite <i>m</i> show up.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">The list</span><div class="row"><button class="tbtn primary" id="eu-go">Apply Euclid →</button><button class="tbtn" id="eu-reset">Reset</button></div></div>
+        <div class="chips" id="eu-list"></div>
+        <div class="out mt-s" id="eu-out" style="font-size:17px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A student writes: “The product of the first <i>n</i> primes plus 1 is always prime.” Is that what Euclid's proof shows?</p>
+      <div class="opts">
+        <button data-why="2·3·5·7·11·13 + 1 = 30031 = 59 · 509 is not prime. The proof only needs some prime factor, not that m is prime.">Yes, that's the key step.</button>
+        <button data-ok data-why="The proof only shows m has a prime factor missing from the list. Try 2·3·5·7·11·13 + 1 = 30031 = 59 · 509.">No. m only needs a prime factor not on the list.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function spf(n) { if (n % 2n === 0n) return 2n; for (var d = 3n; d * d <= n; d += 2n) { if (n % d === 0n) return d; if (d > 2000000n) return n; } return n; }
+  var L;
+  function reset() { L = [2n]; draw('<span class="small muted" style="font-family:var(--sans)">Press Apply Euclid.</span>'); }
+  function draw(msg) {
+    $("eu-list").innerHTML = L.map(function (p, i) { return '<span class="chip' + (i === L.length - 1 && L.length > 1 ? ' hot' : '') + '">' + p.toString() + '</span>'; }).join("");
+    $("eu-out").innerHTML = msg;
+  }
+  $("eu-go").addEventListener("click", function () {
+    if (L.length >= 7) { draw('<span class="small muted" style="font-family:var(--sans)">The numbers get huge fast, so the demo stops here. The proof doesn\'t.</span>'); return; }
+    var m = L.reduce(function (a, b) { return a * b; }, 1n) + 1n, q = spf(m);
+    L.push(q);
+    draw('<div><i>m</i> = ' + L.slice(0, -1).map(String).join(" · ") + ' + 1 = <b>' + m.toString() + '</b></div><div>' + (q === m ? m + ' is prime' : m + ' = ' + q + ' · ' + (m / q)) + ', so add <b style="color:var(--accent)">' + q + '</b></div>');
+  });
+  $("eu-reset").addEventListener("click", reset);
+  reset();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="mersenne.html" data-key="prev"><span class="d">← Previous · Part 4 · Examples</span><span class="t">Composite n Gives Composite 2ⁿ − 1</span></a><a class="pg next" href="sqrt2.html" data-key="next"><span class="d">Next · Part 4 · Examples →</span><span class="t">√2 Is Irrational</span><span class="s">A contradiction with a lemma inside.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, Theorem 3.7.2, p. 156.</p><ol class='notes'>
+<li>This is Velleman's Theorem 3.7.2 (p. 156). The sequence generated above is known as the Euclid–Mullin sequence.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

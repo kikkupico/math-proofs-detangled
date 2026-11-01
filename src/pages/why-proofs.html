@@ -1,0 +1,170 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">In science, a thousand confirming experiments make a theory convincing. In mathematics they make a <b>conjecture</b>: a good guess. Only a proof turns it into a theorem, and history is full of guesses that looked safe until they weren't.</p>
+      <div class="actions"><a class="btn accent" href="#lie">Watch a pattern fail</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+        <div class="card" style="padding:16px;text-align:center"><span class="sym">1</span><p class="small">1 point</p></div>
+        <div class="card" style="padding:16px;text-align:center"><span class="sym">2</span><p class="small">2 points</p></div>
+        <div class="card" style="padding:16px;text-align:center"><span class="sym">4</span><p class="small">3 points</p></div>
+        <div class="card" style="padding:16px;text-align:center"><span class="sym">8</span><p class="small">4 points</p></div>
+        <div class="card" style="padding:16px;text-align:center"><span class="sym">16</span><p class="small">5 points</p></div>
+        <div class="card" style="padding:16px;text-align:center;border-color:var(--bad)"><span class="sym" style="color:var(--bad)">31</span><p class="small">6 points</p></div>
+      </div>
+      <p class="small muted mt-s">Join <i>n</i> points on a circle with every possible chord (no three meeting at one point) and count the regions. Doubling every time… until 6 points give 31, not 32.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="lie">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Pattern 1</span>
+        <h2>Forty primes in a row</h2>
+        <p>Euler noticed that <span class="m"><i>n</i>² + <i>n</i> + 41</span> gives a prime for <i>n</i> = 0, 1, 2, 3, … Drag the slider and check as many as you like.</p>
+        <p>It works for every <i>n</i> from 0 to 39. Forty successes. Then <i>n</i> = 40 gives 1681 = 41 · 41. Looking back, it had to fail there: at <i>n</i> = 40 the expression is 40 · 41 + 41 = 41 · 41.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">n² + n + 41</span><label class="ctl" for="eu">up to n = <b id="eu-v" style="color:var(--ink)">10</b><input type="range" id="eu" min="0" max="45" value="10"></label></div>
+        <div class="chips" style="margin-bottom:12px"><span class="chip" id="eu-chip"></span></div>
+        <div id="eu-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px"></div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Is 2ⁿ − 1 prime when n is?</span><label class="ctl" for="mz">up to n = <b id="mz-v" style="color:var(--ink)">7</b><input type="range" id="mz" min="2" max="31" value="7"></label></div>
+        <div class="chips" style="margin-bottom:12px"><span class="chip" id="mz-c1"></span></div>
+        <div class="scroll-x" style="max-height:320px;overflow-y:auto"><table class="tt" id="mz-t"></table></div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Pattern 2</span>
+        <h2>The guess that breaks at 11</h2>
+        <p>For <i>n</i> = 2, 3, 5, 7, the number 2ⁿ − 1 is prime: 3, 7, 31, 127. So perhaps <b>if <i>n</i> is prime, 2ⁿ − 1 is prime</b>?</p>
+        <p>Slide past 10. 11 is prime, but 2¹¹ − 1 = 2047 = 23 · 89. A single <b>counterexample</b> is enough to kill a claim about all <i>n</i>.</p>
+        <p>The opposite direction, <b>if <i>n</i> is not prime, neither is 2ⁿ − 1</b>, survives every case you can check. That still isn't a reason to believe it. <a href="mersenne.html">Part 4 proves it.</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">So what is a proof for?</span><h2>Three things examples can't give you</h2></div>
+    <div class="cards">
+      <div class="card"><span class="sym accent">∀</span><h3>Every case at once</h3><p>A statement about all integers has infinitely many cases. Examples check finitely many. A proof handles an <b>arbitrary</b> case, so it handles all of them.</p></div>
+      <div class="card"><span class="sym accent">∵</span><h3>A reason why</h3><p>Euler's polynomial fails at 40 for a visible reason. A proof doesn't just say <i>that</i> something is true; it shows <i>why</i>, and the why is often more useful than the fact.</p></div>
+      <div class="card"><span class="sym accent">∞</span><h3>Certainty that lasts</h3><p>Physics theories get revised. Euclid's proof that there are infinitely many primes is as correct today as it was 2,300 years ago, and it will stay that way.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">A proof is a recipe</span>
+        <h2>Infinitely many cases, one argument</h2>
+        <p>Here is the kind of thing a proof does. Euclid claimed: no finite list of primes is complete. Rather than checking lists, he gave a <b>recipe</b> that defeats any list you hand him.</p>
+        <p>Multiply everything on the list and add 1. Dividing the result by any prime on the list leaves remainder 1. So its prime factors are all missing from the list. Pick any list and try to beat the recipe.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Your “complete” list of primes</span></div>
+        <div class="chips" id="pl-chips"></div>
+        <div class="out mt-s" id="pl-out"></div>
+        <p class="note">Try 2, 3, 5, 7, 11, 13: the product plus one is 30,031 = 59 · 509. Neither prime is on the list. <a href="infinite-primes.html">The full proof is in Part 4.</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Easy to say, still unproved</span><h2>Where the examples run out</h2><p>These have been checked by computer for enormous numbers of cases. Without proofs, nobody knows if they are true.</p></div>
+    <div class="cards">
+      <div class="card"><span class="k">Goldbach, 1742</span><h3>Every even number above 2 is a sum of two primes.</h3><p>4 = 2 + 2, 28 = 5 + 23, 100 = 3 + 97. Checked up to 4 × 10¹⁸. Unproved.</p></div>
+      <div class="card"><span class="k">Twin primes</span><h3>Infinitely many primes p with p + 2 also prime?</h3><p>5 and 7, 29 and 31, 7949 and 7951. They keep turning up. Nobody can prove they never stop.</p></div>
+      <div class="card"><span class="k">Odd perfect numbers</span><h3>Does a perfect number have to be even?</h3><p>6 = 1 + 2 + 3 and 28 = 1 + 2 + 4 + 7 + 14 are perfect. Every known perfect number is even. Is there an odd one?</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A computer confirms a statement about every positive integer <i>n</i> for all <i>n</i> up to 10²⁰. What do we now know?</p>
+      <div class="opts">
+        <button data-why="The next case, 10²⁰ + 1, could still fail. Euler's polynomial worked forty times in a row.">It's true. Nobody could check that many cases by accident.</button>
+        <button data-ok data-why="Finitely many confirmations leave infinitely many cases open. They're good evidence that a proof might exist, nothing more.">It's a well-tested conjecture, but not yet a theorem.</button>
+        <button data-why="Not false either: no counterexample has been found.">It's false, because a proof would have been found by now.</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>How many counterexamples does it take to disprove “for every prime <i>n</i>, 2ⁿ − 1 is prime”?</p>
+      <div class="opts">
+        <button data-ok data-why="One case where it fails, like n = 11, shows the “for every” claim is false.">One</button>
+        <button data-why="A single failure is already enough to show a “for every” statement is false.">Enough to show a trend</button>
+        <button data-why="You never need more than one. A single n where it fails, such as 11, already does the job.">Infinitely many</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function isPrime(n) { if (n < 2) return false; if (n % 2 === 0) return n === 2; for (var d = 3; d * d <= n; d += 2) if (n % d === 0) return false; return true; }
+  function smallest(n) { if (n % 2 === 0) return 2; for (var d = 3; d * d <= n; d += 2) if (n % d === 0) return d; return n; }
+  function fmt(n) { return n.toLocaleString("en-US"); }
+
+  function eu() {
+    var N = +$("eu").value, h = "", bad = null; $("eu-v").textContent = N;
+    for (var n = 0; n <= N; n++) {
+      var v = n * n + n + 41, p = isPrime(v); if (!p && bad === null) bad = n;
+      h += '<div title="n = ' + n + '" style="padding:6px 4px;border-radius:10px;text-align:center;font-size:13px;background:' + (p ? 'var(--good-bg)' : 'var(--bad-bg)') + ';color:' + (p ? 'var(--good)' : 'var(--bad)') + '"><div style="font-size:11px;opacity:.75">n=' + n + '</div><b>' + fmt(v) + '</b></div>';
+    }
+    $("eu-grid").innerHTML = h;
+    $("eu-chip").className = "chip " + (bad === null ? "yes" : "no");
+    $("eu-chip").textContent = bad === null ? "All prime so far (" + (N + 1) + " cases)" : "Fails at n = " + bad + ": " + fmt(bad * bad + bad + 41) + " = " + smallest(bad * bad + bad + 41) + " · " + (bad * bad + bad + 41) / smallest(bad * bad + bad + 41);
+  }
+  $("eu").addEventListener("input", eu); eu();
+
+  function mz() {
+    var N = +$("mz").value, h = '<tr><th>n</th><th>n prime?</th><th>2ⁿ − 1</th><th>prime?</th></tr>', first = null; $("mz-v").textContent = N;
+    for (var n = 2; n <= N; n++) {
+      if (!isPrime(n)) continue;
+      var m = Math.pow(2, n) - 1, mp = isPrime(m); if (!mp && first === null) first = n;
+      h += '<tr' + (!mp ? ' class="hit"' : '') + '><td>' + n + '</td><td class="T">yes</td><td>' + fmt(m) + '</td><td class="' + (mp ? 'T">yes' : 'F">no: ' + fmt(smallest(m)) + ' · ' + fmt(m / smallest(m))) + '</td></tr>';
+    }
+    $("mz-t").innerHTML = h;
+    $("mz-c1").className = "chip " + (first ? "no" : "yes");
+    $("mz-c1").textContent = first ? "Broken at n = " + first : "Holding so far";
+  }
+  $("mz").addEventListener("input", mz); mz();
+
+  var P = [2, 3, 5, 7, 11, 13, 17, 19], on = { 2: 1, 3: 1, 5: 1 };
+  P.forEach(function (p) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.textContent = p;
+    b.addEventListener("click", function () { if (on[p]) delete on[p]; else on[p] = 1; pl(); });
+    $("pl-chips").appendChild(b);
+  });
+  function factor(n) { var f = []; while (n > 1) { var d = smallest(n); f.push(d); n /= d; } return f; }
+  function pl() {
+    var list = P.filter(function (p) { return on[p]; });
+    Array.prototype.forEach.call($("pl-chips").children, function (b) { b.setAttribute("aria-pressed", on[+b.textContent] ? "true" : "false"); });
+    if (!list.length) { $("pl-out").innerHTML = '<span class="small muted">Pick at least one prime.</span>'; return; }
+    var m = list.reduce(function (a, b) { return a * b; }, 1) + 1, f = factor(m), u = f.filter(function (v, i) { return f.indexOf(v) === i; });
+    $("pl-out").innerHTML = '<div>' + list.join(" · ") + ' + 1 = <b>' + fmt(m) + '</b></div><div>' + (f.length === 1 ? fmt(m) + ' is prime' : fmt(m) + ' = ' + f.map(fmt).join(" · ")) + '</div><div class="chips mt-s">' + u.map(function (q) { return '<span class="chip hot">' + fmt(q) + ' is missing from your list</span>'; }).join("") + '</div>';
+  }
+  pl();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The Mersenne pattern and the infinitude of primes are the opening examples of Velleman's Introduction. Euler's polynomial n² + n + 41 and the circle-regions sequence are classic cautionary examples.</li>
+<li>Goldbach's conjecture has been verified by computer up to 4 × 10¹⁸ (Oliveira e Silva, Herzog and Pardi, 2014).</li>

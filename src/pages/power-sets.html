@@ -1,0 +1,101 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Sets can contain other sets. The most important example is the <b>power set</b> 𝒫(<i>A</i>): the set whose elements are all the subsets of <i>A</i>. It looks innocent, and it is the key to showing that some infinities are bigger than others.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab" style="text-align:center">
+        <div class="big-math">𝒫(<i>A</i>) = { <i>X</i> | <i>X</i> ⊆ <i>A</i> }</div>
+        <div class="big-math accent" style="font-size:22px">𝒫({1, 2}) = { ∅, {1}, {2}, {1, 2} }</div>
+        <p class="muted small">So <span class="m"><i>X</i> ∈ 𝒫(<i>A</i>)</span> means exactly <span class="m"><i>X</i> ⊆ <i>A</i></span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>Each new element doubles the count</h2>
+        <p>Build a subset by going through the elements one by one and deciding: <b>in</b> or <b>out</b>. With <i>n</i> elements that's <i>n</i> independent yes/no choices, so there are 2 × 2 × ⋯ × 2 = 2ⁿ subsets.</p>
+        <p>Slide <i>n</i> up. Each row of the table is one subset; the dots show which elements were chosen. Adding an element copies every old subset twice: once without it, once with it.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">𝒫({1, …, n})</span><label class="ctl" for="ps">n = <b id="ps-v" style="color:var(--ink)">3</b><input type="range" id="ps" min="0" max="4" value="3"></label></div>
+        <div id="ps-out" style="max-height:340px;overflow:auto"></div>
+        <p class="out mt-s" id="ps-count"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Careful</span><h2>∈ is not ⊆</h2><p>With sets of sets, it's easy to mix up “is an element of” and “is a subset of”. Take <span class="m"><i>A</i> = {1, 2, 3}</span>.</p></div>
+    <div class="cards">
+      <div class="card"><span class="sym">1 ∈ <i>A</i></span><span class="chip yes" style="align-self:start">true</span><p>1 is one of the elements of A.</p></div>
+      <div class="card"><span class="sym">{1} ∈ 𝒫(<i>A</i>)</span><span class="chip yes" style="align-self:start">true</span><p>{1} ⊆ A, so it's an element of the power set.</p></div>
+      <div class="card"><span class="sym">1 ∈ 𝒫(<i>A</i>)</span><span class="chip no" style="align-self:start">false</span><p>Elements of 𝒫(A) are sets. The number 1 isn't one of them.</p></div>
+      <div class="card"><span class="sym">∅ ∈ 𝒫(<i>A</i>), <i>A</i> ∈ 𝒫(<i>A</i>)</span><span class="chip yes" style="align-self:start">true</span><p>The empty set and A itself are always subsets of A.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Where power sets go next</span><h2>Two proofs in Part 4</h2></div>
+    <div class="cards two">
+      <a class="card" href="power-set-meet.html"><span class="k">Example</span><h3>𝒫(A ∩ B) = 𝒫(A) ∩ 𝒫(B)</h3><p>An identity proved by unpacking ∈ 𝒫 into ⊆, then ⊆ into ∀ and →.</p><span class="go">See the proof</span></a>
+      <a class="card" href="cantor.html"><span class="k">Example</span><h3>No set is as big as its power set</h3><p>Cantor's theorem. Even for infinite sets, 𝒫(A) is always strictly bigger than A.</p><span class="go">See the proof</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>How many elements does 𝒫(∅) have?</p>
+      <div class="opts">
+        <button data-why="∅ has no elements, but it still has one subset: itself.">0</button>
+        <button data-ok data-why="𝒫(∅) = {∅}. The set containing the empty set is not empty. 2⁰ = 1.">1</button>
+        <button data-why="Only one subset of ∅ exists.">2</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>If <i>A</i> has 5 elements, how many elements does 𝒫(𝒫(<i>A</i>)) have?</p>
+      <div class="opts">
+        <button data-why="That's |𝒫(A)|. Apply the rule twice.">2⁵ = 32</button>
+        <button data-ok data-why="𝒫(A) has 2⁵ = 32 elements, so its power set has 2³² ≈ 4.3 billion.">2³² ≈ 4.3 billion</button>
+        <button data-why="That squares 32. The rule is 2 to the power of the number of elements, and 𝒫(A) has 32 elements.">32² = 1024</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function ps() {
+    var n = +$("ps").value, rows = []; $("ps-v").textContent = n;
+    for (var m = 0; m < (1 << n); m++) { var s = []; for (var i = 0; i < n; i++) if (m & (1 << i)) s.push(i + 1); rows.push({ m: m, s: s }); }
+    var h = '<table class="tt"><tr>';
+    for (var i = 1; i <= n; i++) h += '<th>' + i + '</th>';
+    h += '<th class="res left">subset</th></tr>';
+    rows.forEach(function (r) {
+      h += '<tr>';
+      for (var i = 0; i < n; i++) { var on = r.m & (1 << i); h += '<td><span style="display:inline-block;width:12px;height:12px;border-radius:50%;' + (on ? 'background:var(--accent)' : 'border:1.5px solid var(--line-2)') + '"></span></td>'; }
+      h += '<td class="res left mb" style="font-size:17px">' + (r.s.length ? "{" + r.s.join(", ") + "}" : "∅") + '</td></tr>';
+    });
+    $("ps-out").innerHTML = h + '</table>';
+    $("ps-count").innerHTML = "|𝒫(<i>A</i>)| = 2<sup>" + n + "</sup> = " + (1 << n);
+  }
+  $("ps").addEventListener("input", ps); ps();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Power sets are introduced in Velleman §2.3.</li>

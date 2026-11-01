@@ -1,0 +1,109 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Proving a “for all” takes a general argument. <b>Disproving</b> one takes a single object. By the quantifier laws, <span class="m">¬∀<i>x</i> <i>P</i>(<i>x</i>) ≡ ∃<i>x</i> ¬<i>P</i>(<i>x</i>)</span>, so disproving a ∀ is just proving an ∃: find one witness where it fails.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="c">Claim: ∀x P(x). We show it's false.</span>
+<span class="kw">Let</span> <i>x</i> = <span class="c">[counterexample]</span>.
+   <span class="c">… check that P(x) fails …</span>
+<span class="kw">So</span> ¬∀<i>x</i> <i>P</i>(<i>x</i>).  ∎</div>
+      <p class="small muted mt-s">For an if–then, a counterexample makes the hypothesis <b>true</b> and the conclusion <b>false</b>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split wide-r">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>Counterexample hunt</h2>
+        <p>Each claim below is false. Pick one and try values until you break it. Some fall at once; some hold for a long time first.</p>
+        <p>Notice what a counterexample to an if–then needs: the “if” part <b>true</b> and the “then” part <b>false</b>. A value that fails the “if” part tells you nothing.</p>
+      </div>
+      <div class="lab">
+        <select id="ce-pick" aria-label="Claim" style="width:100%"></select>
+        <p id="ce-claim" class="mb" style="font-size:22px;margin:18px 0 14px"></p>
+        <div class="row"><label class="ctl" for="ce-in"><span id="ce-var">n</span> =</label><input type="number" id="ce-in" step="any" style="width:140px"><button class="tbtn primary" id="ce-go">Test</button><button class="tbtn" id="ce-hint">Hint</button></div>
+        <div id="ce-out" class="mt-s" style="padding:14px 16px;border-radius:12px;background:var(--paper-2);min-height:56px"></div>
+        <div class="chips mt-s" id="ce-log"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Asymmetry</span><h2>What it takes, at a glance</h2></div>
+    <div class="cards two">
+      <div class="card"><span class="k">∀x P(x)</span><h3>Prove: general argument. Disprove: one example.</h3><p>No number of examples proves it. One example disproves it.</p></div>
+      <div class="card"><span class="k">∃x P(x)</span><h3>Prove: one example. Disprove: general argument.</h3><p>To show nothing has property <i>P</i>, you must prove <span class="m">∀<i>x</i> ¬<i>P</i>(<i>x</i>)</span>, which needs an arbitrary <i>x</i>.</p></div>
+    </div>
+    <div class="callout warn mt-m"><span class="k">Common slip</span><p>Offering a counterexample to a different statement. For “if <i>n</i> is prime then <i>n</i> is odd”, the number 9 is not a counterexample (it's odd; the conclusion holds). The number 2 is: prime, and not odd.</p></div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Which value is a counterexample to “for every integer <i>n</i>, if <i>n</i>² &gt; 4 then <i>n</i> &gt; 2”?</p>
+      <div class="opts">
+        <button data-why="n² = 1 is not > 4, so the hypothesis is false: this tells you nothing.">n = 1</button>
+        <button data-ok data-why="(−3)² = 9 > 4, but −3 is not > 2. Hypothesis true, conclusion false.">n = −3</button>
+        <button data-why="3² = 9 > 4 and 3 > 2: the statement holds here.">n = 3</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Is “for all sets A, B: A ∖ B = B ∖ A” true? How would you show it?</p>
+      <div class="opts">
+        <button data-ok data-why="Take A = {1}, B = ∅. Then A ∖ B = {1} but B ∖ A = ∅. One example settles it.">False: one example, like A = {1}, B = ∅</button>
+        <button data-why="It's false, and an example is all you need.">True, by a general argument</button>
+        <button data-why="Examples are exactly how you disprove a “for all”.">False, but you need a general argument</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function isPrime(n) { if (n < 2 || n % 1) return false; for (var d = 2; d * d <= n; d++) if (n % d === 0) return false; return true; }
+  var C = [
+    { t: "Every prime is odd", c: "∀<i>n</i> (<i>n</i> prime → <i>n</i> odd)", v: "n", int: true, hyp: isPrime, con: function (n) { return n % 2 !== 0; }, h: "Hypothesis: n is prime. Is there a prime that's even?", hs: "n is prime", cs: "n is odd" },
+    { t: "x² ≥ x for every real x", c: "∀<i>x</i> ∈ ℝ (<i>x</i>² ≥ <i>x</i>)", v: "x", int: false, hyp: function () { return true; }, con: function (x) { return x * x >= x - 1e-12; }, h: "Try a number between 0 and 1.", hs: "", cs: "x² ≥ x" },
+    { t: "2ⁿ > n² for every natural n", c: "∀<i>n</i> ∈ ℕ (2<sup><i>n</i></sup> &gt; <i>n</i>²)", v: "n", int: true, hyp: function (n) { return n >= 0; }, con: function (n) { return Math.pow(2, n) > n * n; }, h: "It's true for n ≥ 5. Look at small n.", hs: "n ∈ ℕ", cs: "2ⁿ > n²" },
+    { t: "n² + n + 41 is always prime", c: "∀<i>n</i> ∈ ℕ (<i>n</i>² + <i>n</i> + 41 prime)", v: "n", int: true, hyp: function (n) { return n >= 0; }, con: function (n) { return isPrime(n * n + n + 41); }, h: "It survives 40 cases. What happens when n is 40 or 41?", hs: "n ∈ ℕ", cs: "n² + n + 41 is prime" },
+    { t: "If n² is divisible by 4, so is n", c: "∀<i>n</i> ∈ ℤ (4 | <i>n</i>² → 4 | <i>n</i>)", v: "n", int: true, hyp: function (n) { return (n * n) % 4 === 0; }, con: function (n) { return n % 4 === 0; }, h: "Try even numbers that aren't multiples of 4.", hs: "4 divides n²", cs: "4 divides n" }
+  ];
+  var ci = 0;
+  $("ce-pick").innerHTML = C.map(function (c, i) { return '<option value="' + i + '">' + c.t + '</option>'; }).join("");
+  function setup() {
+    var c = C[ci]; $("ce-claim").innerHTML = c.c; $("ce-var").textContent = c.v; $("ce-in").value = ""; $("ce-log").innerHTML = "";
+    $("ce-out").innerHTML = '<span class="small muted">Enter a value and press Test.</span>';
+  }
+  function test() {
+    var c = C[ci], raw = $("ce-in").value; if (raw === "") return;
+    var x = +raw;
+    if (c.int && x % 1) { $("ce-out").innerHTML = '<span class="small muted">This claim is about integers.</span>'; return; }
+    var h = c.hyp(x), k = c.con(x), broke = h && !k, msg;
+    if (!h) msg = '<span class="chip">hypothesis false</span> ' + (c.hs || "") + ' fails for ' + x + ', so this value says nothing.';
+    else if (k) msg = '<span class="chip yes">holds</span> ' + c.cs + ' is true for ' + x + '. Keep looking.';
+    else msg = '<span class="chip no">counterexample!</span> ' + (c.hs ? c.hs + ' is true but ' : '') + c.cs + ' is false for ' + c.v + ' = ' + x + '. The claim is false.';
+    if (ci === 3 && h) msg += '<div class="small muted mt-s">' + x + '² + ' + x + ' + 41 = ' + (x * x + x + 41).toLocaleString("en-US") + '</div>';
+    if (ci === 2 && h) msg += '<div class="small muted mt-s">2<sup>' + x + '</sup> = ' + Math.pow(2, x).toLocaleString("en-US") + ', ' + x + '² = ' + (x * x) + '</div>';
+    $("ce-out").innerHTML = msg;
+    var chip = document.createElement("span"); chip.className = "chip " + (broke ? "no" : h ? "yes" : ""); chip.textContent = c.v + " = " + x; $("ce-log").appendChild(chip);
+  }
+  $("ce-pick").addEventListener("change", function () { ci = +this.value; setup(); });
+  $("ce-go").addEventListener("click", test);
+  $("ce-in").addEventListener("keydown", function (e) { if (e.key === "Enter") test(); });
+  $("ce-hint").addEventListener("click", function () { $("ce-out").innerHTML = '<span class="small">' + C[ci].h + '</span>'; });
+  setup();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Counterexamples come from the quantifier negation laws (Velleman §2.2) and are used throughout §3.3.</li>

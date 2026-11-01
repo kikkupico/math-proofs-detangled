@@ -1,0 +1,91 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede"><span class="m"><i>P</i> → <i>Q</i></span> is equivalent to <span class="m">¬<i>Q</i> → ¬<i>P</i></span>. So instead of proving the original, you can assume <b>¬Q</b> and prove <b>¬P</b>. Same theorem, but sometimes a far better starting point.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="c">We prove the contrapositive.</span>
+<span class="kw">Suppose</span> ¬<i>Q</i>.
+   <span class="c">… work …</span>
+   <span class="kw">Therefore</span> ¬<i>P</i>.
+<span class="kw">Thus</span> ¬<i>Q</i> → ¬<i>P</i>, so <i>P</i> → <i>Q</i>.  ∎</div>
+      <p class="small muted mt-s">Why it's allowed: the two have identical truth tables. <a href="conditionals.html">Check it on the Conditionals page.</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Example 1</span>
+        <h2>If n² is even, then n is even</h2>
+        <p>Try it directly: suppose <i>n</i>² = 2<i>k</i>. Now what? You'd need a square root of 2<i>k</i>, and that leads nowhere.</p>
+        <p>The contrapositive is: <b>if n is odd, then n² is odd</b>. Now the hypothesis hands you a formula for <i>n</i>, and the rest is algebra. Step through it.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">Announce the strategy, then assume ¬Q: <i>n</i> is not even, i.e. odd.</p>
+        <p class="say" data-at="2" data-until="2">Unpack “odd”.</p>
+        <p class="say" data-at="3" data-until="3">Compute <i>n</i>² and put it into the form 2(integer) + 1.</p>
+        <p class="say" data-at="4">We've proved ¬Q → ¬P, which is equivalent to P → Q.</p>
+        <div class="board" style="margin-bottom:14px">
+          <div><h4>Givens</h4><ul><li data-at="1" class="new"><i>n</i> is odd</li><li data-at="2" class="new"><i>n</i> = 2<i>k</i> + 1</li></ul></div>
+          <div><h4>Goal</h4><ul><li data-at="1" data-until="3" class="new"><i>n</i>² is odd</li><li data-at="4" class="done"><i>n</i>² is odd</li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="1">We prove the contrapositive. Suppose <i>n</i> is odd.</span>
+          <span class="pl" data-at="2">Then <i>n</i> = 2<i>k</i> + 1 for some integer <i>k</i>.</span>
+          <span class="pl" data-at="3">So <i>n</i>² = 4<i>k</i>² + 4<i>k</i> + 1 = 2(2<i>k</i>² + 2<i>k</i>) + 1, which is odd.</span>
+          <span class="pl" data-at="4">Thus if <i>n</i> is odd then <i>n</i>² is odd, and so if <i>n</i>² is even then <i>n</i> is even. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">The conclusion is an “or”. Its negation, by De Morgan, is an “and”: <i>a</i> &lt; 8 <b>and</b> <i>b</i> &lt; 8. That's a much better thing to assume.</p>
+        <p class="say" data-at="2" data-until="2">For integers, <i>a</i> &lt; 8 means <i>a</i> ≤ 7.</p>
+        <p class="say" data-at="3">Add the two inequalities and we've shown ¬P.</p>
+        <div class="proof">
+          <span class="pl" data-at="1">We prove the contrapositive. Suppose <i>a</i> &lt; 8 and <i>b</i> &lt; 8.</span>
+          <span class="pl" data-at="2">Since <i>a</i> and <i>b</i> are integers, <i>a</i> ≤ 7 and <i>b</i> ≤ 7.</span>
+          <span class="pl" data-at="3">So <i>a</i> + <i>b</i> ≤ 14 &lt; 15. ∎</span>
+        </div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Example 2</span>
+        <h2>If a + b ≥ 15, then a ≥ 8 or b ≥ 8</h2>
+        <p>Here <i>a</i> and <i>b</i> are integers. A direct proof would start from a single inequality about a sum and have to split it somehow.</p>
+        <p>The contrapositive turns the awkward “or” in the conclusion into a friendly “and” in the hypothesis. This is a common pattern: <b>when the conclusion is an “or”, or a negative statement, try the contrapositive.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="callout warn"><span class="k">Common slip</span><p>Proving the <b>converse</b> by mistake. The converse of “if n² is even then n is even” is “if n is even then n² is even”. That's a true statement too, but proving it doesn't prove the original. The contrapositive negates <b>and</b> swaps.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>What is the contrapositive of “if <i>xy</i> is irrational, then <i>x</i> is irrational or <i>y</i> is irrational”?</p>
+      <div class="opts">
+        <button data-ok data-why="Negate the conclusion (De Morgan turns “or” into “and”) and the hypothesis, then swap. Easy to prove: a product of two fractions is a fraction.">If x and y are both rational, then xy is rational.</button>
+        <button data-why="That's the converse: swapped but not negated.">If x or y is irrational, then xy is irrational.</button>
+        <button data-why="The negation of “x irrational or y irrational” is “x rational and y rational”, not “or”.">If x or y is rational, then xy is rational.</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FOOTNOTES -->
+<li>The contrapositive strategy is introduced in Velleman §3.1 and used throughout §3.2.</li>

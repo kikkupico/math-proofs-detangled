@@ -1,0 +1,103 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>There are no integers <i>p</i> and <i>q</i> with <i>q</i> ≠ 0 such that <i>p</i>/<i>q</i> = √2.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifier-laws.html">Quantifier laws</a><a class="chip" href="conditionals.html">Conditionals</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="contradiction.html">Contradiction</a><a class="chip" href="contrapositive.html">Contrapositive</a><a class="chip" href="exists.html">Witnesses</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">The lemma we need</div>
+        <p class="mb" style="font-size:20px">If <i>n</i>² is even, then <i>n</i> is even.</p>
+        <p class="note">Proved by contrapositive on the <a href="contrapositive.html">Contrapositive</a> page: if <i>n</i> is odd, <i>n</i>² is odd.</p>
+        <div class="lab-title" style="margin:18px 0 8px">A fact about fractions</div>
+        <p class="muted">Every fraction can be written in <b>lowest terms</b>: numerator and denominator with no common factor bigger than 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Both even? Impossible.</h2><p>“Irrational” means “not a fraction”: a negative goal. So assume it <b>is</b> a fraction and chase the consequences.</p></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">Negative goal → contradiction</span><h3>Suppose √2 is a fraction</h3><p>The goal is ¬∃<i>p</i>, <i>q</i> (…). Assume the opposite: some fraction equals √2. It's an ∃ given, so name it, and take it in lowest terms.</p></div>
+        <div class="step" data-key="s2"><span class="k">Algebra</span><h3>Clear the square root</h3><p>Square both sides and multiply by <i>q</i>². Now we have an equation between integers, which is much easier to reason about.</p></div>
+        <div class="step" data-key="s3"><span class="k">Lemma + ∃ given</span><h3>p is even</h3><p><i>p</i>² = 2<i>q</i>² is even, so by the lemma <i>p</i> is even. Unpack: <i>p</i> = 2<i>k</i> for some integer <i>k</i>.</p></div>
+        <div class="step" data-key="s4"><span class="k">Same again</span><h3>q is even too</h3><p>Substitute: 4<i>k</i>² = 2<i>q</i>², so <i>q</i>² = 2<i>k</i>². The same reasoning, now for <i>q</i>, says <i>q</i> is even.</p></div>
+        <div class="step" data-key="s5"><span class="k">Contradiction</span><h3>Lowest terms, but both even</h3><p>If <i>p</i> and <i>q</i> are both even, 2 is a common factor, so <i>p</i>/<i>q</i> wasn't in lowest terms. That contradicts how we chose them.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1">Suppose, for contradiction, that √2 = <i>p</i>/<i>q</i> for some integers <i>p</i>, <i>q</i> with <i>q</i> ≠ 0. We may assume the fraction is in lowest terms.</span>
+            <span class="pl" data-on="s2">Squaring gives 2 = <i>p</i>²/<i>q</i>², so <i>p</i>² = 2<i>q</i>².</span>
+            <span class="pl" data-on="s3">So <i>p</i>² is even, and therefore <i>p</i> is even, say <i>p</i> = 2<i>k</i>.</span>
+            <span class="pl" data-on="s4">Then 4<i>k</i>² = 2<i>q</i>², so <i>q</i>² = 2<i>k</i>². So <i>q</i>² is even, and therefore <i>q</i> is even.</span>
+            <span class="pl" data-on="s5">Then 2 divides both <i>p</i> and <i>q</i>, contradicting that <i>p</i>/<i>q</i> is in lowest terms.</span>
+            <span class="pl" data-on="s5">So √2 is irrational. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Close, but never equal</span>
+        <h2>Hunting for p² = 2q²</h2>
+        <p>For each denominator <i>q</i>, the table finds the closest <i>p</i> and shows how far <i>p</i>² is from 2<i>q</i>². Some get remarkably close: 99/70 is off by just 1. But the gap is never 0.</p>
+        <p>No search can prove that. The proof does, for every <i>q</i> at once, including the ones too big for any computer.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Best p for each q</span><label class="ctl" for="sq">q up to <b id="sq-v" style="color:var(--ink)">20</b><input type="range" id="sq" min="5" max="200" value="20"></label></div>
+        <div class="chips" style="margin-bottom:10px"><span class="chip" id="sq-chip"></span></div>
+        <div style="max-height:300px;overflow:auto"><table class="tt" id="sq-t"></table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Where exactly did the proof use the lemma “if <i>n</i>² is even, then <i>n</i> is even”?</p>
+      <div class="opts">
+        <button data-ok data-why="Once with n = p, once with n = q. A lemma proved once can be used as many times as you like.">Twice: to get p even, then q even</button>
+        <button data-why="Look again at how q being even was justified.">Once, to get p even</button>
+        <button data-why="It's essential: without it, p² even wouldn't tell you anything about p.">It wasn't needed</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function run() {
+    var Q = +$("sq").value, h = '<tr><th>q</th><th>p</th><th>p/q</th><th>p² − 2q²</th></tr>', zero = false, best = null; $("sq-v").textContent = Q;
+    for (var q = 1; q <= Q; q++) {
+      var p = Math.round(q * Math.SQRT2), d = p * p - 2 * q * q; if (d === 0) zero = true;
+      var close = Math.abs(d) === 1;
+      if (close) best = [p, q];
+      h += '<tr' + (close ? ' class="hit"' : '') + '><td>' + q + '</td><td>' + p + '</td><td>' + (p / q).toFixed(6) + '</td><td style="font-weight:600;color:' + (close ? 'var(--accent)' : 'var(--ink-2)') + '">' + (d > 0 ? '+' : d < 0 ? '−' : '') + Math.abs(d) + '</td></tr>';
+    }
+    $("sq-t").innerHTML = h;
+    $("sq-chip").className = "chip " + (zero ? "yes" : "no");
+    $("sq-chip").textContent = zero ? "Found a zero" : "Never 0 (best: " + best[0] + "/" + best[1] + ", off by 1)";
+  }
+  $("sq").addEventListener("input", run); run();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Velleman proves the irrationality of √2 in §6.4 using the well-ordering principle, which plays the role of “lowest terms” here.</li>

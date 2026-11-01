@@ -1,0 +1,118 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">A formula with two letters has only four possible situations. List them all, work out the formula in each, and you know everything about it. That's a truth table, and it settles questions of validity and equivalence with no cleverness at all.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab"><div class="lab-title" style="margin-bottom:10px">The three basic connectives</div><div class="ttgen" data-f="¬P; P ∧ Q; P ∨ Q"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">How it works</span>
+        <h2>Inside out, one column at a time</h2>
+        <p>To find the truth table of <span class="m">¬(<i>P</i> ∧ <i>Q</i>)</span>, list every combination of <i>P</i> and <i>Q</i>. Then work from the inside: first <span class="m"><i>P</i> ∧ <i>Q</i></span>, then negate that column.</p>
+        <p>With <i>n</i> letters there are 2ⁿ rows: 4 for two letters, 8 for three. Tedious for big formulas, but completely mechanical.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">List all four combinations of truth values for <i>P</i> and <i>Q</i>.</p>
+        <p class="say" data-at="2" data-until="2">Work out the inner part, <b>P ∧ Q</b>. It's true only in the first row.</p>
+        <p class="say" data-at="3">Negate that column to get <b>¬(P ∧ Q)</b>. It's false only in the first row.</p>
+        <div class="ttgen" data-f="P ∨ ¬P" data-at="1" data-until="1" id="tt1"></div>
+        <div class="ttgen" data-f="P ∧ Q" data-at="2" data-until="2"></div>
+        <div class="ttgen" data-f="P ∧ Q; ¬(P ∧ Q)" data-at="3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split wide-r">
+      <div class="copy">
+        <span class="kicker">The lab</span>
+        <h2>Are these the same?</h2>
+        <p>Two formulas are <b>equivalent</b> (written ≡) when their columns agree in every row. Then you can swap one for the other anywhere, which is how proofs simplify statements.</p>
+        <p>Try the presets, or type your own. You can use the buttons, or type <span class="kbd">~</span> <span class="kbd">&amp;</span> <span class="kbd">|</span> <span class="kbd">-&gt;</span> <span class="kbd">&lt;-&gt;</span>.</p>
+      </div>
+      <div class="lab ttlab">
+        <div class="row" style="margin-bottom:14px">
+          <button class="tbtn" data-set="¬(P ∧ Q)|¬P ∨ ¬Q" aria-pressed="true">De Morgan 1</button>
+          <button class="tbtn" data-set="¬(P ∨ Q)|¬P ∧ ¬Q">De Morgan 2</button>
+          <button class="tbtn" data-set="¬(P ∧ Q)|¬P ∧ ¬Q">A common mistake</button>
+          <button class="tbtn" data-set="P ∧ (Q ∨ R)|(P ∧ Q) ∨ (P ∧ R)">Distributive</button>
+          <button class="tbtn" data-set="P ∨ (P ∧ Q)|P">Absorption</button>
+          <button class="tbtn" data-set="¬¬P|P">Double negation</button>
+        </div>
+        <div class="grid-gap" style="gap:8px">
+          <input class="formula" type="text" value="¬(P ∧ Q)" aria-label="First formula" spellcheck="false">
+          <input class="formula" type="text" value="¬P ∨ ¬Q" aria-label="Second formula" spellcheck="false">
+        </div>
+        <div class="row mt-s"><button class="tbtn mb" data-ins="¬">¬</button><button class="tbtn mb" data-ins="∧">∧</button><button class="tbtn mb" data-ins="∨">∨</button><button class="tbtn mb" data-ins="→">→</button><button class="tbtn mb" data-ins="↔">↔</button><button class="tbtn mb" data-ins="(">(</button><button class="tbtn mb" data-ins=")">)</button><span style="flex:1"></span><span class="chip tt-verdict"></span></div>
+        <div class="tt-out mt-s"></div>
+        <p class="note tt-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Worth remembering</span><h2>The laws you'll use most</h2><p>Each one is a pair with matching truth tables. Check any of them in the lab above.</p></div>
+    <div class="cards">
+      <div class="card"><span class="k">De Morgan's laws</span><span class="sym">¬(<i>P</i> ∧ <i>Q</i>) ≡ ¬<i>P</i> ∨ ¬<i>Q</i><br>¬(<i>P</i> ∨ <i>Q</i>) ≡ ¬<i>P</i> ∧ ¬<i>Q</i></span><p>Pushing a ¬ inside flips ∧ and ∨. Used in almost every proof that involves a negation.</p></div>
+      <div class="card"><span class="k">Distributive laws</span><span class="sym"><i>P</i> ∧ (<i>Q</i> ∨ <i>R</i>) ≡ (<i>P</i> ∧ <i>Q</i>) ∨ (<i>P</i> ∧ <i>R</i>)</span><p>And the same with ∧ and ∨ swapped. Like multiplying out brackets.</p></div>
+      <div class="card"><span class="k">Double negation</span><span class="sym">¬¬<i>P</i> ≡ <i>P</i></span><p>Two negations cancel.</p></div>
+      <div class="card"><span class="k">Absorption</span><span class="sym"><i>P</i> ∨ (<i>P</i> ∧ <i>Q</i>) ≡ <i>P</i></span><p>Also <span class="m"><i>P</i> ∧ (<i>P</i> ∨ <i>Q</i>) ≡ <i>P</i></span>.</p></div>
+      <div class="card"><span class="k">Commutative, associative, idempotent</span><p>Order and grouping don't matter for ∧ or ∨, and <span class="m"><i>P</i> ∧ <i>P</i> ≡ <i>P</i></span>, <span class="m"><i>P</i> ∨ <i>P</i> ≡ <i>P</i></span>.</p></div>
+      <div class="card"><span class="k">Tautologies and contradictions</span><p><span class="m"><i>P</i> ∨ ¬<i>P</i></span> is true in every row: a <b>tautology</b>. <span class="m"><i>P</i> ∧ ¬<i>P</i></span> is false in every row: a <b>contradiction</b>. Proof by contradiction aims for the second kind.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Checking arguments</span>
+        <h2>Validity, by brute force</h2>
+        <p>The butler argument from Part 1 had premises <span class="m"><i>B</i> ∨ <i>M</i></span> and <span class="m"><i>M</i> ∨ <i>C</i></span>, and conclusion <span class="m"><i>B</i> ∨ <i>C</i></span>. An argument is valid if <b>every row where all premises are true also has the conclusion true</b>.</p>
+        <p>Scan the table for a row where both premises are T but the conclusion is F. Row 6 (<i>B</i> false, <i>M</i> true, <i>C</i> false) is that row: only the maid did it. So the argument is invalid.</p>
+      </div>
+      <div class="lab"><div class="lab-title" style="margin-bottom:10px">Premises, then conclusion</div><div class="ttgen" data-f="B ∨ M; M ∨ C; B ∨ C" id="bm-tt"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>How many rows does a truth table for a formula with letters <i>P</i>, <i>Q</i>, <i>R</i>, <i>S</i> have?</p>
+      <div class="opts"><button data-why="That's 4 letters times 2, but each new letter doubles the count.">8</button><button data-ok data-why="2 × 2 × 2 × 2 = 2⁴ = 16.">16</button><button data-why="That would be 2⁵. Four letters give 2⁴.">32</button></div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Which formula is equivalent to “it's not true that x is both even and prime”?</p>
+      <div class="opts"><button data-why="That says x is neither even nor prime. Try it in the lab: the columns differ.">x is not even and not prime</button><button data-ok data-why="De Morgan: ¬(E ∧ P) ≡ ¬E ∨ ¬P.">x is not even, or x is not prime</button><button data-why="That's just one half; x = 9 is not prime and still fits the original.">x is not even</button></div>
+    </div>
+  </div>
+</section>
+
+<script>
+addEventListener("DOMContentLoaded", function () {
+  // first stepper frame: show only the P,Q columns
+  var t = document.getElementById("tt1");
+  if (t && window.ProofsTT) { var f = ProofsTT.parse("P ∧ Q"); var h = ProofsTT.table([f]).html; t.innerHTML = '<div class="scroll-x">' + h.replace(/<th class="res">.*?<\/th>/, "").replace(/<td class="res [TF]">[TF]<\/td>/g, "") + '</div>'; }
+  // highlight the counterexample row in the butler table
+  var rows = document.querySelectorAll("#bm-tt tr");
+  if (rows[6]) rows[6].classList.add("hit");
+});
+</script>
+<!-- FOOTNOTES -->
+<li>Truth tables, the laws of logic and the validity test follow Velleman §1.2.</li>

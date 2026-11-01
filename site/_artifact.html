@@ -1,149 +1,89 @@
-<title>How to Prove It Speedrun</title>
+<title>Proofs, Detangled</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Start here">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<meta name="description" content="Learn to read, plan and write mathematical proofs.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
 <link rel="stylesheet" href="style.css">
-<div class="page ch-home">
-<nav class="gnav" aria-label="Chapters"><ul><li><a class="brand" href="index.html" aria-label="Home">&#8718;</a></li><li><a href="intro.html">Intro</a></li><li><a href="logic.html">Logic</a></li><li><a href="quantifiers.html">Quantifiers</a></li><li><a href="proofs.html">Proofs</a></li><li><a href="relations.html">Relations</a></li><li><a href="functions.html">Functions</a></li><li><a href="induction.html">Induction</a></li><li><a href="infinity.html">Infinity</a></li><li><a href="toolkit.html">Toolkit</a></li></ul></nav>
-<div class="lnav"><div class="wrap"><a class="title" href="index.html">How to Prove It</a><nav aria-label="On this page"><a class="btn sm" href="intro.html">Next: Intro</a></nav></div></div>
+<div class="page part-home">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+
 <main>
-<section class="hero wrap">
-  <p class="eyebrow">A speedrun and a map of the classic</p>
-  <h1>How to Prove It</h1>
-  <p class="tag grad">Proofs, structured.</p>
-  <p class="lede">Daniel Velleman's book teaches the rules of the game behind every mathematical proof. These ten pages walk through all of its big ideas, with something to try on each one. When you want the full story, each page tells you exactly where to look in the book.</p>
-  <div class="cta-row">
-    <a class="btn" href="intro.html">Start the speedrun</a>
-    <a class="more" href="toolkit.html">Open the proof toolkit</a>
-  </div>
-  <div class="hero-art">
-    <div class="outline" style="text-align:left;display:inline-block;max-width:100%"><span class="kw">Let</span> <i>x</i> be arbitrary.
-    <span class="kw">Suppose</span> <i>P</i>(<i>x</i>).
-        <span class="c">[ proof of Q(x) goes here ]</span>
-    <span class="kw">Thus</span> <i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>).
-<span class="kw">Thus</span> ∀<i>x</i>(<i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>)).  ∎</div>
-  </div>
-</section>
-
-<section class="band alt" id="idea">
-  <div class="wrap">
-    <div class="head center">
-      <span class="kicker grad">The big idea</span>
-      <h2>Structured programming,<br>meet structured proving</h2>
-      <p>Programs aren't written as flat lists of instructions. They're built by nesting a few standard blocks like <i>if–else</i> and <i>while</i>. Velleman's insight is that proofs work the same way. Each logical form has its own block, and you nest the blocks to build the proof.</p>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">An interactive guide</p>
+      <h1>Proofs, Detangled</h1>
+      <p class="tagline">Read them. Plan them. Write them.</p>
+      <p class="lede">A proof is not a flash of genius. It is a small set of standard moves, written in a precise language, for reasons you can see. This guide takes those pieces apart and puts them back together, one page at a time.</p>
+      <div class="actions"><a class="btn accent" href="purpose.html">Start with why</a><a class="link-more" href="#parts">See all four parts</a></div>
     </div>
-    <div class="pair">
-      <figure>
-        <div class="codeblk">do
-   if [condition]
-      [instructions]
-   else
-      [other instructions]
-while [condition]</div>
-        <figcaption>A program: blocks nested inside blocks.</figcaption>
-      </figure>
-      <figure>
-        <div class="outline">Let <i>x</i> be arbitrary.            <span class="c">∀ block</span>
-   Suppose <i>P</i>(<i>x</i>).               <span class="c">→ block</span>
-      [proof of <i>Q</i>(<i>x</i>)]
-   Thus <i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>).
-Thus ∀<i>x</i>(<i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>)).</div>
-        <figcaption>A proof: the same idea, written in English.</figcaption>
-      </figure>
-    </div>
-    <p class="center muted mt-m" style="max-width:640px;margin-inline:auto">Chapters 1 and 2 teach you to read the logical form of a statement. Chapter 3 gives you the block for each form. Chapters 4–7 put the blocks to work on relations, functions, induction and infinity.</p>
-  </div>
-</section>
-
-<section class="band" id="lineup">
-  <div class="wrap">
-    <div class="head center">
-      <h2>The chapters</h2>
-      <p>Read them in order. Each one takes about ten minutes.</p>
-    </div>
-    <div class="lineup">
-      <a class="lu ch-intro" href="intro.html"><span class="glyph">2<sup style="font-size:.5em">n</sup>−1</span><span class="no">Introduction · pp. 1–7</span><h3>Why prove anything?</h3><p>Primes, a pattern that breaks at 11, and three famous proofs.</p><span class="meta"><span>4 things to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-logic" href="logic.html"><span class="glyph">¬ ∧ ∨</span><span class="no">Chapter 1 · pp. 8–54</span><h3>Sentential Logic</h3><p>Connectives, truth tables, sets, and the strange “if–then”.</p><span class="meta"><span>3 things to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-quantifiers" href="quantifiers.html"><span class="glyph">∀ ∃</span><span class="no">Chapter 2 · pp. 55–83</span><h3>Quantificational Logic</h3><p>“For all” and “there exists”, and why their order matters.</p><span class="meta"><span>3 things to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-proofs" href="proofs.html"><span class="glyph">∴</span><span class="no">Chapter 3 · pp. 84–162</span><h3>Proofs</h3><p>Givens and goals: a strategy for every logical form.</p><span class="meta"><span>The core chapter</span><span>Read ›</span></span></a>
-      <a class="lu ch-relations" href="relations.html"><span class="glyph">⟨a, b⟩</span><span class="no">Chapter 4 · pp. 163–225</span><h3>Relations</h3><p>Ordered pairs, orders, closures, equivalence classes.</p><span class="meta"><span>2 things to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-functions" href="functions.html"><span class="glyph"><i>f</i> : <i>A</i>→<i>B</i></span><span class="no">Chapter 5 · pp. 226–259</span><h3>Functions</h3><p>One-to-one, onto, inverses, images.</p><span class="meta"><span>1 thing to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-induction" href="induction.html"><span class="glyph"><i>n</i>+1</span><span class="no">Chapter 6 · pp. 260–305</span><h3>Mathematical Induction</h3><p>Dominoes, recursion, strong induction.</p><span class="meta"><span>4 things to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-infinity" href="infinity.html"><span class="glyph">∞</span><span class="no">Chapter 7 · pp. 306–328</span><h3>Infinite Sets</h3><p>Counting by matching, and Cantor's diagonal.</p><span class="meta"><span>3 things to try</span><span>Read ›</span></span></a>
-      <a class="lu ch-toolkit" href="toolkit.html"><span class="glyph">∎</span><span class="no">Reference · pp. 376–380</span><h3>Proof Toolkit</h3><p>Every proof technique, all the notation, and the full map.</p><span class="meta"><span>Reference</span><span>Read ›</span></span></a>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Let</span> <i>x</i> be arbitrary.
+   <span class="kw">Suppose</span> <i>P</i>(<i>x</i>).
+      <span class="c">… the work goes here …</span>
+   <span class="kw">Thus</span> <i>Q</i>(<i>x</i>).
+<span class="kw">Hence</span> ∀<i>x</i> (<i>P</i>(<i>x</i>) → <i>Q</i>(<i>x</i>)).  ∎</div>
+      <p class="small muted mt-s">The skeleton of thousands of proofs. By the end of Part 3 you'll know where every line comes from.</p>
     </div>
   </div>
 </section>
 
-<section class="band alt" id="map">
+<section class="sec tint">
   <div class="wrap">
-    <div class="head center">
-      <h2>How the ideas connect</h2>
-      <p>Arrows show which chapter builds on which. Dashed lines mark the places where the book comes back to an earlier idea.</p>
-    </div>
-    <div class="lab" style="padding:20px">
-      <div class="scroll-x">
-        <svg viewBox="0 0 1000 420" role="img" aria-label="Chapter dependency map" style="min-width:720px;width:100%;display:block">
-          <style>
-            .dn rect{fill:var(--tile);stroke:var(--line)}
-            .dn .n{fill:var(--fg2);font-size:12px;font-weight:600;letter-spacing:.06em}
-            .dn .t{fill:var(--fg);font-size:15px;font-weight:600}
-            .dn:hover rect{stroke:var(--link)}
-            .ed{stroke:var(--fg3);stroke-width:1.6;fill:none}
-            .ed.dash{stroke-dasharray:5 5;stroke:var(--link)}
-            .ah{fill:var(--fg3)} .ah2{fill:var(--link)}
-            .lbl{fill:var(--link);font-size:13px}
-          </style>
-          <defs>
-            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker>
-            <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah2" d="M0 0L10 5L0 10z"/></marker>
-          </defs>
-          <!-- edges -->
-          <path class="ed" d="M165 120H213" marker-end="url(#arr)"/>
-          <path class="ed" d="M365 120H413" marker-end="url(#arr)"/>
-          <path class="ed" d="M565 120H613" marker-end="url(#arr)"/>
-          <path class="ed" d="M650 148L340 282" marker-end="url(#arr)"/>
-          <path class="ed" d="M672 148L520 282" marker-end="url(#arr)"/>
-          <path class="ed" d="M690 148V282" marker-end="url(#arr)"/>
-          <path class="ed" d="M365 310H413" marker-end="url(#arr)"/>
-          <path class="ed" d="M565 300L815 222" marker-end="url(#arr)"/>
-          <path class="ed" d="M765 300L838 238" marker-end="url(#arr)"/>
-          <path class="ed dash" d="M90 92C90 30 690 30 690 88" marker-end="url(#arr2)"/>
-          <path class="ed dash" d="M290 338C290 404 690 404 690 342" marker-end="url(#arr2)"/>
-          <text class="lbl" x="390" y="40" text-anchor="middle">§3.7 takes apart the intro's three proofs</text>
-          <text class="lbl" x="490" y="414" text-anchor="middle">§6.5 revisits closures from §4.5</text>
-          <!-- nodes -->
-          <a href="intro.html"><g class="dn"><rect x="15" y="92" width="150" height="56" rx="16"/><text class="n" x="90" y="114" text-anchor="middle">INTRO</text><text class="t" x="90" y="135" text-anchor="middle">Primes</text></g></a>
-          <a href="logic.html"><g class="dn"><rect x="215" y="92" width="150" height="56" rx="16"/><text class="n" x="290" y="114" text-anchor="middle">CH 1</text><text class="t" x="290" y="135" text-anchor="middle">Sentential logic</text></g></a>
-          <a href="quantifiers.html"><g class="dn"><rect x="415" y="92" width="150" height="56" rx="16"/><text class="n" x="490" y="114" text-anchor="middle">CH 2</text><text class="t" x="490" y="135" text-anchor="middle">Quantifiers</text></g></a>
-          <a href="proofs.html"><g class="dn"><rect x="615" y="92" width="150" height="56" rx="16"/><text class="n" x="690" y="114" text-anchor="middle">CH 3</text><text class="t" x="690" y="135" text-anchor="middle">Proofs</text></g></a>
-          <a href="relations.html"><g class="dn"><rect x="215" y="282" width="150" height="56" rx="16"/><text class="n" x="290" y="304" text-anchor="middle">CH 4</text><text class="t" x="290" y="325" text-anchor="middle">Relations</text></g></a>
-          <a href="functions.html"><g class="dn"><rect x="415" y="282" width="150" height="56" rx="16"/><text class="n" x="490" y="304" text-anchor="middle">CH 5</text><text class="t" x="490" y="325" text-anchor="middle">Functions</text></g></a>
-          <a href="induction.html"><g class="dn"><rect x="615" y="282" width="150" height="56" rx="16"/><text class="n" x="690" y="304" text-anchor="middle">CH 6</text><text class="t" x="690" y="325" text-anchor="middle">Induction</text></g></a>
-          <a href="infinity.html"><g class="dn"><rect x="815" y="182" width="150" height="56" rx="16"/><text class="n" x="890" y="204" text-anchor="middle">CH 7</text><text class="t" x="890" y="225" text-anchor="middle">Infinite sets</text></g></a>
-        </svg>
+    <div class="sec-head"><span class="kicker">The idea</span><h2>Every proof answers four questions</h2><p>Scroll, and watch one small proof light up as each question is answered. The four parts of this guide follow the same order.</p></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="why"><span class="k">1 · Purpose</span><h3>Why can't we just check?</h3><p>2 + 4 = 6. 10 + 8 = 18. −6 + 12 = 6. Every pair you try works. But there are infinitely many pairs, and checking a million of them still leaves infinitely many unchecked. <b>A proof covers them all at once.</b></p></div>
+        <div class="step" data-key="lang"><span class="k">2 · Tools</span><h3>What exactly is being claimed?</h3><p>English hides structure. Rewritten with quantifiers and connectives, the claim has a visible shape: <b>for all</b> m and n, <b>if</b> both are even, <b>then</b> m + n is even. The shape tells you how to prove it.</p></div>
+        <div class="step" data-key="move"><span class="k">3 · Techniques</span><h3>Which move comes next?</h3><p>A “for all” goal means: <b>let the objects be arbitrary</b>. An “if–then” goal means: <b>assume the if-part</b>. A definition (even) gets <b>unpacked</b>. Each move is standard, and each one writes a line.</p></div>
+        <div class="step" data-key="all"><span class="k">4 · Examples</span><h3>Put it together.</h3><p>The finished proof is just the moves, in order, written as sentences. Part 4 does exactly this for bigger theorems: infinitely many primes, the irrationality of √2, Cantor's theorem.</p></div>
       </div>
-      <p class="note">Chapter 5 defines functions as a kind of relation, so it needs Chapter 4. Chapter 7 measures infinite sets with the one-to-one, onto functions from Chapter 5, and its proofs use induction from Chapter 6.</p>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Claim</div>
+          <p class="pl" data-on="why all" style="font-size:19px">The sum of any two even integers is even.</p>
+          <div class="pl mb" data-on="lang all" style="font-size:20px;margin-top:8px">∀<i>m</i> ∀<i>n</i> ((<i>m</i> even ∧ <i>n</i> even) → <i>m</i> + <i>n</i> even)</div>
+          <div class="lab-title" style="margin:20px 0 8px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="move all">Let <i>m</i> and <i>n</i> be arbitrary integers.</span>
+            <span class="pl in1" data-on="move all">Suppose <i>m</i> and <i>n</i> are both even.</span>
+            <span class="pl in1" data-on="move all">Then <i>m</i> = 2<i>j</i> and <i>n</i> = 2<i>k</i> for some integers <i>j</i>, <i>k</i>.</span>
+            <span class="pl in1" data-on="all">So <i>m</i> + <i>n</i> = 2<i>j</i> + 2<i>k</i> = 2(<i>j</i> + <i>k</i>), which is even.</span>
+            <span class="pl" data-on="all">Since <i>m</i> and <i>n</i> were arbitrary, the claim holds. ∎</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="band" id="how">
+<section class="sec" id="parts">
   <div class="wrap">
-    <div class="head center"><h2>Three ways to use this guide</h2></div>
-    <div class="bento">
-      <div class="tile"><span class="k">Speedrun</span><h3>Read top to bottom.</h3><p>Each page opens with a few highlight cards, then explains the main ideas in plain language. Read them all and you've covered every theme in the book.</p></div>
-      <div class="tile"><span class="k">Play</span><h3>Poke at the ideas.</h3><p>Every chapter has a hands-on demo: truth tables, a proof you build step by step, falling dominoes, Cantor's diagonal. Change things and watch what happens.</p></div>
-      <div class="tile"><span class="k">Map</span><h3>Dive into the book.</h3><p>Every page ends with <b>In the book</b>: each section, its page number, and what you'll get from it. Starred exercises have solutions in Appendix 1, starting on p. 329.</p></div>
+    <div class="sec-head"><span class="kicker">The guide</span><h2>Four parts</h2><p>Read them in order the first time. Later, jump straight to the tool or technique you need.</p></div>
+    <div class="parts4">
+      <a class="part-card t-purpose" href="purpose.html"><span class="g">?</span><span class="n">Part 1 · 2 pages</span><h3>Purpose</h3><p>Why patterns aren't proofs, and why proofs need a language more precise than English.</p><ul><li>Why proofs?</li><li>Why a language?</li></ul><span class="go">Start →</span></a>
+      <a class="part-card t-tools" href="tools.html"><span class="g">∧ ∀</span><span class="n">Part 2 · 10 pages</span><h3>Tools</h3><p>Connectives, truth tables, sets, conditionals, quantifiers, power sets, families and functions.</p><ul><li>Connectives</li><li>Truth tables</li><li>Sets</li><li>Quantifiers</li><li>…</li></ul><span class="go">Open the toolbox →</span></a>
+      <a class="part-card t-techniques" href="techniques.html"><span class="g">⊢</span><span class="n">Part 3 · 10 pages</span><h3>Techniques</h3><p>Direct proof, contrapositive, contradiction, cases, witnesses, induction and more, each on a small example.</p><ul><li>Direct</li><li>Contradiction</li><li>Cases</li><li>Induction</li><li>…</li></ul><span class="go">Learn the moves →</span></a>
+      <a class="part-card t-examples" href="examples.html"><span class="g">∎</span><span class="n">Part 4 · 8 pages</span><h3>Examples</h3><p>Complete proofs, walked through line by line, showing which tools and techniques each line uses.</p><ul><li>Infinite primes</li><li>√2</li><li>Cantor</li><li>…</li></ul><span class="go">See them combined →</span></a>
     </div>
   </div>
 </section>
 
-<section class="band tight" aria-label="Keep going"><div class="wrap"><div class="pn"><a class="next" href="intro.html"><span class="dir">Next</span><span class="nm">Introduction</span><span class="tg">Why prove anything? &#8250;</span></a></div></div></section>
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head center"><h2>Built to be poked at</h2><p>Every page has something to do, not just something to read.</p></div>
+    <div class="cards">
+      <div class="card"><span class="k">Step through</span><h3>Proofs that build themselves</h3><p>Press <b>Next step</b> and watch the givens, the goal and the written proof change together.</p></div>
+      <div class="card"><span class="k">Scroll</span><h3>Lines that light up</h3><p>On the Examples pages, the finished proof stays pinned while the explanation scrolls past it.</p></div>
+      <div class="card"><span class="k">Play</span><h3>Live demos</h3><p>Type any formula into a truth table. Draw a function. Try to list every subset of ℕ and watch Cantor stop you.</p></div>
+      <div class="card"><span class="k">Check</span><h3>Quick questions</h3><p>Short “your turn” checks catch the classic mistakes before they become habits. Tip: <span class="kbd">←</span> <span class="kbd">→</span> turn pages.</p></div>
+    </div>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><span></span><a class="pg next" href="purpose.html" data-key="next"><span class="d">Next · Part 1 · Purpose →</span><span class="t">Part 1: Purpose</span><span class="s">Why proofs exist, and why they need their own language.</span></a></nav>
 </main>
-<footer class="foot"><div class="wrap"><ol>
-<li>Page ranges refer to the printed second edition (2006). Other editions number their pages, and in places their chapters, differently.</li>
-<li>The book's preface compares proofs to structured programming. The two outlines above follow the examples it uses.</li>
-</ol><p class="rule credit">An unofficial study companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page numbers (p.) are the printed page numbers of that edition. Statements are quoted or paraphrased for study; the book has the complete proofs, the scratch work behind them, and the exercises.</p><nav class="dir" aria-label="All pages"><a href="index.html">Home</a><a href="intro.html">Introduction</a><a href="logic.html">Sentential Logic</a><a href="quantifiers.html">Quantificational Logic</a><a href="proofs.html">Proofs</a><a href="relations.html">Relations</a><a href="functions.html">Functions</a><a href="induction.html">Mathematical Induction</a><a href="infinity.html">Infinite Sets</a><a href="toolkit.html">Proof Toolkit</a></nav></div></footer>
+<footer class="foot"><div class="wrap"><ol class='notes'>
+<li>The structure of this guide follows the ideas in Velleman's <i>How to Prove It</i>, reorganised into purpose, tools, techniques and worked examples.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
 </div>
 <script src="app.js"></script>

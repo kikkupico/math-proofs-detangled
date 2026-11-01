@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proof by Contrapositive · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Prove the mirror image instead.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-techniques">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html" aria-current="true"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Techniques pages"><div class="wrap rail-in"><a class="r-hub" href="techniques.html">Overview</a><a href="direct.html"><span class="i">1</span>Direct proof</a><a href="contrapositive.html" aria-current="page"><span class="i">2</span>Contrapositive</a><a href="contradiction.html"><span class="i">3</span>Contradiction</a><a href="for-all.html"><span class="i">4</span>Arbitrary objects</a><a href="exists.html"><span class="i">5</span>Witnesses</a><a href="iff.html"><span class="i">6</span>And &amp; iff</a><a href="cases.html"><span class="i">7</span>Cases</a><a href="uniqueness.html"><span class="i">8</span>Uniqueness</a><a href="counterexample.html"><span class="i">9</span>Counterexamples</a><a href="induction.html"><span class="i">10</span>Induction</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 3 · Techniques · 2 of 10</p>
+      <h1>Proof by Contrapositive</h1>
+      <p class="tagline">Prove the mirror image instead.</p>
+      <p class="lede"><span class="m"><i>P</i> → <i>Q</i></span> is equivalent to <span class="m">¬<i>Q</i> → ¬<i>P</i></span>. So instead of proving the original, you can assume <b>¬Q</b> and prove <b>¬P</b>. Same theorem, but sometimes a far better starting point.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="c">We prove the contrapositive.</span>
+<span class="kw">Suppose</span> ¬<i>Q</i>.
+   <span class="c">… work …</span>
+   <span class="kw">Therefore</span> ¬<i>P</i>.
+<span class="kw">Thus</span> ¬<i>Q</i> → ¬<i>P</i>, so <i>P</i> → <i>Q</i>.  ∎</div>
+      <p class="small muted mt-s">Why it's allowed: the two have identical truth tables. <a href="conditionals.html">Check it on the Conditionals page.</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Example 1</span>
+        <h2>If n² is even, then n is even</h2>
+        <p>Try it directly: suppose <i>n</i>² = 2<i>k</i>. Now what? You'd need a square root of 2<i>k</i>, and that leads nowhere.</p>
+        <p>The contrapositive is: <b>if n is odd, then n² is odd</b>. Now the hypothesis hands you a formula for <i>n</i>, and the rest is algebra. Step through it.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">Announce the strategy, then assume ¬Q: <i>n</i> is not even, i.e. odd.</p>
+        <p class="say" data-at="2" data-until="2">Unpack “odd”.</p>
+        <p class="say" data-at="3" data-until="3">Compute <i>n</i>² and put it into the form 2(integer) + 1.</p>
+        <p class="say" data-at="4">We've proved ¬Q → ¬P, which is equivalent to P → Q.</p>
+        <div class="board" style="margin-bottom:14px">
+          <div><h4>Givens</h4><ul><li data-at="1" class="new"><i>n</i> is odd</li><li data-at="2" class="new"><i>n</i> = 2<i>k</i> + 1</li></ul></div>
+          <div><h4>Goal</h4><ul><li data-at="1" data-until="3" class="new"><i>n</i>² is odd</li><li data-at="4" class="done"><i>n</i>² is odd</li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="1">We prove the contrapositive. Suppose <i>n</i> is odd.</span>
+          <span class="pl" data-at="2">Then <i>n</i> = 2<i>k</i> + 1 for some integer <i>k</i>.</span>
+          <span class="pl" data-at="3">So <i>n</i>² = 4<i>k</i>² + 4<i>k</i> + 1 = 2(2<i>k</i>² + 2<i>k</i>) + 1, which is odd.</span>
+          <span class="pl" data-at="4">Thus if <i>n</i> is odd then <i>n</i>² is odd, and so if <i>n</i>² is even then <i>n</i> is even. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">The conclusion is an “or”. Its negation, by De Morgan, is an “and”: <i>a</i> &lt; 8 <b>and</b> <i>b</i> &lt; 8. That's a much better thing to assume.</p>
+        <p class="say" data-at="2" data-until="2">For integers, <i>a</i> &lt; 8 means <i>a</i> ≤ 7.</p>
+        <p class="say" data-at="3">Add the two inequalities and we've shown ¬P.</p>
+        <div class="proof">
+          <span class="pl" data-at="1">We prove the contrapositive. Suppose <i>a</i> &lt; 8 and <i>b</i> &lt; 8.</span>
+          <span class="pl" data-at="2">Since <i>a</i> and <i>b</i> are integers, <i>a</i> ≤ 7 and <i>b</i> ≤ 7.</span>
+          <span class="pl" data-at="3">So <i>a</i> + <i>b</i> ≤ 14 &lt; 15. ∎</span>
+        </div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Example 2</span>
+        <h2>If a + b ≥ 15, then a ≥ 8 or b ≥ 8</h2>
+        <p>Here <i>a</i> and <i>b</i> are integers. A direct proof would start from a single inequality about a sum and have to split it somehow.</p>
+        <p>The contrapositive turns the awkward “or” in the conclusion into a friendly “and” in the hypothesis. This is a common pattern: <b>when the conclusion is an “or”, or a negative statement, try the contrapositive.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="callout warn"><span class="k">Common slip</span><p>Proving the <b>converse</b> by mistake. The converse of “if n² is even then n is even” is “if n is even then n² is even”. That's a true statement too, but proving it doesn't prove the original. The contrapositive negates <b>and</b> swaps.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>What is the contrapositive of “if <i>xy</i> is irrational, then <i>x</i> is irrational or <i>y</i> is irrational”?</p>
+      <div class="opts">
+        <button data-ok data-why="Negate the conclusion (De Morgan turns “or” into “and”) and the hypothesis, then swap. Easy to prove: a product of two fractions is a fraction.">If x and y are both rational, then xy is rational.</button>
+        <button data-why="That's the converse: swapped but not negated.">If x or y is irrational, then xy is irrational.</button>
+        <button data-why="The negation of “x irrational or y irrational” is “x rational and y rational”, not “or”.">If x or y is rational, then xy is rational.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="direct.html" data-key="prev"><span class="d">← Previous · Part 3 · Techniques</span><span class="t">Direct Proof</span></a><a class="pg next" href="contradiction.html" data-key="next"><span class="d">Next · Part 3 · Techniques →</span><span class="t">Proof by Contradiction</span><span class="s">Assume the opposite and watch it break.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §3.1–3.2, pp. 84–107.</p><ol class='notes'>
+<li>The contrapositive strategy is introduced in Velleman §3.1 and used throughout §3.2.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

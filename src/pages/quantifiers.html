@@ -1,107 +1,83 @@
-<section class="hero wrap">
-  <p class="eyebrow">Chapter 2 · pp. 55–83</p>
-  <h1>Quantificational Logic</h1>
-  <p class="tag grad">All. Some. Exactly one.</p>
-  <p class="lede">∀ and ∃ let you talk about every object at once, or promise that a single one exists. They also bring a new trap: changing their order can change what a statement says.</p>
-  <div class="cta-row"><a class="btn" href="#labs">See why order matters</a><a class="more" href="#negate">Negate anything</a></div>
-  <div class="hero-art">
-    <div class="pair" style="max-width:720px">
-      <div class="tile" style="text-align:center"><div class="sym grad" style="font-size:44px">∀<i>x</i> ∃<i>y</i></div><p>Everyone loves someone.</p></div>
-      <div class="tile" style="text-align:center"><div class="sym grad" style="font-size:44px">∃<i>y</i> ∀<i>x</i></div><p>Someone is loved by everyone.</p></div>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Connectives join whole statements. Quantifiers reach inside them and say <b>how many</b> objects make a statement true: all of them, or at least one. With them you can write down almost any claim in mathematics.</p>
+    </div>
+    <div class="hero-art">
+      <div class="cards" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div class="card" style="text-align:center"><span class="sym accent" style="font-size:56px">∀</span><h3>for all</h3><p>∀<i>x</i> <i>P</i>(<i>x</i>): every object makes <i>P</i> true. One counterexample makes it false.</p></div>
+        <div class="card" style="text-align:center"><span class="sym accent" style="font-size:56px">∃</span><h3>there exists</h3><p>∃<i>x</i> <i>P</i>(<i>x</i>): at least one object makes <i>P</i> true. One example makes it true.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="hl" id="highlights" data-carousel>
-  <div class="wrap"><div class="head"><h2>Key ideas</h2></div></div>
-  <div class="hl-track">
-    <article class="hl-card"><span class="k">Universal</span><h3>∀<i>x</i> <i>P</i>(<i>x</i>): <i>P</i> is true of everything.</h3><p>Read it as “for all x”. One counterexample makes it false.</p><div class="big">∀</div></article>
-    <article class="hl-card"><span class="k">Existential</span><h3>∃<i>x</i> <i>P</i>(<i>x</i>): at least one thing makes <i>P</i> true.</h3><p>Read it as “there exists an x”. One example makes it true.</p><div class="big">∃</div></article>
-    <article class="hl-card"><span class="k">Negation</span><h3>“Not all” means “some… not”.</h3><p>A negation moves past a quantifier by flipping it: ∀ becomes ∃ and ∃ becomes ∀.</p><div class="big sm">¬∀<i>x P</i> ≡ ∃<i>x</i> ¬<i>P</i></div></article>
-    <article class="hl-card"><span class="k">Order</span><h3>∀<i>x</i>∃<i>y</i> is not ∃<i>y</i>∀<i>x</i>.</h3><p>In the first, each x may get a different y. In the second, a single y has to work for every x.</p><div class="big sm">∀∃ ≠ ∃∀</div></article>
-    <article class="hl-card"><span class="k">Uniqueness</span><h3>∃!<i>x</i> <i>P</i>(<i>x</i>): exactly one.</h3><p>This is shorthand. It means something has property P, and anything else with property P is that same thing.</p><div class="big">∃!</div></article>
-    <article class="hl-card"><span class="k">Power sets</span><h3>𝒫(<i>A</i>) is the set of all subsets of <i>A</i>.</h3><p>If A has n elements, 𝒫(A) has 2ⁿ. These sets are the key to Cantor's theorem in Chapter 7.</p><div class="big sm">|𝒫(<i>A</i>)| = 2<sup style="font-size:.5em">n</sup></div></article>
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Try it</span><h2>Order matters</h2><p>Four people. <span class="m"><i>L</i>(<i>x</i>, <i>y</i>)</span> means “x loves y”. Click squares to decide who loves whom. The four statements use the same symbols in different orders, and their truth values change as you click.</p></div>
+    <div class="lab">
+      <div class="lab-top"><span class="lab-title">Row x loves column y</span><div class="row" id="lv-pre"></div></div>
+      <div class="split top" style="gap:28px">
+        <div id="lv-grid" style="display:grid;grid-template-columns:48px repeat(4,minmax(40px,56px));gap:5px;font-size:13px;justify-content:start"></div>
+        <div id="lv-st" class="grid-gap" style="gap:10px"></div>
+      </div>
+      <p class="note" id="lv-note"></p>
+    </div>
   </div>
-  <div class="wrap"><div class="paddles"><button class="paddle prev" aria-label="Previous">‹</button><button class="paddle next" aria-label="Next">›</button></div></div>
 </section>
 
-<section class="band" id="labs">
+<section class="sec">
   <div class="wrap">
-    <div class="feature">
+    <div class="split">
       <div class="copy">
-        <span class="kicker grad">Try it · §2.1</span>
-        <h2>Order matters</h2>
-        <p>Let <span class="m"><i>L</i>(<i>x</i>, <i>y</i>)</span> mean “<i>x</i> loves <i>y</i>”. Click squares in the grid to decide who loves whom. The four statements on the right use the same symbols in different orders, and their truth values update as you click.</p>
-        <p>Try the cycle, then make one person loved by everyone.</p>
+        <span class="kicker">Reading nested quantifiers</span>
+        <h2>∀x ∃y versus ∃y ∀x</h2>
+        <p>Read left to right, as a game. In <span class="m">∀<i>x</i> ∃<i>y</i></span>, your opponent picks <i>x</i> first, then you get to choose <i>y</i> <b>knowing</b> <i>x</i>. Each <i>x</i> can get its own <i>y</i>.</p>
+        <p>In <span class="m">∃<i>y</i> ∀<i>x</i></span>, you must commit to one <i>y</i> first, and it has to work for every <i>x</i>. That's much harder, which is why the second statement implies the first but not the other way round.</p>
       </div>
       <div class="lab">
-        <div class="lab-top"><span class="lab-title">Row x loves column y</span><div class="row" id="lv-pre"></div></div>
-        <div class="wrapflex">
-          <div id="lv-grid" style="display:grid;grid-template-columns:44px repeat(4,40px);gap:4px;font-size:13px"></div>
-          <div id="lv-st" class="grow" style="display:grid;gap:10px"></div>
+        <div class="lab-title" style="margin-bottom:12px">Numbers this time</div>
+        <div class="grid-gap" style="gap:10px">
+          <div style="padding:14px;border-radius:12px;background:var(--paper-2)"><div class="mb" style="font-size:20px">∀<i>x</i> ∈ ℤ ∃<i>y</i> ∈ ℤ (<i>y</i> &gt; <i>x</i>)</div><div class="row" style="justify-content:space-between"><span class="small muted">Every integer has a bigger one. Take y = x + 1.</span><span class="chip yes">true</span></div></div>
+          <div style="padding:14px;border-radius:12px;background:var(--paper-2)"><div class="mb" style="font-size:20px">∃<i>y</i> ∈ ℤ ∀<i>x</i> ∈ ℤ (<i>y</i> &gt; <i>x</i>)</div><div class="row" style="justify-content:space-between"><span class="small muted">Some integer beats them all, itself included. Impossible.</span><span class="chip no">false</span></div></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="feature flip" id="negate">
-      <div class="copy">
-        <span class="kicker grad">§2.2</span>
-        <h2>The negation machine</h2>
-        <p>To prove something is false you often need its negation in a positive form. Push the ¬ inward one step at a time. It flips each quantifier it passes, and De Morgan's laws handle ∧ and ∨.</p>
-        <p>The result is a statement you can actually work with in a proof.</p>
-      </div>
-      <div class="lab">
-        <div class="lab-top"><select id="ng-pick" aria-label="Statement to negate"></select><div class="row"><button class="tbtn" id="ng-back">‹</button><button class="tbtn primary" id="ng-next">Push ¬ inward ›</button></div></div>
-        <div id="ng-steps" style="display:grid;gap:10px"></div>
-        <p class="note" id="ng-en"></p>
-      </div>
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Translating</span><h2>Common patterns</h2><p>Notice which pattern uses → and which uses ∧. Getting this wrong is one of the most common translation mistakes.</p></div>
+    <div class="cards two">
+      <div class="card"><span class="k">All A's are B's</span><span class="sym">∀<i>x</i> (<i>A</i>(<i>x</i>) → <i>B</i>(<i>x</i>))</span><p>“Every prime greater than 2 is odd.” Using ∧ here would claim everything is an A.</p></div>
+      <div class="card"><span class="k">Some A is a B</span><span class="sym">∃<i>x</i> (<i>A</i>(<i>x</i>) ∧ <i>B</i>(<i>x</i>))</span><p>“Some prime is even.” Using → here would be true almost by accident, whenever anything fails to be an A.</p></div>
+      <div class="card"><span class="k">No A is a B</span><span class="sym">∀<i>x</i> (<i>A</i>(<i>x</i>) → ¬<i>B</i>(<i>x</i>))</span><p>Equivalently <span class="m">¬∃<i>x</i> (<i>A</i>(<i>x</i>) ∧ <i>B</i>(<i>x</i>))</span>.</p></div>
+      <div class="card"><span class="k">Universe of discourse</span><p>Quantifiers range over some agreed collection: integers, reals, people. <span class="m">∃<i>x</i> (<i>x</i>² = 2)</span> is true in ℝ and false in ℚ. When it matters, write <span class="m">∃<i>x</i> ∈ ℝ</span>.</p></div>
     </div>
   </div>
 </section>
 
-<section class="band alt">
-  <div class="wrap">
-    <div class="head center"><h2>Quantifiers meet sets</h2><p>Most definitions in the rest of the book are written with these four patterns.</p></div>
-    <div class="bento">
-      <div class="tile w3"><span class="k">Bounded quantifiers</span><div class="sym grad">∀<i>x</i> ∈ <i>A</i> <i>P</i>(<i>x</i>)</div><p>is short for <span class="m">∀<i>x</i>(<i>x</i> ∈ <i>A</i> → <i>P</i>(<i>x</i>))</span>, and <span class="m">∃<i>x</i> ∈ <i>A</i> <i>P</i>(<i>x</i>)</span> for <span class="m">∃<i>x</i>(<i>x</i> ∈ <i>A</i> ∧ <i>P</i>(<i>x</i>))</span>. Note the → in one and the ∧ in the other.</p></div>
-      <div class="tile w3"><span class="k">Subsets</span><div class="sym grad"><i>A</i> ⊆ <i>B</i></div><p>means <span class="m">∀<i>x</i>(<i>x</i> ∈ <i>A</i> → <i>x</i> ∈ <i>B</i>)</span>. Two sets are equal when each is a subset of the other, so they have exactly the same elements.</p></div>
-      <div class="tile"><span class="k">Vacuous truth</span><h3>Every element of ∅ is purple.</h3><p><span class="m">∀<i>x</i> ∈ ∅ <i>P</i>(<i>x</i>)</span> is true whatever P says, because there's nothing in ∅ to be a counterexample. So ∅ ⊆ A for every set A.</p></div>
-      <div class="tile"><span class="k">Families of sets</span><h3>Sets whose elements are sets.</h3><p>⋃<i>F</i> is everything in <b>at least one</b> set of F. ⋂<i>F</i> is everything in <b>all</b> of them. For F = {{1,2,3}, {2,3,4}, {3,4,5}}: ⋃F = {1,…,5} and ⋂F = {3}.</p></div>
-      <div class="tile"><span class="k">Indexed families</span><h3>Name the sets with an index.</h3><p><span class="m">⋃<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span> and <span class="m">⋂<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span> are the same idea with a label for each set. For example, <i>Aᵢ</i> could be the multiples of <i>i</i>.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="feature">
-      <div class="copy">
-        <span class="kicker grad">§2.3</span>
-        <h2>The power set doubles every time</h2>
-        <p>𝒫(<i>A</i>) contains every subset of <i>A</i>, including ∅ and <i>A</i> itself. Each new element can be either in or out of a subset, so adding one element doubles the count.</p>
-        <p>Remember this set. In Chapter 7 it shows that some infinite sets are bigger than others.</p>
-      </div>
-      <div class="lab">
-        <div class="lab-top"><span class="lab-title">𝒫({1, …, n})</span><label class="ctl" for="ps">n = <b id="ps-v" style="color:var(--fg)">3</b><input type="range" id="ps" min="0" max="4" value="3"></label></div>
-        <div class="chips" id="ps-out"></div>
-        <p class="out mt-m" id="ps-count"></p>
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Translate <b>“Every student has a friend who is a student.”</b> (S(x): x is a student; F(x, y): x and y are friends)</p>
+      <div class="opts">
+        <button data-ok data-why="For each student x, there's some y who is a student and a friend of x.">∀x (S(x) → ∃y (S(y) ∧ F(x, y)))</button>
+        <button data-why="That says one particular student is friends with every student.">∃y (S(y) ∧ ∀x (S(x) → F(x, y)))</button>
+        <button data-why="The ∃ part should use ∧, not →: as written it's satisfied by any non-student y.">∀x (S(x) → ∃y (S(y) → F(x, y)))</button>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="band alt" id="book">
-  <div class="wrap">
-    <div class="head"><span class="kicker grad">In the book</span><h2>Where to go deeper</h2><p>Three sections, and the step from them to real proofs is short. The negation laws in §2.2 come up constantly in Chapter 3.</p></div>
-    <div class="map">
-      <div class="map-row"><span class="no grad">2.1</span><div><h3>Quantifiers</h3><p>∀ and ∃, translating English into formulas, and why the order of quantifiers matters.</p></div><span class="pg"><b>p. 55</b></span></div>
-      <div class="map-row"><span class="no grad">2.2</span><div><h3>Equivalences Involving Quantifiers</h3><p>The quantifier negation laws, bounded quantifiers, vacuous truth, ∃! and how quantifiers interact with ∧ and ∨.</p></div><span class="pg"><b>p. 64</b></span></div>
-      <div class="map-row"><span class="no grad">2.3</span><div><h3>More Operations on Sets</h3><p>Families of sets, indexed families, ⋃ and ⋂, and the power set 𝒫(A).</p></div><span class="pg"><b>p. 73</b></span></div>
-    </div>
-    <div class="map-foot">
-      <div><h4>Exercises</h4><p>Starred exercises have solutions in Appendix 1, p. 329. The English-to-symbols translations in §2.1 are the most useful.</p></div>
-      <div><h4>Look for</h4><p>When ∀ distributes over ∧ but not over ∨ (§2.2). It explains why some set identities hold and others don't.</p></div>
-      <div><h4>Read next</h4><p>You can now read the form of any statement. Time to prove some. <a href="proofs.html">Proofs ›</a></p></div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>In the love grid, set it up so that <b>∃y ∀x L(x, y)</b> is true. Which other statement must then be true?</p>
+      <div class="opts">
+        <button data-ok data-why="If one person is loved by everyone, then in particular everyone loves someone (that person).">∀x ∃y L(x, y)</button>
+        <button data-why="Someone being loved by all says nothing about anyone loving everybody.">∃x ∀y L(x, y)</button>
+        <button data-why="Only one person is guaranteed to be loved. Others might be loved by nobody.">∀y ∃x L(x, y)</button>
+      </div>
     </div>
   </div>
 </section>
@@ -110,67 +86,29 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var N = ["Ann", "Bo", "Cy", "Di"], L;
-  var presets = {
-    "Cycle": [[0,1,0,0],[0,0,1,0],[0,0,0,1],[1,0,0,0]],
-    "All love Cy": [[0,0,1,0],[0,0,1,0],[0,0,1,0],[0,0,1,0]],
-    "Ann loves all": [[1,1,1,1],[0,0,0,0],[0,0,0,0],[0,0,0,0]],
-    "Clear": [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-  };
-  Object.keys(presets).forEach(function (k) { var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.style.fontSize = "13px"; b.textContent = k; b.addEventListener("click", function () { L = presets[k].map(function (r) { return r.slice(); }); lv(); }); $("lv-pre").appendChild(b); });
+  var presets = { "Cycle": [[0,1,0,0],[0,0,1,0],[0,0,0,1],[1,0,0,0]], "All love Cy": [[0,0,1,0],[0,0,1,0],[0,0,1,0],[0,0,1,0]], "Ann loves all": [[1,1,1,1],[0,0,0,0],[0,0,0,0],[0,0,0,0]], "Clear": [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]] };
+  Object.keys(presets).forEach(function (k) { var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.textContent = k; b.addEventListener("click", function () { L = presets[k].map(function (r) { return r.slice(); }); lv(); }); $("lv-pre").appendChild(b); });
   L = presets["Cycle"].map(function (r) { return r.slice(); });
   function lv() {
-    var g = '<span></span>' + N.map(function (n) { return '<span style="text-align:center;color:var(--fg2)">' + n + '</span>'; }).join("");
+    var g = '<span></span>' + N.map(function (n) { return '<span style="text-align:center;color:var(--ink-3)">' + n + '</span>'; }).join("");
     for (var x = 0; x < 4; x++) {
-      g += '<span style="color:var(--fg2);align-self:center">' + N[x] + '</span>';
-      for (var y = 0; y < 4; y++) g += '<button type="button" data-x="' + x + '" data-y="' + y + '" aria-label="' + N[x] + ' loves ' + N[y] + '" aria-pressed="' + (L[x][y] ? "true" : "false") + '" style="width:40px;height:40px;border-radius:10px;border:1px solid var(--line);cursor:pointer;font-size:18px;background:' + (L[x][y] ? 'linear-gradient(135deg,var(--g1),var(--g2));color:var(--on-grad)' : 'var(--tile);color:var(--fg3)') + '">' + (L[x][y] ? '♥' : '') + '</button>';
+      g += '<span style="color:var(--ink-3);align-self:center">' + N[x] + '</span>';
+      for (var y = 0; y < 4; y++) g += '<button type="button" data-x="' + x + '" data-y="' + y + '" aria-label="' + N[x] + ' loves ' + N[y] + '" aria-pressed="' + (L[x][y] ? "true" : "false") + '" style="aspect-ratio:1;border-radius:12px;border:1px solid var(--line-2);cursor:pointer;font-size:18px;transition:background .25s,transform .2s;background:' + (L[x][y] ? 'var(--accent);color:#fff' : 'var(--paper-2);color:var(--ink-3)') + '">' + (L[x][y] ? '♥' : '') + '</button>';
     }
     $("lv-grid").innerHTML = g;
     var R = [0,1,2,3], all = function (f) { return R.every(f); }, some = function (f) { return R.some(f); };
     var S = [
-      ["∀x∃y L(x,y)", "Everyone loves someone.", all(function (x) { return some(function (y) { return L[x][y]; }); })],
-      ["∃y∀x L(x,y)", "Someone is loved by everyone.", some(function (y) { return all(function (x) { return L[x][y]; }); })],
-      ["∃x∀y L(x,y)", "Someone loves everyone.", some(function (x) { return all(function (y) { return L[x][y]; }); })],
-      ["∀y∃x L(x,y)", "Everyone is loved by someone.", all(function (y) { return some(function (x) { return L[x][y]; }); })]
+      ["∀x ∃y L(x, y)", "Everyone loves someone.", all(function (x) { return some(function (y) { return L[x][y]; }); })],
+      ["∃y ∀x L(x, y)", "Someone is loved by everyone.", some(function (y) { return all(function (x) { return L[x][y]; }); })],
+      ["∃x ∀y L(x, y)", "Someone loves everyone.", some(function (x) { return all(function (y) { return L[x][y]; }); })],
+      ["∀y ∃x L(x, y)", "Everyone is loved by someone.", all(function (y) { return some(function (x) { return L[x][y]; }); })]
     ];
-    $("lv-st").innerHTML = S.map(function (s) { return '<div class="row" style="justify-content:space-between;gap:10px;flex-wrap:nowrap"><div style="min-width:0"><div class="mb" style="font-size:18px">' + s[0].replace(/([xyL])/g, "<i>$1</i>") + '</div><div class="small muted">' + s[1] + '</div></div><span class="chip ' + (s[2] ? 'yes">true' : 'no">false') + '</span></div>'; }).join("");
+    $("lv-st").innerHTML = S.map(function (s) { return '<div class="row" style="justify-content:space-between;flex-wrap:nowrap;padding:10px 14px;border-radius:12px;background:var(--paper-2)"><div style="min-width:0"><div class="mb" style="font-size:19px">' + s[0].replace(/([xyL])/g, "<i>$1</i>") + '</div><div class="small muted">' + s[1] + '</div></div><span class="chip ' + (s[2] ? 'yes">true' : 'no">false') + '</span></div>'; }).join("");
+    $("lv-note").textContent = S[0][2] && !S[1][2] ? "Here everyone loves someone, but nobody is loved by all: the order of ∀ and ∃ made the difference." : "Try the Cycle preset: the first statement is true and the second false.";
   }
-  $("lv-grid").addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; var x = +b.dataset.x, y = +b.dataset.y; L[x][y] = L[x][y] ? 0 : 1; lv(); });
+  $("lv-grid").addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; L[+b.dataset.x][+b.dataset.y] ^= 1; lv(); });
   lv();
-
-  // negation machine
-  var NG = [
-    { t: "Not everyone loves someone", s: [["¬∀x ∃y L(x, y)", ""], ["∃x ¬∃y L(x, y)", "quantifier negation: ¬∀ becomes ∃¬"], ["∃x ∀y ¬L(x, y)", "quantifier negation: ¬∃ becomes ∀¬"]], en: "Someone loves nobody." },
-    { t: "A is not a subset of B", s: [["¬∀x (x ∈ A → x ∈ B)", "the definition of ⊆, negated"], ["∃x ¬(x ∈ A → x ∈ B)", "quantifier negation"], ["∃x (x ∈ A ∧ x ∉ B)", "conditional law: ¬(P → Q) ≡ P ∧ ¬Q"]], en: "Some element of A is not in B. To prove A ⊈ B, find one." },
-    { t: "Not all primes are odd", s: [["¬∀p (p is prime → p is odd)", ""], ["∃p ¬(p is prime → p is odd)", "quantifier negation"], ["∃p (p is prime ∧ p is not odd)", "conditional law"]], en: "Some prime is even. The number 2 is a witness." },
-    { t: "No x has P together with every y having Q", s: [["¬∃x (P(x) ∧ ∀y Q(x, y))", ""], ["∀x ¬(P(x) ∧ ∀y Q(x, y))", "quantifier negation"], ["∀x (¬P(x) ∨ ¬∀y Q(x, y))", "De Morgan's law"], ["∀x (¬P(x) ∨ ∃y ¬Q(x, y))", "quantifier negation"], ["∀x (P(x) → ∃y ¬Q(x, y))", "conditional law: ¬P ∨ R ≡ P → R"]], en: "Whenever x has P, some y fails Q(x, y)." }
-  ];
-  $("ng-pick").innerHTML = NG.map(function (n, i) { return '<option value="' + i + '">' + n.t + '</option>'; }).join("");
-  var ni = 0, step = 0;
-  function it(s) { return s.replace(/\b([xypABLPQR])\b/g, "<i>$1</i>"); }
-  function ng() {
-    var n = NG[ni];
-    $("ng-steps").innerHTML = n.s.slice(0, step + 1).map(function (s, k) {
-      return '<div style="padding:12px 14px;border-radius:14px;background:' + (k === step ? 'var(--mark)' : 'var(--tile)') + '"><div class="mb" style="font-size:20px">' + it(s[0]) + '</div>' + (s[1] ? '<div class="small muted">' + s[1] + '</div>' : '') + '</div>';
-    }).join("");
-    var done = step === n.s.length - 1;
-    $("ng-en").innerHTML = done ? "<b>In English:</b> " + n.en : "Step " + (step + 1) + " of " + n.s.length + ".";
-    $("ng-next").disabled = done; $("ng-back").disabled = step === 0;
-  }
-  $("ng-pick").addEventListener("change", function () { ni = +this.value; step = 0; ng(); });
-  $("ng-next").addEventListener("click", function () { step++; ng(); });
-  $("ng-back").addEventListener("click", function () { step--; ng(); });
-  ng();
-
-  // power set
-  function ps() {
-    var n = +$("ps").value, out = []; $("ps-v").textContent = n;
-    for (var m = 0; m < (1 << n); m++) { var s = []; for (var i = 0; i < n; i++) if (m & (1 << i)) s.push(i + 1); out.push(s); }
-    out.sort(function (a, b) { return a.length - b.length || a.join() .localeCompare(b.join()); });
-    $("ps-out").innerHTML = out.map(function (s) { return '<span class="chip mb" style="font-size:16px;font-weight:400;color:var(--fg)">' + (s.length ? "{" + s.join(", ") + "}" : "∅") + '</span>'; }).join("");
-    $("ps-count").innerHTML = "|𝒫(<i>A</i>)| = 2<sup>" + n + "</sup> = " + (1 << n);
-  }
-  $("ps").addEventListener("input", ps); ps();
 })();
 </script>
 <!-- FOOTNOTES -->
-<li>The “loves” examples are in the spirit of the book's §2.1 translation exercises. The grid uses four people so every case can be checked by eye.</li>
+<li>Quantifiers, their order, and the universe of discourse follow Velleman §2.1.</li>

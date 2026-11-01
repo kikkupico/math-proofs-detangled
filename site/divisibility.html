@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Divisibility Is Transitive · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Three nested blocks, one clean proof.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-examples">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html" aria-current="true"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Examples pages"><div class="wrap rail-in"><a class="r-hub" href="examples.html">Overview</a><a href="divisibility.html" aria-current="page"><span class="i">1</span>Divisibility</a><a href="mersenne.html"><span class="i">2</span>Mersenne numbers</a><a href="infinite-primes.html"><span class="i">3</span>Infinite primes</a><a href="sqrt2.html"><span class="i">4</span>√2 is irrational</a><a href="set-identity.html"><span class="i">5</span>A set identity</a><a href="power-set-meet.html"><span class="i">6</span>Power sets meet</a><a href="sum-of-powers.html"><span class="i">7</span>Sum of powers</a><a href="cantor.html"><span class="i">8</span>Cantor&#x27;s theorem</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 4 · Examples · 1 of 8</p>
+      <h1>Divisibility Is Transitive</h1>
+      <p class="tagline">Three nested blocks, one clean proof.</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>For all integers <i>a</i>, <i>b</i> and <i>c</i>, if <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>, then <i>a</i> | <i>c</i>.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifiers.html">Quantifiers</a><a class="chip" href="conditionals.html">Conditionals</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="direct.html">Direct proof</a><a class="chip" href="exists.html">Witnesses</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Definition</div>
+        <p class="mb" style="font-size:22px"><i>a</i> | <i>b</i> &nbsp;means&nbsp; ∃<i>k</i> ∈ ℤ (<i>b</i> = <i>ka</i>)</p>
+        <p class="note">“<i>a</i> divides <i>b</i>”: <i>b</i> is a whole multiple of <i>a</i>. So 3 | 12 because 12 = 4 · 3, but 5 ∤ 12.</p>
+        <div class="lab-title" style="margin:18px 0 8px">In logical form</div>
+        <p class="mb" style="font-size:19px">∀<i>a</i> ∀<i>b</i> ∀<i>c</i> ((<i>a</i> | <i>b</i> ∧ <i>b</i> | <i>c</i>) → <i>a</i> | <i>c</i>)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Read the shape, make the move</h2><p>Scroll. Each step explains one move, and the line it writes lights up.</p></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">Move 1 · ∀ goal</span><h3>Let them be arbitrary</h3><p>The outermost symbol is ∀ (three times). So <b>introduce arbitrary integers</b> <i>a</i>, <i>b</i>, <i>c</i>, assuming nothing else about them.</p></div>
+        <div class="step" data-key="s2"><span class="k">Move 2 · → goal</span><h3>Assume the hypothesis</h3><p>What's left is an if–then. Assume <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>. The goal becomes <i>a</i> | <i>c</i>.</p></div>
+        <div class="step" data-key="s3"><span class="k">Move 3 · unpack + ∃ givens</span><h3>Name what the givens promise</h3><p>Unpacked, each given is an ∃: some integer works. <b>Give each one a new name</b>: <i>d</i> with <i>b</i> = <i>da</i>, and <i>e</i> with <i>c</i> = <i>eb</i>. Different letters, because they may be different numbers.</p></div>
+        <div class="step" data-key="s4"><span class="k">Move 4 · ∃ goal</span><h3>Find the witness</h3><p>The goal <i>a</i> | <i>c</i> unpacks to ∃<i>k</i> (<i>c</i> = <i>ka</i>). Substitute: <i>c</i> = <i>eb</i> = <i>e</i>(<i>da</i>) = (<i>ed</i>)<i>a</i>. So the <b>witness is <i>k</i> = <i>ed</i></b>, an integer.</p></div>
+        <div class="step" data-key="s5"><span class="k">Close the blocks</span><h3>Done</h3><p>Each move opened a block; they close in reverse order. Written proofs often leave the closing lines unsaid, because readers expect them.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1 s5">Let <i>a</i>, <i>b</i> and <i>c</i> be arbitrary integers.</span>
+            <span class="pl in1" data-on="s2 s5">Suppose <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>.</span>
+            <span class="pl in1" data-on="s3 s5">Since <i>a</i> | <i>b</i>, there is an integer <i>d</i> with <i>b</i> = <i>da</i>.</span>
+            <span class="pl in1" data-on="s3 s5">Similarly there is an integer <i>e</i> with <i>c</i> = <i>eb</i>.</span>
+            <span class="pl in1" data-on="s4 s5">Then <i>c</i> = <i>eb</i> = <i>e</i>(<i>da</i>) = (<i>ed</i>)<i>a</i>.</span>
+            <span class="pl in1" data-on="s4 s5">Since <i>ed</i> is an integer, <i>a</i> | <i>c</i>.</span>
+            <span class="pl" data-on="s5">Since <i>a</i>, <i>b</i>, <i>c</i> were arbitrary, the theorem holds. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">See it with numbers</span>
+        <h2>The witness, computed</h2>
+        <p>Choose <i>a</i>, then the multipliers <i>d</i> and <i>e</i>. The proof's recipe gives <i>c</i> as a multiple of <i>a</i> straight away: the multiplier is always <i>ed</i>.</p>
+        <p>That's what a constructive ∃ proof gives you: not just “a multiplier exists” but the multiplier itself.</p>
+      </div>
+      <div class="lab">
+        <div class="row" style="gap:16px">
+          <label class="ctl">a <input type="number" id="dv-a" value="3" style="width:80px"></label>
+          <label class="ctl">d <input type="number" id="dv-d" value="4" style="width:80px"></label>
+          <label class="ctl">e <input type="number" id="dv-e" value="5" style="width:80px"></label>
+        </div>
+        <div class="out mt-s" id="dv-out"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Why must the proof use two different letters, <i>d</i> and <i>e</i>, rather than calling both multipliers <i>k</i>?</p>
+      <div class="opts">
+        <button data-ok data-why="Using k for both would silently assume b = ka and c = kb with the same k, which only covers special cases like a = 2, b = 4, c = 8.">The two multipliers can be different numbers.</button>
+        <button data-why="It's not a matter of style: reusing a name adds a false assumption.">It's just a style convention.</button>
+        <button data-why="The theorem is about integers; the issue is reusing a name.">Because k must be positive.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  function g(id) { return parseInt(document.getElementById(id).value, 10); }
+  function run() {
+    var a = g("dv-a"), d = g("dv-d"), e = g("dv-e");
+    if ([a, d, e].some(isNaN)) return;
+    var b = d * a, c = e * b;
+    document.getElementById("dv-out").innerHTML = '<div><i>b</i> = <i>da</i> = ' + d + ' · ' + a + ' = <b>' + b + '</b> &nbsp;<span class="small muted" style="font-family:var(--sans)">so a | b</span></div><div><i>c</i> = <i>eb</i> = ' + e + ' · ' + b + ' = <b>' + c + '</b> &nbsp;<span class="small muted" style="font-family:var(--sans)">so b | c</span></div><div style="color:var(--accent)"><i>c</i> = (<i>ed</i>)<i>a</i> = ' + (e * d) + ' · ' + a + ' = <b>' + c + '</b> &nbsp;<span class="chip yes">a | c</span></div>';
+  }
+  ["dv-a", "dv-d", "dv-e"].forEach(function (id) { document.getElementById(id).addEventListener("input", run); });
+  run();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="examples.html" data-key="prev"><span class="d">← Previous · Part 4 · Examples</span><span class="t">Part 4: Examples</span></a><a class="pg next" href="mersenne.html" data-key="next"><span class="d">Next · Part 4 · Examples →</span><span class="t">Composite n Gives Composite 2ⁿ − 1</span><span class="s">A proof that builds the factors.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, Theorem 3.3.6, p. 120.</p><ol class='notes'>
+<li>This is Velleman's Theorem 3.3.6 (p. 120). The proof here follows the same structure in our own words.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

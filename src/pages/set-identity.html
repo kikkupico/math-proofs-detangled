@@ -1,0 +1,112 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>For all sets <i>A</i>, <i>B</i> and <i>C</i>, &nbsp;<span class="m"><i>A</i> ∖ (<i>B</i> ∪ <i>C</i>) = (<i>A</i> ∖ <i>B</i>) ∩ (<i>A</i> ∖ <i>C</i>)</span>.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="set-operations.html">Set operations</a><a class="chip" href="truth-tables.html">De Morgan's laws</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="iff.html">Iff</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Shade a set</span></div>
+        <div class="seg" id="vs-seg" role="group" aria-label="Set to shade"></div>
+        <svg id="vs" viewBox="0 0 300 260" style="width:100%;max-width:380px;display:block;margin:12px auto 0" role="img" aria-label="Three-set Venn diagram"></svg>
+        <p class="note center" id="vs-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Translate, simplify, translate back</h2><p>Two sets are equal when they have the same elements. So take an arbitrary <i>x</i> and show “<i>x</i> is in the left side” ↔ “<i>x</i> is in the right side”, through a chain of equivalences.</p></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">∀ goal</span><h3>An arbitrary element</h3><p>Set equality is ∀<i>x</i> (<i>x</i> ∈ left ↔ <i>x</i> ∈ right). Let <i>x</i> be arbitrary and start from the left.</p></div>
+        <div class="step" data-key="s2"><span class="k">Unpack ∖ and ∪</span><h3>Into logic</h3><p>∖ is “and not”, and ∪ is “or”. Now it's a statement of pure logic about three facts: <i>x</i> ∈ <i>A</i>, <i>x</i> ∈ <i>B</i>, <i>x</i> ∈ <i>C</i>.</p></div>
+        <div class="step" data-key="s3"><span class="k">De Morgan</span><h3>Push the negation in</h3><p>¬(<i>P</i> ∨ <i>Q</i>) ≡ ¬<i>P</i> ∧ ¬<i>Q</i>. The “not in B or C” becomes “not in B and not in C”.</p></div>
+        <div class="step" data-key="s4"><span class="k">Idempotence + regrouping</span><h3>Use x ∈ A twice</h3><p>Since <i>R</i> ≡ <i>R</i> ∧ <i>R</i>, we may write <i>x</i> ∈ <i>A</i> twice and regroup into two pairs, one for each set on the right.</p></div>
+        <div class="step" data-key="s5"><span class="k">Repack</span><h3>Back into sets</h3><p>Each pair is a set difference, and the ∧ between them is ∩. Every step was an equivalence, so both directions hold at once.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1">Let <i>x</i> be arbitrary. Then</span>
+            <span class="pl in1 mb" data-on="s1" style="font-size:18px"><i>x</i> ∈ <i>A</i> ∖ (<i>B</i> ∪ <i>C</i>)</span>
+            <span class="pl in1 mb" data-on="s2" style="font-size:18px">↔ <i>x</i> ∈ <i>A</i> ∧ ¬(<i>x</i> ∈ <i>B</i> ∨ <i>x</i> ∈ <i>C</i>)</span>
+            <span class="pl in1 mb" data-on="s3" style="font-size:18px">↔ <i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>B</i> ∧ <i>x</i> ∉ <i>C</i></span>
+            <span class="pl in1 mb" data-on="s4" style="font-size:18px">↔ (<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>B</i>) ∧ (<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>C</i>)</span>
+            <span class="pl in1 mb" data-on="s5" style="font-size:18px">↔ <i>x</i> ∈ <i>A</i> ∖ <i>B</i> ∧ <i>x</i> ∈ <i>A</i> ∖ <i>C</i></span>
+            <span class="pl in1 mb" data-on="s5" style="font-size:18px">↔ <i>x</i> ∈ (<i>A</i> ∖ <i>B</i>) ∩ (<i>A</i> ∖ <i>C</i>).</span>
+            <span class="pl" data-on="s5">Since <i>x</i> was arbitrary, the two sets are equal. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">The pattern</span>
+        <h2>Every set identity is a logic identity</h2>
+        <p>Strip away the set notation and this theorem <b>is</b> De Morgan's law: <span class="m"><i>P</i> ∧ ¬(<i>Q</i> ∨ <i>R</i>) ≡ (<i>P</i> ∧ ¬<i>Q</i>) ∧ (<i>P</i> ∧ ¬<i>R</i>)</span>. Check it in the truth table.</p>
+        <p>That gives a reliable method for any identity built from ∩, ∪ and ∖: translate to logic, simplify with known laws, translate back. And if you suspect an identity is <b>false</b>, the truth table's mismatched row tells you exactly which region of the Venn diagram gives a counterexample.</p>
+      </div>
+      <div class="lab"><div class="lab-title" style="margin-bottom:10px">P: x ∈ A, Q: x ∈ B, R: x ∈ C</div><div class="ttgen" data-f="P ∧ ¬(Q ∨ R); (P ∧ ¬Q) ∧ (P ∧ ¬R)"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>By the same method, what is <span class="m"><i>A</i> ∖ (<i>B</i> ∩ <i>C</i>)</span> equal to?</p>
+      <div class="opts">
+        <button data-ok data-why="x ∈ A ∧ ¬(x ∈ B ∧ x ∈ C) ↔ x ∈ A ∧ (x ∉ B ∨ x ∉ C) ↔ (x ∈ A ∖ B) ∨ (x ∈ A ∖ C), by De Morgan and distributivity.">(A ∖ B) ∪ (A ∖ C)</button>
+        <button data-why="That's the identity on this page, for B ∪ C. With ∩ inside, De Morgan gives an ∨.">(A ∖ B) ∩ (A ∖ C)</button>
+        <button data-why="Try an element of A that's in B but not C: it's in A ∖ (B ∩ C) but not in (A ∖ B).">A ∖ B</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var C = [[115, 100], [185, 100], [150, 160]], R = 72;
+  function inn(x, y, i) { var dx = x - C[i][0], dy = y - C[i][1]; return dx * dx + dy * dy <= R * R; }
+  var S = [
+    ["B ∪ C", function (a, b, c) { return b || c; }, "Everything in B or C."],
+    ["A ∖ (B ∪ C)", function (a, b, c) { return a && !(b || c); }, "Left side: in A, outside both B and C."],
+    ["A ∖ B", function (a, b) { return a && !b; }, "In A but not B."],
+    ["A ∖ C", function (a, b, c) { return a && !c; }, "In A but not C."],
+    ["(A ∖ B) ∩ (A ∖ C)", function (a, b, c) { return (a && !b) && (a && !c); }, "Right side: exactly the same region as the left. That's the theorem."]
+  ];
+  var sv = document.getElementById("vs"), seg = document.getElementById("vs-seg"), note = document.getElementById("vs-note");
+  var dots = "";
+  for (var y = 22; y <= 240; y += 7) for (var x = 38; x <= 262; x += 7) {
+    if (!(inn(x, y, 0) || inn(x, y, 1) || inn(x, y, 2)) && (x < 40 || x > 260 || y < 24 || y > 238)) continue;
+    dots += '<circle cx="' + x + '" cy="' + y + '" r="2.4" data-a="' + (+inn(x, y, 0)) + '" data-b="' + (+inn(x, y, 1)) + '" data-c="' + (+inn(x, y, 2)) + '" style="transition:fill .35s, r .35s"/>';
+  }
+  var labels = '<text x="62" y="44" font-size="20" font-style="italic" fill="var(--ink)" style="font-family:var(--math)">A</text><text x="226" y="44" font-size="20" font-style="italic" fill="var(--ink)" style="font-family:var(--math)">B</text><text x="144" y="254" font-size="20" font-style="italic" fill="var(--ink)" style="font-family:var(--math)">C</text>';
+  var rings = C.map(function (c) { return '<circle cx="' + c[0] + '" cy="' + c[1] + '" r="' + R + '" fill="none" stroke="var(--ink)" stroke-width="1.3"/>'; }).join("");
+  sv.innerHTML = '<g id="vs-dots">' + dots + '</g>' + rings + labels;
+  var ds = sv.querySelectorAll("#vs-dots circle");
+  function show(k) {
+    Array.prototype.forEach.call(seg.children, function (b, i) { b.setAttribute("aria-pressed", i === k ? "true" : "false"); });
+    Array.prototype.forEach.call(ds, function (d) { var on = S[k][1](d.dataset.a === "1", d.dataset.b === "1", d.dataset.c === "1"); d.setAttribute("fill", on ? "var(--accent)" : "var(--line-2)"); d.setAttribute("r", on ? 2.9 : 1.8); });
+    note.textContent = S[k][2];
+  }
+  S.forEach(function (s, i) { var b = document.createElement("button"); b.type = "button"; b.className = "mb"; b.textContent = s[0]; b.addEventListener("click", function () { show(i); }); seg.appendChild(b); });
+  show(1);
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Velleman proves identities of this kind in §1.4 using truth tables and in §3.4 as written proofs.</li>

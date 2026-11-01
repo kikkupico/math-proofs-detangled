@@ -1,0 +1,168 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Everyday language runs on context and good will. A proof can't. If a sentence can be read two ways, an argument can be right under one reading and wrong under the other, and nobody notices. Mathematical language exists to make that impossible.</p>
+      <div class="actions"><a class="btn accent" href="#ambiguity">Find the second meaning</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="lab" style="text-align:center">
+        <p style="font-family:var(--display);font-size:clamp(26px,3.4vw,36px);line-height:1.2">“All that glitters is not gold.”</p>
+        <div class="grid-gap mt-m" style="text-align:left">
+          <div style="padding:12px 14px;border-radius:12px;background:var(--paper-2)"><div class="mb" style="font-size:19px">∀<i>x</i> (<i>G</i>(<i>x</i>) → ¬<i>Au</i>(<i>x</i>))</div><div class="small muted">Nothing that glitters is gold.</div></div>
+          <div style="padding:12px 14px;border-radius:12px;background:var(--wash)"><div class="mb" style="font-size:19px">¬∀<i>x</i> (<i>G</i>(<i>x</i>) → <i>Au</i>(<i>x</i>))</div><div class="small muted">Not everything that glitters is gold. (What the proverb means.)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="ambiguity">
+  <div class="wrap">
+    <div class="split wide-r">
+      <div class="copy">
+        <span class="kicker">Problem 1</span>
+        <h2>One sentence, two claims</h2>
+        <p>Each of these sentences has two reasonable readings, and they say <b>different things</b>. Pick a sentence, then switch between readings.</p>
+        <p>In symbols, the two readings look different. That's the point: the symbols force you to decide which one you mean.</p>
+      </div>
+      <div class="lab">
+        <div class="seg" id="am-pick" role="group" aria-label="Sentence"></div>
+        <p id="am-sent" style="font-family:var(--display);font-size:clamp(22px,2.6vw,28px);line-height:1.25;margin:22px 0 16px"></p>
+        <div class="seg" id="am-read" role="group" aria-label="Reading"><button type="button" aria-pressed="true">Reading A</button><button type="button">Reading B</button></div>
+        <div id="am-out" style="margin-top:16px;padding:16px 18px;border-radius:14px;background:var(--paper-2)"></div>
+        <p class="note" id="am-why"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Problem 2</span>
+        <h2>Arguments that only look right</h2>
+        <p><i>Either the butler or the maid did it. Either the maid or the cook did it. So either the butler or the cook did it.</i></p>
+        <p>Sounds fine? An argument is <b>valid</b> if the conclusion can't be false while the premises are all true. Set the suspects and try to find a situation where both premises are true but the conclusion is false.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Who's guilty?</span><span class="small muted">Click to toggle</span></div>
+        <div class="row" id="bm-sus"></div>
+        <div class="grid-gap mt-m" id="bm-out" style="gap:10px"></div>
+        <p class="note" id="bm-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head center"><span class="kicker">The fix</span><h2>Validity is about shape, not story</h2><p>Replace each sentence with a letter and the butler argument becomes <span class="m"><i>P</i> ∨ <i>Q</i>, <i>Q</i> ∨ <i>R</i>, so <i>P</i> ∨ <i>R</i></span>. Any argument with this shape is invalid, whatever it's about. Here are two shapes, each told three ways.</p></div>
+    <div class="split top">
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Shape</span><span class="chip no">invalid</span></div>
+        <div class="big-math"><i>P</i> ∨ <i>Q</i>,  <i>Q</i> ∨ <i>R</i>  ∴  <i>P</i> ∨ <i>R</i></div>
+        <ul class="small muted" style="padding-left:18px;margin:12px 0 0;line-height:1.7">
+          <li>Butler or maid; maid or cook; so butler or cook.</li>
+          <li>It's Saturday or I'm tired; I'm tired or it's late; so it's Saturday or it's late.</li>
+          <li>x &gt; 0 or x is even; x is even or x &lt; −5; so x &gt; 0 or x &lt; −5. (Try x = −2.)</li>
+        </ul>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Shape</span><span class="chip yes">valid</span></div>
+        <div class="big-math"><i>P</i> ∨ <i>Q</i>,  ¬<i>Q</i>  ∴  <i>P</i></div>
+        <ul class="small muted" style="padding-left:18px;margin:12px 0 0;line-height:1.7">
+          <li>Butler or maid; not the maid; so the butler.</li>
+          <li>The key is in my coat or my bag; it's not in my bag; so it's in my coat.</li>
+          <li>n is even or n is odd; n is not odd; so n is even.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">What the language buys you</span><h2>Precision you can work with</h2></div>
+    <div class="cards">
+      <div class="card"><span class="sym accent">¬ ∧ ∨</span><h3>One meaning per sentence</h3><p>“Or” always means at least one, possibly both. “If” always means exactly the same thing. No guessing what the author intended.</p><a class="link-more small" href="connectives.html">Connectives</a></div>
+      <div class="card"><span class="sym accent">T F</span><h3>Mechanical checks</h3><p>Once an argument is written in symbols, a truth table can decide whether it's valid. No intuition needed.</p><a class="link-more small" href="truth-tables.html">Truth tables</a></div>
+      <div class="card"><span class="sym accent">∀ ∃</span><h3>Shape tells you the move</h3><p>The outermost symbol of a statement tells you how to start proving it. That's the whole idea behind Part 3.</p><a class="link-more small" href="techniques.html">Techniques</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A teacher says: “Every student didn't pass the test.” Two students passed and the rest failed. Under which reading is the teacher telling the truth?</p>
+      <div class="opts">
+        <button data-why="That reading says nobody passed, which is false here: two students passed.">∀x ¬Passed(x): no student passed</button>
+        <button data-ok data-why="“Not every student passed” is true: some failed. English lets the same words mean both.">¬∀x Passed(x): not every student passed</button>
+        <button data-why="They are genuinely different claims, and in this situation one is true and the other false.">Both readings mean the same thing</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var A = [
+    { k: "Soup or salad", s: "“The meal comes with soup or salad.”",
+      r: [["<i>S</i> ∨ <i>L</i>", "Soup, salad, or both. This is the mathematical “or”: inclusive."],
+          ["(<i>S</i> ∨ <i>L</i>) ∧ ¬(<i>S</i> ∧ <i>L</i>)", "One or the other, not both: exclusive “or”. The waiter means this one."]],
+      why: "Mathematics always uses the inclusive reading. When it wants exclusive “or”, it says so explicitly." },
+    { k: "Everyone loves", s: "“Everyone loves someone.”",
+      r: [["∀<i>x</i> ∃<i>y</i> <i>L</i>(<i>x</i>, <i>y</i>)", "Each person loves somebody, possibly a different somebody for each person."],
+          ["∃<i>y</i> ∀<i>x</i> <i>L</i>(<i>x</i>, <i>y</i>)", "There is one particular person whom everybody loves."]],
+      why: "Swapping the order of ∀ and ∃ changes the claim. The Quantifiers page lets you test both on a little world." },
+    { k: "Homework", s: "“If you finish your homework, you can go out.”",
+      r: [["<i>H</i> → <i>O</i>", "Finishing guarantees going out. It says nothing about what happens if you don't finish."],
+          ["<i>H</i> ↔ <i>O</i>", "You can go out if and only if you finish: not finishing means staying in. What the parent means."]],
+      why: "In mathematics “if” is one-way. If you mean two-way, you write “if and only if”." },
+    { k: "Not all", s: "“All the students didn't pass.”",
+      r: [["∀<i>x</i> ¬<i>P</i>(<i>x</i>)", "Nobody passed."],
+          ["¬∀<i>x</i> <i>P</i>(<i>x</i>)", "Not everybody passed: at least one failed."]],
+      why: "Where the “not” sits matters. In symbols its position is fixed and visible." },
+    { k: "Old men", s: "“The club admits old men and women.”",
+      r: [["<i>Old</i>(<i>x</i>) ∧ (<i>Man</i>(<i>x</i>) ∨ <i>Woman</i>(<i>x</i>))", "Old people only, of either sex."],
+          ["(<i>Old</i>(<i>x</i>) ∧ <i>Man</i>(<i>x</i>)) ∨ <i>Woman</i>(<i>x</i>)", "Old men, and women of any age."]],
+      why: "Brackets do in symbols what English leaves to guesswork: they say what “old” applies to." }
+  ];
+  var ai = 0, ri = 0;
+  A.forEach(function (a, i) { var b = document.createElement("button"); b.type = "button"; b.textContent = a.k; b.addEventListener("click", function () { ai = i; ri = 0; am(); }); $("am-pick").appendChild(b); });
+  Array.prototype.forEach.call($("am-read").children, function (b, i) { b.addEventListener("click", function () { ri = i; am(); }); });
+  function am() {
+    var a = A[ai];
+    Array.prototype.forEach.call($("am-pick").children, function (b, i) { b.setAttribute("aria-pressed", i === ai ? "true" : "false"); });
+    Array.prototype.forEach.call($("am-read").children, function (b, i) { b.setAttribute("aria-pressed", i === ri ? "true" : "false"); });
+    $("am-sent").textContent = a.s;
+    $("am-out").innerHTML = '<div class="mb" style="font-size:22px;overflow-wrap:anywhere">' + a.r[ri][0] + '</div><div class="muted" style="margin-top:6px">' + a.r[ri][1] + '</div>';
+    $("am-out").animate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && $("am-out").animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 350, easing: "ease-out" });
+    $("am-why").textContent = a.why;
+  }
+  am();
+
+  var g = { Butler: true, Maid: true, Cook: false };
+  Object.keys(g).forEach(function (k) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.dataset.k = k;
+    b.addEventListener("click", function () { g[k] = !g[k]; bm(); });
+    $("bm-sus").appendChild(b);
+  });
+  function line(label, v) { return '<div class="row" style="justify-content:space-between"><span>' + label + '</span><span class="chip ' + (v ? 'yes">true' : 'no">false') + '</span></div>'; }
+  function bm() {
+    Array.prototype.forEach.call($("bm-sus").children, function (b) { var k = b.dataset.k; b.textContent = k + ": " + (g[k] ? "guilty" : "innocent"); b.setAttribute("aria-pressed", g[k] ? "true" : "false"); });
+    var p1 = g.Butler || g.Maid, p2 = g.Maid || g.Cook, c = g.Butler || g.Cook;
+    $("bm-out").innerHTML = line("Premise: butler or maid", p1) + line("Premise: maid or cook", p2) + '<div style="border-top:1px solid var(--line)"></div>' + line("Conclusion: butler or cook", c);
+    $("bm-note").innerHTML = (p1 && p2 && !c) ? "<b style='color:var(--bad)'>Found it.</b> Only the maid is guilty: both premises are true, the conclusion is false. So the argument is invalid, however convincing it sounded."
+      : (p1 && p2 ? "Premises true, conclusion true. That's consistent with validity, but keep looking for a case that breaks it." : "A premise is false here, so this case tells you nothing about validity.");
+  }
+  bm();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The butler, maid and cook argument is Velleman's first example of an invalid argument (§1.1, p. 9).</li>

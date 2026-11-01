@@ -1,0 +1,121 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Complicated statements are built from simple ones, glued together with a handful of words: <b>not</b>, <b>and</b>, <b>or</b>. Giving each word a symbol and one exact meaning is the first step toward seeing the shape of any statement.</p>
+    </div>
+    <div class="hero-art">
+      <div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+        <div class="card" style="text-align:center"><span class="sym accent" style="font-size:52px">¬</span><p><b>not</b></p></div>
+        <div class="card" style="text-align:center"><span class="sym accent" style="font-size:52px">∧</span><p><b>and</b></p></div>
+        <div class="card" style="text-align:center"><span class="sym accent" style="font-size:52px">∨</span><p><b>or</b></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>Flip the switches</h2>
+        <p>Let <i>P</i> stand for “it's raining” and <i>Q</i> for “it's cold”. Each is either true or false. Flip them and watch the compound statements respond.</p>
+        <p><b>¬P</b> is true exactly when <i>P</i> is false. <b>P ∧ Q</b> needs both. <b>P ∨ Q</b> needs at least one, and is still true when both are. That last point trips people up: in mathematics, “or” is always <b>inclusive</b>.</p>
+      </div>
+      <div class="lab">
+        <div class="row" style="gap:12px;margin-bottom:20px">
+          <button class="tbtn" id="sw-p" aria-pressed="true">P: raining</button>
+          <button class="tbtn" id="sw-q" aria-pressed="false">Q: not cold</button>
+        </div>
+        <div class="grid-gap" id="sw-out" style="gap:10px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Translating</span><h2>English has many words for the same connective</h2><p>Logic ignores tone and keeps only the truth conditions. “But” and “although” carry surprise in English; logically they're just “and”.</p></div>
+    <div class="cards">
+      <div class="card"><span class="k">and</span><p>“P but Q”, “P although Q”, “P, yet Q”, “both P and Q”</p><span class="sym"><i>P</i> ∧ <i>Q</i></span></div>
+      <div class="card"><span class="k">neither … nor</span><p>“Neither P nor Q” means not P and not Q.</p><span class="sym">¬<i>P</i> ∧ ¬<i>Q</i></span></div>
+      <div class="card"><span class="k">not both</span><p>“Not both P and Q” allows one of them, just not the two together.</p><span class="sym">¬(<i>P</i> ∧ <i>Q</i>)</span></div>
+      <div class="card"><span class="k">exclusive or</span><p>“P or Q but not both”. Mathematics spells this out when it means it.</p><span class="sym">(<i>P</i> ∨ <i>Q</i>) ∧ ¬(<i>P</i> ∧ <i>Q</i>)</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:12px">Building a formula, piece by piece</div>
+        <div class="stepper">
+          <p class="say" data-at="1" data-until="1">Start with the sentence: <i>“I'll have neither cake nor ice cream, but I'll have coffee.”</i></p>
+          <p class="say" data-at="2" data-until="2">Name the simple statements. <b>C</b>: I'll have cake. <b>I</b>: I'll have ice cream. <b>K</b>: I'll have coffee.</p>
+          <p class="say" data-at="3" data-until="3">“Neither C nor I” is <b>¬C ∧ ¬I</b>.</p>
+          <p class="say" data-at="4" data-until="4">“But” is just <b>∧</b>. Put brackets round the first part so it's clear what's being joined.</p>
+          <div class="big-math" data-at="1" data-until="2" style="font-family:var(--display);font-size:22px">neither cake nor ice cream, but coffee</div>
+          <div class="big-math" data-at="3" data-until="3">¬<i>C</i> ∧ ¬<i>I</i></div>
+          <div class="big-math" data-at="4">(¬<i>C</i> ∧ ¬<i>I</i>) ∧ <i>K</i></div>
+        </div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Brackets matter</span>
+        <h2>Where the ¬ goes</h2>
+        <p><span class="m">¬<i>P</i> ∨ <i>Q</i></span> and <span class="m">¬(<i>P</i> ∨ <i>Q</i>)</span> are different statements. The first says “not P, or Q”. The second says “neither P nor Q”.</p>
+        <p>The convention: <b>¬ applies to the smallest thing right after it</b>. To negate something bigger, put it in brackets. When in doubt, add brackets; they never hurt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="sec-head"><span class="kicker">Your turn</span><h2>Translate these</h2></div>
+    <div class="quiz">
+      <p class="q">Let <i>P</i>: “x is prime”, <i>E</i>: “x is even”. Translate <b>“x is prime but not even.”</b></p>
+      <div class="opts">
+        <button data-ok data-why="“But” is ∧, and “not even” is ¬E.">P ∧ ¬E</button>
+        <button data-why="That says x is neither prime nor even.">¬(P ∨ E)</button>
+        <button data-why="That says x isn't both prime and even: it's true for 9, which isn't prime.">¬(P ∧ E)</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q">Which statement is true when <i>P</i> and <i>Q</i> are <b>both true</b>?</p>
+      <div class="opts">
+        <button data-ok data-why="Inclusive or: true when at least one is true, including both.">P ∨ Q</button>
+        <button data-why="Not both: false when both are true.">¬(P ∧ Q)</button>
+        <button data-why="Neither: false as soon as one is true.">¬P ∧ ¬Q</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q">Translate <b>“Not both John and Bill are telling the truth”</b> (J, B).</p>
+      <div class="opts">
+        <button data-why="That says neither is telling the truth, which is stronger.">¬J ∧ ¬B</button>
+        <button data-ok data-why="The negation applies to the whole conjunction. (On the Truth Tables page you'll see it's equivalent to ¬J ∨ ¬B.)">¬(J ∧ B)</button>
+        <button data-why="Without brackets, ¬ only applies to J.">¬J ∧ B</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var p = true, q = false, $ = function (id) { return document.getElementById(id); };
+  function r(f, txt, v) { return '<div class="row" style="justify-content:space-between;padding:10px 14px;border-radius:12px;background:var(--paper-2)"><div><div class="mb" style="font-size:20px">' + f + '</div><div class="small muted">' + txt + '</div></div><span class="chip ' + (v ? 'yes">true' : 'no">false') + '</span></div>'; }
+  function draw() {
+    $("sw-p").setAttribute("aria-pressed", p); $("sw-p").textContent = "P: " + (p ? "raining" : "not raining");
+    $("sw-q").setAttribute("aria-pressed", q); $("sw-q").textContent = "Q: " + (q ? "cold" : "not cold");
+    $("sw-out").innerHTML = r("¬<i>P</i>", "It is not raining.", !p) + r("<i>P</i> ∧ <i>Q</i>", "It's raining and it's cold.", p && q) + r("<i>P</i> ∨ <i>Q</i>", "It's raining or it's cold (or both).", p || q) + r("¬(<i>P</i> ∨ <i>Q</i>)", "It's neither raining nor cold.", !(p || q));
+  }
+  $("sw-p").addEventListener("click", function () { p = !p; draw(); });
+  $("sw-q").addEventListener("click", function () { q = !q; draw(); });
+  draw();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The “but” and “neither … nor” translations follow Velleman §1.1.</li>

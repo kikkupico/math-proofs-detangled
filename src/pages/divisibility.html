@@ -1,0 +1,102 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>For all integers <i>a</i>, <i>b</i> and <i>c</i>, if <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>, then <i>a</i> | <i>c</i>.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifiers.html">Quantifiers</a><a class="chip" href="conditionals.html">Conditionals</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="direct.html">Direct proof</a><a class="chip" href="exists.html">Witnesses</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Definition</div>
+        <p class="mb" style="font-size:22px"><i>a</i> | <i>b</i> &nbsp;means&nbsp; ∃<i>k</i> ∈ ℤ (<i>b</i> = <i>ka</i>)</p>
+        <p class="note">“<i>a</i> divides <i>b</i>”: <i>b</i> is a whole multiple of <i>a</i>. So 3 | 12 because 12 = 4 · 3, but 5 ∤ 12.</p>
+        <div class="lab-title" style="margin:18px 0 8px">In logical form</div>
+        <p class="mb" style="font-size:19px">∀<i>a</i> ∀<i>b</i> ∀<i>c</i> ((<i>a</i> | <i>b</i> ∧ <i>b</i> | <i>c</i>) → <i>a</i> | <i>c</i>)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Read the shape, make the move</h2><p>Scroll. Each step explains one move, and the line it writes lights up.</p></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">Move 1 · ∀ goal</span><h3>Let them be arbitrary</h3><p>The outermost symbol is ∀ (three times). So <b>introduce arbitrary integers</b> <i>a</i>, <i>b</i>, <i>c</i>, assuming nothing else about them.</p></div>
+        <div class="step" data-key="s2"><span class="k">Move 2 · → goal</span><h3>Assume the hypothesis</h3><p>What's left is an if–then. Assume <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>. The goal becomes <i>a</i> | <i>c</i>.</p></div>
+        <div class="step" data-key="s3"><span class="k">Move 3 · unpack + ∃ givens</span><h3>Name what the givens promise</h3><p>Unpacked, each given is an ∃: some integer works. <b>Give each one a new name</b>: <i>d</i> with <i>b</i> = <i>da</i>, and <i>e</i> with <i>c</i> = <i>eb</i>. Different letters, because they may be different numbers.</p></div>
+        <div class="step" data-key="s4"><span class="k">Move 4 · ∃ goal</span><h3>Find the witness</h3><p>The goal <i>a</i> | <i>c</i> unpacks to ∃<i>k</i> (<i>c</i> = <i>ka</i>). Substitute: <i>c</i> = <i>eb</i> = <i>e</i>(<i>da</i>) = (<i>ed</i>)<i>a</i>. So the <b>witness is <i>k</i> = <i>ed</i></b>, an integer.</p></div>
+        <div class="step" data-key="s5"><span class="k">Close the blocks</span><h3>Done</h3><p>Each move opened a block; they close in reverse order. Written proofs often leave the closing lines unsaid, because readers expect them.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1 s5">Let <i>a</i>, <i>b</i> and <i>c</i> be arbitrary integers.</span>
+            <span class="pl in1" data-on="s2 s5">Suppose <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>.</span>
+            <span class="pl in1" data-on="s3 s5">Since <i>a</i> | <i>b</i>, there is an integer <i>d</i> with <i>b</i> = <i>da</i>.</span>
+            <span class="pl in1" data-on="s3 s5">Similarly there is an integer <i>e</i> with <i>c</i> = <i>eb</i>.</span>
+            <span class="pl in1" data-on="s4 s5">Then <i>c</i> = <i>eb</i> = <i>e</i>(<i>da</i>) = (<i>ed</i>)<i>a</i>.</span>
+            <span class="pl in1" data-on="s4 s5">Since <i>ed</i> is an integer, <i>a</i> | <i>c</i>.</span>
+            <span class="pl" data-on="s5">Since <i>a</i>, <i>b</i>, <i>c</i> were arbitrary, the theorem holds. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">See it with numbers</span>
+        <h2>The witness, computed</h2>
+        <p>Choose <i>a</i>, then the multipliers <i>d</i> and <i>e</i>. The proof's recipe gives <i>c</i> as a multiple of <i>a</i> straight away: the multiplier is always <i>ed</i>.</p>
+        <p>That's what a constructive ∃ proof gives you: not just “a multiplier exists” but the multiplier itself.</p>
+      </div>
+      <div class="lab">
+        <div class="row" style="gap:16px">
+          <label class="ctl">a <input type="number" id="dv-a" value="3" style="width:80px"></label>
+          <label class="ctl">d <input type="number" id="dv-d" value="4" style="width:80px"></label>
+          <label class="ctl">e <input type="number" id="dv-e" value="5" style="width:80px"></label>
+        </div>
+        <div class="out mt-s" id="dv-out"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Why must the proof use two different letters, <i>d</i> and <i>e</i>, rather than calling both multipliers <i>k</i>?</p>
+      <div class="opts">
+        <button data-ok data-why="Using k for both would silently assume b = ka and c = kb with the same k, which only covers special cases like a = 2, b = 4, c = 8.">The two multipliers can be different numbers.</button>
+        <button data-why="It's not a matter of style: reusing a name adds a false assumption.">It's just a style convention.</button>
+        <button data-why="The theorem is about integers; the issue is reusing a name.">Because k must be positive.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  function g(id) { return parseInt(document.getElementById(id).value, 10); }
+  function run() {
+    var a = g("dv-a"), d = g("dv-d"), e = g("dv-e");
+    if ([a, d, e].some(isNaN)) return;
+    var b = d * a, c = e * b;
+    document.getElementById("dv-out").innerHTML = '<div><i>b</i> = <i>da</i> = ' + d + ' · ' + a + ' = <b>' + b + '</b> &nbsp;<span class="small muted" style="font-family:var(--sans)">so a | b</span></div><div><i>c</i> = <i>eb</i> = ' + e + ' · ' + b + ' = <b>' + c + '</b> &nbsp;<span class="small muted" style="font-family:var(--sans)">so b | c</span></div><div style="color:var(--accent)"><i>c</i> = (<i>ed</i>)<i>a</i> = ' + (e * d) + ' · ' + a + ' = <b>' + c + '</b> &nbsp;<span class="chip yes">a | c</span></div>';
+  }
+  ["dv-a", "dv-d", "dv-e"].forEach(function (id) { document.getElementById(id).addEventListener("input", run); });
+  run();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>This is Velleman's Theorem 3.3.6 (p. 120). The proof here follows the same structure in our own words.</li>

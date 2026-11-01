@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quantifier Equivalences · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Negate anything, one step at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-tools">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html" aria-current="true"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Tools pages"><div class="wrap rail-in"><a class="r-hub" href="tools.html">Overview</a><a href="connectives.html"><span class="i">1</span>Connectives</a><a href="truth-tables.html"><span class="i">2</span>Truth tables</a><a href="sets.html"><span class="i">3</span>Variables &amp; sets</a><a href="set-operations.html"><span class="i">4</span>Set operations</a><a href="conditionals.html"><span class="i">5</span>Conditionals</a><a href="quantifiers.html"><span class="i">6</span>Quantifiers</a><a href="quantifier-laws.html" aria-current="page"><span class="i">7</span>Quantifier laws</a><a href="power-sets.html"><span class="i">8</span>Power sets</a><a href="families.html"><span class="i">9</span>Unions &amp; intersections</a><a href="functions.html"><span class="i">10</span>Functions</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 2 · Tools · 7 of 10</p>
+      <h1>Quantifier Equivalences</h1>
+      <p class="tagline">Negate anything, one step at a time.</p>
+      <p class="lede">Many proofs need the negation of a statement written in a <b>positive</b> form, one you can actually work with. Two laws do almost all the work: a negation flips each quantifier it passes through.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab" style="text-align:center">
+        <div class="big-math">¬∀<i>x</i> <i>P</i>(<i>x</i>) <span class="accent">≡</span> ∃<i>x</i> ¬<i>P</i>(<i>x</i>)</div>
+        <p class="muted">“Not everything is P” = “something isn't P”</p>
+        <div class="big-math mt-s">¬∃<i>x</i> <i>P</i>(<i>x</i>) <span class="accent">≡</span> ∀<i>x</i> ¬<i>P</i>(<i>x</i>)</div>
+        <p class="muted">“Nothing is P” = “everything isn't P”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>The negation machine</h2>
+        <p>Pick a statement and push the ¬ inward one step at a time. It flips each quantifier it passes. When it meets ∧ or ∨, De Morgan's laws take over. When it meets →, the conditional law <span class="m">¬(<i>P</i> → <i>Q</i>) ≡ <i>P</i> ∧ ¬<i>Q</i></span> does.</p>
+        <p>The end result tells you exactly what you'd need to show to prove the original statement <b>false</b>.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><select id="ng-pick" aria-label="Statement to negate"></select><div class="row"><button class="tbtn" id="ng-back" aria-label="Previous step">←</button><button class="tbtn primary" id="ng-next">Push ¬ inward →</button></div></div>
+        <div id="ng-steps" class="grid-gap" style="gap:8px"></div>
+        <p class="note" id="ng-en"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">More equivalences</span><h2>Quantifiers meet connectives</h2></div>
+    <div class="cards two">
+      <div class="card"><span class="k">Bounded quantifiers</span><span class="sym">∀<i>x</i> ∈ <i>A</i> <i>P</i>(<i>x</i>) ≡ ∀<i>x</i> (<i>x</i> ∈ <i>A</i> → <i>P</i>(<i>x</i>))<br>∃<i>x</i> ∈ <i>A</i> <i>P</i>(<i>x</i>) ≡ ∃<i>x</i> (<i>x</i> ∈ <i>A</i> ∧ <i>P</i>(<i>x</i>))</span><p>The negation laws work the same way: <span class="m">¬∀<i>x</i> ∈ <i>A</i> <i>P</i>(<i>x</i>) ≡ ∃<i>x</i> ∈ <i>A</i> ¬<i>P</i>(<i>x</i>)</span>.</p></div>
+      <div class="card"><span class="k">Vacuous truth</span><span class="sym">∀<i>x</i> ∈ ∅ <i>P</i>(<i>x</i>) is always true</span><p>“Every element of the empty set is purple” is true: there's nothing in ∅ that could be a counterexample. This is why ∅ ⊆ A for every A.</p></div>
+      <div class="card"><span class="k">∀ distributes over ∧</span><span class="sym">∀<i>x</i> (<i>P</i>(<i>x</i>) ∧ <i>Q</i>(<i>x</i>)) ≡ ∀<i>x</i> <i>P</i>(<i>x</i>) ∧ ∀<i>x</i> <i>Q</i>(<i>x</i>)</span><p>But <b>not over ∨</b>: every integer is even or odd, yet it's false that every integer is even or every integer is odd.</p></div>
+      <div class="card"><span class="k">∃ distributes over ∨</span><span class="sym">∃<i>x</i> (<i>P</i>(<i>x</i>) ∨ <i>Q</i>(<i>x</i>)) ≡ ∃<i>x</i> <i>P</i>(<i>x</i>) ∨ ∃<i>x</i> <i>Q</i>(<i>x</i>)</span><p>But <b>not over ∧</b>: some integer is even and some is odd, but no integer is both.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Exactly one</span>
+        <h2>∃! is shorthand</h2>
+        <p><span class="m">∃!<i>x</i> <i>P</i>(<i>x</i>)</span> means “there is exactly one <i>x</i> with <i>P</i>(<i>x</i>)”. It isn't a new kind of quantifier: it unpacks into ∃, ∀ and =.</p>
+        <p>Read the unpacked form as two claims: <b>something</b> has property <i>P</i>, and <b>anything else</b> with property <i>P</i> is that same thing. <a href="uniqueness.html">Part 3 shows how to prove it.</a></p>
+      </div>
+      <div class="lab stepper">
+        <div class="big-math" data-at="1">∃!<i>x</i> <i>P</i>(<i>x</i>)</div>
+        <div class="big-math" data-at="2" style="font-size:24px">∃<i>x</i> ( <i>P</i>(<i>x</i>) ∧ ∀<i>y</i> (<i>P</i>(<i>y</i>) → <i>y</i> = <i>x</i>) )</div>
+        <p class="say" data-at="3">Example: <span class="m">∃!<i>x</i> ∈ ℝ (2<i>x</i> + 1 = 7)</span> is true: <i>x</i> = 3 works, and any <i>y</i> with 2<i>y</i> + 1 = 7 must equal 3. But <span class="m">∃!<i>x</i> ∈ ℝ (<i>x</i>² = 4)</span> is false: both 2 and −2 work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>What is the positive form of <b>¬∀x ∈ ℝ ∃y ∈ ℝ (y² = x)</b>?</p>
+      <div class="opts">
+        <button data-ok data-why="Flip ∀ to ∃, then ∃ to ∀, and negate the inside. True, by the way: x = −1 has no real square root.">∃x ∈ ℝ ∀y ∈ ℝ (y² ≠ x)</button>
+        <button data-why="The ¬ flips the quantifiers but does not swap their order.">∀y ∈ ℝ ∃x ∈ ℝ (y² ≠ x)</button>
+        <button data-why="Both quantifiers must flip as the ¬ passes them.">∃x ∈ ℝ ∃y ∈ ℝ (y² ≠ x)</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>To show <b>A ⊈ B</b>, what do you need?</p>
+      <div class="opts">
+        <button data-why="That's much stronger than needed: you'd be showing A and B are disjoint.">Show no element of A is in B</button>
+        <button data-ok data-why="¬∀x (x ∈ A → x ∈ B) ≡ ∃x (x ∈ A ∧ x ∉ B): one element of A outside B.">Find one element of A that isn't in B</button>
+        <button data-why="That's about B ⊈ A, the other direction.">Find one element of B that isn't in A</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var NG = [
+    { t: "Not everyone loves someone", s: [["¬∀x ∃y L(x, y)", ""], ["∃x ¬∃y L(x, y)", "¬∀ becomes ∃¬"], ["∃x ∀y ¬L(x, y)", "¬∃ becomes ∀¬"]], en: "Someone loves nobody." },
+    { t: "A is not a subset of B", s: [["¬∀x (x ∈ A → x ∈ B)", "the definition of ⊆, negated"], ["∃x ¬(x ∈ A → x ∈ B)", "¬∀ becomes ∃¬"], ["∃x (x ∈ A ∧ x ∉ B)", "¬(P → Q) ≡ P ∧ ¬Q"]], en: "Some element of A is not in B. To prove A ⊈ B, find one." },
+    { t: "Not all primes are odd", s: [["¬∀p (p is prime → p is odd)", ""], ["∃p ¬(p is prime → p is odd)", "¬∀ becomes ∃¬"], ["∃p (p is prime ∧ p is not odd)", "¬(P → Q) ≡ P ∧ ¬Q"]], en: "Some prime is even. The number 2 is a witness." },
+    { t: "f is not one-to-one", s: [["¬∀a ∀b (f(a) = f(b) → a = b)", "the definition of one-to-one, negated"], ["∃a ¬∀b (f(a) = f(b) → a = b)", "¬∀ becomes ∃¬"], ["∃a ∃b ¬(f(a) = f(b) → a = b)", "¬∀ becomes ∃¬"], ["∃a ∃b (f(a) = f(b) ∧ a ≠ b)", "¬(P → Q) ≡ P ∧ ¬Q"]], en: "Two different inputs give the same output." },
+    { t: "No x has P together with every y having Q", s: [["¬∃x (P(x) ∧ ∀y Q(x, y))", ""], ["∀x ¬(P(x) ∧ ∀y Q(x, y))", "¬∃ becomes ∀¬"], ["∀x (¬P(x) ∨ ¬∀y Q(x, y))", "De Morgan"], ["∀x (¬P(x) ∨ ∃y ¬Q(x, y))", "¬∀ becomes ∃¬"], ["∀x (P(x) → ∃y ¬Q(x, y))", "¬P ∨ R ≡ P → R"]], en: "Whenever x has P, some y fails Q(x, y)." }
+  ];
+  $("ng-pick").innerHTML = NG.map(function (n, i) { return '<option value="' + i + '">' + n.t + '</option>'; }).join("");
+  var ni = 0, step = 0;
+  function it(s) { return s.replace(/\b([xypabfABLPQR])\b/g, "<i>$1</i>"); }
+  function ng(anim) {
+    var n = NG[ni];
+    $("ng-steps").innerHTML = n.s.slice(0, step + 1).map(function (s, k) {
+      return '<div' + (k === step && anim ? ' class="now" style="animation:pop .5s var(--ease) both;' : ' style="') + 'padding:12px 14px;border-radius:12px;background:' + (k === step ? 'var(--wash)' : 'var(--paper-2)') + '"><div class="mb" style="font-size:20px">' + it(s[0]) + '</div>' + (s[1] ? '<div class="small muted">' + s[1] + '</div>' : '') + '</div>';
+    }).join("");
+    var done = step === n.s.length - 1;
+    $("ng-en").innerHTML = done ? "<b>In words:</b> " + n.en : "Step " + (step + 1) + " of " + n.s.length + ".";
+    $("ng-next").disabled = done; $("ng-back").disabled = step === 0;
+  }
+  $("ng-pick").addEventListener("change", function () { ni = +this.value; step = 0; ng(false); });
+  $("ng-next").addEventListener("click", function () { step++; ng(true); });
+  $("ng-back").addEventListener("click", function () { step--; ng(false); });
+  ng(false);
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="quantifiers.html" data-key="prev"><span class="d">← Previous · Part 2 · Tools</span><span class="t">Quantifiers</span></a><a class="pg next" href="power-sets.html" data-key="next"><span class="d">Next · Part 2 · Tools →</span><span class="t">Power Sets</span><span class="s">Every subset, collected into one set.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §2.2, p. 64.</p><ol class='notes'>
+<li>The quantifier negation laws, bounded quantifiers, vacuous truth and ∃! follow Velleman §2.2.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

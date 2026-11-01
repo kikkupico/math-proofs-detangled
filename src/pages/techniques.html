@@ -1,0 +1,95 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>Techniques</h1>
+      <p class="tagline">Read the shape. Make the move.</p>
+      <p class="lede">At every point in a proof you have some things you know (the <b>givens</b>) and one thing you want (the <b>goal</b>). The logical shape of the goal, or of a given, tells you what to do next. Each page here is one move, shown on a small example.</p>
+    </div>
+    <div class="hero-art">
+      <div class="board">
+        <div><h4>Givens</h4><ul><li><i>n</i> is an integer</li><li class="new"><i>n</i> is even</li></ul></div>
+        <div><h4>Goal</h4><ul><li class="done"><i>n</i> even → <i>n</i>² even</li><li class="new"><i>n</i>² is even</li></ul></div>
+      </div>
+      <p class="small muted mt-s">A goal of the form P → Q became a new given P and a new goal Q. That's one move.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Which move?</span><h2>Look at your goal</h2><p>Pick the shape of the statement you're trying to prove, or the one you've been given. You'll get the move, the outline it produces, and the page that shows it in action.</p></div>
+    <div class="lab">
+      <div class="seg" id="st-seg" role="group" aria-label="Logical form"></div>
+      <div class="split top mt-m" style="gap:32px">
+        <div>
+          <div class="mb accent" id="st-form" style="font-size:52px;line-height:1.1"></div>
+          <h3 style="margin-top:18px">To prove it</h3>
+          <p class="muted" id="st-prove" style="margin-top:6px"></p>
+          <h3 style="margin-top:20px">To use it as a given</h3>
+          <p class="muted" id="st-use" style="margin-top:6px"></p>
+          <p class="mt-s" id="st-link"></p>
+        </div>
+        <div>
+          <div class="lab-title" style="margin-bottom:10px">Shape of the written proof</div>
+          <div class="outline" id="st-outline"></div>
+          <p class="note" id="st-tip"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">In this part</span><h2>Ten techniques</h2></div>
+    <div class="toc">
+      <a href="direct.html"><span class="no">1</span><div><h3>Direct proof</h3><p>To prove P → Q, assume P and derive Q.</p></div><span class="g">P ⇒ Q</span></a>
+      <a href="contrapositive.html"><span class="no">2</span><div><h3>Contrapositive</h3><p>Prove ¬Q → ¬P instead. Same statement, easier start.</p></div><span class="g">¬Q ⇒ ¬P</span></a>
+      <a href="contradiction.html"><span class="no">3</span><div><h3>Contradiction</h3><p>Assume the goal is false and derive something impossible.</p></div><span class="g">⊥</span></a>
+      <a href="for-all.html"><span class="no">4</span><div><h3>Arbitrary objects</h3><p>To prove ∀x P(x), let x be arbitrary and prove P(x).</p></div><span class="g">∀</span></a>
+      <a href="exists.html"><span class="no">5</span><div><h3>Witnesses</h3><p>To prove ∃x P(x), find a value that works.</p></div><span class="g">∃</span></a>
+      <a href="iff.html"><span class="no">6</span><div><h3>And &amp; iff</h3><p>Split ∧ and ↔ goals into separate halves.</p></div><span class="g">∧ ↔</span></a>
+      <a href="cases.html"><span class="no">7</span><div><h3>Cases</h3><p>Use P ∨ Q by proving the goal in each case.</p></div><span class="g">∨</span></a>
+      <a href="uniqueness.html"><span class="no">8</span><div><h3>Uniqueness</h3><p>Exactly one: show one exists, and any two are equal.</p></div><span class="g">∃!</span></a>
+      <a href="counterexample.html"><span class="no">9</span><div><h3>Counterexamples</h3><p>Disprove a “for all” with a single failure.</p></div><span class="g">¬∀</span></a>
+      <a href="induction.html"><span class="no">10</span><div><h3>Induction</h3><p>Prove ∀n ∈ ℕ P(n) with a base case and a step.</p></div><span class="g">n → n+1</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap statement">
+    <p class="say">“I shall make no assertion <em>before its time</em>.”</p>
+    <p class="by">Velleman's motto for proof writing. Every line must be justified by what came before it. You can <b>assume</b> things temporarily, as long as you know that's what you're doing.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var S = [
+    { k: "P → Q", form: "<i>P</i> → <i>Q</i>", prove: "Assume P and prove Q. Or prove the contrapositive: assume ¬Q and prove ¬P.", use: "If you also know P, conclude Q (modus ponens). If you know ¬Q, conclude ¬P (modus tollens).", out: "<span class=\"kw\">Suppose</span> <i>P</i>.\n   <span class=\"c\">[proof of Q]</span>\n<span class=\"kw\">Therefore</span> <i>P</i> → <i>Q</i>.", tip: "Knowing P → Q tells you nothing about Q → P.", link: ["direct", "Direct proof"] },
+    { k: "¬P", form: "¬<i>P</i>", prove: "Rewrite it as a positive statement with De Morgan or the quantifier laws. If that doesn't help, assume P and derive a contradiction.", use: "Rewrite it positively. In a proof by contradiction, try to prove P to get the contradiction.", out: "<span class=\"kw\">Suppose</span> <i>P</i>.\n   <span class=\"c\">[derive a contradiction]</span>\n<span class=\"kw\">Thus</span> ¬<i>P</i>.", tip: "A negative goal gives you nothing to aim at. Contradiction turns it into a positive given.", link: ["contradiction", "Contradiction"] },
+    { k: "∀x P(x)", form: "∀<i>x</i> <i>P</i>(<i>x</i>)", prove: "Let x be an arbitrary object and prove P(x). Use a new letter if x already means something.", use: "Plug in any value a you like and conclude P(a).", out: "<span class=\"kw\">Let</span> <i>x</i> be arbitrary.\n   <span class=\"c\">[proof of P(x)]</span>\n<span class=\"kw\">Since</span> <i>x</i> was arbitrary, ∀<i>x</i> <i>P</i>(<i>x</i>).", tip: "Arbitrary means you may only use facts true of every x.", link: ["for-all", "Arbitrary objects"] },
+    { k: "∃x P(x)", form: "∃<i>x</i> <i>P</i>(<i>x</i>)", prove: "Find a value of x that works, and show P holds for it.", use: "Give the object a new name, x₀, and use P(x₀).", out: "<span class=\"kw\">Let</span> <i>x</i> = <span class=\"c\">[the value]</span>.\n   <span class=\"c\">[proof of P(x)]</span>\n<span class=\"kw\">Thus</span> ∃<i>x</i> <i>P</i>(<i>x</i>).", tip: "The search belongs in scratch work. The proof just names the value.", link: ["exists", "Witnesses"] },
+    { k: "P ∧ Q", form: "<i>P</i> ∧ <i>Q</i>", prove: "Prove P and prove Q separately.", use: "Treat it as two givens, P and Q.", out: "<span class=\"c\">[proof of P]</span>\n<span class=\"c\">[proof of Q]</span>\n<span class=\"kw\">Thus</span> <i>P</i> ∧ <i>Q</i>.", tip: "Often appears after unpacking ∩.", link: ["iff", "And & iff"] },
+    { k: "P ↔ Q", form: "<i>P</i> ↔ <i>Q</i>", prove: "Prove P → Q and Q → P.", use: "Treat it as two givens, P → Q and Q → P.", out: "(→) <span class=\"kw\">Suppose</span> <i>P</i>. <span class=\"c\">[…]</span> So <i>Q</i>.\n(←) <span class=\"kw\">Suppose</span> <i>Q</i>. <span class=\"c\">[…]</span> So <i>P</i>.", tip: "Set equality A = B works the same way: A ⊆ B and B ⊆ A.", link: ["iff", "And & iff"] },
+    { k: "P ∨ Q", form: "<i>P</i> ∨ <i>Q</i>", prove: "Assume ¬P and prove Q. Or split into cases, proving P in some and Q in others.", use: "Proof by cases: prove the goal assuming P, then again assuming Q.", out: "<span class=\"kw\">Case 1:</span> <i>P</i>.\n   <span class=\"c\">[proof of goal]</span>\n<span class=\"kw\">Case 2:</span> <i>Q</i>.\n   <span class=\"c\">[proof of goal]</span>", tip: "The cases must cover every possibility.", link: ["cases", "Cases"] },
+    { k: "∃!x P(x)", form: "∃!<i>x</i> <i>P</i>(<i>x</i>)", prove: "Existence: find an x with P(x). Uniqueness: if P(y) and P(z), show y = z.", use: "Name the object x₀, and use that anything with P equals x₀.", out: "<span class=\"kw\">Existence:</span> let <i>x</i> = …\n<span class=\"kw\">Uniqueness:</span> suppose <i>P</i>(<i>y</i>), <i>P</i>(<i>z</i>).\n   <span class=\"c\">[show y = z]</span>", tip: "Two separate proofs. Don't skip uniqueness.", link: ["uniqueness", "Uniqueness"] },
+    { k: "∀n ∈ ℕ P(n)", form: "∀<i>n</i> ∈ ℕ <i>P</i>(<i>n</i>)", prove: "Induction: prove P(0), then prove P(n) → P(n + 1) for arbitrary n.", use: "Plug in any natural number.", out: "<span class=\"kw\">Base case:</span> <span class=\"c\">[P(0)]</span>\n<span class=\"kw\">Step:</span> suppose <i>P</i>(<i>n</i>).\n   <span class=\"c\">[proof of P(n+1)]</span>", tip: "The step uses the assumption P(n): that's the inductive hypothesis.", link: ["induction", "Induction"] }
+  ];
+  S.forEach(function (s, n) { var b = document.createElement("button"); b.type = "button"; b.className = "mb"; b.textContent = s.k; b.addEventListener("click", function () { pick(n); }); $("st-seg").appendChild(b); });
+  function pick(n) {
+    var s = S[n];
+    Array.prototype.forEach.call($("st-seg").children, function (b, k) { b.setAttribute("aria-pressed", k === n ? "true" : "false"); });
+    $("st-form").innerHTML = s.form; $("st-prove").textContent = s.prove; $("st-use").textContent = s.use;
+    $("st-outline").innerHTML = s.out; $("st-tip").textContent = s.tip;
+    $("st-link").innerHTML = '<a class="link-more" href="' + s.link[0] + '.html">' + s.link[1] + '</a>';
+    [$("st-form"), $("st-outline")].forEach(function (el) { el.style.animation = "none"; void el.offsetWidth; el.style.animation = "pop .5s var(--ease) both"; });
+  }
+  pick(0);
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The givens-and-goal model and the strategy for each logical form follow Velleman Chapter 3 and the Summary of Proof Techniques (pp. 376–379).</li>

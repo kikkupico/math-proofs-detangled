@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Part 2: Tools · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The symbols and ideas every proof is written in.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-tools">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html" aria-current="true"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Tools pages"><div class="wrap rail-in"><a class="r-hub" href="tools.html" aria-current="page">Overview</a><a href="connectives.html"><span class="i">1</span>Connectives</a><a href="truth-tables.html"><span class="i">2</span>Truth tables</a><a href="sets.html"><span class="i">3</span>Variables &amp; sets</a><a href="set-operations.html"><span class="i">4</span>Set operations</a><a href="conditionals.html"><span class="i">5</span>Conditionals</a><a href="quantifiers.html"><span class="i">6</span>Quantifiers</a><a href="quantifier-laws.html"><span class="i">7</span>Quantifier laws</a><a href="power-sets.html"><span class="i">8</span>Power sets</a><a href="families.html"><span class="i">9</span>Unions &amp; intersections</a><a href="functions.html"><span class="i">10</span>Functions</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 2 · 10 pages</p>
+      <h1>Tools</h1>
+      <p class="tagline">The language proofs are written in.</p>
+      <p class="lede">Ten short pages, each introducing one piece of notation and what it means. You don't need to memorise them in one go. Each tool comes back again and again in Parts 3 and 4, with a link back here.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Hover or tap a symbol</div>
+        <div id="sym-grid" style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px"></div>
+        <div id="sym-out" style="margin-top:14px;min-height:3.4em;padding:12px 14px;border-radius:12px;background:var(--paper-2)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">In this part</span><h2>Ten tools</h2><p>Roughly in the order you need them: first logic for whole sentences, then sets, then quantifiers, then collections of sets and functions.</p></div>
+    <div class="toc">
+      <a href="connectives.html"><span class="no">1</span><div><h3>Connectives</h3><p>¬, ∧, ∨: translating English sentences into logical form.</p></div><span class="g">¬ ∧ ∨</span></a>
+      <a href="truth-tables.html"><span class="no">2</span><div><h3>Truth tables</h3><p>Check validity and equivalence by listing every case. De Morgan's laws.</p></div><span class="g">T F</span></a>
+      <a href="sets.html"><span class="no">3</span><div><h3>Variables and sets</h3><p>Free and bound variables, set-builder notation, truth sets, the empty set.</p></div><span class="g">{x | P(x)}</span></a>
+      <a href="set-operations.html"><span class="no">4</span><div><h3>Set operations</h3><p>Intersection, union, difference, subsets: connectives in disguise.</p></div><span class="g">∩ ∪ ∖</span></a>
+      <a href="conditionals.html"><span class="no">5</span><div><h3>Conditionals and biconditionals</h3><p>If–then, only if, iff. Converse versus contrapositive.</p></div><span class="g">→ ↔</span></a>
+      <a href="quantifiers.html"><span class="no">6</span><div><h3>Quantifiers</h3><p>“For all” and “there exists”, and why their order matters.</p></div><span class="g">∀ ∃</span></a>
+      <a href="quantifier-laws.html"><span class="no">7</span><div><h3>Quantifier equivalences</h3><p>Negating quantified statements. Bounded quantifiers, vacuous truth, ∃!.</p></div><span class="g">¬∀ ≡ ∃¬</span></a>
+      <a href="power-sets.html"><span class="no">8</span><div><h3>Power sets</h3><p>The set of all subsets of a set, and why it has 2ⁿ elements.</p></div><span class="g">𝒫(A)</span></a>
+      <a href="families.html"><span class="no">9</span><div><h3>Arbitrary unions and intersections</h3><p>Families of sets, indexed families, ⋃ and ⋂.</p></div><span class="g">⋃ ⋂</span></a>
+      <a href="functions.html"><span class="no">10</span><div><h3>Functions</h3><p>One-to-one, onto, bijections and inverses.</p></div><span class="g">f : A → B</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">How the tools connect</span>
+        <h2>It's all one idea, repeated</h2>
+        <p>Almost every tool here is defined in terms of the ones before it. <b>∩</b> is defined with <b>∧</b>. <b>⊆</b> is defined with <b>∀</b> and <b>→</b>. <b>𝒫(A)</b> is defined with <b>⊆</b>. A one-to-one function is defined with <b>∀</b>, <b>→</b> and <b>=</b>.</p>
+        <p>That's good news. When you're stuck on a statement full of set notation, you can always <b>unpack</b> it, layer by layer, into plain logic. Part 3 calls this the first move of every proof.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:12px">Unpacking one statement</div>
+        <div class="stepper" data-done="Plain logic ✓">
+          <div class="grid-gap" style="gap:10px">
+            <div class="mb" style="font-size:22px" data-at="1"><i>X</i> ∈ 𝒫(<i>A</i> ∩ <i>B</i>)</div>
+            <div class="mb" style="font-size:22px" data-at="2"><i>X</i> ⊆ <i>A</i> ∩ <i>B</i> <span class="small muted" style="font-family:var(--sans)">· definition of 𝒫</span></div>
+            <div class="mb" style="font-size:22px" data-at="3">∀<i>x</i> (<i>x</i> ∈ <i>X</i> → <i>x</i> ∈ <i>A</i> ∩ <i>B</i>) <span class="small muted" style="font-family:var(--sans)">· definition of ⊆</span></div>
+            <div class="mb" style="font-size:22px" data-at="4">∀<i>x</i> (<i>x</i> ∈ <i>X</i> → (<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∈ <i>B</i>)) <span class="small muted" style="font-family:var(--sans)">· definition of ∩</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var S = [
+    ["¬", "not", "connectives"], ["∧", "and", "connectives"], ["∨", "or (inclusive)", "connectives"], ["→", "if … then", "conditionals"], ["↔", "if and only if", "conditionals"], ["≡", "is equivalent to", "truth-tables"],
+    ["∈", "is an element of", "sets"], ["∅", "the empty set", "sets"], ["∩", "intersection: in both", "set-operations"], ["∪", "union: in either", "set-operations"], ["∖", "difference: in the first, not the second", "set-operations"], ["⊆", "is a subset of", "set-operations"],
+    ["∀", "for all", "quantifiers"], ["∃", "there exists", "quantifiers"], ["∃!", "there exists exactly one", "quantifier-laws"], ["𝒫", "power set: all subsets", "power-sets"], ["⋃", "union of a family", "families"], ["⋂", "intersection of a family", "families"]
+  ];
+  var g = document.getElementById("sym-grid"), o = document.getElementById("sym-out");
+  function show(s) { o.innerHTML = '<span class="mb" style="font-size:24px;color:var(--accent);margin-right:10px">' + s[0] + '</span><b>' + s[1] + '</b><div class="small"><a href="' + s[2] + '.html">Introduced on: ' + s[2].replace(/-/g, " ") + ' →</a></div>'; }
+  S.forEach(function (s) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn mb"; b.style.fontSize = "20px"; b.style.padding = "6px 0"; b.textContent = s[0];
+    b.addEventListener("mouseenter", function () { show(s); }); b.addEventListener("focus", function () { show(s); }); b.addEventListener("click", function () { show(s); });
+    g.appendChild(b);
+  });
+  show(S[12]);
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="why-language.html" data-key="prev"><span class="d">← Previous · Part 1 · Purpose</span><span class="t">Why we need a mathematical language</span></a><a class="pg next" href="connectives.html" data-key="next"><span class="d">Next · Part 2 · Tools →</span><span class="t">Connectives</span><span class="s">Not, and, or: the atoms of reasoning.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

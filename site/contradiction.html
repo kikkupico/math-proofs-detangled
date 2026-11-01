@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proof by Contradiction · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Assume the opposite and watch it break.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-techniques">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html" aria-current="true"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Techniques pages"><div class="wrap rail-in"><a class="r-hub" href="techniques.html">Overview</a><a href="direct.html"><span class="i">1</span>Direct proof</a><a href="contrapositive.html"><span class="i">2</span>Contrapositive</a><a href="contradiction.html" aria-current="page"><span class="i">3</span>Contradiction</a><a href="for-all.html"><span class="i">4</span>Arbitrary objects</a><a href="exists.html"><span class="i">5</span>Witnesses</a><a href="iff.html"><span class="i">6</span>And &amp; iff</a><a href="cases.html"><span class="i">7</span>Cases</a><a href="uniqueness.html"><span class="i">8</span>Uniqueness</a><a href="counterexample.html"><span class="i">9</span>Counterexamples</a><a href="induction.html"><span class="i">10</span>Induction</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 3 · Techniques · 3 of 10</p>
+      <h1>Proof by Contradiction</h1>
+      <p class="tagline">Assume the opposite and watch it break.</p>
+      <p class="lede">Some goals are negative: “x ≠ 3”, “there is no largest integer”, “√2 is not rational”. They give you nothing to aim at. Proof by contradiction flips them: <b>assume the goal is false</b>, and follow the consequences until two of them clash.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Suppose</span>, for contradiction, ¬<i>Q</i>.
+   <span class="c">… use it as a new given …</span>
+   <span class="c">… reach some R …</span>
+   <span class="c">… and also ¬R.</span>
+<span class="kw">Contradiction.</span> So <i>Q</i>.  ∎</div>
+      <p class="small muted mt-s">It works because a true assumption can never lead to a contradiction. So the assumption ¬<i>Q</i> was false.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Example 1</span>
+        <h2>There is no largest integer</h2>
+        <p>The goal is a negative statement: <span class="m">¬∃<i>n</i> ∈ ℤ ∀<i>m</i> ∈ ℤ (<i>m</i> ≤ <i>n</i>)</span>. Assume the opposite: some integer <i>N</i> is the largest. Then <i>N</i> + 1 is an integer bigger than <i>N</i>. Contradiction.</p>
+        <p>Try to be the person who claims a largest integer exists. Every candidate gets beaten the same way, and that “same way” is the proof.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Name the largest integer</span></div>
+        <div class="row"><input type="number" id="lg-in" value="1000000" style="width:200px" aria-label="Your largest integer"><button class="tbtn primary" id="lg-go">Claim it</button></div>
+        <div class="out mt-s" id="lg-out"></div>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">The goal <i>x</i> ≠ 3 is negative. So assume <i>x</i> = 3 and look for trouble.</p>
+        <p class="say" data-at="2" data-until="2">Substitute into the given equation.</p>
+        <p class="say" data-at="3" data-until="3">That forces <i>y</i> = 4. But we were given <i>y</i> ≠ 4.</p>
+        <p class="say" data-at="4">Contradiction, so the assumption was false.</p>
+        <div class="board" style="margin-bottom:14px">
+          <div><h4>Givens</h4><ul><li><i>x</i>² + <i>y</i> = 13</li><li><i>y</i> ≠ 4</li><li data-at="1" class="new"><i>x</i> = 3</li><li data-at="3" class="new"><i>y</i> = 4</li></ul></div>
+          <div><h4>Goal</h4><ul><li data-at="1" data-until="1" class="done"><i>x</i> ≠ 3</li><li data-at="1" data-until="3" class="new">a contradiction</li><li data-at="4" class="done">a contradiction ✓</li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="1">Suppose <i>x</i>² + <i>y</i> = 13 and <i>y</i> ≠ 4. Suppose, for contradiction, that <i>x</i> = 3.</span>
+          <span class="pl" data-at="2">Then 9 + <i>y</i> = 13,</span>
+          <span class="pl" data-at="3">so <i>y</i> = 4, contradicting <i>y</i> ≠ 4.</span>
+          <span class="pl" data-at="4">Therefore <i>x</i> ≠ 3. ∎</span>
+        </div>
+      </div>
+      <div class="copy">
+        <span class="kicker">Example 2</span>
+        <h2>If x² + y = 13 and y ≠ 4, then x ≠ 3</h2>
+        <p>The outer shape is P → Q, so first assume the hypothesis. That leaves the negative goal <i>x</i> ≠ 3.</p>
+        <p>Assuming <i>x</i> = 3 gives you something concrete to calculate with. Notice the goal changes too: it's no longer “x ≠ 3” but “<b>reach any contradiction</b>”.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">When to use it</span><h2>Good signs</h2></div>
+    <div class="cards">
+      <div class="card"><span class="sym accent">≠ ∉ ¬</span><h3>A negative goal</h3><p>“Not equal”, “not in”, “not rational”, “no largest”. Assuming the positive version gives you something to work with.</p></div>
+      <div class="card"><span class="sym accent">∞</span><h3>“Infinitely many”</h3><p>Means “not finitely many”, a negative. Assume a finite list and break it. That's <a href="infinite-primes.html">Euclid's proof</a>.</p></div>
+      <div class="card"><span class="sym accent">√2</span><h3>Irrationality</h3><p>“Irrational” means “not a fraction”. Assume it is one and find a contradiction. See <a href="sqrt2.html">√2 is irrational</a>.</p></div>
+    </div>
+    <div class="callout warn mt-m"><span class="k">Common slip</span><p>Reaching a contradiction by a mistake in algebra. If your “contradiction” came easily, check every step. Also: if you assumed ¬Q and then proved Q directly without using the assumption, you didn't need contradiction at all; rewrite it as a direct proof.</p></div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>To prove “there is no smallest positive rational number” by contradiction, what do you assume, and what breaks it?</p>
+      <div class="opts">
+        <button data-ok data-why="If q > 0 is rational, so is q/2, and 0 < q/2 < q. So q wasn't the smallest.">Assume q is the smallest positive rational. Then q/2 is a smaller one.</button>
+        <button data-why="That's not the negation of the goal. You need to assume that a smallest one exists.">Assume every positive rational has a smaller one.</button>
+        <button data-why="q − 1 might be negative, so it doesn't contradict anything.">Assume q is the smallest. Then q − 1 is smaller.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var inp = document.getElementById("lg-in"), out = document.getElementById("lg-out");
+  function go() {
+    var s = inp.value.trim();
+    if (!/^-?\d+$/.test(s)) { out.innerHTML = '<span class="small muted" style="font-family:var(--sans)">Enter a whole number.</span>'; return; }
+    var n = BigInt(s), m = n + 1n;
+    out.innerHTML = '<div>You claim <i>N</i> = ' + n.toLocaleString("en-US") + ' is the largest.</div><div><i>N</i> + 1 = <b>' + m.toLocaleString("en-US") + '</b> is an integer, and it\'s bigger.</div><div class="chips mt-s"><span class="chip no">Contradiction</span></div>';
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && out.animate) out.animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { duration: 350, easing: "ease-out" });
+  }
+  document.getElementById("lg-go").addEventListener("click", go);
+  inp.addEventListener("keydown", function (e) { if (e.key === "Enter") go(); });
+  go();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="contrapositive.html" data-key="prev"><span class="d">← Previous · Part 3 · Techniques</span><span class="t">Proof by Contrapositive</span></a><a class="pg next" href="for-all.html" data-key="next"><span class="d">Next · Part 3 · Techniques →</span><span class="t">Proving “For All”</span><span class="s">Let x be arbitrary.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, §3.2, p. 95.</p><ol class='notes'>
+<li>Example 2 follows the style of Velleman §3.2, where proof by contradiction is introduced for negative goals.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

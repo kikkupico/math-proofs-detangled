@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Part 4: Examples · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Complete proofs where tools and techniques work together.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-examples">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html" aria-current="true"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Examples pages"><div class="wrap rail-in"><a class="r-hub" href="examples.html" aria-current="page">Overview</a><a href="divisibility.html"><span class="i">1</span>Divisibility</a><a href="mersenne.html"><span class="i">2</span>Mersenne numbers</a><a href="infinite-primes.html"><span class="i">3</span>Infinite primes</a><a href="sqrt2.html"><span class="i">4</span>√2 is irrational</a><a href="set-identity.html"><span class="i">5</span>A set identity</a><a href="power-set-meet.html"><span class="i">6</span>Power sets meet</a><a href="sum-of-powers.html"><span class="i">7</span>Sum of powers</a><a href="cantor.html"><span class="i">8</span>Cantor&#x27;s theorem</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 4 · 8 pages</p>
+      <h1>Examples</h1>
+      <p class="tagline">Everything, working together.</p>
+      <p class="lede">Eight complete proofs. On each page the finished proof stays pinned beside you while the explanation scrolls past, lighting up each line as it's justified. Every line is tagged with the tool or technique it uses, so you can see the parts from Parts 2 and 3 doing their jobs.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Filter by ingredient</div>
+        <div class="chips" id="fx"></div>
+        <p class="note" id="fx-note">Tap a tool or technique to see which proofs use it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">In this part</span><h2>Eight proofs</h2><p>Roughly in order of difficulty. Each one names its ingredients at the top.</p></div>
+    <div class="toc" id="ex-list">
+      <a href="divisibility.html" data-i="for-all direct exists quantifiers"><span class="no">1</span><div><h3>Divisibility is transitive</h3><p>If a | b and b | c, then a | c. Three nested moves.</p></div><span class="g">a | c</span></a>
+      <a href="mersenne.html" data-i="direct exists quantifier-laws for-all"><span class="no">2</span><div><h3>Composite n gives composite 2ⁿ − 1</h3><p>A proof that builds the factors explicitly.</p></div><span class="g">2ⁿ−1</span></a>
+      <a href="infinite-primes.html" data-i="contradiction cases exists quantifier-laws"><span class="no">3</span><div><h3>There are infinitely many primes</h3><p>Euclid's argument: a finite list always misses one.</p></div><span class="g">∞</span></a>
+      <a href="sqrt2.html" data-i="contradiction contrapositive exists"><span class="no">4</span><div><h3>√2 is irrational</h3><p>Contradiction, with a contrapositive lemma inside.</p></div><span class="g">√2</span></a>
+      <a href="set-identity.html" data-i="set-operations truth-tables for-all iff"><span class="no">5</span><div><h3>A ∖ (B ∪ C) = (A ∖ B) ∩ (A ∖ C)</h3><p>De Morgan's law for sets, by element chasing.</p></div><span class="g">∖ ∪ ∩</span></a>
+      <a href="power-set-meet.html" data-i="power-sets set-operations for-all iff"><span class="no">6</span><div><h3>𝒫(A ∩ B) = 𝒫(A) ∩ 𝒫(B)</h3><p>Subsets of subsets, unpacked layer by layer.</p></div><span class="g">𝒫</span></a>
+      <a href="sum-of-powers.html" data-i="induction"><span class="no">7</span><div><h3>1 + 2 + 4 + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1</h3><p>A complete induction proof, with a picture.</p></div><span class="g">2ⁿ⁺¹−1</span></a>
+      <a href="cantor.html" data-i="functions power-sets contradiction for-all exists"><span class="no">8</span><div><h3>No set is as big as its power set</h3><p>Cantor's diagonal argument, made precise.</p></div><span class="g">A ≺ 𝒫(A)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap statement">
+    <p class="say">Read each proof <em>twice</em>. Once for the idea, once for the moves.</p>
+    <p class="by">The idea is what makes the theorem true. The moves are what make the write-up correct. You need both.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var I = [["quantifiers", "Quantifiers", "tools"], ["quantifier-laws", "Quantifier laws", "tools"], ["truth-tables", "Truth tables", "tools"], ["set-operations", "Set operations", "tools"], ["power-sets", "Power sets", "tools"], ["functions", "Functions", "tools"],
+           ["direct", "Direct", "techniques"], ["contrapositive", "Contrapositive", "techniques"], ["contradiction", "Contradiction", "techniques"], ["for-all", "Arbitrary objects", "techniques"], ["exists", "Witnesses", "techniques"], ["iff", "And & iff", "techniques"], ["cases", "Cases", "techniques"], ["induction", "Induction", "techniques"]];
+  var box = document.getElementById("fx"), list = document.querySelectorAll("#ex-list a"), note = document.getElementById("fx-note"), cur = null;
+  I.forEach(function (x) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn t-" + x[2]; b.textContent = x[1]; b.style.borderColor = "color-mix(in srgb, var(--accent) 45%, transparent)";
+    b.addEventListener("click", function () {
+      cur = cur === x[0] ? null : x[0];
+      Array.prototype.forEach.call(box.children, function (c) { c.setAttribute("aria-pressed", c === b && cur ? "true" : "false"); });
+      var n = 0;
+      Array.prototype.forEach.call(list, function (a) {
+        var on = !cur || (" " + a.dataset.i + " ").indexOf(" " + cur + " ") >= 0; if (on && cur) n++;
+        a.style.opacity = on ? 1 : 0.28; a.style.transition = "opacity .4s, transform .35s var(--ease)";
+      });
+      note.innerHTML = cur ? n + " proof" + (n === 1 ? "" : "s") + " use <b>" + x[1] + "</b>. <a href='" + x[0] + ".html'>Review it →</a>" : "Tap a tool or technique to see which proofs use it.";
+    });
+    box.appendChild(b);
+  });
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="induction.html" data-key="prev"><span class="d">← Previous · Part 3 · Techniques</span><span class="t">Proof by Induction</span></a><a class="pg next" href="divisibility.html" data-key="next"><span class="d">Next · Part 4 · Examples →</span><span class="t">Divisibility Is Transitive</span><span class="s">Three nested blocks, one clean proof.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">You can't check infinitely many cases one by one. Instead, reason about a single object <i>x</i> about which you assume <b>nothing</b> except what the theorem says. Whatever you prove about that <i>x</i>, you've proved about every <i>x</i>.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Let</span> <i>x</i> be arbitrary.
+   <span class="c">… prove P(x), using only</span>
+   <span class="c">    what's true of every x …</span>
+<span class="kw">Since</span> <i>x</i> was arbitrary, ∀<i>x</i> <i>P</i>(<i>x</i>).  ∎</div>
+      <p class="small muted mt-s">To <b>use</b> a ∀ given instead: plug in any specific value you like.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Example 1</span>
+        <h2>For every real x, x² + 1 ≥ 2x</h2>
+        <p>Drag <i>x</i> around: the curve <i>x</i>² + 1 always sits on or above the line 2<i>x</i>. That's convincing, but it's still just examples.</p>
+        <p>The proof never picks a value. It works with a general <i>x</i>: since <span class="m"><i>x</i>² + 1 − 2<i>x</i> = (<i>x</i> − 1)²</span> and squares are never negative, the gap is always ≥ 0. The gap you see in the picture <b>is</b> (<i>x</i> − 1)².</p>
+        <div class="proof mt-s"><p>Let <i>x</i> be an arbitrary real number. Then <i>x</i>² + 1 − 2<i>x</i> = (<i>x</i> − 1)² ≥ 0, so <i>x</i>² + 1 ≥ 2<i>x</i>. Since <i>x</i> was arbitrary, this holds for all real <i>x</i>. ∎</p></div>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">x² + 1 versus 2x</span><label class="ctl" for="gx">x = <b id="gx-v" style="color:var(--ink)">2.0</b><input type="range" id="gx" min="-2" max="3.5" step="0.1" value="2"></label></div>
+        <svg id="gsv" viewBox="0 0 360 260" style="width:100%;display:block" role="img" aria-label="Graph of x squared plus one and two x"></svg>
+        <p class="out center" id="g-out" style="font-size:18px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Example 2</span><h2>If A ⊆ B and B ⊆ C, then A ⊆ C</h2><p>This one uses ∀ in both directions. The goal <span class="m"><i>A</i> ⊆ <i>C</i></span> unpacks to a ∀, so we introduce an arbitrary <i>x</i>. The givens are also ∀ statements, so we <b>plug that same <i>x</i></b> into them.</p></div>
+    <div class="lab stepper">
+      <p class="say" data-at="1" data-until="1">Unpack the definitions. All three statements are “for all” statements.</p>
+      <p class="say" data-at="2" data-until="2">The goal is ∀<i>x</i>(…). <b>Let x be arbitrary.</b> The goal becomes <i>x</i> ∈ <i>A</i> → <i>x</i> ∈ <i>C</i>, so also assume <i>x</i> ∈ <i>A</i>.</p>
+      <p class="say" data-at="3" data-until="3"><b>Use a ∀ given:</b> it holds for every element, so in particular for our <i>x</i>. With <i>x</i> ∈ <i>A</i>, that gives <i>x</i> ∈ <i>B</i>.</p>
+      <p class="say" data-at="4">Do it again with the second given: <i>x</i> ∈ <i>B</i> gives <i>x</i> ∈ <i>C</i>. Goal reached.</p>
+      <div class="split top" style="gap:20px">
+        <div class="board">
+          <div><h4>Givens</h4><ul><li>∀<i>y</i> (<i>y</i> ∈ <i>A</i> → <i>y</i> ∈ <i>B</i>)</li><li>∀<i>y</i> (<i>y</i> ∈ <i>B</i> → <i>y</i> ∈ <i>C</i>)</li><li data-at="2" class="new"><i>x</i> ∈ <i>A</i></li><li data-at="3" class="new"><i>x</i> ∈ <i>B</i></li><li data-at="4" class="new"><i>x</i> ∈ <i>C</i></li></ul></div>
+          <div><h4>Goal</h4><ul><li data-at="1" data-until="1">∀<i>x</i> (<i>x</i> ∈ <i>A</i> → <i>x</i> ∈ <i>C</i>)</li><li data-at="2" data-until="3" class="new"><i>x</i> ∈ <i>C</i></li><li data-at="4" class="done"><i>x</i> ∈ <i>C</i></li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="1">Suppose <i>A</i> ⊆ <i>B</i> and <i>B</i> ⊆ <i>C</i>.</span>
+          <span class="pl" data-at="2">Let <i>x</i> be an arbitrary element of <i>A</i>.</span>
+          <span class="pl" data-at="3">Since <i>A</i> ⊆ <i>B</i>, <i>x</i> ∈ <i>B</i>.</span>
+          <span class="pl" data-at="4">Since <i>B</i> ⊆ <i>C</i>, <i>x</i> ∈ <i>C</i>. Since <i>x</i> was arbitrary, <i>A</i> ⊆ <i>C</i>. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="callout warn"><span class="k">Common slip</span><p>Sneaking in assumptions. If your proof of “for all integers <i>n</i>” says “take <i>n</i> = 4”, or quietly assumes <i>n</i> is positive, it only covers some cases. Another slip: reusing a letter that already means something. In Example 2 the givens use <i>y</i> as a bound variable, so we're free to call our element <i>x</i>.</p></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A student “proves” that every integer <i>n</i> makes <i>n</i>² − <i>n</i> even by checking <i>n</i> = 0, 1, 2, 3, 4, 5. What's wrong?</p>
+      <div class="opts">
+        <button data-ok data-why="Six cases aren't all cases. A real proof: n² − n = n(n − 1) is a product of two consecutive integers, one of which is even.">It checks particular values instead of an arbitrary n.</button>
+        <button data-why="The statement is true. The problem is the method, not the claim.">The statement is false.</button>
+        <button data-why="Checking more values wouldn't help: there are infinitely many integers.">They should have checked at least 100 cases.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var sv = document.getElementById("gsv"), inp = document.getElementById("gx");
+  var X0 = -2, X1 = 3.5, Y0 = -4, Y1 = 13;
+  function px(x) { return 30 + (x - X0) / (X1 - X0) * 320; }
+  function py(y) { return 245 - (y - Y0) / (Y1 - Y0) * 230; }
+  function draw() {
+    var x = +inp.value, s = "", c = "", l = "";
+    for (var t = X0; t <= X1 + 1e-9; t += 0.05) { c += (c ? "L" : "M") + px(t).toFixed(1) + " " + py(t * t + 1).toFixed(1); }
+    l = "M" + px(X0) + " " + py(2 * X0) + "L" + px(X1) + " " + py(2 * X1);
+    s += '<line x1="30" x2="350" y1="' + py(0) + '" y2="' + py(0) + '" stroke="var(--line-2)"/><line x1="' + px(0) + '" x2="' + px(0) + '" y1="10" y2="250" stroke="var(--line-2)"/>';
+    s += '<path d="' + c + '" fill="none" stroke="var(--accent)" stroke-width="2.5"/><path d="' + l + '" fill="none" stroke="var(--ink-2)" stroke-width="2" stroke-dasharray="6 5"/>';
+    var a = x * x + 1, b = 2 * x;
+    s += '<line x1="' + px(x) + '" x2="' + px(x) + '" y1="' + py(a) + '" y2="' + py(b) + '" stroke="var(--good)" stroke-width="4" stroke-linecap="round"/>';
+    s += '<circle cx="' + px(x) + '" cy="' + py(a) + '" r="5" fill="var(--accent)"/><circle cx="' + px(x) + '" cy="' + py(b) + '" r="5" fill="var(--ink-2)"/>';
+    s += '<text x="300" y="' + (py(3.3 * 3.3 + 1) + 16) + '" font-size="12" fill="var(--accent)">x² + 1</text><text x="318" y="' + (py(6.6) + 18) + '" font-size="12" fill="var(--ink-2)">2x</text>';
+    sv.innerHTML = s;
+    document.getElementById("gx-v").textContent = x.toFixed(1);
+    document.getElementById("g-out").innerHTML = 'gap = ' + a.toFixed(2) + ' − ' + b.toFixed(2) + ' = <b style="color:var(--good)">' + (a - b).toFixed(2) + '</b> = (' + x.toFixed(1) + ' − 1)²';
+  }
+  inp.addEventListener("input", draw); draw();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The strategies for ∀ goals and givens follow Velleman §3.3.</li>

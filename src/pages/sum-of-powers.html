@@ -1,0 +1,88 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>For every natural number <i>n</i>, &nbsp;<span class="m">2⁰ + 2¹ + 2² + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1</span>.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifiers.html">Quantifiers</a><a class="chip" href="conditionals.html">Conditionals</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="induction.html">Induction</a><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="direct.html">Direct proof</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">See it</span><label class="ctl" for="sp">n = <b id="sp-v" style="color:var(--ink)">4</b><input type="range" id="sp" min="0" max="7" value="4"></label></div>
+        <div id="sp-bar" style="display:flex;gap:2px;height:52px"></div>
+        <div style="display:flex;height:6px;margin-top:6px;border-radius:3px;background:var(--line-2)"></div>
+        <p class="small muted" style="margin-top:6px">The grey bar is 2<sup>n+1</sup>. The powers fill all of it except one unit (dashed).</p>
+        <p class="out" id="sp-out" style="font-size:18px"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>A base case and one step</h2></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s0"><span class="k">Name the statement</span><h3>What is P(n)?</h3><p>Write down exactly what you're proving for each <i>n</i>. Being explicit here prevents most induction mistakes.</p></div>
+        <div class="step" data-key="s1"><span class="k">Base case</span><h3>Check n = 0</h3><p>The left side is just 2⁰ = 1. The right side is 2¹ − 1 = 1. They match.</p></div>
+        <div class="step" data-key="s2"><span class="k">Induction step · ∀ and →</span><h3>Assume P(n), aim for P(n + 1)</h3><p>The step is ∀<i>n</i> (<i>P</i>(<i>n</i>) → <i>P</i>(<i>n</i> + 1)). So: let <i>n</i> be arbitrary and assume <i>P</i>(<i>n</i>), the <b>inductive hypothesis</b>.</p></div>
+        <div class="step" data-key="s3"><span class="k">Use the hypothesis</span><h3>Spot the old sum inside the new one</h3><p>The sum up to 2<sup><i>n</i>+1</sup> is the sum up to 2<sup><i>n</i></sup>, plus one more term. Replace the old sum with 2<sup><i>n</i>+1</sup> − 1. This is the only place the hypothesis is used, and it's essential.</p></div>
+        <div class="step" data-key="s4"><span class="k">Simplify</span><h3>Two halves make a whole</h3><p>2<sup><i>n</i>+1</sup> + 2<sup><i>n</i>+1</sup> = 2<sup><i>n</i>+2</sup>. In the picture: the gap of size 2<sup><i>n</i>+1</sup> is filled by the next power, leaving the same single unit gap.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s0">For <i>n</i> ∈ ℕ, let <i>P</i>(<i>n</i>) be the statement 2⁰ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1. We use induction.</span>
+            <span class="pl" data-on="s1"><b>Base case:</b> 2⁰ = 1 = 2¹ − 1, so <i>P</i>(0) holds.</span>
+            <span class="pl" data-on="s2"><b>Induction step:</b> let <i>n</i> ∈ ℕ and suppose 2⁰ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1. Then</span>
+            <span class="pl in1" data-on="s3">2⁰ + ⋯ + 2<sup><i>n</i></sup> + 2<sup><i>n</i>+1</sup> = (2<sup><i>n</i>+1</sup> − 1) + 2<sup><i>n</i>+1</sup></span>
+            <span class="pl in1" data-on="s4">= 2 · 2<sup><i>n</i>+1</sup> − 1 = 2<sup><i>n</i>+2</sup> − 1,</span>
+            <span class="pl" data-on="s4">which is <i>P</i>(<i>n</i> + 1). By induction, <i>P</i>(<i>n</i>) holds for all <i>n</i> ∈ ℕ. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Why it matters</span>
+        <h2>Binary in disguise</h2>
+        <p>In binary, 2⁰ + 2¹ + ⋯ + 2<sup><i>n</i></sup> is a string of <i>n</i> + 1 ones: 1111₂ = 15 = 16 − 1. Adding 1 makes everything carry into a single 1 followed by zeros.</p>
+        <p>The same pattern, <span class="m">1 + <i>r</i> + ⋯ + <i>r</i><sup><i>n</i></sup> = (<i>r</i><sup><i>n</i>+1</sup> − 1)/(<i>r</i> − 1)</span>, holds for any <i>r</i> ≠ 1, and the induction proof is almost identical. It's also the identity hiding inside the <a href="mersenne.html">Mersenne proof</a>.</p>
+      </div>
+      <div class="quiz">
+        <p class="q"><span class="k">Your turn</span>Someone proves only the induction step, never the base case, for the false claim “2⁰ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup>”. Does the step go through?</p>
+        <div class="opts">
+          <button data-ok data-why="Assume the sum is 2ⁿ⁺¹; adding 2ⁿ⁺¹ gives 2ⁿ⁺². The step works perfectly, but the base case (1 = 2) fails, so nothing is proved. Both steps matter.">Yes, the step works, which is why the base case matters</button>
+          <button data-why="Try it: from sum = 2ⁿ⁺¹, adding 2ⁿ⁺¹ gives 2ⁿ⁺², exactly the next case. The base case is what fails.">No, the step fails</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function sp() {
+    var n = +$("sp").value, tot = Math.pow(2, n + 1), h = ""; $("sp-v").textContent = n;
+    for (var i = 0; i <= n; i++) { var w = Math.pow(2, i) / tot * 100; h += '<div title="2^' + i + '" style="flex:0 0 calc(' + w + '% - 2px);border-radius:4px;background:var(--accent);opacity:' + (0.45 + 0.55 * (i / Math.max(1, n))) + ';display:grid;place-items:center;color:#fff;font-size:12px;font-weight:600;overflow:hidden;transition:flex-basis .4s var(--ease)">' + (w > 6 ? Math.pow(2, i) : "") + '</div>'; }
+    h += '<div style="flex:0 0 calc(' + (100 / tot) + '% - 2px);border:1.5px dashed var(--ink-3);border-radius:4px"></div>';
+    $("sp-bar").innerHTML = h;
+    var t = []; for (var k = 0; k <= n; k++) t.push(Math.pow(2, k));
+    $("sp-out").innerHTML = t.join(" + ") + " = " + (tot - 1) + " = 2<sup>" + (n + 1) + "</sup> − 1";
+  }
+  $("sp").addEventListener("input", sp); sp();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>This is the first induction example in Velleman §6.1 (p. 260).</li>

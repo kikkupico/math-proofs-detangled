@@ -1,0 +1,125 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede"><span class="m"><i>A</i> ∪ <i>B</i></span> combines two sets. But what about ten sets, or infinitely many? A <b>family</b> is a set whose elements are sets, and its union and intersection are defined with quantifiers instead of connectives.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="grid-gap" style="gap:12px">
+          <div style="padding:14px;border-radius:12px;background:var(--paper-2)"><div class="mb" style="font-size:20px"><i>x</i> ∈ ⋃<i>ℱ</i> &nbsp;means&nbsp; <span class="accent">∃</span><i>A</i> ∈ <i>ℱ</i> (<i>x</i> ∈ <i>A</i>)</div><div class="small muted">in <b>at least one</b> set of the family</div></div>
+          <div style="padding:14px;border-radius:12px;background:var(--paper-2)"><div class="mb" style="font-size:20px"><i>x</i> ∈ ⋂<i>ℱ</i> &nbsp;means&nbsp; <span class="accent">∀</span><i>A</i> ∈ <i>ℱ</i> (<i>x</i> ∈ <i>A</i>)</div><div class="small muted">in <b>every</b> set of the family</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>An indexed family</h2>
+        <p>Often the sets in a family come with labels. Here <span class="m"><i>A</i><sub><i>i</i></sub></span> is the set of multiples of <i>i</i> between 1 and 36, and you choose the index set <i>I</i>.</p>
+        <p><span class="m">⋃<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span> collects numbers that are multiples of <b>some</b> chosen <i>i</i>. <span class="m">⋂<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span> keeps numbers that are multiples of <b>all</b> of them: the common multiples.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Choose <i>I</i></span><div class="seg" id="fm-mode" role="group" aria-label="Operation"><button type="button" aria-pressed="true">⋃</button><button type="button">⋂</button></div></div>
+        <div class="row" id="fm-idx"></div>
+        <div class="out mt-s" id="fm-def" style="font-size:18px"></div>
+        <div id="fm-grid" class="mt-s" style="display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:5px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Infinitely many intervals</div>
+        <svg viewBox="0 0 400 210" style="width:100%;display:block" role="img" aria-label="Nested intervals (0, 1/n)">
+          <line x1="20" y1="190" x2="380" y2="190" stroke="var(--line-2)"/>
+          <text x="20" y="206" font-size="12" fill="var(--ink-3)" text-anchor="middle">0</text>
+          <text x="380" y="206" font-size="12" fill="var(--ink-3)" text-anchor="middle">1</text>
+          <g id="iv"></g>
+        </svg>
+        <p class="note">The intervals <span class="m">(0, 1/<i>n</i>)</span> for <i>n</i> = 1, 2, 3, … Each one is smaller than the last.</p>
+      </div>
+      <div class="copy">
+        <span class="kicker">Infinite families</span>
+        <h2>Every interval is nonempty. Their intersection is empty.</h2>
+        <p>Let <span class="m"><i>A</i><sub><i>n</i></sub> = (0, 1/<i>n</i>)</span> for each positive integer <i>n</i>. Is any real number in all of them?</p>
+        <p>For any <i>x</i> &gt; 0, pick <i>n</i> with 1/<i>n</i> &lt; <i>x</i>. Then <i>x</i> ∉ <i>A</i><sub><i>n</i></sub>. And numbers ≤ 0 are in none. So <span class="m">⋂<sub><i>n</i></sub> <i>A</i><sub><i>n</i></sub> = ∅</span>, even though every single <i>A</i><sub><i>n</i></sub> has infinitely many elements. Meanwhile <span class="m">⋃<sub><i>n</i></sub> <i>A</i><sub><i>n</i></sub> = (0, 1)</span>.</p>
+        <p>Notice the proof. To show <i>x</i> ∉ ⋂, you negate a ∀, which gives an ∃: you <b>find one</b> set that misses <i>x</i>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Notation</span><h2>Two ways to write the same thing</h2></div>
+    <div class="cards two">
+      <div class="card"><span class="k">A family ℱ</span><span class="sym">ℱ = {{1, 2, 3}, {2, 3, 4}, {3, 4, 5}}</span><p>⋃ℱ = {1, 2, 3, 4, 5} and ⋂ℱ = {3}.</p></div>
+      <div class="card"><span class="k">Indexed by I</span><span class="sym"><i>A</i><sub>1</sub> = {1, 2, 3}, <i>A</i><sub>2</sub> = {2, 3, 4}, <i>A</i><sub>3</sub> = {3, 4, 5}</span><p>With <i>I</i> = {1, 2, 3}, <span class="m">⋃<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span> is the same union. Here <span class="m"><i>x</i> ∈ ⋃<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span> means <span class="m">∃<i>i</i> ∈ <i>I</i> (<i>x</i> ∈ <i>A</i><sub><i>i</i></sub>)</span>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Using the multiples widget with <i>I</i> = {2, 3}, what is <span class="m">⋂<sub><i>i</i>∈<i>I</i></sub> <i>A</i><sub><i>i</i></sub></span>?</p>
+      <div class="opts">
+        <button data-why="That's the union: multiples of 2 or of 3.">Multiples of 2 or 3</button>
+        <button data-ok data-why="A number is a multiple of both 2 and 3 exactly when it's a multiple of 6.">Multiples of 6</button>
+        <button data-why="6, 12, 18 … are multiples of both.">∅</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>To prove <span class="m"><i>x</i> ∈ ⋃ℱ</span>, what must you do?</p>
+      <div class="opts">
+        <button data-ok data-why="⋃ is defined with ∃, so you need a witness: one set A ∈ ℱ that contains x.">Find one set in ℱ that contains x</button>
+        <button data-why="That's what ⋂ requires.">Show every set in ℱ contains x</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var I = { 2: 1, 3: 1 }, mode = 0;
+  [2, 3, 4, 5, 6, 9].forEach(function (i) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.innerHTML = "<i>A</i><sub>" + i + "</sub>"; b.dataset.i = i;
+    b.addEventListener("click", function () { if (I[i]) delete I[i]; else I[i] = 1; draw(); });
+    $("fm-idx").appendChild(b);
+  });
+  Array.prototype.forEach.call($("fm-mode").children, function (b, k) { b.addEventListener("click", function () { mode = k; draw(); }); });
+  function draw() {
+    var idx = Object.keys(I).map(Number);
+    Array.prototype.forEach.call($("fm-idx").children, function (b) { b.setAttribute("aria-pressed", I[b.dataset.i] ? "true" : "false"); });
+    Array.prototype.forEach.call($("fm-mode").children, function (b, k) { b.setAttribute("aria-pressed", k === mode ? "true" : "false"); });
+    var h = "";
+    for (var x = 1; x <= 36; x++) {
+      var hits = idx.filter(function (i) { return x % i === 0; }).length;
+      var on = idx.length && (mode === 0 ? hits > 0 : hits === idx.length);
+      h += '<span style="height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:600;transition:background .35s,color .35s;' + (on ? 'background:var(--accent);color:#fff' : 'background:var(--paper-2);color:var(--ink-3)') + '">' + x + '</span>';
+    }
+    $("fm-grid").innerHTML = h;
+    var I2 = idx.length ? "{" + idx.join(", ") + "}" : "∅";
+    $("fm-def").innerHTML = idx.length ? (mode === 0 ? "⋃" : "⋂") + "<sub><i>i</i>∈" + I2 + "</sub> <i>A</i><sub><i>i</i></sub>: multiples of " + (mode === 0 ? "at least one" : "every") + " chosen <i>i</i>" : '<span class="small muted" style="font-family:var(--sans)">Choose at least one index. (⋂ over an empty family is a strange case: every x qualifies vacuously.)</span>';
+  }
+  draw();
+  var g = "", reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  for (var n = 1; n <= 9; n++) { var w = 360 / n, y = 180 - n * 18; g += '<rect x="20" y="' + y + '" width="' + w + '" height="10" rx="5" fill="var(--accent)" opacity="' + (1 - n * 0.07) + '"' + (reduce ? '' : ' style="transform-origin:20px ' + y + 'px;animation:grow 1s ' + n * 0.12 + 's var(--ease) both"') + '/><text x="' + (26 + w) + '" y="' + (y + 9) + '" font-size="11" fill="var(--ink-3)">n=' + n + '</text>'; }
+  $("iv").innerHTML = g;
+  var st = document.createElement("style"); st.textContent = "@keyframes grow{from{transform:scaleX(0)}to{transform:none}}"; document.head.appendChild(st);
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Families, indexed families, ⋃ and ⋂ follow Velleman §2.3.</li>

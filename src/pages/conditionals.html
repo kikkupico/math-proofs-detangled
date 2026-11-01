@@ -1,0 +1,124 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Most theorems are “if–then” statements, so the conditional is the connective you'll prove most often. It's also the one whose everyday meaning drifts furthest from the mathematical one. This page pins it down.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab"><div class="lab-title" style="margin-bottom:10px">Both connectives</div><div class="ttgen" data-f="P → Q; P ↔ Q"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">The promise test</span>
+        <h2>When is a promise broken?</h2>
+        <p>A parent says: <i>“If you clean your room, you get ice cream.”</i> That's <span class="m"><i>P</i> → <i>Q</i></span>. Check each of the four situations and decide whether the promise was broken.</p>
+        <p>Only one situation breaks it: room cleaned, no ice cream. If the room wasn't cleaned, the promise was never tested, so it wasn't broken. That's why <span class="m"><i>P</i> → <i>Q</i></span> counts as <b>true whenever <i>P</i> is false</b>.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:12px">Tap a situation</div>
+        <div class="grid-gap" id="pr" style="gap:8px"></div>
+        <p class="note" id="pr-note">Four situations. Which ones break the promise?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Translating</span><h2>Six ways to say <span class="m"><i>P</i> → <i>Q</i></span></h2><p>The hard ones are “only if” and “necessary”. A trick: <b>the arrow always points away from “if”, and toward “only if”</b>.</p></div>
+    <div class="cards">
+      <div class="card"><span class="k">If P then Q</span><span class="sym"><i>P</i> → <i>Q</i></span></div>
+      <div class="card"><span class="k">Q if P</span><span class="sym"><i>P</i> → <i>Q</i></span></div>
+      <div class="card"><span class="k">P only if Q</span><span class="sym"><i>P</i> → <i>Q</i></span><p>You can be P only if you're Q: P can't happen without Q.</p></div>
+      <div class="card"><span class="k">P is sufficient for Q</span><span class="sym"><i>P</i> → <i>Q</i></span><p>P is enough to guarantee Q.</p></div>
+      <div class="card"><span class="k">Q is necessary for P</span><span class="sym"><i>P</i> → <i>Q</i></span><p>You can't have P without Q.</p></div>
+      <div class="card"><span class="k">P unless Q</span><span class="sym">¬<i>Q</i> → <i>P</i></span><p>If not Q, then P. Equivalently, <span class="m"><i>P</i> ∨ <i>Q</i></span>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split wide-r">
+      <div class="copy">
+        <span class="kicker">Relatives</span>
+        <h2>Converse and contrapositive</h2>
+        <p>From <span class="m"><i>P</i> → <i>Q</i></span> you can make the <b>converse</b> <span class="m"><i>Q</i> → <i>P</i></span> and the <b>contrapositive</b> <span class="m">¬<i>Q</i> → ¬<i>P</i></span>.</p>
+        <p>The contrapositive is always equivalent to the original: “if it's a square, it's a rectangle” and “if it's not a rectangle, it's not a square” say the same thing. The converse is <b>not</b>: not every rectangle is a square. Check both in the lab.</p>
+      </div>
+      <div class="lab ttlab">
+        <div class="row" style="margin-bottom:14px">
+          <button class="tbtn" data-set="P → Q|¬Q → ¬P" aria-pressed="true">Contrapositive</button>
+          <button class="tbtn" data-set="P → Q|Q → P">Converse</button>
+          <button class="tbtn" data-set="P → Q|¬P ∨ Q">As an “or”</button>
+          <button class="tbtn" data-set="¬(P → Q)|P ∧ ¬Q">Negation</button>
+          <button class="tbtn" data-set="P ↔ Q|(P → Q) ∧ (Q → P)">Iff</button>
+        </div>
+        <div class="grid-gap" style="gap:8px"><input class="formula" type="text" value="P → Q" aria-label="First formula" spellcheck="false"><input class="formula" type="text" value="¬Q → ¬P" aria-label="Second formula" spellcheck="false"></div>
+        <div class="row mt-s"><span style="flex:1"></span><span class="chip tt-verdict"></span></div>
+        <div class="tt-out mt-s"></div>
+        <p class="note tt-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Laws to keep</span><h2>Rewriting conditionals</h2></div>
+    <div class="cards">
+      <div class="card"><span class="k">Contrapositive law</span><span class="sym"><i>P</i> → <i>Q</i> ≡ ¬<i>Q</i> → ¬<i>P</i></span><p>The basis of <a href="contrapositive.html">proof by contrapositive</a>.</p></div>
+      <div class="card"><span class="k">Conditional laws</span><span class="sym"><i>P</i> → <i>Q</i> ≡ ¬<i>P</i> ∨ <i>Q</i><br>¬(<i>P</i> → <i>Q</i>) ≡ <i>P</i> ∧ ¬<i>Q</i></span><p>The second tells you what a counterexample to an if–then looks like: P true, Q false.</p></div>
+      <div class="card"><span class="k">Biconditional</span><span class="sym"><i>P</i> ↔ <i>Q</i> ≡ (<i>P</i> → <i>Q</i>) ∧ (<i>Q</i> → <i>P</i>)</span><p>“P if and only if Q”, often shortened to “P iff Q”. <a href="iff.html">Prove it in two halves.</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Translate <b>“You can vote only if you are 18 or older”</b> (V: you can vote, A: you're 18+).</p>
+      <div class="opts">
+        <button data-ok data-why="“P only if Q” is P → Q: voting requires being 18+.">V → A</button>
+        <button data-why="That says every 18-year-old can vote, which is the converse.">A → V</button>
+        <button data-why="That would be “if and only if”, which is stronger than what was said.">V ↔ A</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>“If n is divisible by 4, then n is even.” Which statement is guaranteed to be true as well?</p>
+      <div class="opts">
+        <button data-why="That's the converse. 6 is even but not divisible by 4.">If n is even, then n is divisible by 4.</button>
+        <button data-ok data-why="That's the contrapositive, which is equivalent to the original.">If n is odd, then n is not divisible by 4.</button>
+        <button data-why="That's the inverse (¬P → ¬Q), which is equivalent to the converse, not the original. 6 is a counterexample.">If n is not divisible by 4, then n is odd.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var S = [[true, true, "Cleaned the room, got ice cream"], [true, false, "Cleaned the room, no ice cream"], [false, true, "Didn't clean, got ice cream anyway"], [false, false, "Didn't clean, no ice cream"]];
+  var box = document.getElementById("pr"), note = document.getElementById("pr-note"), seen = {};
+  S.forEach(function (s, i) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.style.textAlign = "left"; b.style.borderRadius = "12px"; b.style.padding = "12px 14px";
+    b.innerHTML = '<span class="mb">P = ' + (s[0] ? "T" : "F") + ', Q = ' + (s[1] ? "T" : "F") + '</span> · ' + s[2];
+    b.addEventListener("click", function () {
+      seen[i] = 1;
+      var broken = s[0] && !s[1];
+      b.innerHTML = '<span class="mb">P = ' + (s[0] ? "T" : "F") + ', Q = ' + (s[1] ? "T" : "F") + '</span> · ' + s[2] + ' <span class="chip ' + (broken ? 'no">broken: P → Q false' : 'yes">kept: P → Q true') + '</span>';
+      note.innerHTML = broken ? "<b>This is the only way to break the promise.</b>" : (s[0] ? "Promise kept." : "The condition never happened, so the promise wasn't tested and wasn't broken.");
+      if (Object.keys(seen).length === 4) note.innerHTML += " That's all four: only one row makes P → Q false.";
+    });
+    box.appendChild(b);
+  });
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Translations of “only if”, “unless”, “necessary” and “sufficient” follow Velleman §1.5.</li>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Part 1: Purpose · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Why proofs exist, and why they need their own language.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-purpose">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html" aria-current="true"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Purpose pages"><div class="wrap rail-in"><a class="r-hub" href="purpose.html" aria-current="page">Overview</a><a href="why-proofs.html"><span class="i">1</span>Why proofs?</a><a href="why-language.html"><span class="i">2</span>Why a language?</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 1 · 2 pages</p>
+      <h1>Purpose</h1>
+      <p class="tagline">Before the how, the why.</p>
+      <p class="lede">Two short pages answer two questions every beginner asks. Why isn't checking lots of examples good enough? And why do mathematicians insist on their own odd-looking language instead of plain English?</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:12px">A pattern</div>
+        <div class="out" id="ph-out" style="font-size:22px;min-height:7.2em"></div>
+        <p class="note" id="ph-note">Watch the pattern…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">In this part</span><h2>Two pages</h2></div>
+    <div class="toc">
+      <a href="why-proofs.html"><span class="no">1</span><div><h3>Why we need proofs</h3><p>Patterns that hold for dozens of cases and then fail. What a proof gives you that examples never can.</p></div><span class="g">2ⁿ−1</span></a>
+      <a href="why-language.html"><span class="no">2</span><div><h3>Why we need a mathematical language</h3><p>Sentences with two meanings, arguments that only look valid, and how symbols make the structure visible.</p></div><span class="g">∀∃</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap statement">
+    <p class="say">A proof is an argument that leaves <em>no case unchecked</em>, written in a language that leaves <em>no room for doubt</em>.</p>
+    <p class="by">That sentence is the whole of Part 1. The two pages show why each half matters.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  // n^2 + n + 41: prime for n = 0..39, fails at 40
+  function isPrime(n) { if (n < 2) return false; for (var d = 2; d * d <= n; d++) if (n % d === 0) return false; return true; }
+  var seq = [0, 1, 2, 3, 10, 20, 30, 39, 40], i = 0, out = document.getElementById("ph-out"), note = document.getElementById("ph-note");
+  var lines = [];
+  function step() {
+    var n = seq[i], v = n * n + n + 41, p = isPrime(v);
+    lines.push('<div>' + n + '² + ' + n + ' + 41 = ' + v + ' <span class="chip ' + (p ? 'yes">prime' : 'no">41 · 41') + '</span></div>');
+    if (lines.length > 4) lines.shift();
+    out.innerHTML = lines.join("");
+    note.innerHTML = p ? "Prime again. Surely it's always prime?" : "<b>It breaks at n = 40.</b> Forty cases in a row proved nothing.";
+    i++;
+    if (calm) return;
+    if (i < seq.length) setTimeout(step, i === seq.length - 1 ? 1800 : 1100);
+    else setTimeout(function () { i = 0; lines = []; step(); }, 5000);
+  }
+  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (calm) { i = seq.length - 2; step(); step(); } else step();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="index.html" data-key="prev"><span class="d">← Previous · Start</span><span class="t">Proofs, Detangled</span></a><a class="pg next" href="why-proofs.html" data-key="next"><span class="d">Next · Part 1 · Purpose →</span><span class="t">Why we need proofs</span><span class="s">Because patterns lie.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a></div></nav><p class="credit">Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition (Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

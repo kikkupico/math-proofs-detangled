@@ -1,0 +1,103 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Theorem (Euclid, c. 300 BC)</span><p>There are infinitely many prime numbers.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifier-laws.html">Quantifier laws</a><a class="chip" href="connectives.html">Connectives</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="contradiction.html">Contradiction</a><a class="chip" href="cases.html">Cases</a><a class="chip" href="exists.html">Witnesses</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">One fact we'll use</div>
+        <p class="muted">Every integer greater than 1 is either prime or a product of primes. So <b>every integer &gt; 1 has at least one prime factor</b>. (That fact is itself proved by <a href="induction.html">strong induction</a>.)</p>
+        <div class="lab-title" style="margin:18px 0 8px">The shape of the goal</div>
+        <p class="muted">“Infinitely many” means “<b>not</b> finitely many”. A negative goal: a signal to try <a href="contradiction.html">contradiction</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Assume a complete list. Break it.</h2></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s1"><span class="k">Negative goal → contradiction</span><h3>Suppose there are only finitely many</h3><p>Assume the opposite of the goal: the primes can be listed completely as <i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, …, <i>p</i><sub><i>n</i></sub>. Now we hunt for a contradiction.</p></div>
+        <div class="step" data-key="s2"><span class="k">The creative step</span><h3>Build a number from the list</h3><p>Multiply all of them and add 1. This is the one idea in the proof that isn't a standard move. Everything else follows from the shapes of the statements.</p></div>
+        <div class="step" data-key="s3"><span class="k">Cases → ∃ given</span><h3>It has a prime factor</h3><p><i>m</i> &gt; 1, so either <i>m</i> is prime (then it's its own prime factor) or it's a product of primes. <b>In either case</b>, some prime <i>q</i> divides <i>m</i>. Name it.</p></div>
+        <div class="step" data-key="s4"><span class="k">Use the assumption</span><h3>q must be on the list</h3><p>The list is assumed complete, so <i>q</i> is one of the <i>p</i><sub><i>i</i></sub>. But dividing <i>m</i> by any <i>p</i><sub><i>i</i></sub> leaves remainder 1, so <i>p</i><sub><i>i</i></sub> doesn't divide <i>m</i>.</p></div>
+        <div class="step" data-key="s5"><span class="k">Contradiction</span><h3>Two facts that can't both hold</h3><p><i>q</i> divides <i>m</i>, and <i>q</i> doesn't divide <i>m</i>. The assumption must be false, so there are infinitely many primes.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:17px">
+            <span class="pl" data-on="s1">Suppose, for contradiction, that there are only finitely many primes, and list them all: <i>p</i><sub>1</sub>, …, <i>p</i><sub><i>n</i></sub>.</span>
+            <span class="pl" data-on="s2">Let <i>m</i> = <i>p</i><sub>1</sub><i>p</i><sub>2</sub>⋯<i>p</i><sub><i>n</i></sub> + 1.</span>
+            <span class="pl" data-on="s3">Then <i>m</i> &gt; 1, so <i>m</i> is prime or a product of primes. Either way, some prime <i>q</i> divides <i>m</i>.</span>
+            <span class="pl" data-on="s4">Since the list contains every prime, <i>q</i> = <i>p</i><sub><i>i</i></sub> for some <i>i</i>.</span>
+            <span class="pl" data-on="s4">But dividing <i>m</i> by <i>p</i><sub><i>i</i></sub> leaves remainder 1, so <i>p</i><sub><i>i</i></sub> does not divide <i>m</i>.</span>
+            <span class="pl" data-on="s5">This contradicts <i>q</i> | <i>m</i>. So there are infinitely many primes. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Run the machine</span>
+        <h2>A list that grows forever</h2>
+        <p>Start with just {2}. Each press applies Euclid's construction: multiply the list, add 1, and add its smallest prime factor to the list. It's always new.</p>
+        <p>Note what the proof does <b>not</b> claim: <i>m</i> itself needn't be prime. Press a few times and you'll see a composite <i>m</i> show up.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">The list</span><div class="row"><button class="tbtn primary" id="eu-go">Apply Euclid →</button><button class="tbtn" id="eu-reset">Reset</button></div></div>
+        <div class="chips" id="eu-list"></div>
+        <div class="out mt-s" id="eu-out" style="font-size:17px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A student writes: “The product of the first <i>n</i> primes plus 1 is always prime.” Is that what Euclid's proof shows?</p>
+      <div class="opts">
+        <button data-why="2·3·5·7·11·13 + 1 = 30031 = 59 · 509 is not prime. The proof only needs some prime factor, not that m is prime.">Yes, that's the key step.</button>
+        <button data-ok data-why="The proof only shows m has a prime factor missing from the list. Try 2·3·5·7·11·13 + 1 = 30031 = 59 · 509.">No. m only needs a prime factor not on the list.</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  function spf(n) { if (n % 2n === 0n) return 2n; for (var d = 3n; d * d <= n; d += 2n) { if (n % d === 0n) return d; if (d > 2000000n) return n; } return n; }
+  var L;
+  function reset() { L = [2n]; draw('<span class="small muted" style="font-family:var(--sans)">Press Apply Euclid.</span>'); }
+  function draw(msg) {
+    $("eu-list").innerHTML = L.map(function (p, i) { return '<span class="chip' + (i === L.length - 1 && L.length > 1 ? ' hot' : '') + '">' + p.toString() + '</span>'; }).join("");
+    $("eu-out").innerHTML = msg;
+  }
+  $("eu-go").addEventListener("click", function () {
+    if (L.length >= 7) { draw('<span class="small muted" style="font-family:var(--sans)">The numbers get huge fast, so the demo stops here. The proof doesn\'t.</span>'); return; }
+    var m = L.reduce(function (a, b) { return a * b; }, 1n) + 1n, q = spf(m);
+    L.push(q);
+    draw('<div><i>m</i> = ' + L.slice(0, -1).map(String).join(" · ") + ' + 1 = <b>' + m.toString() + '</b></div><div>' + (q === m ? m + ' is prime' : m + ' = ' + q + ' · ' + (m / q)) + ', so add <b style="color:var(--accent)">' + q + '</b></div>');
+  });
+  $("eu-reset").addEventListener("click", reset);
+  reset();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>This is Velleman's Theorem 3.7.2 (p. 156). The sequence generated above is known as the Euclid–Mullin sequence.</li>

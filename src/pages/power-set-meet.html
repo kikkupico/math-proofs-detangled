@@ -1,0 +1,113 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>For all sets <i>A</i> and <i>B</i>, &nbsp;<span class="m">𝒫(<i>A</i> ∩ <i>B</i>) = 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>)</span>.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="power-sets.html">Power sets</a><a class="chip" href="set-operations.html">Set operations</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="iff.html">Two directions</a><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="direct.html">Direct proof</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Two layers of unpacking</div>
+        <p class="mb" style="font-size:19px"><i>X</i> ∈ 𝒫(<i>S</i>) &nbsp;↔&nbsp; <i>X</i> ⊆ <i>S</i></p>
+        <p class="mb" style="font-size:19px;margin-top:6px"><i>X</i> ⊆ <i>S</i> &nbsp;↔&nbsp; ∀<i>x</i> (<i>x</i> ∈ <i>X</i> → <i>x</i> ∈ <i>S</i>)</p>
+        <p class="note">Elements of power sets are sets. So the proof has two kinds of arbitrary object: a set <i>X</i>, and then an element <i>x</i> of <i>X</i>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">The proof, line by line</span><h2>Two subset proofs, each with a subset proof inside</h2></div>
+    <div class="scrolly">
+      <div class="steps">
+        <div class="step" data-key="s0"><span class="k">Equality = two inclusions</span><h3>Plan</h3><p>To prove two sets equal, prove each is a subset of the other. Label the halves (⊆) and (⊇).</p></div>
+        <div class="step" data-key="s1"><span class="k">(⊆) · ∀ goal</span><h3>An arbitrary element of the left side</h3><p>Elements of 𝒫(<i>A</i> ∩ <i>B</i>) are sets, so call it <i>X</i>. Unpack: <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>. The goal unpacks to <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>.</p></div>
+        <div class="step" data-key="s2"><span class="k">(⊆) · ∀ goal again</span><h3>A subset proof inside</h3><p><i>X</i> ⊆ <i>A</i> is itself a ∀ goal. Take an arbitrary <i>x</i> ∈ <i>X</i>. Using the given <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>, <i>x</i> ∈ <i>A</i> ∩ <i>B</i>, so <i>x</i> ∈ <i>A</i>. Same for <i>B</i>.</p></div>
+        <div class="step" data-key="s3"><span class="k">(⊇) · ∀ goal</span><h3>Now the other way</h3><p>Take <i>X</i> ∈ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>). Unpack the ∩: two givens, <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>. Goal: <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>.</p></div>
+        <div class="step" data-key="s4"><span class="k">(⊇) · use both givens</span><h3>Element chase</h3><p>Take an arbitrary <i>x</i> ∈ <i>X</i>. Each given puts it in <i>A</i> and in <i>B</i>, so it's in <i>A</i> ∩ <i>B</i>. Both inclusions done.</p></div>
+      </div>
+      <div class="stage">
+        <div class="lab dim">
+          <div class="lab-title" style="margin-bottom:10px">Proof</div>
+          <div style="font-size:16.5px">
+            <span class="pl" data-on="s0">Let <i>A</i> and <i>B</i> be sets. We prove both inclusions.</span>
+            <span class="pl" data-on="s1">(⊆) Let <i>X</i> ∈ 𝒫(<i>A</i> ∩ <i>B</i>), so <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>.</span>
+            <span class="pl in1" data-on="s2">Let <i>x</i> ∈ <i>X</i>. Then <i>x</i> ∈ <i>A</i> ∩ <i>B</i>, so <i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>.</span>
+            <span class="pl in1" data-on="s2">Since <i>x</i> was arbitrary, <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>, so <i>X</i> ∈ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>).</span>
+            <span class="pl" data-on="s3">(⊇) Let <i>X</i> ∈ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>), so <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>.</span>
+            <span class="pl in1" data-on="s4">Let <i>x</i> ∈ <i>X</i>. Then <i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>, so <i>x</i> ∈ <i>A</i> ∩ <i>B</i>.</span>
+            <span class="pl in1" data-on="s4">So <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>, i.e. <i>X</i> ∈ 𝒫(<i>A</i> ∩ <i>B</i>).</span>
+            <span class="pl" data-on="s4">Both inclusions hold, so the sets are equal. ∎</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try it</span>
+        <h2>Does the same work for ∪?</h2>
+        <p>Choose <i>A</i> and <i>B</i> from {1, 2, 3}. For ∩ the two sides always match. Switch to ∪: is <span class="m">𝒫(<i>A</i> ∪ <i>B</i>) = 𝒫(<i>A</i>) ∪ 𝒫(<i>B</i>)</span>?</p>
+        <p>Usually not. With <i>A</i> = {1} and <i>B</i> = {2}, the set {1, 2} is a subset of <i>A</i> ∪ <i>B</i> but of neither <i>A</i> nor <i>B</i>. The proof above breaks exactly where (⊆) would need “<i>x</i> ∈ <i>A</i> ∪ <i>B</i>” to put all of <i>X</i> on one side.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><div class="seg" id="pm-op" role="group" aria-label="Operation"><button type="button" aria-pressed="true">∩</button><button type="button">∪</button></div><span class="chip" id="pm-v"></span></div>
+        <div class="row"><span class="mb" style="width:28px"><i>A</i></span><span id="pm-a" class="row"></span></div>
+        <div class="row mt-s"><span class="mb" style="width:28px"><i>B</i></span><span id="pm-b" class="row"></span></div>
+        <div class="grid-gap mt-s" id="pm-out" style="gap:10px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Which inclusion between 𝒫(<i>A</i>) ∪ 𝒫(<i>B</i>) and 𝒫(<i>A</i> ∪ <i>B</i>) is always true?</p>
+      <div class="opts">
+        <button data-ok data-why="If X ⊆ A, then X ⊆ A ∪ B; same if X ⊆ B. The other direction fails, e.g. A = {1}, B = {2}, X = {1, 2}.">𝒫(A) ∪ 𝒫(B) ⊆ 𝒫(A ∪ B)</button>
+        <button data-why="Counterexample: A = {1}, B = {2}, X = {1, 2}.">𝒫(A ∪ B) ⊆ 𝒫(A) ∪ 𝒫(B)</button>
+        <button data-why="One of them always holds.">Neither</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var A = { 1: 1, 2: 1 }, B = { 2: 1, 3: 1 }, op = 0;
+  function subsets(s) { var a = Object.keys(s).map(Number).sort(), out = []; for (var m = 0; m < (1 << a.length); m++) { var t = []; for (var i = 0; i < a.length; i++) if (m & (1 << i)) t.push(a[i]); out.push(t.join(",")); } return out; }
+  function fmt(list) { return list.slice().sort(function (x, y) { return x.length - y.length || (x < y ? -1 : 1); }).map(function (s) { return s ? "{" + s.replace(/,/g, ", ") + "}" : "∅"; }).join(", "); }
+  function uniq(a) { return a.filter(function (v, i) { return a.indexOf(v) === i; }); }
+  [["pm-a", A], ["pm-b", B]].forEach(function (c) {
+    [1, 2, 3].forEach(function (n) { var b = document.createElement("button"); b.type = "button"; b.className = "tbtn"; b.textContent = n; b.addEventListener("click", function () { if (c[1][n]) delete c[1][n]; else c[1][n] = 1; draw(); }); $(c[0]).appendChild(b); });
+  });
+  Array.prototype.forEach.call($("pm-op").children, function (b, k) { b.addEventListener("click", function () { op = k; draw(); }); });
+  function draw() {
+    [["pm-a", A], ["pm-b", B]].forEach(function (c) { Array.prototype.forEach.call($(c[0]).children, function (b) { b.setAttribute("aria-pressed", c[1][b.textContent] ? "true" : "false"); }); });
+    Array.prototype.forEach.call($("pm-op").children, function (b, k) { b.setAttribute("aria-pressed", k === op ? "true" : "false"); });
+    var M = {}; [1, 2, 3].forEach(function (n) { if (op === 0 ? (A[n] && B[n]) : (A[n] || B[n])) M[n] = 1; });
+    var pa = subsets(A), pb = subsets(B), left = subsets(M);
+    var right = op === 0 ? pa.filter(function (x) { return pb.indexOf(x) >= 0; }) : uniq(pa.concat(pb));
+    var same = left.length === right.length && left.every(function (x) { return right.indexOf(x) >= 0; });
+    var miss = left.filter(function (x) { return right.indexOf(x) < 0; });
+    var o = op === 0 ? "∩" : "∪";
+    $("pm-out").innerHTML = '<div style="padding:12px 14px;border-radius:12px;background:var(--paper-2)"><div class="small muted">𝒫(A ' + o + ' B)</div><div class="mb" style="font-size:18px">{' + fmt(left) + '}</div></div><div style="padding:12px 14px;border-radius:12px;background:var(--paper-2)"><div class="small muted">𝒫(A) ' + o + ' 𝒫(B)</div><div class="mb" style="font-size:18px">{' + fmt(right) + '}</div></div>' + (miss.length ? '<p class="note">Missing from the right: <b class="mb">' + fmt(miss) + '</b></p>' : '');
+    $("pm-v").className = "chip " + (same ? "yes" : "no"); $("pm-v").textContent = same ? "Equal" : "Not equal";
+  }
+  draw();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>Power sets are introduced in Velleman §2.3; this identity is a typical exercise once the ∀ strategies of §3.3 are available.</li>
