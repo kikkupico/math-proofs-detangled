@@ -83,9 +83,9 @@ HOME = ("index", "Home", "Proofs, Detangled", "Learn to read, plan and write mat
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;'
-         'family=Inter:wght@400;500;600&amp;'
-         'family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&amp;display=swap">')
+         'family=IBM+Plex+Mono:wght@400;500&amp;'
+         'family=IBM+Plex+Sans:wght@400;500;600&amp;'
+         'family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">')
 
 CREDIT = ("Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition "
           "(Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.")
