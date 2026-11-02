@@ -65,6 +65,150 @@
 
 <section class="sec dark">
   <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The theorem is about every function f : A → 𝒫(A).",
+ "goal": "For every <i>f</i> : <i>A</i> → 𝒫(<i>A</i>), <i>f</i> is not onto",
+ "steps": [
+  {
+   "m": "intro",
+   "k": "∀ goal",
+   "h": "Take any function",
+   "shape": "starts with ∀ (“every function”)",
+   "say": "Let <i>f</i> be arbitrary. “Not onto” negates to: some set in 𝒫(<i>A</i>) is never hit. That's an ∃ goal.",
+   "lines": [
+    [
+     0,
+     "Let <i>A</i> be a set and <i>f</i> : <i>A</i> → 𝒫(<i>A</i>) any function."
+    ]
+   ],
+   "add": [
+    {
+     "id": "f",
+     "t": "<i>f</i> : <i>A</i> → 𝒫(<i>A</i>)"
+    }
+   ],
+   "goal": {
+    "t": "∃<i>D</i> ∈ 𝒫(<i>A</i>) with <i>D</i> ≠ <i>f</i>(<i>a</i>) for every <i>a</i> ∈ <i>A</i>"
+   }
+  },
+  {
+   "m": "witness",
+   "k": "∃ goal",
+   "h": "The diagonal set",
+   "shape": "starts with ∃",
+   "say": "Each <i>x</i> is either in its own set <i>f</i>(<i>x</i>) or not. Collect the ones that are not. <i>D</i> ⊆ <i>A</i>, so <i>D</i> ∈ 𝒫(<i>A</i>).",
+   "pick": {
+    "q": "Which set does f miss? It has to work for every f.",
+    "opts": [
+     {
+      "t": "<i>D</i> = {<i>x</i> ∈ <i>A</i> | <i>x</i> ∉ <i>f</i>(<i>x</i>)}",
+      "ok": true
+     },
+     {
+      "t": "<i>D</i> = {<i>x</i> ∈ <i>A</i> | <i>x</i> ∈ <i>f</i>(<i>x</i>)}",
+      "why": "Some <i>f</i> hits this. If <i>f</i>(<i>x</i>) = <i>A</i> for every <i>x</i>, this set is <i>A</i>, which <i>f</i> hits."
+     },
+     {
+      "t": "<i>D</i> = ∅",
+      "why": "Some <i>f</i> hits ∅: just send one element to ∅."
+     },
+     {
+      "t": "<i>D</i> = <i>A</i>",
+      "why": "Some <i>f</i> hits <i>A</i>: send one element to <i>A</i>."
+     }
+    ]
+   },
+   "lines": [
+    [
+     0,
+     "Let {{pick}}. Then <i>D</i> ⊆ <i>A</i>, so <i>D</i> ∈ 𝒫(<i>A</i>)."
+    ]
+   ],
+   "add": [
+    {
+     "id": "D",
+     "t": "<i>D</i> = {<i>x</i> ∈ <i>A</i> | <i>x</i> ∉ <i>f</i>(<i>x</i>)}"
+    }
+   ],
+   "goal": {
+    "t": "<i>D</i> ≠ <i>f</i>(<i>a</i>) for every <i>a</i> ∈ <i>A</i>"
+   }
+  },
+  {
+   "m": [
+    "contra",
+    "name"
+   ],
+   "k": "Negative goal",
+   "h": "Suppose f does hit D",
+   "shape": "is negative: D ≠ f(a)",
+   "say": "Assume the opposite: <i>D</i> = <i>f</i>(<i>a</i>) for some <i>a</i>. That's an ∃ given, so name it <i>a</i>.",
+   "lines": [
+    [
+     0,
+     "Suppose, for contradiction, that <i>D</i> = <i>f</i>(<i>a</i>) for some <i>a</i> ∈ <i>A</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "a",
+     "t": "<i>D</i> = <i>f</i>(<i>a</i>)"
+    }
+   ],
+   "goal": {
+    "t": "a contradiction"
+   }
+  },
+  {
+   "m": [
+    "use",
+    "cases"
+   ],
+   "k": "Use the definition",
+   "h": "Is a in D?",
+   "shape": "is a contradiction; ask the one question D was built for",
+   "say": "By the definition of <i>D</i>, <i>a</i> ∈ <i>D</i> exactly when <i>a</i> ∉ <i>f</i>(<i>a</i>). But <i>f</i>(<i>a</i>) is <i>D</i>. So <i>a</i> ∈ <i>D</i> ↔ <i>a</i> ∉ <i>D</i>: either answer contradicts itself.",
+   "lines": [
+    [
+     0,
+     "Then <i>a</i> ∈ <i>D</i> ↔ <i>a</i> ∉ <i>f</i>(<i>a</i>) ↔ <i>a</i> ∉ <i>D</i>, which is impossible."
+    ],
+    [
+     0,
+     "So <i>D</i> is not in the range of <i>f</i>, and <i>f</i> is not onto. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    <div class="lean"><div class="lean-top"><span class="lab-title">Try it in Lean</span><a class="tbtn primary" href="https://live.lean-lang.org/#code=import%20Mathlib%0A%0A%2F-%21%20Cantor%27s%20theorem%3A%20no%20function%20from%20A%20onto%20%F0%9D%92%AB%28A%29.%0AMathlib%20also%20has%20this%20as%20%60Function.cantor_surjective%60.%20-%2F%0A%0Aexample%20%7B%CE%B1%20%3A%20Type%2A%7D%20%28f%20%3A%20%CE%B1%20%E2%86%92%20Set%20%CE%B1%29%20%3A%20%C2%AC%20Function.Surjective%20f%20%3A%3D%20by%0A%20%20intro%20hf%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20Suppose%20f%20is%20onto.%0A%20%20--%20The%20diagonal%20set%20D%20%3D%20%7Bx%20%7C%20x%20%E2%88%89%20f%20x%7D%20is%20hit%20by%20some%20a.%0A%20%20obtain%20%E2%9F%A8a%2C%20ha%E2%9F%A9%20%3A%3D%20hf%20%7Bx%20%7C%20x%20%E2%88%89%20f%20x%7D%0A%20%20--%20Is%20a%20in%20D%3F%0A%20%20by_cases%20h%20%3A%20a%20%E2%88%88%20f%20a%0A%20%20%C2%B7%20have%20h2%20%3A%3D%20h%0A%20%20%20%20rw%20%5Bha%5D%20at%20h2%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20a%20%E2%88%88%20D%2C%20so%20a%20%E2%88%89%20f%20a%0A%20%20%20%20simp%20only%20%5BSet.mem_setOf_eq%5D%20at%20h2%0A%20%20%20%20exact%20h2%20h%0A%20%20%C2%B7%20apply%20h%0A%20%20%20%20rw%20%5Bha%5D%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20a%20%E2%88%89%20f%20a%2C%20so%20a%20%E2%88%88%20D%20%3D%20f%20a%0A%20%20%20%20exact%20h%0A" target="_blank" rel="noopener">Open in the Lean playground ↗</a></div><p class="note">Lean is a proof assistant: it accepts a proof only if every step checks. This is the same proof, move for move, using the Mathlib library. The playground runs it in your browser tab; hover over any line to see the givens and goal at that point. For a whole course in this style, see Velleman's free book <a href="https://djvelleman.github.io/HTPIwL/" target="_blank" rel="noopener"><i>How To Prove It with Lean</i></a>.</p><details><summary>Show the Lean code</summary><pre><code><span class="kw">import</span> Mathlib
+
+<span class="c">/-! Cantor&#x27;s theorem: no function from A onto 𝒫(A).
+Mathlib also has this as `Function.cantor_surjective`. -/</span>
+
+<span class="kw">example</span> {α : Type*} (f : α → Set α) : ¬ Function.Surjective f := <span class="kw">by</span>
+  intro hf                              <span class="c">-- Suppose f is onto.</span>
+  <span class="c">-- The diagonal set D = {x | x ∉ f x} is hit by some a.</span>
+  obtain ⟨a, ha⟩ := hf {x | x ∉ f x}
+  <span class="c">-- Is a in D?</span>
+  by_cases h : a ∈ f a
+  · have h2 := h
+    rw [ha] at h2                       <span class="c">-- a ∈ D, so a ∉ f a</span>
+    simp only [Set.mem_setOf_eq] at h2
+    exact h2 h
+  · apply h
+    rw [ha]                             <span class="c">-- a ∉ f a, so a ∈ D = f a</span>
+    exact h
+</code></pre></details></div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
     <div class="sec-head"><span class="kicker">Try to beat it</span><h2>Build an f. Watch D escape.</h2><p>Here <i>A</i> = {1, …, 6}. Row <i>x</i> shows the set <i>f</i>(<i>x</i>): click cells to put elements in or out. The diagonal (outlined) asks “is <i>x</i> in <i>f</i>(<i>x</i>)?” and <i>D</i> flips every answer. However you fill the grid, <i>D</i> differs from every row.</p></div>
     <div class="lab">
       <div class="lab-top"><span class="lab-title">f(x) for each x ∈ A</span><div class="row"><button class="tbtn" id="cd-rand">Random f</button><button class="tbtn" id="cd-clear">Clear</button></div></div>

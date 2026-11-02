@@ -51,6 +51,190 @@
   </div>
 </section>
 
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Change the numbers and watch each line get checked. Type your own witness to see exactly where a wrong one breaks. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The outermost symbol is ∀, three times. That shape decides the first move.",
+ "vars": [
+  {
+   "n": "a",
+   "v": 3,
+   "min": -20,
+   "max": 20
+  },
+  {
+   "n": "d",
+   "v": 4,
+   "min": -20,
+   "max": 20
+  },
+  {
+   "n": "e",
+   "v": 5,
+   "min": -20,
+   "max": 20
+  }
+ ],
+ "defs": {
+  "b": "d*a",
+  "c": "e*b"
+ },
+ "goal": "∀<i>a</i> ∀<i>b</i> ∀<i>c</i> ((<i>a</i> | <i>b</i> ∧ <i>b</i> | <i>c</i>) → <i>a</i> | <i>c</i>)",
+ "steps": [
+  {
+   "m": "intro",
+   "k": "∀ goal",
+   "h": "Let them be arbitrary",
+   "shape": "starts with ∀",
+   "say": "Introduce arbitrary integers <i>a</i>, <i>b</i>, <i>c</i> and assume nothing else about them. Whatever we prove about them holds for all integers.",
+   "lines": [
+    [
+     0,
+     "Let <i>a</i>, <i>b</i> and <i>c</i> be arbitrary integers."
+    ]
+   ],
+   "goal": {
+    "t": "(<i>a</i> | <i>b</i> ∧ <i>b</i> | <i>c</i>) → <i>a</i> | <i>c</i>"
+   }
+  },
+  {
+   "m": "assume",
+   "k": "→ goal",
+   "h": "Assume the hypothesis",
+   "shape": "is an if–then, P → Q",
+   "say": "Assume both halves of the hypothesis. They become givens, and the goal shrinks to <i>a</i> | <i>c</i>.",
+   "why": {
+    "name": "There are ∃s hiding in a | b and b | c, but they aren't givens yet. The goal is still an if–then."
+   },
+   "lines": [
+    [
+     1,
+     "Suppose <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "h1",
+     "t": "<i>a</i> | <i>b</i>",
+     "num": "{a} | {b}",
+     "chk": "a|b"
+    },
+    {
+     "id": "h2",
+     "t": "<i>b</i> | <i>c</i>",
+     "num": "{b} | {c}",
+     "chk": "b|c"
+    }
+   ],
+   "goal": {
+    "t": "<i>a</i> | <i>c</i>",
+    "num": "{a} | {c}",
+    "chk": "a|c"
+   }
+  },
+  {
+   "m": "name",
+   "k": "∃ givens",
+   "h": "Name what the givens promise",
+   "shape": "is a | c, and both givens hide an ∃ (a | b means b = ka for some k)",
+   "say": "Each given promises some integer multiplier. Give each its own name: <i>d</i> with <i>b</i> = <i>da</i>, and <i>e</i> with <i>c</i> = <i>eb</i>. Different letters, because they may be different numbers.",
+   "why": {
+    "witness": "Not yet. To build a witness for <i>a</i> | <i>c</i> you need names for the numbers the givens promise. Unpack the givens first."
+   },
+   "lines": [
+    [
+     1,
+     "Since <i>a</i> | <i>b</i>, there is an integer <i>d</i> with <i>b</i> = <i>da</i>."
+    ],
+    [
+     1,
+     "Similarly there is an integer <i>e</i> with <i>c</i> = <i>eb</i>."
+    ]
+   ],
+   "drop": [
+    "h1",
+    "h2"
+   ],
+   "add": [
+    {
+     "id": "h3",
+     "t": "<i>b</i> = <i>da</i>",
+     "num": "{b} = {d}·{a}",
+     "chk": "b=d*a"
+    },
+    {
+     "id": "h4",
+     "t": "<i>c</i> = <i>eb</i>",
+     "num": "{c} = {e}·{b}",
+     "chk": "c=e*b"
+    }
+   ],
+   "goal": {
+    "t": "<i>a</i> | <i>c</i>, i.e. ∃<i>k</i> (<i>c</i> = <i>ka</i>)"
+   }
+  },
+  {
+   "m": "witness",
+   "k": "∃ goal",
+   "h": "Find the witness",
+   "shape": "starts with ∃",
+   "say": "Substitute: <i>c</i> = <i>eb</i> = <i>e</i>(<i>da</i>) = (<i>ed</i>)<i>a</i>. So <i>k</i> = <i>ed</i> works, and it is an integer. Type another <i>k</i> in the box to see where the proof breaks.",
+   "wit": {
+    "v": "k",
+    "show": "ed",
+    "test": "c = k*a",
+    "check": "c = {c}, but k·a = {k}·{a} = {k*a}",
+    "over": [
+     "a",
+     "d",
+     "e"
+    ],
+    "range": [
+     -9,
+     9
+    ],
+    "hint": "We need an integer <i>k</i> with <i>c</i> = <i>ka</i>, for every choice of <i>a</i>, <i>d</i>, <i>e</i>. Write <i>k</i> using <i>a</i>, <i>d</i> and <i>e</i>. Hint: put <i>b</i> = <i>da</i> into <i>c</i> = <i>eb</i>.",
+    "def": "ed"
+   },
+   "lines": [
+    [
+     1,
+     "Then <i>c</i> = <i>eb</i> = <i>e</i>(<i>da</i>) = (<i>ed</i>)<i>a</i>."
+    ],
+    [
+     1,
+     "So <i>k</i> = {{wit}} is an integer with <i>c</i> = <i>ka</i>, and <i>a</i> | <i>c</i>."
+    ]
+   ],
+   "goal": {
+    "t": "<i>c</i> = <i>ka</i>",
+    "num": "{c} = {k}·{a}",
+    "chk": "c = k*a"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Close the blocks",
+   "h": "Done",
+   "shape": "is checked; only the blocks opened by the first two moves are left",
+   "say": "Each move opened a block, and they close in reverse order. Written proofs often leave the closing line unsaid, because readers expect it.",
+   "lines": [
+    [
+     0,
+     "Since <i>a</i>, <i>b</i> and <i>c</i> were arbitrary, the theorem holds. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <div class="split">

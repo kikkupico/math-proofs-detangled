@@ -67,6 +67,191 @@
   </div>
 </section>
 
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "Two sets are equal when each is a subset of the other.",
+ "goal": "𝒫(<i>A</i> ∩ <i>B</i>) = 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>)",
+ "steps": [
+  {
+   "m": "split",
+   "k": "Set equality",
+   "h": "Two inclusions",
+   "shape": "is an equality of sets",
+   "say": "Prove each side is a subset of the other. Label the halves (⊆) and (⊇).",
+   "lines": [
+    [
+     0,
+     "Let <i>A</i> and <i>B</i> be sets. We prove both inclusions."
+    ]
+   ],
+   "goal": {
+    "t": "(⊆) 𝒫(<i>A</i> ∩ <i>B</i>) ⊆ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>), then (⊇)"
+   }
+  },
+  {
+   "m": [
+    "intro",
+    "assume"
+   ],
+   "k": "(⊆) · ∀ goal",
+   "h": "An element of the left side",
+   "shape": "is a ⊆, which is a hidden ∀",
+   "say": "Elements of 𝒫(<i>A</i> ∩ <i>B</i>) are sets: call one <i>X</i>. Unpacked, <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>. The goal unpacks to <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>.",
+   "lines": [
+    [
+     0,
+     "(⊆) Let <i>X</i> ∈ 𝒫(<i>A</i> ∩ <i>B</i>), so <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "x1",
+     "t": "<i>X</i> ⊆ <i>A</i> ∩ <i>B</i>"
+    }
+   ],
+   "goal": {
+    "t": "<i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>"
+   }
+  },
+  {
+   "m": "intro",
+   "k": "(⊆) · ∀ goal again",
+   "h": "A subset proof inside",
+   "shape": "is made of ⊆ goals, each a hidden ∀",
+   "say": "Take an arbitrary <i>x</i> ∈ <i>X</i>. The given <i>X</i> ⊆ <i>A</i> ∩ <i>B</i> puts it in <i>A</i> ∩ <i>B</i>, so in <i>A</i> and in <i>B</i>.",
+   "lines": [
+    [
+     1,
+     "Let <i>x</i> ∈ <i>X</i>. Then <i>x</i> ∈ <i>A</i> ∩ <i>B</i>, so <i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "x2",
+     "t": "<i>x</i> ∈ <i>X</i>"
+    },
+    {
+     "id": "x3",
+     "t": "<i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>"
+    }
+   ],
+   "goal": {
+    "t": "<i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>"
+   }
+  },
+  {
+   "m": "use",
+   "k": "(⊆) done",
+   "h": "Close the first half",
+   "shape": "matches a given exactly",
+   "say": "Since <i>x</i> was arbitrary, <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>. That is (⊆). Its givens are used up.",
+   "lines": [
+    [
+     1,
+     "Since <i>x</i> was arbitrary, <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>, so <i>X</i> ∈ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>)."
+    ]
+   ],
+   "drop": "all",
+   "goal": {
+    "t": "(⊇) 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>) ⊆ 𝒫(<i>A</i> ∩ <i>B</i>)"
+   }
+  },
+  {
+   "m": [
+    "intro",
+    "assume"
+   ],
+   "k": "(⊇) · ∀ goal",
+   "h": "Now the other way",
+   "shape": "is a ⊆, a hidden ∀",
+   "say": "Take <i>X</i> ∈ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>). Unpack the ∩: two givens, <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>.",
+   "lines": [
+    [
+     0,
+     "(⊇) Let <i>X</i> ∈ 𝒫(<i>A</i>) ∩ 𝒫(<i>B</i>), so <i>X</i> ⊆ <i>A</i> and <i>X</i> ⊆ <i>B</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "y1",
+     "t": "<i>X</i> ⊆ <i>A</i>"
+    },
+    {
+     "id": "y2",
+     "t": "<i>X</i> ⊆ <i>B</i>"
+    }
+   ],
+   "goal": {
+    "t": "<i>X</i> ⊆ <i>A</i> ∩ <i>B</i>"
+   }
+  },
+  {
+   "m": "intro",
+   "k": "(⊇) · ∀ goal",
+   "h": "Element chase",
+   "shape": "is a ⊆, a hidden ∀",
+   "say": "Take an arbitrary <i>x</i> ∈ <i>X</i>. Each given puts it in one set, so it's in both.",
+   "lines": [
+    [
+     1,
+     "Let <i>x</i> ∈ <i>X</i>. Then <i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>, so <i>x</i> ∈ <i>A</i> ∩ <i>B</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "y3",
+     "t": "<i>x</i> ∈ <i>X</i>"
+    },
+    {
+     "id": "y4",
+     "t": "<i>x</i> ∈ <i>A</i> ∩ <i>B</i>"
+    }
+   ],
+   "goal": {
+    "t": "<i>x</i> ∈ <i>A</i> ∩ <i>B</i>"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Both halves done",
+   "h": "Equal",
+   "shape": "matches a given exactly",
+   "say": "Both inclusions hold, so the sets are equal.",
+   "lines": [
+    [
+     1,
+     "So <i>X</i> ⊆ <i>A</i> ∩ <i>B</i>, i.e. <i>X</i> ∈ 𝒫(<i>A</i> ∩ <i>B</i>)."
+    ],
+    [
+     0,
+     "Both inclusions hold, so the sets are equal. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    <div class="lean"><div class="lean-top"><span class="lab-title">Try it in Lean</span><a class="tbtn primary" href="https://live.lean-lang.org/#code=import%20Mathlib%0A%0A%2F-%21%20%F0%9D%92%AB%28A%20%E2%88%A9%20B%29%20%3D%20%F0%9D%92%AB%28A%29%20%E2%88%A9%20%F0%9D%92%AB%28B%29.%20%60Set.powerset%60%20is%20%F0%9D%92%AB.%20-%2F%0A%0Aexample%20%7B%CE%B1%20%3A%20Type%2A%7D%20%28A%20B%20%3A%20Set%20%CE%B1%29%20%3A%0A%20%20%20%20Set.powerset%20%28A%20%E2%88%A9%20B%29%20%3D%20Set.powerset%20A%20%E2%88%A9%20Set.powerset%20B%20%3A%3D%20by%0A%20%20ext%20X%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20Let%20X%20be%20an%20arbitrary%20set.%0A%20%20simp%20only%20%5BSet.mem_powerset_iff%2C%20Set.mem_inter_iff%5D%0A%20%20constructor%0A%20%20%C2%B7%20intro%20h%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20%28%E2%8A%86%29%20Suppose%20X%20%E2%8A%86%20A%20%E2%88%A9%20B.%0A%20%20%20%20exact%20%E2%9F%A8fun%20x%20hx%20%3D%3E%20%28h%20hx%29.1%2C%20fun%20x%20hx%20%3D%3E%20%28h%20hx%29.2%E2%9F%A9%0A%20%20%C2%B7%20rintro%20%E2%9F%A8hA%2C%20hB%E2%9F%A9%20x%20hx%20%20%20%20--%20%28%E2%8A%87%29%20Suppose%20X%20%E2%8A%86%20A%20and%20X%20%E2%8A%86%20B%3B%20let%20x%20%E2%88%88%20X.%0A%20%20%20%20exact%20%E2%9F%A8hA%20hx%2C%20hB%20hx%E2%9F%A9%0A" target="_blank" rel="noopener">Open in the Lean playground ↗</a></div><p class="note">Lean is a proof assistant: it accepts a proof only if every step checks. This is the same proof, move for move, using the Mathlib library. The playground runs it in your browser tab; hover over any line to see the givens and goal at that point. For a whole course in this style, see Velleman's free book <a href="https://djvelleman.github.io/HTPIwL/" target="_blank" rel="noopener"><i>How To Prove It with Lean</i></a>.</p><details><summary>Show the Lean code</summary><pre><code><span class="kw">import</span> Mathlib
+
+<span class="c">/-! 𝒫(A ∩ B) = 𝒫(A) ∩ 𝒫(B). `Set.powerset` is 𝒫. -/</span>
+
+<span class="kw">example</span> {α : Type*} (A B : Set α) :
+    Set.powerset (A ∩ B) = Set.powerset A ∩ Set.powerset B := <span class="kw">by</span>
+  ext X                     <span class="c">-- Let X be an arbitrary set.</span>
+  simp only [Set.mem_powerset_iff, Set.mem_inter_iff]
+  constructor
+  · intro h                 <span class="c">-- (⊆) Suppose X ⊆ A ∩ B.</span>
+    exact ⟨fun x hx =&gt; (h hx).1, fun x hx =&gt; (h hx).2⟩
+  · rintro ⟨hA, hB⟩ x hx    <span class="c">-- (⊇) Suppose X ⊆ A and X ⊆ B; let x ∈ X.</span>
+    exact ⟨hA hx, hB hx⟩
+</code></pre></details></div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <div class="split">

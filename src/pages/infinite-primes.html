@@ -51,6 +51,147 @@
 
 <section class="sec dark">
   <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "“Infinitely many” means “not finitely many”: a negative goal.",
+ "goal": "There are infinitely many primes",
+ "steps": [
+  {
+   "m": "contra",
+   "k": "Negative goal",
+   "h": "Suppose there are only finitely many",
+   "shape": "is negative: “not finitely many”",
+   "say": "Assume the opposite: the primes can be listed completely as <i>p</i>₁, …, <i>p<sub>n</sub></i>. Now hunt for a contradiction.",
+   "lines": [
+    [
+     0,
+     "Suppose, for contradiction, that there are only finitely many primes, and list them all: <i>p</i>₁, …, <i>p<sub>n</sub></i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "list",
+     "t": "<i>p</i>₁, …, <i>p<sub>n</sub></i> are all the primes"
+    }
+   ],
+   "goal": {
+    "t": "a contradiction"
+   }
+  },
+  {
+   "gift": true,
+   "k": "The creative step",
+   "h": "Build a number from the list",
+   "say": "Multiply all of them and add 1. This is the one idea in the proof that isn't a standard move.",
+   "pick": {
+    "q": "Which number should we build from the list?",
+    "opts": [
+     {
+      "t": "<i>p</i>₁<i>p</i>₂⋯<i>p<sub>n</sub></i> + 1",
+      "ok": true
+     },
+     {
+      "t": "<i>p</i>₁<i>p</i>₂⋯<i>p<sub>n</sub></i>",
+      "why": "Every <i>p<sub>i</sub></i> divides it, so nothing goes wrong. No contradiction."
+     },
+     {
+      "t": "<i>p</i>₁ + <i>p</i>₂ + ⋯ + <i>p<sub>n</sub></i>",
+      "why": "Primes on the list can divide it. With the list 2, 3, 5 the sum is 10 = 2 · 5."
+     },
+     {
+      "t": "<i>p<sub>n</sub></i> + 1",
+      "why": "Smaller primes can divide it. With the list 2, 3, 5: 5 + 1 = 6 = 2 · 3."
+     }
+    ]
+   },
+   "lines": [
+    [
+     0,
+     "Let <i>m</i> = {{pick}}."
+    ]
+   ],
+   "add": [
+    {
+     "id": "m",
+     "t": "<i>m</i> = <i>p</i>₁<i>p</i>₂⋯<i>p<sub>n</sub></i> + 1"
+    }
+   ]
+  },
+  {
+   "m": [
+    "cases",
+    "name"
+   ],
+   "k": "Cases → ∃ given",
+   "h": "It has a prime factor",
+   "shape": "is still a contradiction. Look at m: it is prime, or a product of primes. That is an “or”",
+   "say": "<i>m</i> &gt; 1, so either <i>m</i> is prime or it is a product of primes. Either way some prime divides <i>m</i>. Name it <i>q</i>.",
+   "lines": [
+    [
+     0,
+     "Then <i>m</i> &gt; 1, so <i>m</i> is prime or a product of primes. Either way, some prime <i>q</i> divides <i>m</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "q",
+     "t": "<i>q</i> is prime and <i>q</i> | <i>m</i>"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Use the assumption",
+   "h": "q must be on the list",
+   "shape": "is a contradiction, and the “complete list” given hasn't been used yet",
+   "say": "The list is assumed complete, so <i>q</i> is one of the <i>p<sub>i</sub></i>.",
+   "lines": [
+    [
+     0,
+     "Since the list contains every prime, <i>q</i> = <i>p<sub>i</sub></i> for some <i>i</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "qi",
+     "t": "<i>q</i> = <i>p<sub>i</sub></i> for some <i>i</i>"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Contradiction",
+   "h": "Two facts that can't both hold",
+   "shape": "is a contradiction: look for a given and its opposite",
+   "say": "Dividing <i>m</i> by any <i>p<sub>i</sub></i> leaves remainder 1, so <i>p<sub>i</sub></i> doesn't divide <i>m</i>. But <i>q</i> = <i>p<sub>i</sub></i> does. Contradiction.",
+   "lines": [
+    [
+     0,
+     "But dividing <i>m</i> by <i>p<sub>i</sub></i> leaves remainder 1, so <i>p<sub>i</sub></i> does not divide <i>m</i>."
+    ],
+    [
+     0,
+     "This contradicts <i>q</i> | <i>m</i>. So there are infinitely many primes. ∎"
+    ]
+   ],
+   "add": [
+    {
+     "id": "nd",
+     "t": "<i>p<sub>i</sub></i> ∤ <i>m</i>"
+    }
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
     <div class="split">
       <div class="copy">
         <span class="kicker">Run the machine</span>

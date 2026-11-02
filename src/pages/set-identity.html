@@ -51,6 +51,166 @@
   </div>
 </section>
 
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Change the numbers and watch each line get checked. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "Set equality means ∀<i>x</i> (<i>x</i> ∈ left ↔ <i>x</i> ∈ right). Choose where an element lives (1 = yes, 0 = no): every line of the chain keeps the same truth value.",
+ "vars": [
+  {
+   "n": "a",
+   "v": 1,
+   "min": 0,
+   "max": 1,
+   "label": "<i>x</i> ∈ <i>A</i>?"
+  },
+  {
+   "n": "b",
+   "v": 0,
+   "min": 0,
+   "max": 1,
+   "label": "<i>x</i> ∈ <i>B</i>?"
+  },
+  {
+   "n": "c",
+   "v": 1,
+   "min": 0,
+   "max": 1,
+   "label": "<i>x</i> ∈ <i>C</i>?"
+  }
+ ],
+ "defs": {
+  "L": "a = 1 & max(b, c) = 0",
+  "R": "(a = 1 & b = 0) & (a = 1 & c = 0)"
+ },
+ "goal": "<i>A</i> ∖ (<i>B</i> ∪ <i>C</i>) = (<i>A</i> ∖ <i>B</i>) ∩ (<i>A</i> ∖ <i>C</i>)",
+ "steps": [
+  {
+   "m": "intro",
+   "k": "∀ goal",
+   "h": "An arbitrary element",
+   "shape": "is a set equality, which is a ∀ in disguise: ∀x (x ∈ left ↔ x ∈ right)",
+   "say": "Let <i>x</i> be arbitrary and start from the left side.",
+   "why": {
+    "split": "You could prove ⊆ both ways. Here every step will be an equivalence, so a single chain of ↔ proves both directions at once."
+   },
+   "lines": [
+    [
+     0,
+     "Let <i>x</i> be arbitrary. Then"
+    ],
+    [
+     1,
+     "<i>x</i> ∈ <i>A</i> ∖ (<i>B</i> ∪ <i>C</i>)"
+    ]
+   ],
+   "goal": {
+    "t": "<i>x</i> ∈ <i>A</i> ∖ (<i>B</i> ∪ <i>C</i>) ↔ <i>x</i> ∈ (<i>A</i> ∖ <i>B</i>) ∩ (<i>A</i> ∖ <i>C</i>)",
+    "num": "left: {L}, right: {R}",
+    "chk": "L = R"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Definitions",
+   "h": "Unpack ∖ and ∪",
+   "shape": "is an ↔ between memberships; unpack the definitions",
+   "say": "∖ is “and not”, and ∪ is “or”. Now it's pure logic about three facts.",
+   "lines": [
+    [
+     1,
+     "↔ <i>x</i> ∈ <i>A</i> ∧ ¬(<i>x</i> ∈ <i>B</i> ∨ <i>x</i> ∈ <i>C</i>)"
+    ]
+   ],
+   "goal": {
+    "t": "<i>x</i> ∈ <i>A</i> ∧ ¬(<i>x</i> ∈ <i>B</i> ∨ <i>x</i> ∈ <i>C</i>) ↔ …",
+    "num": "left: {L}, right: {R}",
+    "chk": "L = R"
+   }
+  },
+  {
+   "m": "use",
+   "k": "De Morgan",
+   "h": "Push the negation in",
+   "shape": "has a ¬ in front of an “or”: a law of logic applies",
+   "say": "¬(<i>P</i> ∨ <i>Q</i>) ≡ ¬<i>P</i> ∧ ¬<i>Q</i>.",
+   "pick": {
+    "q": "¬(x ∈ B ∨ x ∈ C) is equivalent to…",
+    "opts": [
+     {
+      "t": "<i>x</i> ∉ <i>B</i> ∧ <i>x</i> ∉ <i>C</i>",
+      "ok": true
+     },
+     {
+      "t": "<i>x</i> ∉ <i>B</i> ∨ <i>x</i> ∉ <i>C</i>",
+      "why": "That one is ¬(<i>x</i> ∈ <i>B</i> ∧ <i>x</i> ∈ <i>C</i>). Try <i>x</i> in <i>B</i> but not in <i>C</i>: “not in <i>B</i> or <i>C</i>” is false, but “not in <i>B</i>, or not in <i>C</i>” is true."
+     },
+     {
+      "t": "<i>x</i> ∈ <i>B</i> ∧ <i>x</i> ∈ <i>C</i>",
+      "why": "The negation has disappeared. An <i>x</i> in neither set satisfies ¬(<i>x</i> ∈ <i>B</i> ∨ <i>x</i> ∈ <i>C</i>) but not this."
+     }
+    ]
+   },
+   "lines": [
+    [
+     1,
+     "↔ <i>x</i> ∈ <i>A</i> ∧ {{pick}}"
+    ]
+   ],
+   "goal": {
+    "t": "<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>B</i> ∧ <i>x</i> ∉ <i>C</i> ↔ …",
+    "num": "left: {L}, right: {R}",
+    "chk": "L = R"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Idempotence",
+   "h": "Use x ∈ A twice",
+   "shape": "needs two copies of x ∈ A, one for each set on the right",
+   "say": "Since <i>R</i> ≡ <i>R</i> ∧ <i>R</i>, write <i>x</i> ∈ <i>A</i> twice and regroup into two pairs.",
+   "lines": [
+    [
+     1,
+     "↔ (<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>B</i>) ∧ (<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>C</i>)"
+    ]
+   ],
+   "goal": {
+    "t": "(<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>B</i>) ∧ (<i>x</i> ∈ <i>A</i> ∧ <i>x</i> ∉ <i>C</i>) ↔ …",
+    "num": "left: {L}, right: {R}",
+    "chk": "L = R"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Definitions",
+   "h": "Repack into sets",
+   "shape": "has pairs that match the definition of ∖, and an ∧ that matches ∩",
+   "say": "Each pair is a set difference, and the ∧ between them is ∩. Every step was an equivalence, so both directions hold.",
+   "lines": [
+    [
+     1,
+     "↔ <i>x</i> ∈ <i>A</i> ∖ <i>B</i> ∧ <i>x</i> ∈ <i>A</i> ∖ <i>C</i>"
+    ],
+    [
+     1,
+     "↔ <i>x</i> ∈ (<i>A</i> ∖ <i>B</i>) ∩ (<i>A</i> ∖ <i>C</i>)."
+    ],
+    [
+     0,
+     "Since <i>x</i> was arbitrary, the two sets are equal. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <div class="split">

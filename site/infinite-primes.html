@@ -67,6 +67,168 @@
 
 <section class="sec dark">
   <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "“Infinitely many” means “not finitely many”: a negative goal.",
+ "goal": "There are infinitely many primes",
+ "steps": [
+  {
+   "m": "contra",
+   "k": "Negative goal",
+   "h": "Suppose there are only finitely many",
+   "shape": "is negative: “not finitely many”",
+   "say": "Assume the opposite: the primes can be listed completely as <i>p</i>₁, …, <i>p<sub>n</sub></i>. Now hunt for a contradiction.",
+   "lines": [
+    [
+     0,
+     "Suppose, for contradiction, that there are only finitely many primes, and list them all: <i>p</i>₁, …, <i>p<sub>n</sub></i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "list",
+     "t": "<i>p</i>₁, …, <i>p<sub>n</sub></i> are all the primes"
+    }
+   ],
+   "goal": {
+    "t": "a contradiction"
+   }
+  },
+  {
+   "gift": true,
+   "k": "The creative step",
+   "h": "Build a number from the list",
+   "say": "Multiply all of them and add 1. This is the one idea in the proof that isn't a standard move.",
+   "pick": {
+    "q": "Which number should we build from the list?",
+    "opts": [
+     {
+      "t": "<i>p</i>₁<i>p</i>₂⋯<i>p<sub>n</sub></i> + 1",
+      "ok": true
+     },
+     {
+      "t": "<i>p</i>₁<i>p</i>₂⋯<i>p<sub>n</sub></i>",
+      "why": "Every <i>p<sub>i</sub></i> divides it, so nothing goes wrong. No contradiction."
+     },
+     {
+      "t": "<i>p</i>₁ + <i>p</i>₂ + ⋯ + <i>p<sub>n</sub></i>",
+      "why": "Primes on the list can divide it. With the list 2, 3, 5 the sum is 10 = 2 · 5."
+     },
+     {
+      "t": "<i>p<sub>n</sub></i> + 1",
+      "why": "Smaller primes can divide it. With the list 2, 3, 5: 5 + 1 = 6 = 2 · 3."
+     }
+    ]
+   },
+   "lines": [
+    [
+     0,
+     "Let <i>m</i> = {{pick}}."
+    ]
+   ],
+   "add": [
+    {
+     "id": "m",
+     "t": "<i>m</i> = <i>p</i>₁<i>p</i>₂⋯<i>p<sub>n</sub></i> + 1"
+    }
+   ]
+  },
+  {
+   "m": [
+    "cases",
+    "name"
+   ],
+   "k": "Cases → ∃ given",
+   "h": "It has a prime factor",
+   "shape": "is still a contradiction. Look at m: it is prime, or a product of primes. That is an “or”",
+   "say": "<i>m</i> &gt; 1, so either <i>m</i> is prime or it is a product of primes. Either way some prime divides <i>m</i>. Name it <i>q</i>.",
+   "lines": [
+    [
+     0,
+     "Then <i>m</i> &gt; 1, so <i>m</i> is prime or a product of primes. Either way, some prime <i>q</i> divides <i>m</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "q",
+     "t": "<i>q</i> is prime and <i>q</i> | <i>m</i>"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Use the assumption",
+   "h": "q must be on the list",
+   "shape": "is a contradiction, and the “complete list” given hasn't been used yet",
+   "say": "The list is assumed complete, so <i>q</i> is one of the <i>p<sub>i</sub></i>.",
+   "lines": [
+    [
+     0,
+     "Since the list contains every prime, <i>q</i> = <i>p<sub>i</sub></i> for some <i>i</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "qi",
+     "t": "<i>q</i> = <i>p<sub>i</sub></i> for some <i>i</i>"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Contradiction",
+   "h": "Two facts that can't both hold",
+   "shape": "is a contradiction: look for a given and its opposite",
+   "say": "Dividing <i>m</i> by any <i>p<sub>i</sub></i> leaves remainder 1, so <i>p<sub>i</sub></i> doesn't divide <i>m</i>. But <i>q</i> = <i>p<sub>i</sub></i> does. Contradiction.",
+   "lines": [
+    [
+     0,
+     "But dividing <i>m</i> by <i>p<sub>i</sub></i> leaves remainder 1, so <i>p<sub>i</sub></i> does not divide <i>m</i>."
+    ],
+    [
+     0,
+     "This contradicts <i>q</i> | <i>m</i>. So there are infinitely many primes. ∎"
+    ]
+   ],
+   "add": [
+    {
+     "id": "nd",
+     "t": "<i>p<sub>i</sub></i> ∤ <i>m</i>"
+    }
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    <div class="lean"><div class="lean-top"><span class="lab-title">Try it in Lean</span><a class="tbtn primary" href="https://live.lean-lang.org/#code=import%20Mathlib%0A%0A%2F-%21%20There%20are%20infinitely%20many%20primes%2C%20stated%20as%3A%20no%20N%20is%20at%20least%20every%20prime.%0AInstead%20of%20multiplying%20a%20finite%20list%20of%20primes%20we%20use%20N%21%2C%20which%20every%0Aprime%20p%20%E2%89%A4%20N%20divides.%20The%20idea%20is%20Euclid%27s.%20-%2F%0A%0Aexample%20%3A%20%C2%AC%20%E2%88%83%20N%2C%20%E2%88%80%20p%2C%20Nat.Prime%20p%20%E2%86%92%20p%20%E2%89%A4%20N%20%3A%3D%20by%0A%20%20rintro%20%E2%9F%A8N%2C%20hN%E2%9F%A9%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20Suppose%20every%20prime%20is%20%E2%89%A4%20N.%0A%20%20have%20hm%20%3A%20N.factorial%20%2B%201%20%E2%89%A0%201%20%3A%3D%20by%20%20--%20m%20%3D%20N%21%20%2B%201%20is%20bigger%20than%201%2C%0A%20%20%20%20have%20%3A%3D%20Nat.factorial_pos%20N%0A%20%20%20%20omega%0A%20%20--%20so%20it%20has%20a%20smallest%20prime%20factor%20q.%0A%20%20have%20hq%20%3A%20Nat.Prime%20%28Nat.minFac%20%28N.factorial%20%2B%201%29%29%20%3A%3D%20Nat.minFac_prime%20hm%0A%20%20--%20q%20is%20on%20the%20%22list%22%20%28q%20%E2%89%A4%20N%29%2C%20so%20q%20divides%20N%21.%0A%20%20have%20h1%20%3A%20Nat.minFac%20%28N.factorial%20%2B%201%29%20%E2%88%A3%20N.factorial%20%3A%3D%0A%20%20%20%20Nat.dvd_factorial%20hq.pos%20%28hN%20_%20hq%29%0A%20%20--%20q%20also%20divides%20m%20%3D%20N%21%20%2B%201.%0A%20%20have%20h2%20%3A%20Nat.minFac%20%28N.factorial%20%2B%201%29%20%E2%88%A3%20N.factorial%20%2B%201%20%3A%3D%20Nat.minFac_dvd%20_%0A%20%20--%20So%20q%20divides%20the%20difference%2C%201.%20Contradiction.%0A%20%20have%20h3%20%3A%20Nat.minFac%20%28N.factorial%20%2B%201%29%20%E2%88%A3%201%20%3A%3D%20%28Nat.dvd_add_right%20h1%29.mp%20h2%0A%20%20exact%20hq.not_dvd_one%20h3%0A" target="_blank" rel="noopener">Open in the Lean playground ↗</a></div><p class="note">Lean is a proof assistant: it accepts a proof only if every step checks. This is the same proof, move for move, using the Mathlib library. The playground runs it in your browser tab; hover over any line to see the givens and goal at that point. For a whole course in this style, see Velleman's free book <a href="https://djvelleman.github.io/HTPIwL/" target="_blank" rel="noopener"><i>How To Prove It with Lean</i></a>.</p><details><summary>Show the Lean code</summary><pre><code><span class="kw">import</span> Mathlib
+
+<span class="c">/-! There are infinitely many primes, stated as: no N is at least every prime.
+Instead of multiplying a finite list of primes we use N!, which every
+prime p ≤ N divides. The idea is Euclid&#x27;s. -/</span>
+
+<span class="kw">example</span> : ¬ ∃ N, ∀ p, Nat.Prime p → p ≤ N := <span class="kw">by</span>
+  rintro ⟨N, hN⟩                       <span class="c">-- Suppose every prime is ≤ N.</span>
+  have hm : N.factorial + 1 ≠ 1 := <span class="kw">by</span>  <span class="c">-- m = N! + 1 is bigger than 1,</span>
+    have := Nat.factorial_pos N
+    omega
+  <span class="c">-- so it has a smallest prime factor q.</span>
+  have hq : Nat.Prime (Nat.minFac (N.factorial + 1)) := Nat.minFac_prime hm
+  <span class="c">-- q is on the &quot;list&quot; (q ≤ N), so q divides N!.</span>
+  have h1 : Nat.minFac (N.factorial + 1) ∣ N.factorial :=
+    Nat.dvd_factorial hq.pos (hN _ hq)
+  <span class="c">-- q also divides m = N! + 1.</span>
+  have h2 : Nat.minFac (N.factorial + 1) ∣ N.factorial + 1 := Nat.minFac_dvd _
+  <span class="c">-- So q divides the difference, 1. Contradiction.</span>
+  have h3 : Nat.minFac (N.factorial + 1) ∣ 1 := (Nat.dvd_add_right h1).mp h2
+  exact hq.not_dvd_one h3
+</code></pre></details></div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
     <div class="split">
       <div class="copy">
         <span class="kicker">Run the machine</span>

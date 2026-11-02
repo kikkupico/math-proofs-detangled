@@ -15,7 +15,8 @@ Output:
   site/_artifact.html the start page without <html>/<head>/<body>, for publishing as an Artifact
 """
 from pathlib import Path
-import html, shutil
+import html, json, re, shutil
+from urllib.parse import quote
 
 ROOT = Path(__file__).parent
 SRC = ROOT / "src"
@@ -168,9 +169,43 @@ def footer(cur, notes):
             f'<p class="credit">{CREDIT}</p></div></footer>')
 
 
+LEAN_PLAYGROUND = "https://live.lean-lang.org/#code="
+HTPI = "https://djvelleman.github.io/HTPIwL/"
+
+
+def lean_panel(slug):
+    """'Try it in Lean' panel for src/lean/<slug>.lean: the code, plus a link that opens it in the Lean playground."""
+    f = SRC / "lean" / f"{slug}.lean"
+    if not f.exists():
+        return ""
+    code = f.read_text().rstrip() + "\n"
+    shown = html.escape(code)
+    shown = re.sub(r"/-!?[\s\S]*?-/", lambda m: f'<span class="c">{m.group(0)}</span>', shown)
+    shown = re.sub(r"(?m)--.*$", lambda m: f'<span class="c">{m.group(0)}</span>', shown)
+    shown = re.sub(r"\b(import|example|by)\b(?![^<]*</span>)", r'<span class="kw">\1</span>', shown)
+    url = LEAN_PLAYGROUND + quote(code, safe="")
+    return ('<div class="lean"><div class="lean-top"><span class="lab-title">Try it in Lean</span>'
+            f'<a class="tbtn primary" href="{html.escape(url)}" target="_blank" rel="noopener">Open in the Lean playground ↗</a></div>'
+            '<p class="note">Lean is a proof assistant: it accepts a proof only if every step checks. This is the same proof, '
+            'move for move, using the Mathlib library. The playground runs it in your browser tab; hover over any line to see the givens and goal at that point. '
+            f'For a whole course in this style, see Velleman\'s free book <a href="{HTPI}" target="_blank" rel="noopener"><i>How To Prove It with Lean</i></a>.</p>'
+            f'<details><summary>Show the Lean code</summary><pre><code>{shown}</code></pre></details></div>')
+
+
+def check_engines(slug, body):
+    """Fail the build if an engine spec isn't valid JSON or is missing a field."""
+    for m in re.finditer(r'<div class="engine"><script type="application/json">([\s\S]*?)</script>', body):
+        spec = json.loads(m.group(1))
+        for k, st in enumerate(spec["steps"]):
+            for key in ("m", "k", "h", "say"):
+                if key not in st and not (key == "m" and st.get("gift")):
+                    raise SystemExit(f"{slug}: engine step {k + 1} is missing '{key}'")
+
+
 def page(i, body, notes, full):
     cur = SEQ[i]
     body = (body.replace("{{eyebrow}}", eyebrow(cur))
+                .replace("{{lean}}", lean_panel(cur["slug"]))
                 .replace("{{title}}", cur["title"])
                 .replace("{{tagline}}", cur["tagline"]))
     doc_title = cur["title"] if cur["slug"] == "index" else f'{cur["title"]} · Proofs, Detangled'
@@ -203,6 +238,7 @@ def main():
             missing.append(cur["slug"])
             continue
         body, _, notes = src.read_text().partition("<!-- FOOTNOTES -->")
+        check_engines(cur["slug"], body)
         (OUT / f'{cur["slug"]}.html').write_text(page(i, body, notes, True))
         if cur["slug"] == "index":
             (OUT / "_artifact.html").write_text(page(i, body, notes, False))

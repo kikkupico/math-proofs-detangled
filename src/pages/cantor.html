@@ -49,6 +49,132 @@
 
 <section class="sec dark">
   <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The theorem is about every function f : A → 𝒫(A).",
+ "goal": "For every <i>f</i> : <i>A</i> → 𝒫(<i>A</i>), <i>f</i> is not onto",
+ "steps": [
+  {
+   "m": "intro",
+   "k": "∀ goal",
+   "h": "Take any function",
+   "shape": "starts with ∀ (“every function”)",
+   "say": "Let <i>f</i> be arbitrary. “Not onto” negates to: some set in 𝒫(<i>A</i>) is never hit. That's an ∃ goal.",
+   "lines": [
+    [
+     0,
+     "Let <i>A</i> be a set and <i>f</i> : <i>A</i> → 𝒫(<i>A</i>) any function."
+    ]
+   ],
+   "add": [
+    {
+     "id": "f",
+     "t": "<i>f</i> : <i>A</i> → 𝒫(<i>A</i>)"
+    }
+   ],
+   "goal": {
+    "t": "∃<i>D</i> ∈ 𝒫(<i>A</i>) with <i>D</i> ≠ <i>f</i>(<i>a</i>) for every <i>a</i> ∈ <i>A</i>"
+   }
+  },
+  {
+   "m": "witness",
+   "k": "∃ goal",
+   "h": "The diagonal set",
+   "shape": "starts with ∃",
+   "say": "Each <i>x</i> is either in its own set <i>f</i>(<i>x</i>) or not. Collect the ones that are not. <i>D</i> ⊆ <i>A</i>, so <i>D</i> ∈ 𝒫(<i>A</i>).",
+   "pick": {
+    "q": "Which set does f miss? It has to work for every f.",
+    "opts": [
+     {
+      "t": "<i>D</i> = {<i>x</i> ∈ <i>A</i> | <i>x</i> ∉ <i>f</i>(<i>x</i>)}",
+      "ok": true
+     },
+     {
+      "t": "<i>D</i> = {<i>x</i> ∈ <i>A</i> | <i>x</i> ∈ <i>f</i>(<i>x</i>)}",
+      "why": "Some <i>f</i> hits this. If <i>f</i>(<i>x</i>) = <i>A</i> for every <i>x</i>, this set is <i>A</i>, which <i>f</i> hits."
+     },
+     {
+      "t": "<i>D</i> = ∅",
+      "why": "Some <i>f</i> hits ∅: just send one element to ∅."
+     },
+     {
+      "t": "<i>D</i> = <i>A</i>",
+      "why": "Some <i>f</i> hits <i>A</i>: send one element to <i>A</i>."
+     }
+    ]
+   },
+   "lines": [
+    [
+     0,
+     "Let {{pick}}. Then <i>D</i> ⊆ <i>A</i>, so <i>D</i> ∈ 𝒫(<i>A</i>)."
+    ]
+   ],
+   "add": [
+    {
+     "id": "D",
+     "t": "<i>D</i> = {<i>x</i> ∈ <i>A</i> | <i>x</i> ∉ <i>f</i>(<i>x</i>)}"
+    }
+   ],
+   "goal": {
+    "t": "<i>D</i> ≠ <i>f</i>(<i>a</i>) for every <i>a</i> ∈ <i>A</i>"
+   }
+  },
+  {
+   "m": [
+    "contra",
+    "name"
+   ],
+   "k": "Negative goal",
+   "h": "Suppose f does hit D",
+   "shape": "is negative: D ≠ f(a)",
+   "say": "Assume the opposite: <i>D</i> = <i>f</i>(<i>a</i>) for some <i>a</i>. That's an ∃ given, so name it <i>a</i>.",
+   "lines": [
+    [
+     0,
+     "Suppose, for contradiction, that <i>D</i> = <i>f</i>(<i>a</i>) for some <i>a</i> ∈ <i>A</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "a",
+     "t": "<i>D</i> = <i>f</i>(<i>a</i>)"
+    }
+   ],
+   "goal": {
+    "t": "a contradiction"
+   }
+  },
+  {
+   "m": [
+    "use",
+    "cases"
+   ],
+   "k": "Use the definition",
+   "h": "Is a in D?",
+   "shape": "is a contradiction; ask the one question D was built for",
+   "say": "By the definition of <i>D</i>, <i>a</i> ∈ <i>D</i> exactly when <i>a</i> ∉ <i>f</i>(<i>a</i>). But <i>f</i>(<i>a</i>) is <i>D</i>. So <i>a</i> ∈ <i>D</i> ↔ <i>a</i> ∉ <i>D</i>: either answer contradicts itself.",
+   "lines": [
+    [
+     0,
+     "Then <i>a</i> ∈ <i>D</i> ↔ <i>a</i> ∉ <i>f</i>(<i>a</i>) ↔ <i>a</i> ∉ <i>D</i>, which is impossible."
+    ],
+    [
+     0,
+     "So <i>D</i> is not in the range of <i>f</i>, and <i>f</i> is not onto. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
     <div class="sec-head"><span class="kicker">Try to beat it</span><h2>Build an f. Watch D escape.</h2><p>Here <i>A</i> = {1, …, 6}. Row <i>x</i> shows the set <i>f</i>(<i>x</i>): click cells to put elements in or out. The diagonal (outlined) asks “is <i>x</i> in <i>f</i>(<i>x</i>)?” and <i>D</i> flips every answer. However you fill the grid, <i>D</i> differs from every row.</p></div>
     <div class="lab">
       <div class="lab-top"><span class="lab-title">f(x) for each x ∈ A</span><div class="row"><button class="tbtn" id="cd-rand">Random f</button><button class="tbtn" id="cd-clear">Clear</button></div></div>

@@ -20,7 +20,12 @@ Shared components live in `src/app.js` and are driven entirely by markup:
 - `.quiz` — multiple choice; the right answer has `data-ok`, any option can carry `data-why`.
 - `.ttgen[data-f="P → Q; ¬Q → ¬P"]` — truth table for one or more formulas.
 - `.ttlab` — live truth-table comparison with two `input.formula` fields.
+- `.engine` — interactive proof engine, driven by a JSON spec inside the element. Each step is one move (∀ intro, assume, name an ∃ given, witness, contradiction, …) plus how it changes the givens and goal. Readers can *watch* the proof, *drive* it by picking each move from the shape of the goal, change the numbers (every given and goal is checked live), type their own witness (tested on many cases, with a counterexample when it fails), and tap any proof line to rewind to it. The spec format is documented at the top of the engine code in `src/app.js`.
 - Scroll reveals, a reading-progress bar, and ← / → keys to turn pages.
+
+## Lean
+
+`src/lean/<page>.lean` holds the same proof in Lean 4 with Mathlib. `build.py` puts it on that page wherever `{{lean}}` appears, with an “Open in the Lean playground” link (live.lean-lang.org, code passed in the URL). These files have not been checked by Lean in CI; open each one in the playground after editing it.
 
 Page-specific demos are inline scripts at the bottom of each page in `src/pages/`.
 

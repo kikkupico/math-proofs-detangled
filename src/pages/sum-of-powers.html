@@ -50,6 +50,147 @@
   </div>
 </section>
 
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Change the numbers and watch each line get checked. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The goal is a ∀ over the natural numbers. Plug in n below: each line is checked with real numbers.",
+ "vars": [
+  {
+   "n": "n",
+   "v": 3,
+   "min": 0,
+   "max": 40
+  }
+ ],
+ "defs": {
+  "S": "geo(2, n+1)",
+  "T": "geo(2, n+2)"
+ },
+ "goal": "∀<i>n</i> ∈ ℕ: 2⁰ + 2¹ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1",
+ "steps": [
+  {
+   "m": "induct",
+   "k": "∀n ∈ ℕ goal",
+   "h": "Plan an induction",
+   "shape": "is ∀n ∈ ℕ P(n)",
+   "say": "Name the statement P(<i>n</i>), then prove a base case and a step.",
+   "why": {
+    "intro": "Letting <i>n</i> be arbitrary leaves nothing to work with. Induction hands you P(<i>n</i>) when you prove P(<i>n</i> + 1)."
+   },
+   "lines": [
+    [
+     0,
+     "Let P(<i>n</i>) be 2⁰ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1. We use induction."
+    ]
+   ],
+   "goal": {
+    "t": "P(0), and ∀<i>n</i> (P(<i>n</i>) → P(<i>n</i> + 1))"
+   }
+  },
+  {
+   "m": [
+    "use",
+    "split"
+   ],
+   "k": "Base case",
+   "h": "Check n = 0",
+   "shape": "starts with P(0), a single calculation",
+   "say": "The left side is 2⁰ = 1. The right side is 2¹ − 1 = 1. They match.",
+   "lines": [
+    [
+     0,
+     "Base case: 2⁰ = 1 = 2¹ − 1, so P(0) holds."
+    ]
+   ],
+   "add": [
+    {
+     "id": "p0",
+     "t": "P(0)",
+     "num": "{geo(2,1)} = {2^1 - 1}",
+     "chk": "geo(2,1) = 2^1 - 1"
+    }
+   ],
+   "goal": {
+    "t": "∀<i>n</i> (P(<i>n</i>) → P(<i>n</i> + 1))"
+   }
+  },
+  {
+   "m": [
+    "intro",
+    "assume"
+   ],
+   "k": "∀ and →",
+   "h": "Assume P(n)",
+   "shape": "is ∀n (P(n) → P(n + 1))",
+   "say": "Let <i>n</i> be arbitrary and assume P(<i>n</i>), the inductive hypothesis. Aim for P(<i>n</i> + 1).",
+   "lines": [
+    [
+     0,
+     "Induction step: let <i>n</i> ∈ ℕ and suppose 2⁰ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1. Then"
+    ]
+   ],
+   "drop": [
+    "p0"
+   ],
+   "add": [
+    {
+     "id": "ih",
+     "t": "IH: 2⁰ + ⋯ + 2<sup><i>n</i></sup> = 2<sup><i>n</i>+1</sup> − 1",
+     "num": "{S} = {2^(n+1) - 1}",
+     "chk": "S = 2^(n+1) - 1"
+    }
+   ],
+   "goal": {
+    "t": "2⁰ + ⋯ + 2<sup><i>n</i>+1</sup> = 2<sup><i>n</i>+2</sup> − 1",
+    "num": "{T} = {2^(n+2) - 1}",
+    "chk": "T = 2^(n+2) - 1"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Use the hypothesis",
+   "h": "Spot the old sum inside the new one",
+   "shape": "contains the sum from the hypothesis",
+   "say": "The new sum is the old sum plus one more term. Replace the old sum with 2<sup><i>n</i>+1</sup> − 1.",
+   "lines": [
+    [
+     1,
+     "2⁰ + ⋯ + 2<sup><i>n</i></sup> + 2<sup><i>n</i>+1</sup> = (2<sup><i>n</i>+1</sup> − 1) + 2<sup><i>n</i>+1</sup>"
+    ]
+   ],
+   "goal": {
+    "t": "(2<sup><i>n</i>+1</sup> − 1) + 2<sup><i>n</i>+1</sup> = 2<sup><i>n</i>+2</sup> − 1",
+    "num": "{2^(n+1) - 1 + 2^(n+1)} = {2^(n+2) - 1}",
+    "chk": "2^(n+1) - 1 + 2^(n+1) = 2^(n+2) - 1"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Simplify",
+   "h": "Two halves make a whole",
+   "shape": "is a calculation",
+   "say": "2<sup><i>n</i>+1</sup> + 2<sup><i>n</i>+1</sup> = 2<sup><i>n</i>+2</sup>.",
+   "lines": [
+    [
+     1,
+     "= 2 · 2<sup><i>n</i>+1</sup> − 1 = 2<sup><i>n</i>+2</sup> − 1,"
+    ],
+    [
+     0,
+     "which is P(<i>n</i> + 1). By induction, P(<i>n</i>) holds for all <i>n</i> ∈ ℕ. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <div class="split">

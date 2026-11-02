@@ -52,6 +52,213 @@
 
 <section class="sec dark">
   <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Change the numbers and watch each line get checked. Type your own witness to see exactly where a wrong one breaks. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The goal starts with ∀ and has an if–then inside. Plug in a and b below: n = ab. Try a = 1 to see a hypothesis fail.",
+ "vars": [
+  {
+   "n": "a",
+   "v": 3,
+   "min": 1,
+   "max": 6
+  },
+  {
+   "n": "b",
+   "v": 2,
+   "min": 1,
+   "max": 6
+  }
+ ],
+ "defs": {
+  "n": "a*b",
+  "M": "2^n - 1",
+  "x": "2^b - 1",
+  "y": "geo(2^b, a)"
+ },
+ "goal": "∀<i>n</i> &gt; 1 (<i>n</i> not prime → 2<sup><i>n</i></sup> − 1 not prime)",
+ "steps": [
+  {
+   "m": "intro",
+   "k": "∀ goal",
+   "h": "Let n be arbitrary",
+   "shape": "starts with ∀",
+   "say": "Let <i>n</i> &gt; 1 be an arbitrary integer.",
+   "lines": [
+    [
+     0,
+     "Let <i>n</i> &gt; 1 be an integer."
+    ]
+   ],
+   "add": [
+    {
+     "id": "n1",
+     "t": "<i>n</i> &gt; 1",
+     "num": "n = {n}",
+     "chk": "n > 1"
+    }
+   ],
+   "goal": {
+    "t": "<i>n</i> not prime → 2<sup><i>n</i></sup> − 1 not prime"
+   }
+  },
+  {
+   "m": "assume",
+   "k": "→ goal",
+   "h": "Assume the hypothesis",
+   "shape": "is an if–then",
+   "say": "Assume <i>n</i> is not prime. The goal becomes: 2<sup><i>n</i></sup> − 1 is not prime.",
+   "lines": [
+    [
+     0,
+     "Suppose <i>n</i> is not prime."
+    ]
+   ],
+   "add": [
+    {
+     "id": "np",
+     "t": "<i>n</i> is not prime",
+     "num": "{n} prime: {isprime(n)=1}",
+     "chk": "isprime(n) = 0"
+    }
+   ],
+   "goal": {
+    "t": "2<sup><i>n</i></sup> − 1 is not prime",
+    "num": "2ⁿ − 1 = {M}, prime: {isprime(M)=1}",
+    "chk": "isprime(M) = 0"
+   }
+  },
+  {
+   "m": "name",
+   "k": "Unpack + ∃ given",
+   "h": "Rewrite the negative",
+   "shape": "is “not prime”, and so is a given. “Not prime” hides an ∃",
+   "say": "For <i>n</i> &gt; 1, “not prime” means <i>n</i> = <i>ab</i> for some <i>a</i>, <i>b</i> strictly between 1 and <i>n</i>. Name them. The goal unpacks the same way: we need a factor strictly between 1 and 2<sup><i>n</i></sup> − 1.",
+   "why": {
+    "contra": "You could, but there's a direct route. The given “<i>n</i> not prime” hides an ∃: unpack it and name what it promises."
+   },
+   "lines": [
+    [
+     0,
+     "Then there are integers <i>a</i>, <i>b</i> with 1 &lt; <i>a</i> &lt; <i>n</i>, 1 &lt; <i>b</i> &lt; <i>n</i> and <i>n</i> = <i>ab</i>."
+    ]
+   ],
+   "drop": [
+    "np"
+   ],
+   "add": [
+    {
+     "id": "ab",
+     "t": "<i>n</i> = <i>ab</i>",
+     "num": "{n} = {a}·{b}",
+     "chk": "n = a*b"
+    },
+    {
+     "id": "ra",
+     "t": "1 &lt; <i>a</i> &lt; <i>n</i>",
+     "num": "1 < {a} < {n}",
+     "chk": "1 < a & a < n"
+    },
+    {
+     "id": "rb",
+     "t": "1 &lt; <i>b</i> &lt; <i>n</i>",
+     "num": "1 < {b} < {n}",
+     "chk": "1 < b & b < n"
+    }
+   ],
+   "goal": {
+    "t": "∃<i>x</i> (<i>x</i> | 2<sup><i>n</i></sup> − 1 and 1 &lt; <i>x</i> &lt; 2<sup><i>n</i></sup> − 1)"
+   }
+  },
+  {
+   "m": "witness",
+   "k": "∃ goal",
+   "h": "Choose the factor",
+   "shape": "starts with ∃",
+   "say": "Scratch work: 2<sup><i>ab</i></sup> = (2<sup><i>b</i></sup>)<sup><i>a</i></sup>, and <i>z</i><sup><i>a</i></sup> − 1 always has the factor <i>z</i> − 1. So take <i>x</i> = 2<sup><i>b</i></sup> − 1. Edit the box to test other factors.",
+   "wit": {
+    "v": "x",
+    "show": "2^b - 1",
+    "test": "x | M & 1 < x & x < M",
+    "check": "x = {x} and 2ⁿ − 1 = {M}",
+    "over": [
+     "a",
+     "b"
+    ],
+    "range": [
+     2,
+     6
+    ],
+    "where": "a > 1 & b > 1",
+    "note": "2^a - 1 works as well: swap the roles of a and b.",
+    "hint": "We need a factor <i>x</i> of 2<sup><i>ab</i></sup> − 1 with 1 &lt; <i>x</i> &lt; 2<sup><i>ab</i></sup> − 1. Think of 2<sup><i>ab</i></sup> as (2<sup><i>b</i></sup>)<sup><i>a</i></sup>. Type it with ^ for powers, like 2^b - 1.",
+    "def": "2^b - 1"
+   },
+   "lines": [
+    [
+     0,
+     "Let <i>x</i> = {{wit}} and <i>y</i> = 1 + 2<sup><i>b</i></sup> + 2<sup>2<i>b</i></sup> + ⋯ + 2<sup>(<i>a</i>−1)<i>b</i></sup>."
+    ]
+   ],
+   "goal": {
+    "t": "<i>x</i> | 2<sup><i>n</i></sup> − 1 and 1 &lt; <i>x</i> &lt; 2<sup><i>n</i></sup> − 1",
+    "num": "x = {x}, 2ⁿ − 1 = {M}",
+    "chk": "x | M & 1 < x & x < M"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Calculate",
+   "h": "Multiply out",
+   "shape": "asks for a product, which you can calculate",
+   "say": "Multiply <i>x</i> by <i>y</i>. Every middle term appears once with + and once with −, so only 2<sup><i>ab</i></sup> − 1 survives.",
+   "lines": [
+    [
+     0,
+     "Then <i>xy</i> = (2<sup><i>b</i></sup> + ⋯ + 2<sup><i>ab</i></sup>) − (1 + ⋯ + 2<sup>(<i>a</i>−1)<i>b</i></sup>) = 2<sup><i>ab</i></sup> − 1 = 2<sup><i>n</i></sup> − 1."
+    ]
+   ],
+   "add": [
+    {
+     "id": "xy",
+     "t": "<i>xy</i> = 2<sup><i>n</i></sup> − 1",
+     "num": "{x}·{y} = {x*y}",
+     "chk": "x*y = M"
+    }
+   ],
+   "goal": {
+    "t": "1 &lt; <i>x</i> &lt; 2<sup><i>n</i></sup> − 1",
+    "num": "1 < {x} < {M}",
+    "chk": "1 < x & x < M"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Use the givens",
+   "h": "Check the sizes",
+   "shape": "is an inequality that follows from 1 < b < n",
+   "say": "Since 1 &lt; <i>b</i> &lt; <i>n</i>, we get 1 &lt; 2<sup><i>b</i></sup> − 1 &lt; 2<sup><i>n</i></sup> − 1. So <i>x</i> is a proper factor and 2<sup><i>n</i></sup> − 1 is not prime.",
+   "lines": [
+    [
+     0,
+     "Since 1 &lt; <i>b</i> &lt; <i>n</i>, we have 1 &lt; <i>x</i> &lt; 2<sup><i>n</i></sup> − 1."
+    ],
+    [
+     0,
+     "So 2<sup><i>n</i></sup> − 1 has a factor other than 1 and itself, and is not prime. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
     <div class="split">
       <div class="copy">
         <span class="kicker">The factor machine</span>

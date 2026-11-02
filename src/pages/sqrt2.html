@@ -50,6 +50,134 @@
   </div>
 </section>
 
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "“Irrational” means “not a fraction”: a negative goal.",
+ "givens": [
+  {
+   "id": "lem",
+   "t": "Lemma: if <i>n</i>² is even, then <i>n</i> is even"
+  }
+ ],
+ "goal": "√2 is irrational: no integers <i>p</i>, <i>q</i> with <i>q</i> ≠ 0 and <i>p</i>/<i>q</i> = √2",
+ "steps": [
+  {
+   "m": "contra",
+   "k": "Negative goal",
+   "h": "Suppose √2 is a fraction",
+   "shape": "is negative: “not a fraction”",
+   "say": "Assume the opposite: some fraction equals √2. That is an ∃ given, so name it <i>p</i>/<i>q</i>, and take it in lowest terms.",
+   "lines": [
+    [
+     0,
+     "Suppose, for contradiction, that √2 = <i>p</i>/<i>q</i> for integers <i>p</i>, <i>q</i> with <i>q</i> ≠ 0, in lowest terms."
+    ]
+   ],
+   "add": [
+    {
+     "id": "f",
+     "t": "√2 = <i>p</i>/<i>q</i>, <i>q</i> ≠ 0"
+    },
+    {
+     "id": "lt",
+     "t": "<i>p</i>/<i>q</i> is in lowest terms"
+    }
+   ],
+   "goal": {
+    "t": "a contradiction"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Algebra",
+   "h": "Clear the square root",
+   "shape": "is a contradiction, and the givens can be calculated with",
+   "say": "Square both sides and multiply by <i>q</i>². Now it's an equation between integers.",
+   "lines": [
+    [
+     0,
+     "Squaring gives 2 = <i>p</i>²/<i>q</i>², so <i>p</i>² = 2<i>q</i>²."
+    ]
+   ],
+   "drop": [
+    "f"
+   ],
+   "add": [
+    {
+     "id": "sq",
+     "t": "<i>p</i>² = 2<i>q</i>²"
+    }
+   ]
+  },
+  {
+   "m": [
+    "use",
+    "name"
+   ],
+   "k": "Lemma + ∃ given",
+   "h": "p is even",
+   "shape": "is a contradiction; the lemma applies to p² = 2q²",
+   "say": "<i>p</i>² = 2<i>q</i>² is even, so by the lemma <i>p</i> is even. Unpack “even”: <i>p</i> = 2<i>k</i> for some integer <i>k</i>.",
+   "lines": [
+    [
+     0,
+     "So <i>p</i>² is even, and therefore <i>p</i> is even, say <i>p</i> = 2<i>k</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "pe",
+     "t": "<i>p</i> = 2<i>k</i>"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Same again",
+   "h": "q is even too",
+   "shape": "is a contradiction; substitute p = 2k",
+   "say": "Substitute: 4<i>k</i>² = 2<i>q</i>², so <i>q</i>² = 2<i>k</i>². The same lemma, now for <i>q</i>, says <i>q</i> is even.",
+   "lines": [
+    [
+     0,
+     "Then 4<i>k</i>² = 2<i>q</i>², so <i>q</i>² = 2<i>k</i>². So <i>q</i>² is even, and therefore <i>q</i> is even."
+    ]
+   ],
+   "add": [
+    {
+     "id": "qe",
+     "t": "<i>q</i> is even"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Contradiction",
+   "h": "Lowest terms, but both even",
+   "shape": "is a contradiction: two givens clash",
+   "say": "If <i>p</i> and <i>q</i> are both even, 2 is a common factor, so <i>p</i>/<i>q</i> wasn't in lowest terms.",
+   "lines": [
+    [
+     0,
+     "Then 2 divides both <i>p</i> and <i>q</i>, contradicting that <i>p</i>/<i>q</i> is in lowest terms."
+    ],
+    [
+     0,
+     "So √2 is irrational. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    {{lean}}
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <div class="split">

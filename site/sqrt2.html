@@ -66,6 +66,153 @@
   </div>
 </section>
 
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Watch it run, or switch to <b>You drive</b> and pick each move from the shape of the goal. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "“Irrational” means “not a fraction”: a negative goal.",
+ "givens": [
+  {
+   "id": "lem",
+   "t": "Lemma: if <i>n</i>² is even, then <i>n</i> is even"
+  }
+ ],
+ "goal": "√2 is irrational: no integers <i>p</i>, <i>q</i> with <i>q</i> ≠ 0 and <i>p</i>/<i>q</i> = √2",
+ "steps": [
+  {
+   "m": "contra",
+   "k": "Negative goal",
+   "h": "Suppose √2 is a fraction",
+   "shape": "is negative: “not a fraction”",
+   "say": "Assume the opposite: some fraction equals √2. That is an ∃ given, so name it <i>p</i>/<i>q</i>, and take it in lowest terms.",
+   "lines": [
+    [
+     0,
+     "Suppose, for contradiction, that √2 = <i>p</i>/<i>q</i> for integers <i>p</i>, <i>q</i> with <i>q</i> ≠ 0, in lowest terms."
+    ]
+   ],
+   "add": [
+    {
+     "id": "f",
+     "t": "√2 = <i>p</i>/<i>q</i>, <i>q</i> ≠ 0"
+    },
+    {
+     "id": "lt",
+     "t": "<i>p</i>/<i>q</i> is in lowest terms"
+    }
+   ],
+   "goal": {
+    "t": "a contradiction"
+   }
+  },
+  {
+   "m": "use",
+   "k": "Algebra",
+   "h": "Clear the square root",
+   "shape": "is a contradiction, and the givens can be calculated with",
+   "say": "Square both sides and multiply by <i>q</i>². Now it's an equation between integers.",
+   "lines": [
+    [
+     0,
+     "Squaring gives 2 = <i>p</i>²/<i>q</i>², so <i>p</i>² = 2<i>q</i>²."
+    ]
+   ],
+   "drop": [
+    "f"
+   ],
+   "add": [
+    {
+     "id": "sq",
+     "t": "<i>p</i>² = 2<i>q</i>²"
+    }
+   ]
+  },
+  {
+   "m": [
+    "use",
+    "name"
+   ],
+   "k": "Lemma + ∃ given",
+   "h": "p is even",
+   "shape": "is a contradiction; the lemma applies to p² = 2q²",
+   "say": "<i>p</i>² = 2<i>q</i>² is even, so by the lemma <i>p</i> is even. Unpack “even”: <i>p</i> = 2<i>k</i> for some integer <i>k</i>.",
+   "lines": [
+    [
+     0,
+     "So <i>p</i>² is even, and therefore <i>p</i> is even, say <i>p</i> = 2<i>k</i>."
+    ]
+   ],
+   "add": [
+    {
+     "id": "pe",
+     "t": "<i>p</i> = 2<i>k</i>"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Same again",
+   "h": "q is even too",
+   "shape": "is a contradiction; substitute p = 2k",
+   "say": "Substitute: 4<i>k</i>² = 2<i>q</i>², so <i>q</i>² = 2<i>k</i>². The same lemma, now for <i>q</i>, says <i>q</i> is even.",
+   "lines": [
+    [
+     0,
+     "Then 4<i>k</i>² = 2<i>q</i>², so <i>q</i>² = 2<i>k</i>². So <i>q</i>² is even, and therefore <i>q</i> is even."
+    ]
+   ],
+   "add": [
+    {
+     "id": "qe",
+     "t": "<i>q</i> is even"
+    }
+   ]
+  },
+  {
+   "m": "use",
+   "k": "Contradiction",
+   "h": "Lowest terms, but both even",
+   "shape": "is a contradiction: two givens clash",
+   "say": "If <i>p</i> and <i>q</i> are both even, 2 is a common factor, so <i>p</i>/<i>q</i> wasn't in lowest terms.",
+   "lines": [
+    [
+     0,
+     "Then 2 divides both <i>p</i> and <i>q</i>, contradicting that <i>p</i>/<i>q</i> is in lowest terms."
+    ],
+    [
+     0,
+     "So √2 is irrational. ∎"
+    ]
+   ],
+   "goal": null
+  }
+ ]
+}
+</script></div>
+    <div class="lean"><div class="lean-top"><span class="lab-title">Try it in Lean</span><a class="tbtn primary" href="https://live.lean-lang.org/#code=import%20Mathlib%0A%0A%2F-%21%20%E2%88%9A2%20is%20irrational%2C%20in%20integer%20form%3A%20if%20p%2Fq%20is%20in%20lowest%20terms%0A%28gcd%20p%20q%20%3D%201%29%2C%20then%20p%C2%B2%20%E2%89%A0%202q%C2%B2.%20Mathlib%20also%20has%20this%20as%20%60irrational_sqrt_two%60.%20-%2F%0A%0Aexample%20%28p%20q%20%3A%20%E2%84%95%29%20%28hpq%20%3A%20Nat.Coprime%20p%20q%29%20%3A%20p%20%5E%202%20%E2%89%A0%202%20%2A%20q%20%5E%202%20%3A%3D%20by%0A%20%20intro%20h%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20Suppose%20p%C2%B2%20%3D%202q%C2%B2.%0A%20%20--%20p%C2%B2%20is%20even%2C%20so%20p%20is%20even%3A%20p%20%3D%202k.%0A%20%20have%20hp%20%3A%202%20%E2%88%A3%20p%20%3A%3D%20Nat.Prime.dvd_of_dvd_pow%20Nat.prime_two%20%E2%9F%A8q%20%5E%202%2C%20h%E2%9F%A9%0A%20%20obtain%20%E2%9F%A8k%2C%20rfl%E2%9F%A9%20%3A%3D%20hp%0A%20%20--%20Then%204k%C2%B2%20%3D%202q%C2%B2%2C%20so%20q%C2%B2%20%3D%202k%C2%B2%2C%20and%20q%20is%20even%20too.%0A%20%20have%20hq2%20%3A%20q%20%5E%202%20%3D%202%20%2A%20k%20%5E%202%20%3A%3D%20by%0A%20%20%20%20ring_nf%20at%20h%20%E2%8A%A2%0A%20%20%20%20linarith%0A%20%20have%20hq%20%3A%202%20%E2%88%A3%20q%20%3A%3D%20Nat.Prime.dvd_of_dvd_pow%20Nat.prime_two%20%E2%9F%A8k%20%5E%202%2C%20hq2%E2%9F%A9%0A%20%20--%202%20divides%20both%2C%20so%20it%20divides%20gcd%282k%2C%20q%29%20%3D%201.%20Contradiction.%0A%20%20have%20h2%20%3A%202%20%E2%88%A3%20Nat.gcd%20%282%20%2A%20k%29%20q%20%3A%3D%20Nat.dvd_gcd%20%28dvd_mul_right%202%20k%29%20hq%0A%20%20rw%20%5BNat.Coprime.gcd_eq_one%20hpq%5D%20at%20h2%0A%20%20omega%0A" target="_blank" rel="noopener">Open in the Lean playground ↗</a></div><p class="note">Lean is a proof assistant: it accepts a proof only if every step checks. This is the same proof, move for move, using the Mathlib library. The playground runs it in your browser tab; hover over any line to see the givens and goal at that point. For a whole course in this style, see Velleman's free book <a href="https://djvelleman.github.io/HTPIwL/" target="_blank" rel="noopener"><i>How To Prove It with Lean</i></a>.</p><details><summary>Show the Lean code</summary><pre><code><span class="kw">import</span> Mathlib
+
+<span class="c">/-! √2 is irrational, in integer form: if p/q is in lowest terms
+(gcd p q = 1), then p² ≠ 2q². Mathlib also has this as `irrational_sqrt_two`. -/</span>
+
+<span class="kw">example</span> (p q : ℕ) (hpq : Nat.Coprime p q) : p ^ 2 ≠ 2 * q ^ 2 := <span class="kw">by</span>
+  intro h                                 <span class="c">-- Suppose p² = 2q².</span>
+  <span class="c">-- p² is even, so p is even: p = 2k.</span>
+  have hp : 2 ∣ p := Nat.Prime.dvd_of_dvd_pow Nat.prime_two ⟨q ^ 2, h⟩
+  obtain ⟨k, rfl⟩ := hp
+  <span class="c">-- Then 4k² = 2q², so q² = 2k², and q is even too.</span>
+  have hq2 : q ^ 2 = 2 * k ^ 2 := <span class="kw">by</span>
+    ring_nf at h ⊢
+    linarith
+  have hq : 2 ∣ q := Nat.Prime.dvd_of_dvd_pow Nat.prime_two ⟨k ^ 2, hq2⟩
+  <span class="c">-- 2 divides both, so it divides gcd(2k, q) = 1. Contradiction.</span>
+  have h2 : 2 ∣ Nat.gcd (2 * k) q := Nat.dvd_gcd (dvd_mul_right 2 k) hq
+  rw [Nat.Coprime.gcd_eq_one hpq] at h2
+  omega
+</code></pre></details></div>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap">
     <div class="split">
