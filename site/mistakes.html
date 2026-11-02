@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Common Mistakes · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Find the line that breaks.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-craft">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a><a class="tab t-craft" href="craft.html" aria-current="true"><span class="n">5</span><span class="l">Craft</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Craft pages"><div class="wrap rail-in"><a class="r-hub" href="craft.html">Overview</a><a href="reading-proofs.html"><span class="i">1</span>Reading proofs</a><a href="writing-proofs.html"><span class="i">2</span>Writing proofs</a><a href="mistakes.html" aria-current="page"><span class="i">3</span>Common mistakes</a><a href="stuck.html"><span class="i">4</span>When you&#x27;re stuck</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 5 · Craft · 3 of 4</p>
+      <h1>Common Mistakes</h1>
+      <p class="tagline">Find the line that breaks.</p>
+      <p class="lede">Most wrong proofs fail in one of a handful of ways. Each puzzle below is a short “proof”. Some prove false claims, some prove true claims badly. In each one, a single line is where it goes wrong. Tap the line you think breaks.</p>
+    </div>
+    <div class="hero-art">
+      <div class="cards" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <div class="card" style="padding:16px"><span class="k">1</span><p>Assuming what you're proving</p></div>
+        <div class="card" style="padding:16px"><span class="k">2</span><p>Reusing a name</p></div>
+        <div class="card" style="padding:16px"><span class="k">3</span><p>Proof by example</p></div>
+        <div class="card" style="padding:16px"><span class="k">4</span><p>Proving the converse</p></div>
+        <div class="card" style="padding:16px"><span class="k">5</span><p>Dividing by zero</p></div>
+        <div class="card" style="padding:16px"><span class="k">6</span><p>An induction step that skips a case</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz lines">
+      <p class="q"><span class="k">1 · Which line is the problem?</span></p>
+      <p class="claim">Claim: for every real <i>x</i>, <i>x</i>² + 1 ≥ 2<i>x</i>.</p>
+      <div class="opts">
+        <button data-ok data-why="The proof starts from the claim and ends at something true. That shows “claim → true”, which proves nothing: false claims imply true things too (from 1 = 2, multiply by 0 to get 0 = 0). Write it forwards: (x − 1)² ≥ 0, so x² − 2x + 1 ≥ 0, so x² + 1 ≥ 2x.">x² + 1 ≥ 2x.</button>
+        <button data-why="Subtracting 2x from both sides is a valid step. The trouble is where the chain starts.">So x² − 2x + 1 ≥ 0.</button>
+        <button data-why="Factoring is fine. Look at what the first line assumes.">So (x − 1)² ≥ 0.</button>
+        <button data-why="It's true that squares are non-negative. But arriving at a true statement doesn't prove where you started.">This is true, since squares are never negative. ∎</button>
+      </div>
+    </div>
+
+    <div class="quiz lines">
+      <p class="q"><span class="k">2 · Which line is the problem?</span></p>
+      <p class="claim">Claim: if <i>a</i> | <i>b</i> and <i>b</i> | <i>c</i>, then <i>a</i> | <i>c</i>.</p>
+      <div class="opts">
+        <button data-why="This line is fine: it introduces the objects and assumes the hypothesis.">Let a, b, c be integers with a | b and b | c.</button>
+        <button data-ok data-why="The two givens promise two multipliers, which may be different. Calling both k assumes they're equal, so the proof only covers cases like a = 2, b = 4, c = 8. Use b = ja and c = kb.">Then b = ka and c = kb for some integer k.</button>
+        <button data-why="The algebra follows from the line before. The problem is earlier.">So c = k(ka) = k²a.</button>
+        <button data-why="If the earlier lines were right, this would follow. Check where k came from.">Since k² is an integer, a | c. ∎</button>
+      </div>
+    </div>
+
+    <div class="quiz lines">
+      <p class="q"><span class="k">3 · Which line is the problem?</span></p>
+      <p class="claim">Claim: the sum of two odd integers is even.</p>
+      <div class="opts">
+        <button data-ok data-why="Checking examples isn't a proof of a “for all” claim: there are infinitely many pairs. (This claim is true; prove it with m = 2j + 1, n = 2k + 1.) Examples can disprove a “for all”, never prove it.">Take 3 and 5: 3 + 5 = 8, which is even.</button>
+        <button data-why="More examples don't help. The problem is the method.">Take 7 and 11: 7 + 11 = 18, which is even.</button>
+        <button data-why="The conclusion is true, but nothing so far proves it. Which line was supposed to?">So the sum of two odd integers is always even. ∎</button>
+      </div>
+    </div>
+
+    <div class="quiz lines">
+      <p class="q"><span class="k">4 · Which line is the problem?</span></p>
+      <p class="claim">Claim: if <i>n</i>² is odd, then <i>n</i> is odd.</p>
+      <div class="opts">
+        <button data-ok data-why="The claim is “n² odd → n odd”, but this assumes n is odd and proves n² odd: the converse. A correct proof assumes n² odd, or proves the contrapositive: if n is even, n² is even.">Suppose n is odd.</button>
+        <button data-why="Given that n is odd, this is right. The issue is what was assumed.">Then n = 2k + 1 for some integer k.</button>
+        <button data-why="The algebra is correct. Compare the first line with the claim.">So n² = 4k² + 4k + 1 = 2(2k² + 2k) + 1.</button>
+        <button data-why="It does follow from the lines above. But is it the claim?">So n² is odd. ∎</button>
+      </div>
+    </div>
+
+    <div class="quiz lines">
+      <p class="q"><span class="k">5 · Which line is the problem?</span></p>
+      <p class="claim">“Claim”: 2 = 1.</p>
+      <div class="opts">
+        <button data-why="Choosing a = b is allowed.">Let a = b.</button>
+        <button data-why="Multiplying both sides by a is fine.">Then a² = ab.</button>
+        <button data-why="Subtracting b² from both sides is fine.">So a² − b² = ab − b².</button>
+        <button data-why="Both sides factor correctly.">So (a + b)(a − b) = b(a − b).</button>
+        <button data-ok data-why="This divides both sides by a − b, which is 0 because a = b. Dividing by zero can turn a true equation (0 = 0) into a false one. Always check that what you divide by is nonzero.">So a + b = b.</button>
+        <button data-why="From the line before, this follows. Look further up.">So 2b = b, and 2 = 1. ∎</button>
+      </div>
+    </div>
+
+    <div class="quiz lines">
+      <p class="q"><span class="k">6 · Which line is the problem?</span></p>
+      <p class="claim">“Claim”: in every group of <i>n</i> ≥ 1 horses, all the horses are the same colour.</p>
+      <div class="opts">
+        <button data-why="True: one horse is the same colour as itself.">Base case: a group of 1 horse is all one colour.</button>
+        <button data-why="A fine induction step setup.">Step: suppose every group of n horses is one colour. Take a group of n + 1.</button>
+        <button data-why="Each of these groups has n horses, so the hypothesis applies to both.">Remove one horse: the other n are one colour. Remove a different one: those n are one colour.</button>
+        <button data-ok data-why="For n = 1 the two groups of 1 have no horse in common, so the colours never get linked. The step works for n ≥ 2 but fails at n = 1 → 2, and an induction step must work for every n.">The two groups overlap, so all n + 1 horses are one colour. ∎</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">A checklist</span><h2>Before you call it done</h2></div>
+    <div class="cards">
+      <div class="card"><span class="k">Direction</span><p>Does the proof start from what you know and end at the goal, not the other way round?</p></div>
+      <div class="card"><span class="k">Names</span><p>Does every ∃ given get its own new letter?</p></div>
+      <div class="card"><span class="k">Generality</span><p>For a “for all” goal, is the object arbitrary, not an example?</p></div>
+      <div class="card"><span class="k">Statement</span><p>Did you prove the claim, not its converse?</p></div>
+      <div class="card"><span class="k">Division</span><p>Is everything you divide by, or cancel, nonzero?</p></div>
+      <div class="card"><span class="k">Every case</span><p>Do the cases, or the induction step, cover every value, including the smallest?</p></div>
+    </div>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="writing-proofs.html" data-key="prev"><span class="d">← Previous · Part 5 · Craft</span><span class="t">How to Write a Proof</span></a><a class="pg next" href="stuck.html" data-key="next"><span class="d">Next · Part 5 · Craft →</span><span class="t">When You're Stuck</span><span class="s">Small cases, working backwards, invariants.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Further reading:</b> Houston, <i>How to Think Like a Mathematician</i>; Sundstrom, <i>Mathematical Reasoning: Writing and Proof</i> (free online).</p><ol class='notes'>
+<li>The “all horses are the same colour” paradox is usually credited to George Pólya. The 2 = 1 “proof” is a classic of unknown origin.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a><a href="strong-induction.html">Strong induction</a><a href="pigeonhole.html">Pigeonhole</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a><a href="epsilon-delta.html">A limit by ε–δ</a></div><div><a class="fh t-craft" href="craft.html">5 · Craft</a><a href="reading-proofs.html">Reading proofs</a><a href="writing-proofs.html">Writing proofs</a><a href="mistakes.html">Common mistakes</a><a href="stuck.html">When you&#x27;re stuck</a></div></nav><p class="credit">An independent, general guide to proofs. “Further reading” names chapters by title where possible, since page and chapter numbers change between editions; section numbers for Velleman's <i>How to Prove It</i> refer to its 2nd edition.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Scratch work is for finding the proof. The written proof is for a reader who wasn't there: it introduces every object, says what is being assumed, and gives a reason for every claim. Writing it well also catches mistakes the scratch work hid.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Let</span>      <span class="c">introduce an object</span>
+<span class="kw">Suppose</span>  <span class="c">assume something (for now)</span>
+<span class="kw">Then</span>     <span class="c">a consequence of what came before</span>
+<span class="kw">Since</span> …, <span class="c">give the reason</span>
+<span class="kw">Therefore</span> <span class="c">the goal</span>  ∎</div>
+      <p class="small muted mt-s">Five words do most of the work. Each one tells the reader what kind of sentence comes next.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Before and after</span><h2>From draft to proof, one fix at a time</h2><p><b>Claim:</b> the product of two odd integers is odd. Start from a typical first draft. Each step applies one rule. Watch step 3: the draft had a mistake that only shows up when it's written properly.</p></div>
+    <div class="lab stepper" data-done="Finished ∎">
+      <p class="say" data-at="1" data-until="1"><b>The draft.</b> Correct-looking symbols, but a reader can't tell what <i>m</i>, <i>n</i> and <i>k</i> are, or what's assumed and what's claimed.</p>
+      <p class="say" data-at="2" data-until="2"><b>Introduce every object.</b> Say what <i>m</i> and <i>n</i> are, and that we're assuming they're odd. Use words, not ⇒ arrows.</p>
+      <p class="say" data-at="3" data-until="3"><b>One new name per object.</b> Writing out “for some integer <i>k</i>” for both shows the bug: the draft used the same <i>k</i> twice, which only covers <i>m</i> = <i>n</i>. They need different names.</p>
+      <p class="say" data-at="4" data-until="4"><b>Redo the work.</b> With separate names, the algebra changes. The draft's calculation was for <i>n</i>², not <i>mn</i>.</p>
+      <p class="say" data-at="5"><b>Give the reason.</b> “Odd” means 2 · (an integer) + 1, so say that 2<i>jk</i> + <i>j</i> + <i>k</i> is an integer. Now every line follows from the ones before it.</p>
+      <div class="proof" style="font-size:17px">
+        <span class="pl" data-at="1" data-until="1" style="color:var(--ink-3)">m, n odd</span>
+        <span class="pl" data-at="2" data-until="5">Let <i>m</i> and <i>n</i> be odd integers.</span>
+        <span class="pl" data-at="1" data-until="2" style="color:var(--ink-3)">m = 2k + 1, n = 2k + 1</span>
+        <span class="pl" data-at="3" data-until="5">Then <i>m</i> = 2<i>j</i> + 1 and <i>n</i> = 2<i>k</i> + 1 for some integers <i>j</i> and <i>k</i>.</span>
+        <span class="pl" data-at="1" data-until="3" style="color:var(--ink-3)">mn = 4k² + 4k + 1 = 2(2k² + 2k) + 1</span>
+        <span class="pl" data-at="4" data-until="5">So <i>mn</i> = (2<i>j</i> + 1)(2<i>k</i> + 1) = 4<i>jk</i> + 2<i>j</i> + 2<i>k</i> + 1 = 2(2<i>jk</i> + <i>j</i> + <i>k</i>) + 1.</span>
+        <span class="pl" data-at="1" data-until="4" style="color:var(--ink-3)">∴ odd ∎</span>
+        <span class="pl" data-at="5">Since 2<i>jk</i> + <i>j</i> + <i>k</i> is an integer, <i>mn</i> is odd. ∎</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Rules of thumb</span><h2>Six habits of readable proofs</h2></div>
+    <div class="cards">
+      <div class="card"><span class="k">1</span><h3>Write sentences</h3><p>A proof is prose with some symbols in it. “Then”, “so” and “since” carry the logic that arrows hide.</p></div>
+      <div class="card"><span class="k">2</span><h3>Introduce every letter</h3><p>Before using <i>x</i>, say what it is: “Let <i>x</i> be arbitrary”, “Let <i>x</i> = 3”, or “there is an integer <i>x</i> with …”.</p></div>
+      <div class="card"><span class="k">3</span><h3>One name per object</h3><p>Two numbers promised by two different ∃ givens get two different names, even if they play the same role.</p></div>
+      <div class="card"><span class="k">4</span><h3>Announce the plan</h3><p>“We prove the contrapositive.” “Suppose, for contradiction, …” “Case 1: …” One phrase saves the reader from guessing the structure.</p></div>
+      <div class="card"><span class="k">5</span><h3>Go forwards</h3><p>Start from what you know and end at the goal. Scratch work often runs backwards from the goal; the written proof reverses it.</p></div>
+      <div class="card"><span class="k">6</span><h3>Leave out the search</h3><p>How you found the witness belongs in scratch work. The proof just says “Let <i>δ</i> = <i>ε</i>/2” and shows it works.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A proof says: “Suppose <i>x</i>² − 4 = 0. Then <i>x</i> = 2.” What's wrong?</p>
+      <div class="opts">
+        <button data-ok data-why="x² = 4 gives x = 2 or x = −2. Writing each step as a full sentence with its reason (“taking square roots”) makes the missing case easier to spot.">It drops the case x = −2</button>
+        <button data-why="It's fine to start with “Suppose”. The trouble is the step after it.">You can't assume an equation</button>
+        <button data-why="The step is wrong, not just terse: x = −2 also satisfies x² − 4 = 0.">Nothing, it's just short</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Which opening is best for proving “for every real <i>x</i> &gt; 0, <i>x</i> + 1/<i>x</i> ≥ 2”?</p>
+      <div class="opts">
+        <button data-ok data-why="It introduces x, says exactly what's known about it, and nothing more.">“Let x be a positive real number.”</button>
+        <button data-why="That starts from the goal, which is what you're trying to prove. Start from what you know.">“x + 1/x ≥ 2.”</button>
+        <button data-why="An example is a check, not a start. The proof must work for every positive x.">“Take x = 1: then 1 + 1 = 2 ≥ 2.”</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FOOTNOTES -->
+<li>Most proof textbooks include a section of writing advice; Hammack's <i>Book of Proof</i> has one in its chapter on direct proof, and Sundstrom's <i>Mathematical Reasoning</i> lists writing guidelines throughout.</li>

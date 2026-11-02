@@ -1,0 +1,108 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Proofs in books and papers are written for readers who already know the standard moves, so the routine ones are left out. Reading a proof means <b>putting them back</b>: at every line, knowing what the givens and goal are, and which move produced the line.</p>
+    </div>
+    <div class="hero-art">
+      <div class="theorem"><span class="k">Theorem</span><p>If <i>n</i>² is even, then <i>n</i> is even.</p></div>
+      <div class="proof mt-s"><span class="h">Proof.</span> If <i>n</i> is odd, <i>n</i>² is odd. <span class="qed"></span></div>
+      <p class="small muted mt-s">A complete, correct proof, as you might see it in print. Below, every move it skips is put back.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Unpack it</span><h2>Four moves hiding in one line</h2><p>Step through. Each step names a move the author expected you to supply, and the board shows what it does to the givens and goal.</p></div>
+    <div class="lab stepper">
+      <p class="say" data-at="1" data-until="1"><b>Spot the form.</b> The theorem is “if <i>n</i>² even, then <i>n</i> even”, but the proof starts from “<i>n</i> odd”, the negation of the conclusion. So it's proving the <b>contrapositive</b>: <i>n</i> odd → <i>n</i>² odd.</p>
+      <p class="say" data-at="2" data-until="2"><b>Unpack the definition.</b> “<i>n</i> is odd” hides an ∃: <i>n</i> = 2<i>k</i> + 1 for some integer <i>k</i>. The author didn't write it.</p>
+      <p class="say" data-at="3" data-until="3"><b>Do the algebra.</b> “<i>n</i>² is odd” needs a calculation the author thought was obvious: <i>n</i>² = 2(2<i>k</i>² + 2<i>k</i>) + 1.</p>
+      <p class="say" data-at="4"><b>Close the loop.</b> Odd means not even, so we've shown: not (<i>n</i> even) → not (<i>n</i>² even). That's the contrapositive, which is equivalent to the theorem.</p>
+      <div class="split top" style="gap:20px">
+        <div class="board">
+          <div><h4>Givens</h4><ul><li data-at="1" class="new"><i>n</i> is odd</li><li data-at="2" class="new"><i>n</i> = 2<i>k</i> + 1</li></ul></div>
+          <div><h4>Goal</h4><ul><li data-at="1" data-until="3" class="new"><i>n</i>² is odd</li><li data-at="3" data-until="3" class="new"><i>n</i>² = 2(…) + 1</li><li data-at="4" class="done"><i>n</i>² is odd</li></ul></div>
+        </div>
+        <div class="proof">
+          <span class="pl" data-at="1">We prove the contrapositive. Suppose <i>n</i> is odd.</span>
+          <span class="pl in1" data-at="2">Then <i>n</i> = 2<i>k</i> + 1 for some integer <i>k</i>.</span>
+          <span class="pl in1" data-at="3">So <i>n</i>² = 4<i>k</i>² + 4<i>k</i> + 1 = 2(2<i>k</i>² + 2<i>k</i>) + 1, which is odd.</span>
+          <span class="pl" data-at="4">Hence if <i>n</i>² is even, <i>n</i> is even. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Follow the hypotheses</span>
+        <h2>Where is each one used?</h2>
+        <p>Every hypothesis in a theorem should be used somewhere in its proof. Tap one to light up the lines that depend on it.</p>
+        <p>Then <b>drop it</b> and see a counterexample: the theorem really does need it. If a proof never uses a hypothesis, either the proof has a gap or the theorem is true without it.</p>
+      </div>
+      <div class="lab" id="rp">
+        <div class="theorem"><span class="k">Theorem</span><p>For integers <i>a</i>, <i>b</i>, <i>c</i>: if <span class="chip" style="font-size:15px">H1: <i>a</i> | <i>b</i></span> and <span class="chip" style="font-size:15px">H2: <i>a</i> | <i>c</i></span>, then <i>a</i> | (<i>b</i> + <i>c</i>).</p></div>
+        <div class="row mt-s"><button class="tbtn" data-h="H1" aria-pressed="false">Where is H1 used?</button><button class="tbtn" data-h="H2" aria-pressed="false">Where is H2 used?</button></div>
+        <div class="proof mt-s" id="rp-proof" style="font-size:16.5px">
+          <span class="pl" data-uses="H1 H2">Suppose <i>a</i> | <i>b</i> and <i>a</i> | <i>c</i>.</span>
+          <span class="pl in1" data-uses="H1">Then <i>b</i> = <i>ja</i> for some integer <i>j</i>,</span>
+          <span class="pl in1" data-uses="H2">and <i>c</i> = <i>ka</i> for some integer <i>k</i>.</span>
+          <span class="pl in1" data-uses="H1 H2">So <i>b</i> + <i>c</i> = <i>ja</i> + <i>ka</i> = (<i>j</i> + <i>k</i>)<i>a</i>.</span>
+          <span class="pl" data-uses="H1 H2">Since <i>j</i> + <i>k</i> is an integer, <i>a</i> | (<i>b</i> + <i>c</i>). ∎</span>
+        </div>
+        <p class="note" id="rp-msg">Tap a hypothesis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">A routine</span><h2>Three passes through any proof</h2></div>
+    <div class="cards">
+      <div class="card"><span class="k">Before</span><h3>Plan it yourself</h3><p>Read only the theorem. Write its logical form. Which technique would you try? Now the proof is answering a question you already asked.</p></div>
+      <div class="card"><span class="k">During</span><h3>Justify every line</h3><p>For each sentence, name what it follows from: a hypothesis, an earlier line, a definition, or a known theorem. Keep a givens-and-goal board as you go.</p></div>
+      <div class="card"><span class="k">After</span><h3>Test and retell</h3><p>Run the proof on a specific example. Drop a hypothesis and find what breaks. Then summarise the proof as its list of moves, without looking.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>You finish reading a proof and notice it never used the hypothesis “<i>n</i> &gt; 0”. What follows?</p>
+      <div class="opts">
+        <button data-ok data-why="Both happen in practice. Look for a step that silently needs n > 0 (like dividing by n). If there's none, you've found a stronger theorem.">Either a step quietly needs it, or the theorem holds without it</button>
+        <button data-why="An unused hypothesis is a signal worth chasing, not proof that something is wrong.">The proof must be wrong</button>
+        <button data-why="It matters: either there's a hidden use, or you've learned the theorem is more general.">Nothing: hypotheses are often decoration</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById("rp"), msg = document.getElementById("rp-msg");
+  var CE = {
+    H1: "<b>Drop H1:</b> with <i>a</i> = 2, <i>b</i> = 1, <i>c</i> = 4, we have 2 | 4 but 2 ∤ 5. The theorem fails, so H1 is needed. The lines that use it are lit.",
+    H2: "<b>Drop H2:</b> with <i>a</i> = 2, <i>b</i> = 4, <i>c</i> = 1, we have 2 | 4 but 2 ∤ 5. The theorem fails, so H2 is needed. The lines that use it are lit."
+  };
+  root.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-h]"); if (!b) return;
+    var h = b.getAttribute("data-h");
+    document.getElementById("rp-proof").classList.add("dim");
+    root.querySelectorAll("[data-h]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    root.querySelectorAll("[data-uses]").forEach(function (l) { l.classList.toggle("lit", (" " + l.getAttribute("data-uses") + " ").indexOf(" " + h + " ") >= 0); });
+    msg.innerHTML = CE[h];
+  });
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The habit of asking where each hypothesis is used is stressed in Houston's <i>How to Think Like a Mathematician</i>; Solow's <i>How to Read and Do Proofs</i> is built around recovering the hidden steps.</li>

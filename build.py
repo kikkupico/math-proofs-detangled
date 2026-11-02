@@ -22,60 +22,73 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 OUT = ROOT / "site"
 
-# (slug, short label, title, tagline, book reference)
+# (slug, short label, title, tagline, further reading: see READING below)
 PARTS = [
     {
         "key": "purpose", "no": 1, "name": "Purpose", "blurb": "Why proofs exist, and why they need their own language.",
         "glyph": "?",
         "pages": [
-            ("why-proofs", "Why proofs?", "Why we need proofs", "Because patterns lie.", "Introduction"),
-            ("why-language", "Why a language?", "Why we need a mathematical language", "Because English is slippery.", "§1.1"),
+            ("why-proofs", "Why proofs?", "Why we need proofs", "Because patterns lie.", "V:Introduction|L"),
+            ("why-language", "Why a language?", "Why we need a mathematical language", "Because English is slippery.", "H:Logic|V:§1.1"),
         ],
     },
     {
         "key": "tools", "no": 2, "name": "Tools", "blurb": "The symbols and ideas every proof is written in.",
         "glyph": "∧",
         "pages": [
-            ("connectives", "Connectives", "Connectives", "Not, and, or: the atoms of reasoning.", "§1.1"),
-            ("truth-tables", "Truth tables", "Truth Tables", "Check any formula by brute force.", "§1.2"),
-            ("sets", "Variables & sets", "Variables and Sets", "Sets are statements you can hold.", "§1.3"),
-            ("set-operations", "Set operations", "Set Operations", "∩, ∪ and ∖ are ∧, ∨ and “and not”.", "§1.4"),
-            ("conditionals", "Conditionals", "Conditionals and Biconditionals", "If, only if, if and only if.", "§1.5"),
-            ("quantifiers", "Quantifiers", "Quantifiers", "All. Some. And why order matters.", "§2.1"),
-            ("quantifier-laws", "Quantifier laws", "Quantifier Equivalences", "Negate anything, one step at a time.", "§2.2"),
-            ("power-sets", "Power sets", "Power Sets", "Every subset, collected into one set.", "§2.3"),
-            ("families", "Unions & intersections", "Arbitrary Unions and Intersections", "⋃ and ⋂ over whole families of sets.", "§2.3"),
-            ("functions", "Functions", "Functions", "One input, exactly one output.", "§5.1–5.3"),
+            ("connectives", "Connectives", "Connectives", "Not, and, or: the atoms of reasoning.", "H:Logic|V:§1.1"),
+            ("truth-tables", "Truth tables", "Truth Tables", "Check any formula by brute force.", "H:Logic|V:§1.2"),
+            ("sets", "Variables & sets", "Variables and Sets", "Sets are statements you can hold.", "H:Sets|V:§1.3"),
+            ("set-operations", "Set operations", "Set Operations", "∩, ∪ and ∖ are ∧, ∨ and “and not”.", "H:Sets|V:§1.4"),
+            ("conditionals", "Conditionals", "Conditionals and Biconditionals", "If, only if, if and only if.", "H:Logic|V:§1.5"),
+            ("quantifiers", "Quantifiers", "Quantifiers", "All. Some. And why order matters.", "H:Logic|V:§2.1"),
+            ("quantifier-laws", "Quantifier laws", "Quantifier Equivalences", "Negate anything, one step at a time.", "H:Logic|V:§2.2"),
+            ("power-sets", "Power sets", "Power Sets", "Every subset, collected into one set.", "H:Sets|V:§2.3"),
+            ("families", "Unions & intersections", "Arbitrary Unions and Intersections", "⋃ and ⋂ over whole families of sets.", "H:Sets|V:§2.3"),
+            ("functions", "Functions", "Functions", "One input, exactly one output.", "H:Functions|V:Chapter 5"),
         ],
     },
     {
         "key": "techniques", "no": 3, "name": "Techniques", "blurb": "The standard moves, each shown on a small example.",
         "glyph": "⊢",
         "pages": [
-            ("direct", "Direct proof", "Direct Proof", "Assume the hypothesis. Walk to the conclusion.", "§3.1"),
-            ("contrapositive", "Contrapositive", "Proof by Contrapositive", "Prove the mirror image instead.", "§3.1–3.2"),
-            ("contradiction", "Contradiction", "Proof by Contradiction", "Assume the opposite and watch it break.", "§3.2"),
-            ("for-all", "Arbitrary objects", "Proving “For All”", "Let x be arbitrary.", "§3.3"),
-            ("exists", "Witnesses", "Proving “There Exists”", "Find one, show it works.", "§3.3"),
-            ("iff", "And & iff", "Conjunctions and Biconditionals", "Two halves, proved one at a time.", "§3.4"),
-            ("cases", "Cases", "Proof by Cases", "Split the world. Cover every piece.", "§3.5"),
-            ("uniqueness", "Uniqueness", "Existence and Uniqueness", "At least one, and at most one.", "§3.6"),
-            ("counterexample", "Counterexamples", "Disproof by Counterexample", "One failure sinks a “for all”.", "§2.2 and §3.3"),
-            ("induction", "Induction", "Proof by Induction", "Infinitely many cases in two steps.", "§6.1–6.4"),
+            ("direct", "Direct proof", "Direct Proof", "Assume the hypothesis. Walk to the conclusion.", "H:Direct Proof|V:§3.1|So"),
+            ("contrapositive", "Contrapositive", "Proof by Contrapositive", "Prove the mirror image instead.", "H:Contrapositive Proof|V:§3.2"),
+            ("contradiction", "Contradiction", "Proof by Contradiction", "Assume the opposite and watch it break.", "H:Proof by Contradiction|V:§3.2"),
+            ("for-all", "Arbitrary objects", "Proving “For All”", "Let x be arbitrary.", "H:Direct Proof|V:§3.3|So"),
+            ("exists", "Witnesses", "Proving “There Exists”", "Find one, show it works.", "H:Proving Non-Conditional Statements|V:§3.3"),
+            ("iff", "And & iff", "Conjunctions and Biconditionals", "Two halves, proved one at a time.", "H:Proving Non-Conditional Statements|V:§3.4"),
+            ("cases", "Cases", "Proof by Cases", "Split the world. Cover every piece.", "H:Direct Proof|V:§3.5"),
+            ("uniqueness", "Uniqueness", "Existence and Uniqueness", "At least one, and at most one.", "H:Proving Non-Conditional Statements|V:§3.6"),
+            ("counterexample", "Counterexamples", "Disproof by Counterexample", "One failure sinks a “for all”.", "H:Disproof|V:§2.2"),
+            ("induction", "Induction", "Proof by Induction", "Infinitely many cases in two steps.", "H:Mathematical Induction|V:§6.1"),
+            ("strong-induction", "Strong induction", "Strong Induction and Well-Ordering", "Lean on every smaller case, not just the last one.", "H:Mathematical Induction|V:§6.4"),
+            ("pigeonhole", "Pigeonhole", "The Pigeonhole Principle", "More pigeons than holes: two must share.", "H:Counting|E"),
         ],
     },
     {
         "key": "examples", "no": 4, "name": "Examples", "blurb": "Complete proofs where tools and techniques work together.",
         "glyph": "∎",
         "pages": [
-            ("divisibility", "Divisibility", "Divisibility Is Transitive", "Three nested blocks, one clean proof.", "Theorem 3.3.6"),
-            ("mersenne", "Mersenne numbers", "Composite n Gives Composite 2ⁿ − 1", "A proof that builds the factors.", "Theorem 3.7.1"),
-            ("infinite-primes", "Infinite primes", "There Are Infinitely Many Primes", "Euclid's argument, move by move.", "Theorem 3.7.2"),
-            ("sqrt2", "√2 is irrational", "√2 Is Irrational", "A contradiction with a lemma inside.", "§6.4"),
-            ("set-identity", "A set identity", "A ∖ (B ∪ C) = (A ∖ B) ∩ (A ∖ C)", "De Morgan's law, wearing set clothes.", "§1.4 and §3.4"),
-            ("power-set-meet", "Power sets meet", "𝒫(A ∩ B) = 𝒫(A) ∩ 𝒫(B)", "Subsets of subsets, chased element by element.", "§2.3 and §3.3"),
-            ("sum-of-powers", "Sum of powers", "1 + 2 + 4 + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1", "Induction, start to finish.", "Example 6.1.1"),
-            ("cantor", "Cantor's theorem", "No Set Is as Big as Its Power Set", "The diagonal trick, made precise.", "§7.2"),
+            ("divisibility", "Divisibility", "Divisibility Is Transitive", "Three nested blocks, one clean proof.", "H:Direct Proof|V:§3.3"),
+            ("mersenne", "Mersenne numbers", "Composite n Gives Composite 2ⁿ − 1", "A proof that builds the factors.", "V:§3.7"),
+            ("infinite-primes", "Infinite primes", "There Are Infinitely Many Primes", "Euclid's argument, move by move.", "H:Proof by Contradiction|V:§3.7"),
+            ("sqrt2", "√2 is irrational", "√2 Is Irrational", "A contradiction with a lemma inside.", "H:Proof by Contradiction|V:§6.4"),
+            ("set-identity", "A set identity", "A ∖ (B ∪ C) = (A ∖ B) ∩ (A ∖ C)", "De Morgan's law, wearing set clothes.", "H:Proofs Involving Sets|V:§1.4"),
+            ("power-set-meet", "Power sets meet", "𝒫(A ∩ B) = 𝒫(A) ∩ 𝒫(B)", "Subsets of subsets, chased element by element.", "H:Proofs Involving Sets|V:§2.3"),
+            ("sum-of-powers", "Sum of powers", "1 + 2 + 4 + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1", "Induction, start to finish.", "H:Mathematical Induction|V:§6.1"),
+            ("cantor", "Cantor's theorem", "No Set Is as Big as Its Power Set", "The diagonal trick, made precise.", "H:Cardinality of Sets|V:§7.2"),
+            ("epsilon-delta", "A limit by ε–δ", "A Limit, by ε–δ", "Every challenge ε gets an answer δ.", "H:Proofs in Calculus"),
+        ],
+    },
+    {
+        "key": "craft", "no": 5, "name": "Craft", "blurb": "Reading, writing and debugging proofs, and what to do when you're stuck.",
+        "glyph": "✎",
+        "pages": [
+            ("reading-proofs", "Reading proofs", "How to Read a Proof", "Recover the moves the author left out.", "So|Ho"),
+            ("writing-proofs", "Writing proofs", "How to Write a Proof", "Sentences, not symbol soup.", "H:Direct Proof|S"),
+            ("mistakes", "Common mistakes", "Common Mistakes", "Find the line that breaks.", "Ho|S"),
+            ("stuck", "When you're stuck", "When You're Stuck", "Small cases, working backwards, invariants.", "P|E"),
         ],
     },
 ]
@@ -88,8 +101,29 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          'family=IBM+Plex+Sans:wght@400;500;600&amp;'
          'family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">')
 
-CREDIT = ("Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition "
-          "(Cambridge University Press, 2006). Chapter, section and theorem numbers refer to that edition; the book has the full treatment and the exercises.")
+CREDIT = ("An independent, general guide to proofs. “Further reading” names chapters by title where possible, "
+          "since page and chapter numbers change between editions; section numbers for Velleman's <i>How to Prove It</i> refer to its 2nd edition.")
+
+# Further reading. Each page lists codes separated by "|": "H:<chapter title>" or "V:<section>", or a bare code for a whole book.
+READING = {
+    "H": "Hammack, <i>Book of Proof</i> (free online)",
+    "V": "Velleman, <i>How to Prove It</i>",
+    "S": "Sundstrom, <i>Mathematical Reasoning: Writing and Proof</i> (free online)",
+    "So": "Solow, <i>How to Read and Do Proofs</i>",
+    "P": "Pólya, <i>How to Solve It</i>",
+    "Ho": "Houston, <i>How to Think Like a Mathematician</i>",
+    "L": "Lakatos, <i>Proofs and Refutations</i>",
+    "E": "Engel, <i>Problem-Solving Strategies</i>",
+}
+
+
+def reading(codes):
+    out = []
+    for c in codes.split("|"):
+        book, _, where = c.partition(":")
+        where = f", “{where}”" if book == "H" else f", {where}" if where else ""
+        out.append(READING[book] + where)
+    return "; ".join(out)
 
 
 def build_order():
@@ -158,7 +192,7 @@ def pager(i):
 def footer(cur, notes):
     deeper = ""
     if cur["book"]:
-        deeper = f'<p class="deeper"><b>Go deeper:</b> <i>How to Prove It</i>, {cur["book"]}.</p>'
+        deeper = f'<p class="deeper"><b>Further reading:</b> {reading(cur["book"])}.</p>'
     ol = f"<ol class='notes'>{notes}</ol>" if notes.strip() else ""
     cols = []
     for p in PARTS:

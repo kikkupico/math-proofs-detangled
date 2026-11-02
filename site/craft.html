@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Part 5: Craft · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Reading, writing and debugging proofs, and what to do when you&#x27;re stuck.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-craft">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a><a class="tab t-craft" href="craft.html" aria-current="true"><span class="n">5</span><span class="l">Craft</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Craft pages"><div class="wrap rail-in"><a class="r-hub" href="craft.html" aria-current="page">Overview</a><a href="reading-proofs.html"><span class="i">1</span>Reading proofs</a><a href="writing-proofs.html"><span class="i">2</span>Writing proofs</a><a href="mistakes.html"><span class="i">3</span>Common mistakes</a><a href="stuck.html"><span class="i">4</span>When you&#x27;re stuck</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 5 · 4 pages</p>
+      <h1>Craft</h1>
+      <p class="tagline">Knowing the moves is half of it.</p>
+      <p class="lede">The first four parts teach what proofs are made of. This part is about the work around them: reading a proof someone else wrote, writing one a reader can follow, catching the mistakes everyone makes, and finding a way in when you have no idea where to start.</p>
+    </div>
+    <div class="hero-art">
+      <div class="proof">
+        <p><span class="h">Draft.</span> <span style="color:var(--ink-3)">n odd ⇒ n=2k+1 ⇒ n²=4k²+4k+1 odd ∎</span></p>
+        <p style="margin-top:14px"><span class="h">Proof.</span> Let <i>n</i> be an odd integer. Then <i>n</i> = 2<i>k</i> + 1 for some integer <i>k</i>, so <i>n</i>² = 4<i>k</i>² + 4<i>k</i> + 1 = 2(2<i>k</i>² + 2<i>k</i>) + 1. Since 2<i>k</i>² + 2<i>k</i> is an integer, <i>n</i>² is odd. <span class="qed"></span></p>
+      </div>
+      <p class="small muted mt-s">Same mathematics. Only the second one is a proof a reader can check.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">In this part</span><h2>Four pages</h2></div>
+    <div class="toc">
+      <a href="reading-proofs.html"><span class="no">1</span><div><h3>How to read a proof</h3><p>Published proofs skip the routine moves. Learn to put them back, and to find where each hypothesis is used.</p></div><span class="g">⊢?</span></a>
+      <a href="writing-proofs.html"><span class="no">2</span><div><h3>How to write a proof</h3><p>Turn scratch work into sentences a reader can check, one fix at a time.</p></div><span class="g">✎</span></a>
+      <a href="mistakes.html"><span class="no">3</span><div><h3>Common mistakes</h3><p>Six broken proofs. Find the line that breaks each one.</p></div><span class="g">✗</span></a>
+      <a href="stuck.html"><span class="no">4</span><div><h3>When you're stuck</h3><p>Try small cases, work backwards, look for an invariant. With two puzzles to try.</p></div><span class="g">?</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap statement">
+    <p class="say">A proof is written for a <em>reader</em>, not for the person who already knows it's true.</p>
+    <p class="by">Everything in this part follows from that.</p>
+  </div>
+</section>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="epsilon-delta.html" data-key="prev"><span class="d">← Previous · Part 4 · Examples</span><span class="t">A Limit, by ε–δ</span></a><a class="pg next" href="reading-proofs.html" data-key="next"><span class="d">Next · Part 5 · Craft →</span><span class="t">How to Read a Proof</span><span class="s">Recover the moves the author left out.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a><a href="strong-induction.html">Strong induction</a><a href="pigeonhole.html">Pigeonhole</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a><a href="epsilon-delta.html">A limit by ε–δ</a></div><div><a class="fh t-craft" href="craft.html">5 · Craft</a><a href="reading-proofs.html">Reading proofs</a><a href="writing-proofs.html">Writing proofs</a><a href="mistakes.html">Common mistakes</a><a href="stuck.html">When you&#x27;re stuck</a></div></nav><p class="credit">An independent, general guide to proofs. “Further reading” names chapters by title where possible, since page and chapter numbers change between editions; section numbers for Velleman's <i>How to Prove It</i> refer to its 2nd edition.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

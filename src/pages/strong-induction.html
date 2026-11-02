@@ -1,0 +1,145 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">Ordinary induction lets you use <i>P</i>(<i>n</i>) to prove <i>P</i>(<i>n</i> + 1). <b>Strong induction</b> lets you use <b>every</b> earlier case: <i>P</i>(0), <i>P</i>(1), …, <i>P</i>(<i>n</i> − 1) are all available when you prove <i>P</i>(<i>n</i>). Use it when the case you need isn't the one just before.</p>
+    </div>
+    <div class="hero-art">
+      <div class="outline"><span class="kw">Let</span> <i>n</i> be arbitrary, and <span class="kw">suppose</span>
+   <i>P</i>(<i>k</i>) holds for every <i>k</i> &lt; <i>n</i>.  <span class="c">(strong hypothesis)</span>
+   <span class="c">… show P(n), using any smaller case …</span>
+<span class="kw">By strong induction</span>, ∀<i>n</i> <i>P</i>(<i>n</i>).  ∎</div>
+      <p class="small muted mt-s">No separate base case is written: for the smallest <i>n</i> there are no smaller cases, so the proof must handle it directly. Watch for that.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Why ordinary induction gets stuck</span>
+        <h2>12 doesn't care about 11</h2>
+        <p>Claim: every integer <i>n</i> ≥ 2 is a product of primes. To handle 12, knowing that 11 is a product of primes is no help at all. What helps is 12 = 2 · 6, and then 6 = 2 · 3.</p>
+        <p>The cases you need are <b>smaller</b>, but not <b>one smaller</b>. Strong induction gives you all of them at once.</p>
+        <p>Type a number and watch which earlier cases it actually leans on.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Cases used</span><label class="ctl">n = <input type="number" id="si-n" value="360" min="2" max="1000000" style="width:120px"></label></div>
+        <div class="out" id="si-tree" style="font-size:18px;line-height:1.9"></div>
+        <p class="note" id="si-note"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Every n ≥ 2 is a product of primes</h2><p>Watch it, or switch to <b>You drive</b>. Plug in a number: when <i>n</i> is prime, the givens of Case 2 turn amber, because Case 1 is the one that applies.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The goal is a ∀ over the integers n ≥ 2, and smaller factors will be needed. That points to strong induction.",
+ "vars": [{"n": "n", "v": 84, "min": 2, "max": 100000}],
+ "defs": {"a": "lpf(n)", "b": "quo(n, lpf(n))"},
+ "goal": "∀<i>n</i> ≥ 2: <i>n</i> is a product of primes",
+ "steps": [
+  {"m": "induct", "k": "∀n goal", "h": "Strong induction", "shape": "is ∀n ≥ 2 P(n), and the cases you'll need are smaller but not just n − 1",
+   "say": "Let <i>n</i> ≥ 2 be arbitrary and assume every <i>k</i> with 2 ≤ <i>k</i> &lt; <i>n</i> is a product of primes.",
+   "why": {"intro": "Close, but a plain “let n be arbitrary” gives you nothing to work with. Strong induction lets n be arbitrary <b>and</b> hands you every smaller case."},
+   "lines": [[0, "We use strong induction. Let <i>n</i> ≥ 2, and suppose every <i>k</i> with 2 ≤ <i>k</i> &lt; <i>n</i> is a product of primes."]],
+   "add": [{"id": "ih", "t": "every <i>k</i> with 2 ≤ <i>k</i> &lt; <i>n</i> is a product of primes"}],
+   "goal": {"t": "<i>n</i> is a product of primes", "num": "n = {n}"}},
+  {"m": "cases", "k": "Cases", "h": "Prime or not", "shape": "is about n, and every n ≥ 2 is either prime or not: an “or”",
+   "say": "Either <i>n</i> is prime or it isn't. If it is, it is a product of one prime, and that case is done. Otherwise <i>n</i> = <i>ab</i> with 2 ≤ <i>a</i>, <i>b</i> &lt; <i>n</i>.",
+   "lines": [[1, "Case 1: <i>n</i> is prime. Then it is a product of one prime."], [1, "Case 2: <i>n</i> is not prime. Then <i>n</i> = <i>ab</i> for some integers <i>a</i>, <i>b</i> with 2 ≤ <i>a</i>, <i>b</i> &lt; <i>n</i>."]],
+   "add": [{"id": "ab", "t": "<i>n</i> = <i>ab</i>", "num": "{n} = {a}·{b}", "chk": "n = a*b"}, {"id": "sz", "t": "2 ≤ <i>a</i>, <i>b</i> &lt; <i>n</i>", "num": "a = {a}, b = {b}", "chk": "2 <= a & a < n & 2 <= b & b < n"}],
+   "goal": {"t": "<i>n</i> is a product of primes (Case 2)"}},
+  {"m": "use", "k": "Use the hypothesis", "h": "Lean on smaller cases", "shape": "is about n, and a, b are smaller than n: the strong hypothesis applies",
+   "say": "Both <i>a</i> and <i>b</i> are at least 2 and smaller than <i>n</i>, so the strong hypothesis covers them. Ordinary induction would only cover <i>n</i> − 1.",
+   "lines": [[1, "Since 2 ≤ <i>a</i>, <i>b</i> &lt; <i>n</i>, the hypothesis says <i>a</i> and <i>b</i> are both products of primes."]],
+   "add": [{"id": "ap", "t": "<i>a</i> and <i>b</i> are products of primes", "num": "{a} < {n} and {b} < {n}", "chk": "a < n & b < n"}]},
+  {"m": "use", "k": "Combine", "h": "Glue the products together", "shape": "follows by putting the two products side by side",
+   "say": "Multiply the two products of primes together. The result is a product of primes, and it equals <i>n</i>.",
+   "lines": [[1, "So <i>n</i> = <i>ab</i> is a product of primes too."], [0, "In both cases <i>n</i> is a product of primes. By strong induction, every <i>n</i> ≥ 2 is. ∎"]],
+   "goal": null}
+ ]
+}
+</script></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split top">
+      <div class="copy">
+        <span class="kicker">The same idea, turned around</span>
+        <h2>Well-ordering: take the smallest counterexample</h2>
+        <p><b>Well-ordering principle:</b> every nonempty set of natural numbers has a smallest element. It is equivalent to induction, and it suggests a style of proof by contradiction.</p>
+        <p>Suppose the claim fails. Then the set of counterexamples is nonempty, so it has a <b>smallest</b> member <i>m</i>. Everything below <i>m</i> works. Now show <i>m</i> works too, or find a smaller counterexample. Either way, contradiction.</p>
+        <p>The “lowest terms” step in the <a href="sqrt2.html">√2 proof</a> is exactly this: pick the fraction for √2 with the smallest denominator.</p>
+      </div>
+      <div class="lab stepper" data-done="Contradiction ∎">
+        <p class="say" data-at="1" data-until="1"><b>Claim:</b> every integer <i>n</i> ≥ 2 has a prime factor. Suppose not.</p>
+        <p class="say" data-at="2" data-until="2">The counterexamples form a nonempty set. <b>Take the smallest</b>, <i>m</i>.</p>
+        <p class="say" data-at="3" data-until="3"><i>m</i> isn't prime (a prime is its own prime factor), so <i>m</i> = <i>ab</i> with 2 ≤ <i>a</i> &lt; <i>m</i>.</p>
+        <p class="say" data-at="4"><i>a</i> is smaller than <i>m</i>, so it's not a counterexample: it has a prime factor <i>p</i>. Then <i>p</i> | <i>a</i> | <i>m</i>. So <i>m</i> has one after all.</p>
+        <div class="proof">
+          <span class="pl" data-at="1">Suppose some integer ≥ 2 has no prime factor.</span>
+          <span class="pl" data-at="2">By well-ordering, let <i>m</i> be the smallest such integer.</span>
+          <span class="pl" data-at="3"><i>m</i> is not prime, so <i>m</i> = <i>ab</i> with 2 ≤ <i>a</i> &lt; <i>m</i>.</span>
+          <span class="pl" data-at="4">By minimality, <i>a</i> has a prime factor <i>p</i>, and <i>p</i> | <i>m</i>. Contradiction. ∎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Every amount of postage of 12¢ or more can be made from 4¢ and 5¢ stamps. A proof handles 12, 13, 14 and 15 directly. Which hypothesis does the step for <i>n</i> ≥ 16 need?</p>
+      <div class="opts">
+        <button data-ok data-why="Take the stamps for n − 4 and add one 4¢ stamp. n − 4 is at least 12 but is not n − 1, so ordinary induction doesn't supply it. That's also why four starting cases are needed: the step reaches back four places.">The case n − 4</button>
+        <button data-why="Knowing how to make n − 1 doesn't help: you can't add a 1¢ stamp.">The case n − 1</button>
+        <button data-why="Only one earlier case is needed. Which one lets you add a single stamp?">All cases from 12 to n − 1, every one of them used</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>A strong induction proof never checks a base case separately. Is that a gap?</p>
+      <div class="opts">
+        <button data-ok data-why="For the smallest n the hypothesis is empty, so the step itself must prove P(n) with no help. Check that the step really works there, as Case 1 (n prime) does for n = 2.">Not if the step works even when there are no smaller cases</button>
+        <button data-why="Strong induction can be written without a separate base case, as long as the step covers the smallest n on its own.">Yes, it is always a gap</button>
+        <button data-why="The base case doesn't disappear. It hides inside the step, which must handle it with no earlier cases to use.">No: strong induction never needs a base case</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var inp = document.getElementById("si-n"), tree = document.getElementById("si-tree"), note = document.getElementById("si-note");
+  function lpf(n) { for (var d = 2; d * d <= n; d++) if (n % d === 0) return d; return n; }
+  function run() {
+    var n = parseInt(inp.value, 10);
+    if (!(n >= 2 && n <= 1e6)) { tree.textContent = ""; note.textContent = "Choose a whole number from 2 to 1,000,000."; return; }
+    var used = [], lines = [];
+    (function walk(m, depth) {
+      var p = lpf(m), pad = new Array(depth + 1).join("&nbsp;&nbsp;&nbsp;&nbsp;");
+      if (p === m) { lines.push(pad + m + ' <span class="chip yes">prime</span>'); return; }
+      var q = m / p;
+      lines.push(pad + m + " = " + p + " · " + q);
+      used.push(p, q);
+      walk(p, depth + 1); walk(q, depth + 1);
+    })(n, 0);
+    tree.innerHTML = lines.join("<br>");
+    var uniq = used.filter(function (v, i) { return used.indexOf(v) === i; }).sort(function (a, b) { return a - b; });
+    note.innerHTML = uniq.length ? "To prove the claim for " + n + ", this used the cases " + uniq.join(", ") + ". " +
+      (uniq.indexOf(n - 1) >= 0 ? "" : "<b>Not one of them is " + (n - 1) + ".</b>") : n + " is prime, so it needs no earlier case.";
+  }
+  inp.addEventListener("input", run); run();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The postage problem is a standard strong-induction exercise. Strong induction, ordinary induction and well-ordering can each be proved from the others.</li>

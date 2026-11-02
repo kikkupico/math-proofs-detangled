@@ -253,7 +253,7 @@
        }
      Expressions use a small exact-integer language: + − · ^ ! ( ), implicit products (2k, ed),
      = ≠ < ≤ > ≥, a | b (divides), & (and), and geo(r, n) = 1 + r + ⋯ + r^(n−1), fact, gcd, max, min,
-     isprime (1 or 0). Var labels: {n, label} shows label instead of the letter. */
+     isprime (1 or 0), lpf (least prime factor), quo (integer quotient). Var labels: {n, label} shows label instead of the letter. */
   var MOVES = [
     ["intro", "Let … be arbitrary", "fits a goal that starts with ∀ (a ⊆ goal is a hidden ∀)"],
     ["assume", "Assume the hypothesis", "fits a goal of the form P → Q"],
@@ -274,6 +274,8 @@
       fact: function (n) { var t = 1n; for (var j = 2n; j <= n; j++) t *= j; return t; },
       gcd: function (a, b) { a = a < 0n ? -a : a; b = b < 0n ? -b : b; while (b) { var t = a % b; a = b; b = t; } return a; },
       max: function (a, b) { return a > b ? a : b; }, min: function (a, b) { return a < b ? a : b; },
+      quo: function (a, b) { if (b === 0n) fail("Division by zero."); return a / b; },
+      lpf: function (n) { if (n < 2n) return n; for (var d = 2n; d * d <= n; d++) if (n % d === 0n) return d; return n; },
       isprime: function (n) {
         if (n > 1n << 40n) fail("That number is too big to test here.");
         if (n < 2n) return 0n;

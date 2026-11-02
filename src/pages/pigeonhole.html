@@ -1,0 +1,159 @@
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{title}}</h1>
+      <p class="tagline">{{tagline}}</p>
+      <p class="lede">If <i>n</i> + 1 objects go into <i>n</i> boxes, some box gets at least two. It sounds too obvious to be useful. The skill is in <b>choosing the boxes</b>: once you've picked them well, the principle finishes the proof in one line.</p>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">General form</div>
+        <p class="mb" style="font-size:21px">If <i>N</i> objects go into <i>k</i> boxes, some box holds at least ⌈<i>N</i>/<i>k</i>⌉.</p>
+        <p class="note">⌈<i>x</i>⌉ means <i>x</i> rounded up. Why it's true, by contradiction: if every box held fewer than <i>N</i>/<i>k</i>, the total would be less than <i>k</i> · <i>N</i>/<i>k</i> = <i>N</i>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Try to beat it</span>
+        <h2>Spread them out as evenly as you can</h2>
+        <p>Set the number of objects and boxes, then drop objects in. The fullest box can never hold fewer than ⌈<i>N</i>/<i>k</i>⌉.</p>
+        <p><b>Spread evenly</b> is the best anyone can do, and it still hits the bound exactly.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top">
+          <label class="ctl">objects <b id="ph-nv" style="color:var(--ink)">10</b><input type="range" id="ph-n" min="1" max="30" value="10"></label>
+          <label class="ctl">boxes <b id="ph-kv" style="color:var(--ink)">3</b><input type="range" id="ph-k" min="1" max="8" value="3"></label>
+        </div>
+        <div class="row"><button class="tbtn primary" id="ph-even">Spread evenly</button><button class="tbtn" id="ph-rand">Drop at random</button></div>
+        <div id="ph-boxes" style="display:flex;gap:8px;align-items:flex-end;min-height:170px;margin-top:16px"></div>
+        <p class="note" id="ph-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Choosing the boxes</span>
+        <h2>Six numbers from 1 to 10</h2>
+        <p><b>Claim:</b> however you choose 6 different numbers from {1, …, 10}, two of them add up to 11.</p>
+        <p>The boxes are the five pairs that add to 11: {1, 10}, {2, 9}, {3, 8}, {4, 7}, {5, 6}. Six numbers, five pairs: two numbers land in the same pair, and they add to 11.</p>
+        <p>Try to choose six numbers that dodge it.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Pick numbers</span><button class="tbtn" id="pk-reset">Clear</button></div>
+        <div id="pk-grid" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px"></div>
+        <p class="note" id="pk-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>The one creative step is choosing the boxes. In <b>You drive</b>, try the tempting wrong choices and see why each fails.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "The goal starts with “for every choice of 6 numbers”: a ∀.",
+ "goal": "For every set <i>S</i> of 6 numbers from {1, …, 10}, two elements of <i>S</i> add to 11",
+ "steps": [
+  {"m": "intro", "k": "∀ goal", "h": "An arbitrary choice", "shape": "starts with ∀ (“every set S”)",
+   "say": "Let <i>S</i> be any 6 different numbers from 1 to 10. We may only use that: 6 numbers, all different, all between 1 and 10.",
+   "lines": [[0, "Let <i>S</i> be a set of 6 numbers from {1, …, 10}."]],
+   "add": [{"id": "s", "t": "<i>S</i> ⊆ {1, …, 10}, |<i>S</i>| = 6"}],
+   "goal": {"t": "∃<i>x</i>, <i>y</i> ∈ <i>S</i>, <i>x</i> ≠ <i>y</i>, <i>x</i> + <i>y</i> = 11"}},
+  {"gift": true, "k": "The creative step", "h": "Choose the boxes",
+   "say": "The boxes are the pairs that add to 11. Every number from 1 to 10 is in exactly one of them.",
+   "pick": {"q": "Which boxes make the pigeonhole principle finish the proof?", "opts": [
+     {"t": "the pairs {1,10}, {2,9}, {3,8}, {4,7}, {5,6}", "ok": true},
+     {"t": "odd numbers and even numbers", "why": "Two numbers in the same box are both odd or both even, so their sum is even. It can't be 11."},
+     {"t": "remainders mod 5", "why": "Two numbers with the same remainder differ by 5, like 1 and 6. Their sum is 7, not 11."},
+     {"t": "{1,…,5} and {6,…,10}", "why": "Only two boxes, and two numbers in the same half, like 1 and 2, needn't add to 11."}]},
+   "lines": [[0, "Group 1, …, 10 into the five pairs {1, 10}, {2, 9}, {3, 8}, {4, 7}, {5, 6}."]],
+   "add": [{"id": "boxes", "t": "5 boxes: the pairs adding to 11"}]},
+  {"m": "use", "k": "Pigeonhole", "h": "Six objects, five boxes", "shape": "asks for two elements in one pair, and the pigeonhole principle is a theorem you can use",
+   "say": "6 numbers go into 5 pairs, so some pair contains two of them.",
+   "lines": [[0, "<i>S</i> has 6 elements and there are 5 pairs, so by the pigeonhole principle two elements <i>x</i> ≠ <i>y</i> of <i>S</i> lie in the same pair."]],
+   "add": [{"id": "xy", "t": "<i>x</i>, <i>y</i> ∈ <i>S</i> in the same pair"}]},
+  {"m": "use", "k": "Definition", "h": "Same pair, sum 11", "shape": "follows from how the pairs were built",
+   "say": "Each pair was built to add to 11.",
+   "lines": [[0, "Each pair adds to 11, so <i>x</i> + <i>y</i> = 11. ∎"]],
+   "goal": null}
+ ]
+}
+</script></div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Among any 5 integers, two have the same remainder when divided by 4. What are the boxes?</p>
+      <div class="opts">
+        <button data-ok data-why="Every integer has remainder 0, 1, 2 or 3. Five integers, four remainders: two share one.">The four possible remainders 0, 1, 2, 3</button>
+        <button data-why="The integers are the objects, not the boxes.">The five integers</button>
+        <button data-why="There are infinitely many multiples of 4. The boxes must be few: fewer than the objects.">The multiples of 4</button>
+      </div>
+    </div>
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>What kind of statement does the pigeonhole principle prove?</p>
+      <div class="opts">
+        <button data-ok data-why="It proves two objects share a box, without saying which ones. Proofs like this are called non-constructive.">An existence statement, without naming the example</button>
+        <button data-why="It never tells you which box. It only says one exists.">It finds the box that has two objects</button>
+        <button data-why="It's a ∃ conclusion: some box has at least two.">A ∀ statement about every box</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var fill = [];
+  function draw(highlight) {
+    var N = +$("ph-n").value, k = +$("ph-k").value, mx = Math.max.apply(null, fill.concat([0])), bound = Math.ceil(N / k);
+    $("ph-nv").textContent = N; $("ph-kv").textContent = k;
+    $("ph-boxes").innerHTML = fill.map(function (c) {
+      var dots = new Array(c + 1).join('<i style="display:block;width:14px;height:14px;border-radius:50%;background:var(--accent);margin:2px auto"></i>');
+      return '<div style="flex:1;min-width:0;border:1.5px solid ' + (c === mx && c > 1 ? "var(--accent)" : "var(--line-2)") + ';border-top:0;border-radius:0 0 6px 6px;padding:4px 2px;min-height:40px;display:flex;flex-direction:column-reverse;align-items:center">' + dots + '<span style="font-family:var(--mono);font-size:12px;color:var(--ink-3)">' + c + "</span></div>";
+    }).join("");
+    $("ph-msg").innerHTML = "Fullest box: <b>" + mx + "</b>. The principle promises at least ⌈" + N + "/" + k + "⌉ = <b>" + bound + "</b>." + (mx === bound ? " Exactly the bound: you can't do better." : "");
+  }
+  function even() { var N = +$("ph-n").value, k = +$("ph-k").value; fill = []; for (var i = 0; i < k; i++) fill.push(Math.floor(N / k) + (i < N % k ? 1 : 0)); draw(); }
+  function rand() { var N = +$("ph-n").value, k = +$("ph-k").value; fill = []; for (var i = 0; i < k; i++) fill.push(0); for (var j = 0; j < N; j++) fill[Math.floor(Math.random() * k)]++; draw(); }
+  $("ph-n").addEventListener("input", even); $("ph-k").addEventListener("input", even);
+  $("ph-even").addEventListener("click", even); $("ph-rand").addEventListener("click", rand);
+  even();
+
+  var chosen = [];
+  function grid() {
+    var pairs = chosen.filter(function (x) { return chosen.indexOf(11 - x) >= 0; });
+    $("pk-grid").innerHTML = [1, 2, 3, 4, 5, 10, 9, 8, 7, 6].map(function (x) {
+      var on = chosen.indexOf(x) >= 0, hit = pairs.indexOf(x) >= 0;
+      return '<button class="tbtn' + (hit ? " primary" : "") + '" aria-pressed="' + on + '" data-x="' + x + '" style="font-family:var(--math);font-size:18px">' + x + "</button>";
+    }).join("");
+    var n = chosen.length;
+    $("pk-msg").innerHTML = pairs.length ? "You have a pair adding to 11: <b>" + pairs.filter(function (x) { return x < 6; }).map(function (x) { return x + " + " + (11 - x); }).join(", ") + "</b>." + (n < 6 ? " (That happened early, by choice.)" : "") :
+      n === 0 ? "Each column is one box: the two numbers in it add to 11." : n < 5 ? n + " chosen, no pair yet. Keep going." :
+      n === 5 ? "5 chosen, one from each column. Your 6th number must go in a column that's already used." : "";
+  }
+  $("pk-grid").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-x]"); if (!b) return;
+    var x = +b.getAttribute("data-x"), i = chosen.indexOf(x);
+    if (i >= 0) chosen.splice(i, 1); else if (chosen.length < 6) chosen.push(x);
+    grid();
+  });
+  $("pk-reset").addEventListener("click", function () { chosen = []; grid(); });
+  grid();
+})();
+</script>
+<!-- FOOTNOTES -->
+<li>The principle is also called Dirichlet's box principle. Engel's <i>Problem-Solving Strategies</i> has a whole chapter of harder examples.</li>

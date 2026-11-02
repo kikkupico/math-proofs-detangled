@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>When You&#x27;re Stuck · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Small cases, working backwards, invariants.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-craft">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html"><span class="n">4</span><span class="l">Examples</span></a><a class="tab t-craft" href="craft.html" aria-current="true"><span class="n">5</span><span class="l">Craft</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Craft pages"><div class="wrap rail-in"><a class="r-hub" href="craft.html">Overview</a><a href="reading-proofs.html"><span class="i">1</span>Reading proofs</a><a href="writing-proofs.html"><span class="i">2</span>Writing proofs</a><a href="mistakes.html"><span class="i">3</span>Common mistakes</a><a href="stuck.html" aria-current="page"><span class="i">4</span>When you&#x27;re stuck</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 5 · Craft · 4 of 4</p>
+      <h1>When You're Stuck</h1>
+      <p class="tagline">Small cases, working backwards, invariants.</p>
+      <p class="lede">The techniques tell you what to do once you can see the shape of a proof. Sometimes you can't. Then it helps to have a few strategies for exploring. They come from George Pólya's <i>How to Solve It</i>, still the classic on the subject.</p>
+    </div>
+    <div class="hero-art">
+      <div class="toc">
+        <a href="#small" style="padding:14px 18px"><span class="no">1</span><div><h3>Understand the problem</h3><p>What's given? What's the goal? Try an example.</p></div></a>
+        <a href="#small" style="padding:14px 18px"><span class="no">2</span><div><h3>Make a plan</h3><p>Small cases, work backwards, look for an invariant.</p></div></a>
+        <a href="#invariant" style="padding:14px 18px"><span class="no">3</span><div><h3>Carry it out</h3><p>Write it as a proof, checking each step.</p></div></a>
+        <a href="#back" style="padding:14px 18px"><span class="no">4</span><div><h3>Look back</h3><p>Is every hypothesis used? Does it generalise?</p></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="small">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Strategy · try small cases</span>
+        <h2>Compute, guess, then prove</h2>
+        <p>What is 1 + 3 + 5 + ⋯ + (2<i>n</i> − 1), the sum of the first <i>n</i> odd numbers? Don't think yet. Look at the table, then type a formula in <i>n</i> that you think fits.</p>
+        <p>A formula that matches every row is still only a guess: <a href="why-proofs.html">patterns lie</a>. But now you know what to prove, and <a href="induction.html">induction</a> can prove it.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">First n odd numbers</span></div>
+        <div style="max-height:260px;overflow:auto"><table class="tt" id="sc-t"></table></div>
+        <label class="ctl mt-s" style="width:100%;flex-wrap:nowrap"><span class="mb" style="font-size:19px;color:var(--ink);white-space:nowrap">sum =</span><input type="text" class="formula" id="sc-g" placeholder="your formula in n, like 2n + 1" autocomplete="off" spellcheck="false" style="flex:1;min-width:0"></label>
+        <p class="note" id="sc-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Strategy · work backwards</span><h2>Start from the goal</h2><p>Ask: what would I need to know to get the goal? Then what would I need to get that? Keep going until you reach something you have. Then write the proof forwards. The <a href="epsilon-delta.html">ε–δ example</a> finds its <i>δ</i> exactly this way.</p></div>
+    <div class="cards">
+      <div class="card"><span class="k">Goal</span><p class="mb" style="font-size:19px;color:var(--ink)"><i>x</i> + 1/<i>x</i> ≥ 2 for <i>x</i> &gt; 0</p></div>
+      <div class="card"><span class="k">⇐ need</span><p class="mb" style="font-size:19px;color:var(--ink)"><i>x</i>² + 1 ≥ 2<i>x</i> <span class="small muted" style="font-family:var(--sans)">(multiply by <i>x</i> &gt; 0)</span></p></div>
+      <div class="card"><span class="k">⇐ need</span><p class="mb" style="font-size:19px;color:var(--ink)">(<i>x</i> − 1)² ≥ 0 <span class="small muted" style="font-family:var(--sans)">(true!)</span></p></div>
+    </div>
+    <p class="muted mt-s">Now reverse it: “Since (<i>x</i> − 1)² ≥ 0, <i>x</i>² + 1 ≥ 2<i>x</i>. Dividing by <i>x</i> &gt; 0 gives <i>x</i> + 1/<i>x</i> ≥ 2.” Each backwards step must be reversible, which is why the reasons matter. Compare <a href="mistakes.html">mistake 1</a>.</p>
+  </div>
+</section>
+
+<section class="sec tint" id="invariant">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Strategy · find an invariant</span>
+        <h2>Something that never changes</h2>
+        <p>Remove two opposite corners from a chessboard. Can 31 dominoes, each covering two neighbouring squares, cover the remaining 62 squares?</p>
+        <p>Trying placements gets nowhere: there are far too many. Instead, notice what <b>every</b> domino does: it covers one dark square and one light square. So any tiling covers equally many of each. Count what's left.</p>
+        <p>Tap squares to remove or restore them, and watch the count.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top"><span class="lab-title">Board</span><div class="row"><button class="tbtn" id="cb-corners">Opposite corners</button><button class="tbtn" id="cb-full">Full board</button></div></div>
+        <div id="cb" style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:2px;max-width:360px;margin:0 auto"></div>
+        <p class="note" id="cb-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="back">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">More strategies</span><h2>When those don't work</h2></div>
+    <div class="cards">
+      <div class="card"><span class="k">Specialise</span><h3>Make it smaller</h3><p>Prove it for <i>n</i> = 2, or for one particular set, or with an extra assumption. The special case often shows the general idea.</p></div>
+      <div class="card"><span class="k">Generalise</span><h3>Make it bigger</h3><p>Sometimes a stronger statement is easier, especially for induction: a stronger hypothesis gives you more to use in the step.</p></div>
+      <div class="card"><span class="k">Extremal</span><h3>Take the smallest</h3><p>Look at the smallest counterexample, the largest element, the shortest path. Its extreme-ness is extra information. See <a href="strong-induction.html">well-ordering</a>.</p></div>
+      <div class="card"><span class="k">Related problem</span><h3>Have you seen it before?</h3><p>A theorem with the same conclusion, or the same kind of unknown, may hand you the method.</p></div>
+      <div class="card"><span class="k">Draw it</span><h3>Make a picture</h3><p>Venn diagrams for sets, a number line for inequalities, a graph for a function. Then turn what you see into words.</p></div>
+      <div class="card"><span class="k">Look back</span><h3>After it works</h3><p>Was every hypothesis needed? Can the proof be shorter? What else does the method prove?</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var rows = [];
+  for (var n = 1; n <= 12; n++) { var terms = []; for (var k = 1; k <= n; k++) terms.push(2 * k - 1); rows.push({ n: n, terms: terms, sum: n * n }); }
+  function table(match) {
+    $("sc-t").innerHTML = '<tr><th>n</th><th class="left">odd numbers</th><th>sum</th>' + (match ? "<th>guess</th>" : "") + "</tr>" + rows.map(function (r, i) {
+      var t = r.terms.length > 5 ? r.terms.slice(0, 3).join(" + ") + " + ⋯ + " + r.terms[r.terms.length - 1] : r.terms.join(" + ");
+      return "<tr" + (match && match[i] !== r.sum ? ' class="hit"' : "") + "><td>" + r.n + '</td><td class="left">' + t + "</td><td><b>" + r.sum + "</b></td>" +
+        (match ? '<td class="' + (match[i] === r.sum ? "T" : "F") + '">' + (match[i] == null ? "?" : match[i]) + "</td>" : "") + "</tr>";
+    }).join("");
+  }
+  function guess() {
+    var g = $("sc-g").value.trim();
+    if (!g) { table(null); $("sc-msg").textContent = "Look at the sums: do they remind you of anything?"; return; }
+    try {
+      var vals = rows.map(function (r) { var v = window.ProofsExpr(g, { n: BigInt(r.n) }); return typeof v === "bigint" ? Number(v) : null; });
+      table(vals);
+      var bad = vals.filter(function (v, i) { return v !== rows[i].sum; }).length;
+      $("sc-msg").innerHTML = bad ? '<span class="chip no">' + bad + " of 12 rows disagree</span> Try again." :
+        '<span class="chip yes">Matches all 12 rows</span> A good guess, not yet a theorem. Prove it by induction: (2<i>n</i> + 1) is the next odd number, and <i>n</i>² + (2<i>n</i> + 1) = (<i>n</i> + 1)².';
+    } catch (e) { table(null); $("sc-msg").textContent = e.message + " Use n, numbers, + − · ^ and brackets."; }
+  }
+  $("sc-g").addEventListener("input", guess); guess();
+
+  var gone = {};
+  function draw() {
+    var h = "", dark = 0, light = 0;
+    for (var r = 0; r < 8; r++) for (var c = 0; c < 8; c++) {
+      var id = r * 8 + c, d = (r + c) % 2 === 1, off = gone[id];
+      if (!off) { if (d) dark++; else light++; }
+      h += '<button type="button" data-sq="' + id + '" aria-label="square ' + (r + 1) + "," + (c + 1) + (off ? " removed" : "") + '" style="aspect-ratio:1;border:0;padding:0;cursor:pointer;border-radius:2px;background:' +
+        (off ? "transparent;outline:1px dashed var(--line-2);outline-offset:-1px" : d ? "var(--ink-2)" : "var(--line)") + '"></button>';
+    }
+    $("cb").innerHTML = h;
+    var total = dark + light;
+    $("cb-msg").innerHTML = "Left: <b>" + dark + "</b> dark, <b>" + light + "</b> light (" + total + " squares). " +
+      (total % 2 ? '<span class="chip no">Odd number of squares</span> No tiling: each domino covers two.' :
+       dark !== light ? '<span class="chip no">Impossible</span> ' + (total / 2) + " dominoes would cover " + (total / 2) + " dark and " + (total / 2) + " light squares, but the counts differ." :
+       '<span class="chip">Not ruled out</span> The counts match, so this invariant can\'t rule a tiling out. (That doesn\'t prove one exists.)');
+  }
+  $("cb").addEventListener("click", function (e) { var b = e.target.closest("[data-sq]"); if (!b) return; var id = +b.getAttribute("data-sq"); if (gone[id]) delete gone[id]; else gone[id] = true; draw(); });
+  $("cb-corners").addEventListener("click", function () { gone = { 0: true, 63: true }; draw(); });
+  $("cb-full").addEventListener("click", function () { gone = {}; draw(); });
+  gone = { 0: true, 63: true }; draw();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="mistakes.html" data-key="prev"><span class="d">← Previous · Part 5 · Craft</span><span class="t">Common Mistakes</span></a><a class="pg next" href="index.html" data-key="next"><span class="d">Finished →</span><span class="t">Back to the start</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Further reading:</b> Pólya, <i>How to Solve It</i>; Engel, <i>Problem-Solving Strategies</i>.</p><ol class='notes'>
+<li>The four phases are from Pólya's <i>How to Solve It</i> (1945). The mutilated chessboard is a classic invariant puzzle; Engel's <i>Problem-Solving Strategies</i> opens with a chapter on invariants.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a><a href="strong-induction.html">Strong induction</a><a href="pigeonhole.html">Pigeonhole</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a><a href="epsilon-delta.html">A limit by ε–δ</a></div><div><a class="fh t-craft" href="craft.html">5 · Craft</a><a href="reading-proofs.html">Reading proofs</a><a href="writing-proofs.html">Writing proofs</a><a href="mistakes.html">Common mistakes</a><a href="stuck.html">When you&#x27;re stuck</a></div></nav><p class="credit">An independent, general guide to proofs. “Further reading” names chapters by title where possible, since page and chapter numbers change between editions; section numbers for Velleman's <i>How to Prove It</i> refer to its 2nd edition.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -42,7 +42,7 @@
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head"><span class="kicker">In this part</span><h2>Ten techniques</h2></div>
+    <div class="sec-head"><span class="kicker">In this part</span><h2>Twelve techniques</h2></div>
     <div class="toc">
       <a href="direct.html"><span class="no">1</span><div><h3>Direct proof</h3><p>To prove P → Q, assume P and derive Q.</p></div><span class="g">P ⇒ Q</span></a>
       <a href="contrapositive.html"><span class="no">2</span><div><h3>Contrapositive</h3><p>Prove ¬Q → ¬P instead. Same statement, easier start.</p></div><span class="g">¬Q ⇒ ¬P</span></a>
@@ -54,6 +54,8 @@
       <a href="uniqueness.html"><span class="no">8</span><div><h3>Uniqueness</h3><p>Exactly one: show one exists, and any two are equal.</p></div><span class="g">∃!</span></a>
       <a href="counterexample.html"><span class="no">9</span><div><h3>Counterexamples</h3><p>Disprove a “for all” with a single failure.</p></div><span class="g">¬∀</span></a>
       <a href="induction.html"><span class="no">10</span><div><h3>Induction</h3><p>Prove ∀n ∈ ℕ P(n) with a base case and a step.</p></div><span class="g">n → n+1</span></a>
+      <a href="strong-induction.html"><span class="no">11</span><div><h3>Strong induction</h3><p>Use every smaller case, or take the smallest counterexample.</p></div><span class="g">k &lt; n</span></a>
+      <a href="pigeonhole.html"><span class="no">12</span><div><h3>Pigeonhole</h3><p>More objects than boxes: two share a box. The art is choosing the boxes.</p></div><span class="g">n+1 → n</span></a>
     </div>
   </div>
 </section>
@@ -61,7 +63,7 @@
 <section class="sec tint">
   <div class="wrap statement">
     <p class="say">“I shall make no assertion <em>before its time</em>.”</p>
-    <p class="by">Velleman's motto for proof writing. Every line must be justified by what came before it. You can <b>assume</b> things temporarily, as long as you know that's what you're doing.</p>
+    <p class="by">A good rule for proof writing. Every line must be justified by what came before it. You can <b>assume</b> things temporarily, as long as you know that's what you're doing.</p>
   </div>
 </section>
 
@@ -92,4 +94,4 @@
 })();
 </script>
 <!-- FOOTNOTES -->
-<li>The givens-and-goal model and the strategy for each logical form follow Velleman Chapter 3 and the Summary of Proof Techniques.</li>
+<li>The givens-and-goal model is the one used in Velleman's <i>How to Prove It</i>; Solow's “forward–backward method” in <i>How to Read and Do Proofs</i> is the same idea.</li>

@@ -1,15 +1,16 @@
 # Proofs, Detangled
 
-An interactive guide to reading, planning and writing mathematical proofs, built as a companion to Daniel J. Velleman's *How to Prove It: A Structured Approach* (2nd edition).
+An interactive, general guide to reading, planning and writing mathematical proofs. All explanations and demos are original; each page ends with further reading from standard textbooks (Hammack's *Book of Proof*, Velleman's *How to Prove It*, Sundstrom, Solow, Pólya and others).
 
 ## Structure
 
-The guide has four parts. Each part has an overview page and several short pages.
+The guide has five parts. Each part has an overview page and several short pages.
 
 1. **Purpose** — why we need proofs (patterns lie) and why we need a mathematical language (English is ambiguous).
 2. **Tools** — connectives, truth tables, variables and sets, set operations, conditionals and biconditionals, quantifiers, quantifier equivalences, power sets, arbitrary unions and intersections, functions.
-3. **Techniques** — direct proof, contrapositive, contradiction, arbitrary objects (∀), witnesses (∃), conjunctions and biconditionals, cases, existence and uniqueness, counterexamples, induction. Each is shown on small examples.
-4. **Examples** — complete proofs that combine several tools and techniques: divisibility, Mersenne numbers, infinitely many primes, √2 is irrational, a set identity, power sets of intersections, a sum by induction, and Cantor's theorem.
+3. **Techniques** — direct proof, contrapositive, contradiction, arbitrary objects (∀), witnesses (∃), conjunctions and biconditionals, cases, existence and uniqueness, counterexamples, induction, strong induction and well-ordering, the pigeonhole principle. Each is shown on small examples.
+4. **Examples** — complete proofs that combine several tools and techniques: divisibility, Mersenne numbers, infinitely many primes, √2 is irrational, a set identity, power sets of intersections, a sum by induction, Cantor's theorem, and a limit by ε–δ.
+5. **Craft** — how to read a proof, how to write one, common mistakes (find the broken line), and strategies for when you're stuck (small cases, working backwards, invariants).
 
 ## Interaction
 

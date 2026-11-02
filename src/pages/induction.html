@@ -61,7 +61,7 @@
     <div class="sec-head"><span class="kicker">Variations</span><h2>Other shapes of induction</h2></div>
     <div class="cards">
       <div class="card"><span class="k">Different start</span><h3>Base case n = k</h3><p>To prove <i>P</i>(<i>n</i>) for all <i>n</i> ≥ 5, check <i>P</i>(5) and prove the step for <i>n</i> ≥ 5. For example, 2ⁿ &gt; <i>n</i>² for all <i>n</i> ≥ 5.</p></div>
-      <div class="card"><span class="k">Strong induction</span><h3>Lean on every smaller case</h3><p>Assume <i>P</i>(<i>k</i>) for <b>all</b> <i>k</i> &lt; <i>n</i>, then prove <i>P</i>(<i>n</i>). Used to show every integer ≥ 2 is a product of primes: if <i>n</i> = <i>ab</i>, both <i>a</i> and <i>b</i> are smaller, so they already factor.</p></div>
+      <div class="card"><span class="k">Strong induction</span><h3>Lean on every smaller case</h3><p>Assume <i>P</i>(<i>k</i>) for <b>all</b> <i>k</i> &lt; <i>n</i>, then prove <i>P</i>(<i>n</i>). Used to show every integer ≥ 2 is a product of primes (see <a href="strong-induction.html">Strong induction</a>): if <i>n</i> = <i>ab</i>, both <i>a</i> and <i>b</i> are smaller, so they already factor.</p></div>
       <div class="card"><span class="k">Well-ordering</span><h3>There's always a smallest one</h3><p>Every nonempty set of natural numbers has a smallest element. Equivalent to induction, and often used inside proofs by contradiction: take the smallest counterexample.</p></div>
     </div>
     <div class="callout warn mt-m"><span class="k">Common slip</span><p>Proving the step by assuming <i>P</i>(<i>n</i> + 1) and working backwards, or never using the inductive hypothesis at all. If the hypothesis isn't used, you probably didn't need induction, or you've made a mistake.</p></div>
@@ -133,4 +133,4 @@
 })();
 </script>
 <!-- FOOTNOTES -->
-<li>Induction, strong induction and the well-ordering principle follow Velleman §6.1–6.4.</li>
+<li>Strong induction has its own page: <a href="strong-induction.html">Strong induction</a>.</li>

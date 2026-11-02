@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Limit, by ε–δ · Proofs, Detangled</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Every challenge ε gets an answer δ.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page part-examples">
+<header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="Proofs, Detangled: home"><span class="qed">∎</span><span class="wm">Proofs, Detangled</span></a><nav class="tabs" aria-label="Parts"><a class="tab t-purpose" href="purpose.html"><span class="n">1</span><span class="l">Purpose</span></a><a class="tab t-tools" href="tools.html"><span class="n">2</span><span class="l">Tools</span></a><a class="tab t-techniques" href="techniques.html"><span class="n">3</span><span class="l">Techniques</span></a><a class="tab t-examples" href="examples.html" aria-current="true"><span class="n">4</span><span class="l">Examples</span></a><a class="tab t-craft" href="craft.html"><span class="n">5</span><span class="l">Craft</span></a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header>
+<nav class="rail" aria-label="Examples pages"><div class="wrap rail-in"><a class="r-hub" href="examples.html">Overview</a><a href="divisibility.html"><span class="i">1</span>Divisibility</a><a href="mersenne.html"><span class="i">2</span>Mersenne numbers</a><a href="infinite-primes.html"><span class="i">3</span>Infinite primes</a><a href="sqrt2.html"><span class="i">4</span>√2 is irrational</a><a href="set-identity.html"><span class="i">5</span>A set identity</a><a href="power-set-meet.html"><span class="i">6</span>Power sets meet</a><a href="sum-of-powers.html"><span class="i">7</span>Sum of powers</a><a href="cantor.html"><span class="i">8</span>Cantor&#x27;s theorem</a><a href="epsilon-delta.html" aria-current="page"><span class="i">9</span>A limit by ε–δ</a></div></nav>
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Part 4 · Examples · 9 of 9</p>
+      <h1>A Limit, by ε–δ</h1>
+      <p class="tagline">Every challenge ε gets an answer δ.</p>
+      <div class="theorem mt-m"><span class="k">Theorem</span><p>lim<sub><i>x</i>→3</sub> (2<i>x</i> + 1) = 7.</p></div>
+      <div class="ingredients">
+        <div class="t-tools"><h4>Tools</h4><div class="chips"><a class="chip" href="quantifiers.html">Quantifiers</a><a class="chip" href="conditionals.html">Conditionals</a></div></div>
+        <div class="t-techniques"><h4>Techniques</h4><div class="chips"><a class="chip" href="for-all.html">Arbitrary objects</a><a class="chip" href="exists.html">Witnesses</a><a class="chip" href="direct.html">Direct proof</a></div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="lab">
+        <div class="lab-title" style="margin-bottom:10px">Definition</div>
+        <p class="mb" style="font-size:19px">lim<sub><i>x</i>→<i>a</i></sub> <i>f</i>(<i>x</i>) = <i>L</i> means</p>
+        <p class="mb" style="font-size:19px;margin-top:6px">∀<i>ε</i> &gt; 0 ∃<i>δ</i> &gt; 0 ∀<i>x</i> (0 &lt; |<i>x</i> − <i>a</i>| &lt; <i>δ</i> → |<i>f</i>(<i>x</i>) − <i>L</i>| &lt; <i>ε</i>)</p>
+        <p class="note">Read it as a game. A challenger names any tolerance <i>ε</i>. You answer with a <i>δ</i>. You win if every <i>x</i> within <i>δ</i> of <i>a</i> has <i>f</i>(<i>x</i>) within <i>ε</i> of <i>L</i>. A proof is a strategy that wins for every <i>ε</i>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <span class="kicker">Play the game</span>
+        <h2>Answer every ε with a δ</h2>
+        <p>Choose a function and a challenge <i>ε</i>. Then type your answer <i>δ</i> as a formula in <i>ε</i> (write it as <b>e</b>). The tester samples many <i>x</i> within <i>δ</i> of <i>a</i> and reports the worst one.</p>
+        <p>A formula that wins for one <i>ε</i> may lose for another. Drag the <i>ε</i> slider to check yours holds up.</p>
+        <p class="small muted">Try <b>e/2</b> for 2<i>x</i> + 1. For <i>x</i>², try <b>e/6</b>, then <b>min(1, e/7)</b>, and push <i>ε</i> up to see the difference.</p>
+      </div>
+      <div class="lab">
+        <div class="lab-top">
+          <div class="seg" role="group" aria-label="Function"><button type="button" data-f="0" aria-pressed="true">2<i>x</i> + 1 → 7</button><button type="button" data-f="1" aria-pressed="false"><i>x</i>² → 9</button></div>
+          <label class="ctl">ε = <b id="ed-ev" style="color:var(--ink)">0.5</b><input type="range" id="ed-e" min="-30" max="10" value="-7"></label>
+        </div>
+        <label class="ctl" style="width:100%;flex-wrap:nowrap"><span class="mb" style="font-size:20px;color:var(--ink)"><i>δ</i> =</span><input type="text" class="formula" id="ed-d" value="e/2" autocomplete="off" spellcheck="false" style="flex:1;min-width:0"></label>
+        <svg id="ed-svg" viewBox="0 0 360 230" style="width:100%;height:auto;display:block;margin-top:12px" role="img" aria-label="Graph of the function with the ε band and δ window"></svg>
+        <p class="note" id="ed-msg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="split top">
+      <div class="copy">
+        <span class="kicker">Scratch work</span>
+        <h2>Work backwards from what you need</h2>
+        <p>The proof starts “let <i>δ</i> = <i>ε</i>/2”, which looks like magic. It comes from scratch work done backwards, from the goal to the choice.</p>
+        <p>The scratch work stays out of the finished proof. The proof only has to show that the chosen <i>δ</i> works.</p>
+      </div>
+      <div class="lab stepper">
+        <p class="say" data-at="1" data-until="1">We need |(2<i>x</i> + 1) − 7| &lt; <i>ε</i>. Simplify the left side.</p>
+        <p class="say" data-at="2" data-until="2">It's twice the distance from <i>x</i> to 3. That's the quantity <i>δ</i> controls.</p>
+        <p class="say" data-at="3" data-until="3">So we need |<i>x</i> − 3| &lt; <i>ε</i>/2.</p>
+        <p class="say" data-at="4">Choosing <i>δ</i> = <i>ε</i>/2 guarantees exactly that. For <i>x</i>², the same idea needs one extra trick: first keep <i>x</i> within 1 of 3, so |<i>x</i> + 3| &lt; 7, giving <i>δ</i> = min(1, <i>ε</i>/7).</p>
+        <div class="outline"><span data-at="1">|(2<i>x</i> + 1) − 7| = |2<i>x</i> − 6|</span>
+<span data-at="2">              = 2|<i>x</i> − 3|</span>
+<span data-at="3">2|<i>x</i> − 3| &lt; <i>ε</i>  ⇔  |<i>x</i> − 3| &lt; <i>ε</i>/2</span>
+<span data-at="4" class="kw">so take δ = ε/2</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Proof engine</span><h2>Drive the proof yourself</h2><p>Three quantifiers, three moves, then a calculation. In <b>You drive</b>, try the tempting wrong choices of <i>δ</i>. Tap any line of the proof to rewind to it.</p></div>
+    <div class="engine"><script type="application/json">
+{
+ "intro": "Unpack the limit: the goal is ∀ε > 0 ∃δ > 0 ∀x (…). Its outermost symbol is ∀.",
+ "goal": "∀<i>ε</i> &gt; 0 ∃<i>δ</i> &gt; 0 ∀<i>x</i> (0 &lt; |<i>x</i> − 3| &lt; <i>δ</i> → |(2<i>x</i> + 1) − 7| &lt; <i>ε</i>)",
+ "steps": [
+  {"m": "intro", "k": "∀ goal", "h": "Take any challenge", "shape": "starts with ∀ε",
+   "say": "Let <i>ε</i> &gt; 0 be arbitrary. Whatever we do must work for this unknown <i>ε</i>.",
+   "lines": [[0, "Let <i>ε</i> &gt; 0 be arbitrary."]],
+   "add": [{"id": "e", "t": "<i>ε</i> &gt; 0"}],
+   "goal": {"t": "∃<i>δ</i> &gt; 0 ∀<i>x</i> (0 &lt; |<i>x</i> − 3| &lt; <i>δ</i> → |(2<i>x</i> + 1) − 7| &lt; <i>ε</i>)"}},
+  {"m": "witness", "k": "∃ goal", "h": "Answer with δ", "shape": "starts with ∃δ",
+   "say": "The scratch work says <i>δ</i> = <i>ε</i>/2. It's positive because <i>ε</i> is.",
+   "pick": {"q": "Which δ wins for every ε?", "opts": [
+     {"t": "<i>δ</i> = <i>ε</i>/2", "ok": true},
+     {"t": "<i>δ</i> = <i>ε</i>", "why": "Too generous. With <i>ε</i> = 1 take <i>x</i> = 3.9: |(2<i>x</i> + 1) − 7| = 1.8, which is not &lt; 1."},
+     {"t": "<i>δ</i> = 2<i>ε</i>", "why": "Even worse: the window is four times too wide. With <i>ε</i> = 1, <i>x</i> = 4.5 gives an error of 3."},
+     {"t": "<i>δ</i> = 1/2", "why": "It doesn't shrink with <i>ε</i>. With <i>ε</i> = 0.1, <i>x</i> = 3.4 gives an error of 0.8."}]},
+   "lines": [[0, "Let <i>δ</i> = <i>ε</i>/2, which is positive."]],
+   "add": [{"id": "d", "t": "<i>δ</i> = <i>ε</i>/2 &gt; 0"}],
+   "goal": {"t": "∀<i>x</i> (0 &lt; |<i>x</i> − 3| &lt; <i>δ</i> → |(2<i>x</i> + 1) − 7| &lt; <i>ε</i>)"}},
+  {"m": ["intro", "assume"], "k": "∀ and →", "h": "Take any x in the window", "shape": "starts with ∀x, with an if–then inside",
+   "say": "Let <i>x</i> be arbitrary and assume 0 &lt; |<i>x</i> − 3| &lt; <i>δ</i>.",
+   "lines": [[1, "Let <i>x</i> be any number with 0 &lt; |<i>x</i> − 3| &lt; <i>δ</i>."]],
+   "add": [{"id": "x", "t": "0 &lt; |<i>x</i> − 3| &lt; <i>δ</i>"}],
+   "goal": {"t": "|(2<i>x</i> + 1) − 7| &lt; <i>ε</i>"}},
+  {"m": "use", "k": "Calculate", "h": "Run the scratch work forwards", "shape": "is an inequality you can calculate from the givens",
+   "say": "The same algebra as the scratch work, now running from the givens to the goal.",
+   "lines": [[1, "Then |(2<i>x</i> + 1) − 7| = 2|<i>x</i> − 3| &lt; 2<i>δ</i> = <i>ε</i>."], [0, "So lim<sub><i>x</i>→3</sub> (2<i>x</i> + 1) = 7. ∎"]],
+   "goal": null}
+ ]
+}
+</script></div>
+    <div class="lean"><div class="lean-top"><span class="lab-title">Try it in Lean</span><a class="tbtn primary" href="https://live.lean-lang.org/#code=import%20Mathlib%0A%0A%2F-%21%20lim_%7Bx%20%E2%86%92%203%7D%20%282x%20%2B%201%29%20%3D%207%2C%20written%20out%20as%20%CE%B5%E2%80%93%CE%B4.%20-%2F%0A%0Aexample%20%3A%20%E2%88%80%20%CE%B5%20%3E%200%2C%20%E2%88%83%20%CE%B4%20%3E%200%2C%20%E2%88%80%20x%20%3A%20%E2%84%9D%2C%0A%20%20%20%200%20%3C%20%7Cx%20-%203%7C%20%E2%88%A7%20%7Cx%20-%203%7C%20%3C%20%CE%B4%20%E2%86%92%20%7C%282%20%2A%20x%20%2B%201%29%20-%207%7C%20%3C%20%CE%B5%20%3A%3D%20by%0A%20%20intro%20%CE%B5%20h%CE%B5%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20Let%20%CE%B5%20%3E%200%20be%20arbitrary.%0A%20%20refine%20%E2%9F%A8%CE%B5%20%2F%202%2C%20half_pos%20h%CE%B5%2C%20%3F_%E2%9F%A9%20%20%20%20--%20Let%20%CE%B4%20%3D%20%CE%B5%2F2%2C%20which%20is%20positive.%0A%20%20rintro%20x%20%E2%9F%A8-%2C%20hx%E2%9F%A9%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20Let%20x%20be%20within%20%CE%B4%20of%203.%0A%20%20have%20h%20%3A%20%282%20%2A%20x%20%2B%201%29%20-%207%20%3D%202%20%2A%20%28x%20-%203%29%20%3A%3D%20by%20ring%0A%20%20rw%20%5Bh%2C%20abs_mul%2C%20abs_two%5D%20%20%20%20%20%20%20%20%20%20%20--%20%7C%282x%20%2B%201%29%20%E2%88%92%207%7C%20%3D%202%7Cx%20%E2%88%92%203%7C%0A%20%20linarith%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20--%20%3C%202%CE%B4%20%3D%20%CE%B5%0A" target="_blank" rel="noopener">Open in the Lean playground ↗</a></div><p class="note">Lean is a proof assistant: it accepts a proof only if every step checks. This is the same proof, move for move, using the Mathlib library. The playground runs it in your browser tab; hover over any line to see the givens and goal at that point. For a whole course in this style, see Velleman's free book <a href="https://djvelleman.github.io/HTPIwL/" target="_blank" rel="noopener"><i>How To Prove It with Lean</i></a>.</p><details><summary>Show the Lean code</summary><pre><code><span class="kw">import</span> Mathlib
+
+<span class="c">/-! lim_{x → 3} (2x + 1) = 7, written out as ε–δ. -/</span>
+
+<span class="kw">example</span> : ∀ ε &gt; 0, ∃ δ &gt; 0, ∀ x : ℝ,
+    0 &lt; |x - 3| ∧ |x - 3| &lt; δ → |(2 * x + 1) - 7| &lt; ε := <span class="kw">by</span>
+  intro ε hε                         <span class="c">-- Let ε &gt; 0 be arbitrary.</span>
+  refine ⟨ε / 2, half_pos hε, ?_⟩    <span class="c">-- Let δ = ε/2, which is positive.</span>
+  rintro x ⟨-, hx⟩                   <span class="c">-- Let x be within δ of 3.</span>
+  have h : (2 * x + 1) - 7 = 2 * (x - 3) := <span class="kw">by</span> ring
+  rw [h, abs_mul, abs_two]           <span class="c">-- |(2x + 1) − 7| = 2|x − 3|</span>
+  linarith                           <span class="c">-- &lt; 2δ = ε</span>
+</code></pre></details></div>
+  </div>
+</section>
+
+<section class="sec tint">
+  <div class="wrap quizzes">
+    <div class="quiz">
+      <p class="q"><span class="k">Your turn</span>Why may <i>δ</i> depend on <i>ε</i>, but not on <i>x</i>?</p>
+      <div class="opts">
+        <button data-ok data-why="Order matters: ∃δ comes after ∀ε, so δ may use ε. It comes before ∀x, so it must be fixed before x is chosen.">Because ∃δ sits after ∀ε and before ∀x</button>
+        <button data-why="It's about the order of the quantifiers. Swap them and you get a different (much weaker) statement.">It's a convention to keep proofs short</button>
+        <button data-why="δ can't depend on x: x is chosen after δ, so δ has to work for all of them at once.">It may depend on both</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var F = [{ f: function (x) { return 2 * x + 1; }, a: 3, L: 7, name: "2x + 1" }, { f: function (x) { return x * x; }, a: 3, L: 9, name: "x²" }], cur = 0;
+  // tiny float parser: numbers, e, + - * / ^, ( ), min, max, sqrt
+  function evalD(src, e) {
+    var s = src.replace(/ε/g, "e").replace(/·|×/g, "*"), i = 0;
+    function ws() { while (s[i] === " ") i++; }
+    function atom() {
+      ws(); var c = s[i];
+      if (c === "(") { i++; var v = sum(); ws(); if (s[i++] !== ")") throw 0; return v; }
+      if (/[0-9.]/.test(c)) { var j = i; while (/[0-9.]/.test(s[i])) i++; return parseFloat(s.slice(j, i)); }
+      var m = /^(min|max|sqrt)\(/.exec(s.slice(i));
+      if (m) { i += m[0].length; var args = [sum()]; ws(); while (s[i] === ",") { i++; args.push(sum()); ws(); } if (s[i++] !== ")") throw 0; return Math[m[1]].apply(null, args); }
+      if (c === "e") { i++; return e; }
+      throw 0;
+    }
+    function pow() { var b = atom(); ws(); if (s[i] === "^") { i++; return Math.pow(b, unary()); } return b; }
+    function unary() { ws(); if (s[i] === "-") { i++; return -unary(); } return pow(); }
+    function prod() { var v = unary(); for (;;) { ws(); var c = s[i]; if (c === "*") { i++; v *= unary(); } else if (c === "/") { i++; v /= unary(); } else if (c === "(" || c === "e" || /[a-z]/.test(c || "")) v *= unary(); else return v; } }
+    function sum() { var v = prod(); for (;;) { ws(); if (s[i] === "+") { i++; v += prod(); } else if (s[i] === "-") { i++; v -= prod(); } else return v; } }
+    var v = sum(); ws(); if (i < s.length) throw 0; return v;
+  }
+  function eps() { return Math.round(Math.pow(10, +$("ed-e").value / 10) * 1000) / 1000; }
+  function run() {
+    var e = eps(), F0 = F[cur], d, worst = 0, wx = null;
+    $("ed-ev").textContent = e;
+    try { d = evalD($("ed-d").value, e); } catch (err) { d = NaN; }
+    var ok = isFinite(d) && d > 0;
+    if (ok) for (var k = 1; k <= 400; k++) {
+      var t = k / 401, x1 = F0.a - d * t, x2 = F0.a + d * t;
+      [x1, x2].forEach(function (x) { var err = Math.abs(F0.f(x) - F0.L); if (err > worst) { worst = err; wx = x; } });
+    }
+    var win = ok && worst < e;
+    // graph
+    var W = 360, H = 230, x0 = F0.a - 1.6, x1g = F0.a + 1.6, y0 = F0.L - 4, y1 = F0.L + 4;
+    function X(x) { return 30 + (x - x0) / (x1g - x0) * (W - 40); } function Y(y) { return H - 20 - (y - y0) / (y1 - y0) * (H - 30); }
+    var path = ""; for (var j = 0; j <= 120; j++) { var xx = x0 + (x1g - x0) * j / 120, yy = F0.f(xx); path += (j ? "L" : "M") + X(xx).toFixed(1) + " " + Math.max(-50, Math.min(H + 50, Y(yy))).toFixed(1); }
+    var dd = ok ? Math.min(d, 1.6) : 0, ee = Math.min(e, 4);
+    var col = win ? "var(--good)" : "var(--bad)";
+    $("ed-svg").innerHTML =
+      '<rect x="0" y="' + Y(F0.L + ee) + '" width="' + W + '" height="' + (Y(F0.L - ee) - Y(F0.L + ee)) + '" fill="var(--accent)" opacity=".12"/>' +
+      (ok ? '<rect x="' + X(F0.a - dd) + '" y="0" width="' + (X(F0.a + dd) - X(F0.a - dd)) + '" height="' + H + '" fill="' + col + '" opacity=".12"/>' : "") +
+      '<line x1="30" y1="' + Y(F0.L) + '" x2="' + W + '" y2="' + Y(F0.L) + '" stroke="var(--accent)" stroke-dasharray="4 4"/>' +
+      '<line x1="' + X(F0.a) + '" y1="0" x2="' + X(F0.a) + '" y2="' + (H - 20) + '" stroke="var(--ink-3)" stroke-dasharray="4 4"/>' +
+      '<path d="' + path + '" fill="none" stroke="var(--ink)" stroke-width="2"/>' +
+      (wx !== null ? '<circle cx="' + X(wx) + '" cy="' + Y(F0.f(wx)) + '" r="5" fill="' + col + '"/>' : "") +
+      '<text x="' + (W - 6) + '" y="' + (Y(F0.L) - 6) + '" text-anchor="end" font-size="12" fill="var(--accent)">L ± ε</text>' +
+      '<text x="' + (X(F0.a) + 4) + '" y="' + (H - 6) + '" font-size="12" fill="var(--ink-2)">a = 3</text>';
+    $("ed-msg").innerHTML = !ok ? "Type a positive formula in e, like e/2 or min(1, e/7)." :
+      "δ = " + (+d.toPrecision(4)) + ". Worst x in the window: " + (+wx.toFixed(4)) + ", where the error is " + (+worst.toPrecision(4)) + ". " +
+      (win ? '<span class="chip yes">You win this round</span> Now try other values of ε.' : '<span class="chip no">The challenger wins</span> That error is not below ε = ' + e + ".");
+  }
+  $("ed-e").addEventListener("input", run); $("ed-d").addEventListener("input", run);
+  document.querySelectorAll("[data-f]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      cur = +b.getAttribute("data-f");
+      document.querySelectorAll("[data-f]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      run();
+    });
+  });
+  run();
+})();
+</script>
+
+<nav class="pager wrap" aria-label="Keep going"><a class="pg prev" href="cantor.html" data-key="prev"><span class="d">← Previous · Part 4 · Examples</span><span class="t">No Set Is as Big as Its Power Set</span></a><a class="pg next" href="craft.html" data-key="next"><span class="d">Next · Part 5 · Craft →</span><span class="t">Part 5: Craft</span><span class="s">Reading, writing and debugging proofs, and what to do when you're stuck.</span></a></nav>
+</main>
+<footer class="foot"><div class="wrap"><p class="deeper"><b>Further reading:</b> Hammack, <i>Book of Proof</i> (free online), “Proofs in Calculus”.</p><ol class='notes'>
+<li>This is the standard ε–δ definition of a limit, due in this form to Weierstrass. The tester samples points, so it can miss a bad <i>x</i>; the proof can't.</li>
+</ol><nav class="fmap" aria-label="All pages"><div><a class="fh t-purpose" href="purpose.html">1 · Purpose</a><a href="why-proofs.html">Why proofs?</a><a href="why-language.html">Why a language?</a></div><div><a class="fh t-tools" href="tools.html">2 · Tools</a><a href="connectives.html">Connectives</a><a href="truth-tables.html">Truth tables</a><a href="sets.html">Variables &amp; sets</a><a href="set-operations.html">Set operations</a><a href="conditionals.html">Conditionals</a><a href="quantifiers.html">Quantifiers</a><a href="quantifier-laws.html">Quantifier laws</a><a href="power-sets.html">Power sets</a><a href="families.html">Unions &amp; intersections</a><a href="functions.html">Functions</a></div><div><a class="fh t-techniques" href="techniques.html">3 · Techniques</a><a href="direct.html">Direct proof</a><a href="contrapositive.html">Contrapositive</a><a href="contradiction.html">Contradiction</a><a href="for-all.html">Arbitrary objects</a><a href="exists.html">Witnesses</a><a href="iff.html">And &amp; iff</a><a href="cases.html">Cases</a><a href="uniqueness.html">Uniqueness</a><a href="counterexample.html">Counterexamples</a><a href="induction.html">Induction</a><a href="strong-induction.html">Strong induction</a><a href="pigeonhole.html">Pigeonhole</a></div><div><a class="fh t-examples" href="examples.html">4 · Examples</a><a href="divisibility.html">Divisibility</a><a href="mersenne.html">Mersenne numbers</a><a href="infinite-primes.html">Infinite primes</a><a href="sqrt2.html">√2 is irrational</a><a href="set-identity.html">A set identity</a><a href="power-set-meet.html">Power sets meet</a><a href="sum-of-powers.html">Sum of powers</a><a href="cantor.html">Cantor&#x27;s theorem</a><a href="epsilon-delta.html">A limit by ε–δ</a></div><div><a class="fh t-craft" href="craft.html">5 · Craft</a><a href="reading-proofs.html">Reading proofs</a><a href="writing-proofs.html">Writing proofs</a><a href="mistakes.html">Common mistakes</a><a href="stuck.html">When you&#x27;re stuck</a></div></nav><p class="credit">An independent, general guide to proofs. “Further reading” names chapters by title where possible, since page and chapter numbers change between editions; section numbers for Velleman's <i>How to Prove It</i> refer to its 2nd edition.</p></div></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
