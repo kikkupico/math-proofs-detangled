@@ -1,6 +1,6 @@
 # Proofs, Detangled
 
-An interactive, general guide to reading, planning and writing mathematical proofs. All explanations and demos are original; each page ends with further reading from standard textbooks (Hammack's *Book of Proof*, Velleman's *How to Prove It*, Sundstrom, Solow, Pólya and others).
+An interactive, general guide to reading, planning and writing mathematical proofs. All explanations and demos are original; each page ends with further reading from standard textbooks (Hammack's *Book of Proof*, Velleman's free web book *How To Prove It with Lean*, Sundstrom, Solow, Pólya and others).
 
 ## Structure
 
