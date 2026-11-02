@@ -27,54 +27,54 @@ PARTS = [
         "key": "purpose", "no": 1, "name": "Purpose", "blurb": "Why proofs exist, and why they need their own language.",
         "glyph": "?",
         "pages": [
-            ("why-proofs", "Why proofs?", "Why we need proofs", "Because patterns lie.", "Introduction, pp. 1–7"),
-            ("why-language", "Why a language?", "Why we need a mathematical language", "Because English is slippery.", "§1.1, p. 8"),
+            ("why-proofs", "Why proofs?", "Why we need proofs", "Because patterns lie.", "Introduction"),
+            ("why-language", "Why a language?", "Why we need a mathematical language", "Because English is slippery.", "§1.1"),
         ],
     },
     {
         "key": "tools", "no": 2, "name": "Tools", "blurb": "The symbols and ideas every proof is written in.",
         "glyph": "∧",
         "pages": [
-            ("connectives", "Connectives", "Connectives", "Not, and, or: the atoms of reasoning.", "§1.1, p. 8"),
-            ("truth-tables", "Truth tables", "Truth Tables", "Check any formula by brute force.", "§1.2, p. 14"),
-            ("sets", "Variables & sets", "Variables and Sets", "Sets are statements you can hold.", "§1.3, p. 26"),
-            ("set-operations", "Set operations", "Set Operations", "∩, ∪ and ∖ are ∧, ∨ and “and not”.", "§1.4, p. 34"),
-            ("conditionals", "Conditionals", "Conditionals and Biconditionals", "If, only if, if and only if.", "§1.5, p. 43"),
-            ("quantifiers", "Quantifiers", "Quantifiers", "All. Some. And why order matters.", "§2.1, p. 55"),
-            ("quantifier-laws", "Quantifier laws", "Quantifier Equivalences", "Negate anything, one step at a time.", "§2.2, p. 64"),
-            ("power-sets", "Power sets", "Power Sets", "Every subset, collected into one set.", "§2.3, p. 73"),
-            ("families", "Unions & intersections", "Arbitrary Unions and Intersections", "⋃ and ⋂ over whole families of sets.", "§2.3, p. 73"),
-            ("functions", "Functions", "Functions", "One input, exactly one output.", "§5.1–5.3, pp. 226–254"),
+            ("connectives", "Connectives", "Connectives", "Not, and, or: the atoms of reasoning.", "§1.1"),
+            ("truth-tables", "Truth tables", "Truth Tables", "Check any formula by brute force.", "§1.2"),
+            ("sets", "Variables & sets", "Variables and Sets", "Sets are statements you can hold.", "§1.3"),
+            ("set-operations", "Set operations", "Set Operations", "∩, ∪ and ∖ are ∧, ∨ and “and not”.", "§1.4"),
+            ("conditionals", "Conditionals", "Conditionals and Biconditionals", "If, only if, if and only if.", "§1.5"),
+            ("quantifiers", "Quantifiers", "Quantifiers", "All. Some. And why order matters.", "§2.1"),
+            ("quantifier-laws", "Quantifier laws", "Quantifier Equivalences", "Negate anything, one step at a time.", "§2.2"),
+            ("power-sets", "Power sets", "Power Sets", "Every subset, collected into one set.", "§2.3"),
+            ("families", "Unions & intersections", "Arbitrary Unions and Intersections", "⋃ and ⋂ over whole families of sets.", "§2.3"),
+            ("functions", "Functions", "Functions", "One input, exactly one output.", "§5.1–5.3"),
         ],
     },
     {
         "key": "techniques", "no": 3, "name": "Techniques", "blurb": "The standard moves, each shown on a small example.",
         "glyph": "⊢",
         "pages": [
-            ("direct", "Direct proof", "Direct Proof", "Assume the hypothesis. Walk to the conclusion.", "§3.1, p. 84"),
-            ("contrapositive", "Contrapositive", "Proof by Contrapositive", "Prove the mirror image instead.", "§3.1–3.2, pp. 84–107"),
-            ("contradiction", "Contradiction", "Proof by Contradiction", "Assume the opposite and watch it break.", "§3.2, p. 95"),
-            ("for-all", "Arbitrary objects", "Proving “For All”", "Let x be arbitrary.", "§3.3, p. 108"),
-            ("exists", "Witnesses", "Proving “There Exists”", "Find one, show it works.", "§3.3, p. 108"),
-            ("iff", "And & iff", "Conjunctions and Biconditionals", "Two halves, proved one at a time.", "§3.4, p. 124"),
-            ("cases", "Cases", "Proof by Cases", "Split the world. Cover every piece.", "§3.5, p. 136"),
-            ("uniqueness", "Uniqueness", "Existence and Uniqueness", "At least one, and at most one.", "§3.6, p. 146"),
-            ("counterexample", "Counterexamples", "Disproof by Counterexample", "One failure sinks a “for all”.", "§2.2, p. 64 and §3.3"),
-            ("induction", "Induction", "Proof by Induction", "Infinitely many cases in two steps.", "§6.1–6.4, pp. 260–299"),
+            ("direct", "Direct proof", "Direct Proof", "Assume the hypothesis. Walk to the conclusion.", "§3.1"),
+            ("contrapositive", "Contrapositive", "Proof by Contrapositive", "Prove the mirror image instead.", "§3.1–3.2"),
+            ("contradiction", "Contradiction", "Proof by Contradiction", "Assume the opposite and watch it break.", "§3.2"),
+            ("for-all", "Arbitrary objects", "Proving “For All”", "Let x be arbitrary.", "§3.3"),
+            ("exists", "Witnesses", "Proving “There Exists”", "Find one, show it works.", "§3.3"),
+            ("iff", "And & iff", "Conjunctions and Biconditionals", "Two halves, proved one at a time.", "§3.4"),
+            ("cases", "Cases", "Proof by Cases", "Split the world. Cover every piece.", "§3.5"),
+            ("uniqueness", "Uniqueness", "Existence and Uniqueness", "At least one, and at most one.", "§3.6"),
+            ("counterexample", "Counterexamples", "Disproof by Counterexample", "One failure sinks a “for all”.", "§2.2 and §3.3"),
+            ("induction", "Induction", "Proof by Induction", "Infinitely many cases in two steps.", "§6.1–6.4"),
         ],
     },
     {
         "key": "examples", "no": 4, "name": "Examples", "blurb": "Complete proofs where tools and techniques work together.",
         "glyph": "∎",
         "pages": [
-            ("divisibility", "Divisibility", "Divisibility Is Transitive", "Three nested blocks, one clean proof.", "Theorem 3.3.6, p. 120"),
-            ("mersenne", "Mersenne numbers", "Composite n Gives Composite 2ⁿ − 1", "A proof that builds the factors.", "Theorem 3.7.1, p. 155"),
-            ("infinite-primes", "Infinite primes", "There Are Infinitely Many Primes", "Euclid's argument, move by move.", "Theorem 3.7.2, p. 156"),
-            ("sqrt2", "√2 is irrational", "√2 Is Irrational", "A contradiction with a lemma inside.", "§6.4, p. 288"),
+            ("divisibility", "Divisibility", "Divisibility Is Transitive", "Three nested blocks, one clean proof.", "Theorem 3.3.6"),
+            ("mersenne", "Mersenne numbers", "Composite n Gives Composite 2ⁿ − 1", "A proof that builds the factors.", "Theorem 3.7.1"),
+            ("infinite-primes", "Infinite primes", "There Are Infinitely Many Primes", "Euclid's argument, move by move.", "Theorem 3.7.2"),
+            ("sqrt2", "√2 is irrational", "√2 Is Irrational", "A contradiction with a lemma inside.", "§6.4"),
             ("set-identity", "A set identity", "A ∖ (B ∪ C) = (A ∖ B) ∩ (A ∖ C)", "De Morgan's law, wearing set clothes.", "§1.4 and §3.4"),
             ("power-set-meet", "Power sets meet", "𝒫(A ∩ B) = 𝒫(A) ∩ 𝒫(B)", "Subsets of subsets, chased element by element.", "§2.3 and §3.3"),
-            ("sum-of-powers", "Sum of powers", "1 + 2 + 4 + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1", "Induction, start to finish.", "Example 6.1.1, p. 260"),
-            ("cantor", "Cantor's theorem", "No Set Is as Big as Its Power Set", "The diagonal trick, made precise.", "§7.2, p. 315"),
+            ("sum-of-powers", "Sum of powers", "1 + 2 + 4 + ⋯ + 2ⁿ = 2ⁿ⁺¹ − 1", "Induction, start to finish.", "Example 6.1.1"),
+            ("cantor", "Cantor's theorem", "No Set Is as Big as Its Power Set", "The diagonal trick, made precise.", "§7.2"),
         ],
     },
 ]
@@ -88,7 +88,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          'family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap">')
 
 CREDIT = ("Built as a companion to Daniel J. Velleman, <i>How to Prove It: A Structured Approach</i>, 2nd edition "
-          "(Cambridge University Press, 2006). Page references are to that edition; the book has the full treatment and the exercises.")
+          "(Cambridge University Press, 2006). Chapter, section and theorem numbers refer to that edition; the book has the full treatment and the exercises.")
 
 
 def build_order():
